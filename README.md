@@ -2,7 +2,7 @@
 
 Portfolio professionnel de chef de projet rénovation énergétique junior.
 
-Site en ligne : https://portfolio-ibrahima-bamba.netlify.app
+Site en ligne : https://portfolio-ibrahima-bamba.vercel.app/
 
 ## Contenu
 
@@ -13,6 +13,10 @@ Site en ligne : https://portfolio-ibrahima-bamba.netlify.app
 - Outils mobilisés
 - Contact et CV PDF
 
+## Design
+
+Le portfolio est guidé par un système de design documenté dans `DESIGN.md` et un contexte produit documenté dans `PRODUCT.md`.
+
 ## Déploiement
 
-Le site est déployé automatiquement avec Netlify depuis la branche `main` du dépôt GitHub.
+Le site est déployé automatiquement avec Vercel depuis la branche `main` du dépôt GitHub.
