@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #1f2d24;
+  background: #f7f9f6;
+  line-height: 1.6;
+}
+
+.hero {
+  background: #0f3d2e;
+  color: white;
+  padding: 80px 10%;
+}
+
+.hero h1 {
+  font-size: 44px;
+  margin: 0;
+}
+
+.hero h2 {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.tagline {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  color: #cde8d6;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: white;
+  color: #0f3d2e;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+main {
+  padding: 40px 10%;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+h2 {
+  color: #0f3d2e;
+  border-bottom: 2px solid #0f3d2e;
+  padding-bottom: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card,
+.project {
+  background: white;
+  border-left: 5px solid #0f3d2e;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.project {
+  margin-bottom: 20px;
+}
+
+footer {
+  background: #0f3d2e;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  main,
+  .hero {
+    padding: 40px 6%;
+  }
+}
