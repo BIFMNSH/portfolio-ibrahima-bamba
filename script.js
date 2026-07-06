@@ -78,7 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // by default; only elements already out of view at load get the hidden
   // "reveal" state, so a JS failure never hides content.
   if (!reduceMotion && 'IntersectionObserver' in window) {
-    const revealSelectors = '.kpi-card, .feature-card, .skill-card, .timeline-card, .case-study, .result-card, .livrable-item, .role-item, .value-item, .position-box, .contact-card-header, .form, .next-banner, .method-step';
+    // Only small, repeatable list/card items — never a container that is
+    // itself an ancestor of another reveal target, and never a block taller
+    // than a viewport (large elements can fail to ever reach the area
+    // threshold below, which would hide their content permanently).
+    const revealSelectors = '.kpi-card, .feature-card, .skill-card, .timeline-card, .result-card, .livrable-item, .role-item, .value-item, .method-step';
     const io = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -86,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
 
     document.querySelectorAll(revealSelectors).forEach(el => {
       const rect = el.getBoundingClientRect();
