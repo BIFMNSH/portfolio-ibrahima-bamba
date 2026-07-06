@@ -39,7 +39,7 @@ Profil scientifique et pédagogique en reconversion vers la rénovation énergé
 2. Projet 3 — Scénarios de rénovation et aides financières.
 3. Projet 7 — Préparation des phases initiales d'un chantier.
 4. Projet 8 — Contrôle et conformité des travaux.
-5. Projet 5 — Gestion d'imprévus chantier.
+5. Projet 2 — Analyse énergétique initiale d'une copropriété.
 
 ## Ton rédactionnel
 

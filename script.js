@@ -12,12 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!menu || !btn) return;
     menu.classList.remove('open');
     btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Ouvrir le menu');
   };
 
   const openMenu = () => {
     if (!menu || !btn) return;
     menu.classList.add('open');
     btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Fermer le menu');
   };
 
   if (btn && menu) {
@@ -47,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const form = document.getElementById('contact-form');
   if (form) {
+    const formStatus = document.getElementById('form-status');
     form.addEventListener('submit', event => {
       event.preventDefault();
       const nom = document.getElementById('nom')?.value.trim() || '';
@@ -54,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const objet = document.getElementById('objet')?.value || 'Contact portfolio';
       const message = document.getElementById('message')?.value.trim() || '';
       const body = `Bonjour Ibrahima,\n\n${message || 'Je souhaite échanger avec vous au sujet de votre profil en rénovation énergétique.'}\n\nNom : ${nom}\nEmail : ${email}`;
+      if (formStatus) formStatus.textContent = 'Votre message est prêt. Ouverture de votre messagerie…';
       window.location.href = `mailto:bamba.bif@gmail.com?subject=${encodeURIComponent('Portfolio - ' + objet)}&body=${encodeURIComponent(body)}`;
     });
   }
@@ -102,24 +106,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modalBody = document.getElementById('skill-modal-body');
     const modalClose = document.getElementById('skill-modal-close');
+    const backgroundRegions = document.querySelectorAll('body > nav, body > .nav-mobile, body > main, body > footer, body > .skip-link');
     let lastFocused = null;
+
+    const setBackgroundInert = isInert => {
+      backgroundRegions.forEach(region => {
+        region.inert = isInert;
+      });
+      document.body.classList.toggle('modal-open', isInert);
+    };
 
     const openSkillModal = key => {
       const data = skillData[key];
       if (!data) return;
       modalBody.innerHTML = `
         <h3 id="skill-modal-title">${data.title}</h3>
-        <p>${data.desc}</p>
+        <p id="skill-modal-description">${data.desc}</p>
         ${data.proof ? `<div class="modal-proof"><strong>Preuve associée :</strong> ${data.proof}</div>` : ''}
         ${data.link ? `<a href="${data.link}" class="btn btn-primary">Voir le projet <i class="ti ti-arrow-right" aria-hidden="true"></i></a>` : ''}
       `;
       lastFocused = document.activeElement;
       skillModal.hidden = false;
+      setBackgroundInert(true);
       modalClose.focus();
     };
 
     const closeSkillModal = () => {
+      if (skillModal.hidden) return;
       skillModal.hidden = true;
+      setBackgroundInert(false);
       if (lastFocused) lastFocused.focus();
     };
 
@@ -138,13 +153,30 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.target === skillModal) closeSkillModal();
     });
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && !skillModal.hidden) closeSkillModal();
+      if (skillModal.hidden) return;
+      if (event.key === 'Escape') {
+        closeSkillModal();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = [...skillModal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')];
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
   }
 
   // Detailed / compact view toggle (projets.html)
   const viewButtons = document.querySelectorAll('.view-toggle button[data-view]');
   const caseGrid = document.getElementById('case-grid');
+  const projectStatus = document.getElementById('project-status');
   if (viewButtons.length && caseGrid) {
     viewButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -154,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
           b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
         });
         caseGrid.classList.toggle('view-compact', isCompact);
+        if (projectStatus) projectStatus.textContent = isCompact ? 'Vue compacte activée.' : 'Vue détaillée activée.';
       });
     });
   }
@@ -173,11 +206,16 @@ document.addEventListener('DOMContentLoaded', () => {
           const show = filter === 'all' || card.dataset.category === filter;
           card.hidden = !show;
         });
+        if (projectStatus) {
+          const visibleCount = [...cards].filter(card => !card.hidden).length;
+          projectStatus.textContent = `${visibleCount} étude${visibleCount > 1 ? 's' : ''} de cas affichée${visibleCount > 1 ? 's' : ''}.`;
+        }
       });
     });
   }
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   // Scroll progress bar
   if (!reduceMotion) {
@@ -200,29 +238,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Hero glow follows the pointer
-  if (!reduceMotion) {
+  if (!reduceMotion && finePointer) {
     const heroEl = document.querySelector('.hero, .page-hero');
     if (heroEl) {
-      heroEl.addEventListener('mousemove', event => {
-        const rect = heroEl.getBoundingClientRect();
-        const px = ((event.clientX - rect.left) / rect.width - 0.5) * 60;
-        const py = ((event.clientY - rect.top) / rect.height - 0.5) * 60;
-        heroEl.style.setProperty('--gx', `${px}px`);
-        heroEl.style.setProperty('--gy', `${py}px`);
-      });
+      let heroFrame = 0;
+      heroEl.addEventListener('pointermove', event => {
+        if (heroFrame) return;
+        const { clientX, clientY } = event;
+        heroFrame = requestAnimationFrame(() => {
+          const rect = heroEl.getBoundingClientRect();
+          const px = ((clientX - rect.left) / rect.width - 0.5) * 60;
+          const py = ((clientY - rect.top) / rect.height - 0.5) * 60;
+          heroEl.style.setProperty('--gx', `${px}px`);
+          heroEl.style.setProperty('--gy', `${py}px`);
+          heroFrame = 0;
+        });
+      }, { passive: true });
     }
   }
 
   // DPE card: subtle pointer tilt
-  if (!reduceMotion) {
+  if (!reduceMotion && finePointer) {
     const dpeCard = document.querySelector('.dpe-card');
     if (dpeCard) {
-      dpeCard.addEventListener('mousemove', event => {
-        const rect = dpeCard.getBoundingClientRect();
-        const px = (event.clientX - rect.left) / rect.width - 0.5;
-        const py = (event.clientY - rect.top) / rect.height - 0.5;
-        dpeCard.style.transform = `perspective(900px) rotateY(${px * 6}deg) rotateX(${-py * 6}deg) scale(1.01)`;
-      });
+      let dpeFrame = 0;
+      dpeCard.addEventListener('pointermove', event => {
+        if (dpeFrame) return;
+        const { clientX, clientY } = event;
+        dpeFrame = requestAnimationFrame(() => {
+          const rect = dpeCard.getBoundingClientRect();
+          const px = (clientX - rect.left) / rect.width - 0.5;
+          const py = (clientY - rect.top) / rect.height - 0.5;
+          dpeCard.style.transform = `perspective(900px) rotateY(${px * 6}deg) rotateX(${-py * 6}deg) scale(1.01)`;
+          dpeFrame = 0;
+        });
+      }, { passive: true });
       dpeCard.addEventListener('mouseleave', () => {
         dpeCard.style.transform = 'perspective(900px) rotateY(0) rotateX(0) scale(1)';
       });

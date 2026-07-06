@@ -20,3 +20,7 @@ Le portfolio est guidé par un système de design documenté dans `DESIGN.md` et
 ## Déploiement
 
 Le site est déployé automatiquement avec Vercel depuis la branche `main` du dépôt GitHub.
+
+## CV
+
+Le CV PDF et sa source éditable sont générés à partir de `scripts/generate_cv.py`. Le PDF distribué est `assets/cv-ibrahima-bamba.pdf`.

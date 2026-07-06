@@ -2,15 +2,27 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Profil | Ibrahima Fa Bamba</title>
   <meta name="description" content="Profil et compétences d&#x27;Ibrahima Fa Bamba en rénovation énergétique, copropriétés, audit, scénarios, aides et coordination."/>
+  <link rel="canonical" href="https://portfolio-ibrahima-bamba.vercel.app/profil.html"/>
+  <meta name="theme-color" content="#1A1F1C"/>
+  <meta property="og:type" content="profile"/>
+  <meta property="og:locale" content="fr_FR"/>
+  <meta property="og:site_name" content="Portfolio Ibrahima Fa Bamba"/>
+  <meta property="og:title" content="Profil et compétences | Ibrahima Fa Bamba"/>
+  <meta property="og:description" content="Compétences en audit, scénarios, aides, communication et coordination de projets de rénovation énergétique."/>
+  <meta property="og:url" content="https://portfolio-ibrahima-bamba.vercel.app/profil.html"/>
+  <meta property="og:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.png"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css"/>
   <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="audit-fixes.css"/>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Aller au contenu principal</a>
@@ -18,7 +30,7 @@
   <a href="index.html" class="nav-logo">IFB<span>.</span></a>
   <ul class="nav-center">
     <li class=""><a href="index.html">Accueil</a></li>
-    <li class="active"><a href="profil.html">Profil</a></li>
+    <li class="active"><a href="profil.html" aria-current="page">Profil</a></li>
     <li class=""><a href="roadmap.html">Roadmap</a></li>
     <li class=""><a href="projets.html">Projets</a></li>
     <li class=""><a href="contact.html">Contact</a></li>
@@ -28,7 +40,7 @@
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="index.html" class="">Accueil</a>
-  <a href="profil.html" class="active">Profil</a>
+  <a href="profil.html" class="active" aria-current="page">Profil</a>
   <a href="roadmap.html" class="">Roadmap</a>
   <a href="projets.html" class="">Projets</a>
   <a href="contact.html" class="">Contact</a>
@@ -36,8 +48,8 @@
 </div>
 
 <main id="main-content"><section class="page-hero" aria-labelledby="page-title">
-  <div class="page-hero-inner" style="display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:end">
-    <div class="avatar-ring"><div class="profile-avatar"><img src="assets/photo-profil.png" alt="Photo d'Ibrahima Fa Bamba"/></div></div>
+  <div class="page-hero-inner profile-hero-inner">
+    <div class="avatar-ring"><div class="profile-avatar"><img src="assets/photo-profil-320.jpg" srcset="assets/photo-profil-320.jpg 320w, assets/photo-profil-640.jpg 640w" sizes="(max-width: 560px) 120px, 160px" width="160" height="160" decoding="async" fetchpriority="high" alt="Portrait d'Ibrahima Fa Bamba"/></div></div>
     <div><p class="page-indicator">Page 2 sur 5</p><h1 id="page-title">Profil & <em>compétences clés</em></h1><p>Un profil scientifique reconverti vers la rénovation énergétique, capable de relier analyse technique, financement, pédagogie et coordination de projet.</p></div>
   </div>
 </section>
@@ -63,28 +75,28 @@
   <div class="container">
     <div class="section-header"><h2 class="section-title" id="skills-title">Compétences techniques</h2></div>
     <div class="grid-3">
-      <article class="skill-card" data-skill="audit" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-chart-dots"></i></span><h3>Audit énergétique</h3><p>Analyser bâti, équipements, consommations et déperditions pour construire un diagnostic exploitable.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">DPE</span><span class="chip">Bilan thermique</span><span class="chip">Pléiades</span></div></article>
-      <article class="skill-card" data-skill="scenarios" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-calculator"></i></span><h3>Scénarios & aides</h3><p>Comparer les bouquets de travaux, les coûts, les gains, les aides et le reste à charge.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">MPR</span><span class="chip">CEE</span><span class="chip">CAP Renov+</span></div></article>
-      <article class="skill-card" data-skill="communication" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-presentation"></i></span><h3>Communication client</h3><p>Vulgariser les données techniques et financières pour préparer l'adhésion et le vote.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">AG</span><span class="chip">FAQ</span><span class="chip">Livret</span></div></article>
-      <article class="skill-card" data-skill="coordination" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-sitemap"></i></span><h3>Coordination projet</h3><p>Suivre consultations, certifications RGE, planning, interfaces acteurs et points de vigilance.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">Planning</span><span class="chip">RGE</span><span class="chip">Parties prenantes</span></div></article>
-      <article class="skill-card" data-skill="conformite" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-file-check"></i></span><h3>Conformité & réception</h3><p>Structurer les contrôles, réserves, justificatifs, PV de réception et documents de clôture.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">PV</span><span class="chip">Qualité</span><span class="chip">DOE</span></div></article>
-      <article class="skill-card" data-skill="analyse" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-zoom-question"></i></span><h3>Analyse & synthèse</h3><p>Produire des rapports lisibles, des recommandations hiérarchisées et des supports de décision.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">Rapport</span><span class="chip">Synthèse</span><span class="chip">Méthode</span></div></article>
+      <article class="skill-card" data-skill="audit" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-chart-dots" aria-hidden="true"></i></span><h3>Audit énergétique</h3><p>Analyser bâti, équipements, consommations et déperditions pour construire un diagnostic exploitable.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">DPE</span><span class="chip">Bilan thermique</span><span class="chip">Pléiades</span></div></article>
+      <article class="skill-card" data-skill="scenarios" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-calculator" aria-hidden="true"></i></span><h3>Scénarios & aides</h3><p>Comparer les bouquets de travaux, les coûts, les gains, les aides et le reste à charge.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">MPR</span><span class="chip">CEE</span><span class="chip">CAP Renov+</span></div></article>
+      <article class="skill-card" data-skill="communication" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-presentation" aria-hidden="true"></i></span><h3>Communication client</h3><p>Vulgariser les données techniques et financières pour préparer l'adhésion et le vote.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">AG</span><span class="chip">FAQ</span><span class="chip">Livret</span></div></article>
+      <article class="skill-card" data-skill="coordination" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-sitemap" aria-hidden="true"></i></span><h3>Coordination projet</h3><p>Suivre consultations, certifications RGE, planning, interfaces acteurs et points de vigilance.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">Planning</span><span class="chip">RGE</span><span class="chip">Parties prenantes</span></div></article>
+      <article class="skill-card" data-skill="conformite" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-file-check" aria-hidden="true"></i></span><h3>Conformité & réception</h3><p>Structurer les contrôles, réserves, justificatifs, PV de réception et documents de clôture.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">PV</span><span class="chip">Qualité</span><span class="chip">DOE</span></div></article>
+      <article class="skill-card" data-skill="analyse" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-zoom-question" aria-hidden="true"></i></span><h3>Analyse & synthèse</h3><p>Produire des rapports lisibles, des recommandations hiérarchisées et des supports de décision.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">Rapport</span><span class="chip">Synthèse</span><span class="chip">Méthode</span></div></article>
     </div>
-    <p class="small text-soft" style="margin-top:1rem">Cliquez sur une compétence pour voir la preuve associée.</p>
+    <p class="small text-soft" style="margin-top:1rem">Cliquez sur une compétence pour voir l’étude de cas de formation associée.</p>
   </div>
 </section>
 <section class="section-wrap" aria-labelledby="proof-title" style="padding-top:0">
   <div class="container">
-    <div class="section-header"><h2 class="section-title" id="proof-title">Preuves associées</h2></div>
-    <p class="section-sub">Chaque compétence est reliée à un projet ou à un livrable concret afin de faciliter la lecture recruteur.</p>
+    <div class="section-header"><h2 class="section-title" id="proof-title">Démonstrations associées</h2></div>
+    <p class="section-sub">Chaque compétence renvoie vers une étude de cas réalisée en formation et vers les livrables-types travaillés dans ce cadre.</p>
     <table class="proof-table">
-      <thead><tr><th>Compétence</th><th>Preuve dans le portfolio</th><th>Utilité métier</th></tr></thead>
+      <thead><tr><th>Compétence</th><th>Mise en pratique</th><th>Utilité métier</th></tr></thead>
       <tbody>
-        <tr><td><strong>Audit énergétique</strong></td><td>Projet 02 - analyse bâti, enveloppe, systèmes, consommations et déperditions.</td><td>Poser un diagnostic structuré avant d'élaborer les scénarios.</td></tr>
-        <tr><td><strong>Scénarios & aides</strong></td><td>Projet 03 - matrice comparative coûts/gains/aides/reste à charge.</td><td>Objectiver les arbitrages techniques et financiers.</td></tr>
-        <tr><td><strong>Coordination chantier</strong></td><td>Projet 07 - consultation entreprises, vérification RGE, planning et interfaces.</td><td>Sécuriser la préparation opérationnelle des travaux.</td></tr>
-        <tr><td><strong>Conformité</strong></td><td>Projet 08 - plan de contrôle, réserves, justificatifs et réception.</td><td>Limiter les non-conformités et sécuriser la clôture du projet.</td></tr>
-        <tr><td><strong>Communication copropriété</strong></td><td>Projet 09 - livret, FAQ, supports AG et messages de relance.</td><td>Rendre le projet compréhensible pour favoriser une décision collective.</td></tr>
+        <tr><td data-label="Compétence"><strong>Audit énergétique</strong></td><td data-label="Mise en pratique"><a href="projets.html#projet02"><strong>Projet 02</strong></a> : analyse bâti, enveloppe, systèmes, consommations et déperditions.</td><td data-label="Utilité métier">Poser un diagnostic structuré avant d'élaborer les scénarios.</td></tr>
+        <tr><td data-label="Compétence"><strong>Scénarios & aides</strong></td><td data-label="Mise en pratique"><a href="projets.html#projet03"><strong>Projet 03</strong></a> : matrice comparative coûts, gains, aides et reste à charge.</td><td data-label="Utilité métier">Objectiver les arbitrages techniques et financiers.</td></tr>
+        <tr><td data-label="Compétence"><strong>Coordination chantier</strong></td><td data-label="Mise en pratique"><a href="projets.html#projet07"><strong>Projet 07</strong></a> : consultation entreprises, vérification RGE, planning et interfaces.</td><td data-label="Utilité métier">Sécuriser la préparation opérationnelle des travaux.</td></tr>
+        <tr><td data-label="Compétence"><strong>Conformité</strong></td><td data-label="Mise en pratique"><a href="projets.html#projet08"><strong>Projet 08</strong></a> : plan de contrôle, réserves, justificatifs et réception.</td><td data-label="Utilité métier">Limiter les non-conformités et sécuriser la clôture du projet.</td></tr>
+        <tr><td data-label="Compétence"><strong>Communication copropriété</strong></td><td data-label="Mise en pratique"><a href="projets.html#projet09"><strong>Projet 09</strong></a> : livret, FAQ, supports AG et messages de relance.</td><td data-label="Utilité métier">Rendre le projet compréhensible pour favoriser une décision collective.</td></tr>
       </tbody>
     </table>
   </div>
@@ -92,17 +104,17 @@
 <section class="section-wrap" aria-labelledby="tools-title" style="padding-top:0">
   <div class="container">
     <div class="section-header"><h2 class="section-title" id="tools-title">Outils mobilisables</h2></div>
-    <div class="grid-3">
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-bolt"></i></span><h3>CAP Renov+</h3><p>Simulation d'aides, comparaison des scénarios, estimation des restes à charge.</p></article>
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-building"></i></span><h3>Visuary</h3><p>Visualisation et compréhension spatiale des projets de rénovation.</p></article>
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-temperature"></i></span><h3>Pléiades</h3><p>Analyse thermique et consolidation des hypothèses énergétiques.</p></article>
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-home-eco"></i></span><h3>France Rénov'</h3><p>Référentiels et informations officielles sur les aides et parcours de rénovation.</p></article>
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-table"></i></span><h3>Excel / Sheets</h3><p>Tableaux de suivi, chiffrage, synthèses comparatives et reporting projet.</p></article>
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-rss"></i></span><h3>Veille sectorielle</h3><p>Suivi des évolutions réglementaires, aides, labels, pratiques et dispositifs.</p></article>
+    <div class="grid-3 tools-grid">
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-bolt" aria-hidden="true"></i></span><h3>CAP Renov+</h3><p>Simulation d'aides, comparaison des scénarios, estimation des restes à charge.</p></article>
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-building" aria-hidden="true"></i></span><h3>Visuary</h3><p>Visualisation et compréhension spatiale des projets de rénovation.</p></article>
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-temperature" aria-hidden="true"></i></span><h3>Pléiades</h3><p>Analyse thermique et consolidation des hypothèses énergétiques.</p></article>
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-home-eco" aria-hidden="true"></i></span><h3>France Rénov'</h3><p>Référentiels et informations officielles sur les aides et parcours de rénovation.</p></article>
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-table" aria-hidden="true"></i></span><h3>Excel / Sheets</h3><p>Tableaux de suivi, chiffrage, synthèses comparatives et reporting projet.</p></article>
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-rss" aria-hidden="true"></i></span><h3>Veille sectorielle</h3><p>Suivi des évolutions réglementaires, aides, labels, pratiques et dispositifs.</p></article>
     </div>
   </div>
 </section>
-<div class="next-banner"><div><p class="next-banner-label">Page suivante</p><p class="next-banner-title">Roadmap professionnelle</p></div><a href="roadmap.html" class="btn btn-sage">Continuer <i class="ti ti-arrow-right"></i></a></div>
+<div class="next-banner"><div><p class="next-banner-label">Page suivante</p><p class="next-banner-title">Roadmap professionnelle</p></div><a href="roadmap.html" class="btn btn-sage">Continuer <i class="ti ti-arrow-right" aria-hidden="true"></i></a></div>
 
 </main><footer>
   <span class="footer-logo">IFB<span>.</span></span>
@@ -116,7 +128,7 @@
   <span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span>
 </footer>
 <div class="modal-overlay" id="skill-modal" hidden>
-  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="skill-modal-title">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="skill-modal-title" aria-describedby="skill-modal-description">
     <button class="modal-close" id="skill-modal-close" aria-label="Fermer">&times;</button>
     <div id="skill-modal-body"></div>
   </div>

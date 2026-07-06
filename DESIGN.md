@@ -22,9 +22,9 @@ Direction : premium sobre, clair, structuré, orienté recruteur.
 
 ### Couleurs principales
 
-- Vert sauge : `#3D6B52` (`--sage`), survol `#2E5440` (`--sage-hover`), clair `#6B9E81` (`--sage-light`)
+- Vert sauge : `#2F6F4F` (`--sage`), survol `#24583E` (`--sage-hover`), clair `#78A98C` (`--sage-light`)
   - Utilisation : boutons principaux, icônes, accents, chiffres clés (KPI).
-- Fond sauge pâle : `#EAF2EC` (`--sage-pale`)
+- Fond sauge pâle : `#E4F1E8` (`--sage-pale`)
   - Utilisation : badges, fonds d'icônes, zones de focus.
 - Noir encre : `#1A1F1C` (`--ink`), texte secondaire `#4A5249` (`--ink-soft`)
   - Utilisation : hero, nav, footer, blocs de mise en avant (fond sombre premium).
@@ -35,7 +35,7 @@ Direction : premium sobre, clair, structuré, orienté recruteur.
 
 - Blanc : `#FFFFFF`
 - Fond clair : `#EDF6F0` (`--warm-off`)
-- Bordure : `#D8D4CC` (`--divider`)
+- Bordure : `#CBDDD0` (`--divider`)
 
 ## Typographie
 
