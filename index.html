@@ -1,62 +1,130 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio d'Ibrahima Fa Bamba, chef de projet rénovation énergétique junior : copropriétés, scénarios de travaux, financement, coordination chantier et communication client." />
-  <title>Ibrahima Fa Bamba | Accueil</title>
-  <link rel="canonical" href="https://portfolio-ibrahima-bamba.vercel.app/" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <meta property="og:title" content="Ibrahima Fa Bamba | Portfolio rénovation énergétique" />
-  <meta property="og:description" content="Chef de projet rénovation énergétique junior : copropriétés, scénarios de travaux, financement et coordination chantier." />
-  <meta property="og:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.svg" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="premium.css" />
-  <link rel="stylesheet" href="pages.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ibrahima Fa Bamba | Chef de projet rénovation énergétique</title>
+  <meta name="description" content="Portfolio d&#x27;Ibrahima Fa Bamba, chef de projet rénovation énergétique : copropriétés, scénarios de travaux, aides financières, coordination et communication."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="audit-fixes.css"/>
 </head>
 <body>
-  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
-  <div class="page">
-    <header class="hero" id="accueil">
-      <nav class="nav">
-        <a class="logo logo-empty" href="index.html"><span class="logo-fallback">IFB</span></a>
-        <div class="nav-links">
-          <a class="current" href="index.html">Accueil</a>
-          <a href="profil.html">Profil</a>
-          <a href="roadmap.html">Roadmap</a>
-          <a href="projets.html">Projets</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </nav>
-      <div class="hero-grid">
-        <div class="hero-content">
-          <p class="kicker hero-enter" style="--d:.05s">Rénovation énergétique · Copropriétés · Décision collective</p>
-          <h1 class="hero-enter" style="--d:.05s">Transformer un projet complexe en décision claire.</h1>
-          <p class="hero-title hero-enter" style="--d:.3s">Ibrahima Fa Bamba · Chef de projet rénovation énergétique junior</p>
-          <p class="hero-text hero-enter" style="--d:.42s">J'aide à structurer les données techniques, comparer les scénarios, expliquer les financements et préparer les supports utiles aux copropriétaires, syndics et équipes projet.</p>
-          <div class="hero-buttons hero-enter" style="--d:.55s">
-            <a href="projets.html" class="btn primary">Voir les projets<span class="btn-arrow" aria-hidden="true">→</span></a>
-            <a href="assets/cv-ibrahima-bamba.pdf" class="btn secondary" target="_blank" rel="noopener">Télécharger le CV</a>
-          </div>
-        </div>
-        <aside class="command-center hero-enter" style="--d:.3s" aria-label="Synthèse métier">
-          <div class="dashboard-top"><span class="status-dot"></span><span>Portfolio orienté recruteur</span></div>
-          <div class="energy-card"><span>DPE initial</span><strong>E</strong><small>251 kWhEP/m²/an</small></div>
-          <div class="energy-path"><span></span><span></span><span></span><span></span><span></span></div>
-          <div class="energy-card target"><span>Objectif projet</span><strong>B</strong><small>rénovation globale</small></div>
-          <div class="mini-kpis"><div><strong class="count" data-target="320">320</strong><span>logements</span></div><div><strong class="count" data-target="9.8" data-decimals="1" data-suffix=" M€">9,8 M€</strong><span>travaux TTC</span></div><div><strong class="count" data-target="36" data-suffix="%">36%</strong><span>aides estimées</span></div></div>
-        </aside>
-      </div>
-    </header>
+<nav class="nav" aria-label="Navigation principale">
+  <a href="index.html" class="nav-logo">IFB<span>.</span></a>
+  <ul class="nav-center">
+    <li class="active"><a href="index.html">Accueil</a></li>
+    <li class=""><a href="profil.html">Profil</a></li>
+    <li class=""><a href="roadmap.html">Roadmap</a></li>
+    <li class=""><a href="projets.html">Projets</a></li>
+    <li class=""><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="assets/cv-ibrahima-bamba.pdf" class="nav-cta" download><i class="ti ti-download" aria-hidden="true"></i> Télécharger le CV</a>
+  <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html" class="active">Accueil</a>
+  <a href="profil.html" class="">Profil</a>
+  <a href="roadmap.html" class="">Roadmap</a>
+  <a href="projets.html" class="">Projets</a>
+  <a href="contact.html" class="">Contact</a>
+  <a href="assets/cv-ibrahima-bamba.pdf" download>Télécharger le CV</a>
+</div>
 
-    <main>
-      <section id="preuve" class="proof-strip reveal"><article><span>Profil</span><strong>Scientifique + pédagogie</strong><p>Analyse, synthèse et vulgarisation de sujets complexes.</p></article><article><span>Marché visé</span><strong>Copropriétés</strong><p>Préparation AG, questions-réponses, décision collective.</p></article><article><span>Valeur métier</span><strong>Scénarios + financement</strong><p>Coûts, aides, restes à charge et recommandations.</p></article><article><span>Terrain</span><strong>Coordination chantier</strong><p>Devis, RGE, autorisations, planning et conformité.</p></article></section>
-      <section class="intro-panel reveal"><div><p class="eyebrow">Positionnement</p><h2>Un portfolio en 5 pages, plus lisible pour les recruteurs.</h2></div><p>Le site est maintenant découpé comme un mini-dossier professionnel : accueil, profil, roadmap, projets et contact. Chaque page répond à une question précise du recruteur.</p></section>
-      <div class="next-page"><strong>Page suivante : Profil & compétences</strong><a href="profil.html">Continuer →</a></div>
-    </main>
-    <footer><p>© 2026 Ibrahima Fa Bamba : Portfolio rénovation énergétique</p></footer>
-    <button id="backToTop" class="back-to-top" aria-label="Revenir en haut de la page" title="Haut de page">↑</button>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="hero-eyebrow-dot" aria-hidden="true"></span><span class="hero-eyebrow-text">Rénovation énergétique · Copropriétés · Aide à la décision</span></div>
+      <h1 class="hero-title" id="hero-title">Transformer un projet complexe en <em>décision claire.</em></h1>
+      <p class="hero-sub"><strong>Ibrahima Fa Bamba</strong> — chef de projet rénovation énergétique, profil junior opérationnel. J'analyse, structure et vulgarise les dossiers techniques et financiers pour accompagner syndics, copropriétaires et équipes projet jusqu'au vote des travaux.</p>
+      <div class="hero-buttons">
+        <a href="projets.html" class="btn btn-primary"><i class="ti ti-folder" aria-hidden="true"></i> Voir les études de cas</a>
+        <a href="contact.html" class="btn btn-outline"><i class="ti ti-mail" aria-hidden="true"></i> Me contacter</a>
+        <a href="assets/cv-ibrahima-bamba.pdf" class="btn btn-dark" download><i class="ti ti-download" aria-hidden="true"></i> CV PDF</a>
+      </div>
+      <div class="hero-proof" aria-label="Points de preuve">
+        <span class="tag dark">Disponible Île-de-France</span>
+        <span class="tag dark">Copropriétés</span>
+        <span class="tag dark">Scénarios & aides</span>
+        <span class="tag dark">Supports AG</span>
+      </div>
+    </div>
+    <div class="dpe-card" aria-label="Diagramme DPE — étude de cas copropriété">
+      <p class="dpe-title">Résidence Les 300 · étude de cas pédagogique</p>
+      <div class="dpe-bars" role="list">
+        <div class="dpe-row" role="listitem"><span class="dpe-lbl">A</span><div class="dpe-track"><div class="dpe-fill a">≤70</div></div></div>
+        <div class="dpe-row" role="listitem"><span class="dpe-lbl">B</span><div class="dpe-track"><div class="dpe-fill b">110<span class="dpe-marker m-cible">Cible</span></div></div></div>
+        <div class="dpe-row" role="listitem"><span class="dpe-lbl">C</span><div class="dpe-track"><div class="dpe-fill c">180</div></div></div>
+        <div class="dpe-row" role="listitem"><span class="dpe-lbl">D</span><div class="dpe-track"><div class="dpe-fill d">250</div></div></div>
+        <div class="dpe-row" role="listitem"><span class="dpe-lbl">E</span><div class="dpe-track"><div class="dpe-fill e">330<span class="dpe-marker m-actuel">Actuel</span></div></div></div>
+        <div class="dpe-row" role="listitem"><span class="dpe-lbl">F</span><div class="dpe-track"><div class="dpe-fill f">420</div></div></div>
+        <div class="dpe-row" role="listitem"><span class="dpe-lbl">G</span><div class="dpe-track"><div class="dpe-fill g">&gt;420</div></div></div>
+      </div>
+      <p class="dpe-note"><strong>Objectif :</strong> rendre lisible une trajectoire de rénovation globale : état initial, scénarios de travaux, aides mobilisables, reste à charge et décision en AG.</p>
+    </div>
   </div>
-  <script src="script.js" defer></script>
+</section>
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="kpi-card"><p class="kpi-num">5</p><p class="kpi-label">études de cas développées</p></div>
+    <div class="kpi-card"><p class="kpi-num">320</p><p class="kpi-label">logements dans le cas copropriété</p></div>
+    <div class="kpi-card"><p class="kpi-num">9,8 M€</p><p class="kpi-label">travaux TTC simulés</p></div>
+    <div class="kpi-card"><p class="kpi-num">E → B</p><p class="kpi-label">objectif de performance visé</p></div>
+  </div>
+</div>
+<section class="section-wrap" aria-labelledby="valeur-title">
+  <div class="container">
+    <div class="section-header"><span class="section-num">Valeur</span><h2 class="section-title" id="valeur-title">Ma valeur métier</h2></div>
+    <div class="grid-3">
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-zoom-check"></i></span><h3>Analyser</h3><p>Lire un dossier énergétique, identifier les postes structurants, hiérarchiser les contraintes techniques et poser les hypothèses de travail.</p></article>
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-calculator"></i></span><h3>Comparer</h3><p>Mettre en perspective les scénarios, les coûts, les gains, les aides financières, les risques et le reste à charge pour objectiver la décision.</p></article>
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-presentation"></i></span><h3>Expliquer</h3><p>Transformer un dossier complexe en supports accessibles : synthèse, livret copropriétaires, FAQ, présentation AG et plan d'actions.</p></article>
+    </div>
+  </div>
+</section>
+<hr class="divider"/>
+<section class="section-wrap" aria-labelledby="recruteur-title">
+  <div class="container">
+    <div class="section-header"><span class="section-num">Recrut.</span><h2 class="section-title" id="recruteur-title">Un portfolio orienté recruteur</h2></div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="value-list">
+          <div class="value-item"><i class="ti ti-check"></i><div><strong>Positionnement clarifié</strong><p class="text-soft small">Chef de projet rénovation énergétique avec spécialisation copropriétés, scénarios, aides et accompagnement à la décision collective.</p></div></div>
+          <div class="value-item"><i class="ti ti-check"></i><div><strong>Projets structurés</strong><p class="text-soft small">Chaque cas présente contexte, problème, méthode, livrables, résultats visés et compétences démontrées.</p></div></div>
+          <div class="value-item"><i class="ti ti-check"></i><div><strong>Preuves visibles</strong><p class="text-soft small">Les compétences sont reliées à des livrables opérationnels : audit, matrice de scénarios, tableau d'aides, supports AG, suivi chantier.</p></div></div>
+        </div>
+      </div>
+      <div class="position-box">
+        <h3>Objectif professionnel</h3>
+        <p>Intégrer une structure spécialisée en rénovation énergétique pour contribuer à l'analyse des projets, à la préparation des scénarios, à la coordination des acteurs et à l'accompagnement des copropriétés jusqu'au vote des travaux.</p>
+        <div class="chip-row" style="margin-top:1.2rem"><span class="tag dark">Assistant chef de projet</span><span class="tag dark">Chargé d'accompagnement copropriétés</span><span class="tag dark">Chef de projet junior</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="next-banner">
+  <div><p class="next-banner-label">Page suivante</p><p class="next-banner-title">Profil & compétences clés</p></div>
+  <a href="profil.html" class="btn btn-sage">Continuer <i class="ti ti-arrow-right"></i></a>
+</div>
+
+<footer>
+  <span class="footer-logo">IFB<span>.</span></span>
+  <ul class="footer-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="roadmap.html">Roadmap</a></li>
+    <li><a href="projets.html">Projets</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span>
+</footer>
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('nav-mobile');
+  if (btn && menu) btn.addEventListener('click', () => menu.classList.toggle('open'));
+</script>
 </body>
 </html>
