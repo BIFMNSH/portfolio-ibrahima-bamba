@@ -1,3 +1,9 @@
+// Opt in to the entrance animations defined in style.css under .js-motion.
+// Added immediately (not gated behind DOMContentLoaded) so it never delays
+// past first paint. Nothing on the page is hidden by default in CSS, so
+// even if this line never ran, every section would still render normally.
+document.documentElement.classList.add('js-motion');
+
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('nav-mobile');
@@ -72,33 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ticking = false;
       });
     }, { passive: true });
-  }
-
-  // Scroll-triggered reveal — progressive enhancement: elements stay visible
-  // by default; only elements already out of view at load get the hidden
-  // "reveal" state, so a JS failure never hides content.
-  if (!reduceMotion && 'IntersectionObserver' in window) {
-    // Only small, repeatable list/card items — never a container that is
-    // itself an ancestor of another reveal target, and never a block taller
-    // than a viewport (large elements can fail to ever reach the area
-    // threshold below, which would hide their content permanently).
-    const revealSelectors = '.kpi-card, .feature-card, .skill-card, .timeline-card, .result-card, .livrable-item, .role-item, .value-item, .method-step';
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-
-    document.querySelectorAll(revealSelectors).forEach(el => {
-      const rect = el.getBoundingClientRect();
-      const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
-      if (alreadyVisible) return;
-      el.classList.add('reveal');
-      io.observe(el);
-    });
   }
 
   // Hero glow follows the pointer
