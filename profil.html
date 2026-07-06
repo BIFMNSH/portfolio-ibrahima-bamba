@@ -63,13 +63,14 @@
   <div class="container">
     <div class="section-header"><span class="section-num">Compét.</span><h2 class="section-title" id="skills-title">Compétences techniques</h2></div>
     <div class="grid-3">
-      <article class="skill-card"><span class="icon-round"><i class="ti ti-chart-dots"></i></span><h3>Audit énergétique</h3><p>Analyser bâti, équipements, consommations et déperditions pour construire un diagnostic exploitable.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">DPE</span><span class="chip">Bilan thermique</span><span class="chip">Pléiades</span></div></article>
-      <article class="skill-card"><span class="icon-round"><i class="ti ti-calculator"></i></span><h3>Scénarios & aides</h3><p>Comparer les bouquets de travaux, les coûts, les gains, les aides et le reste à charge.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">MPR</span><span class="chip">CEE</span><span class="chip">CAP Renov+</span></div></article>
-      <article class="skill-card"><span class="icon-round"><i class="ti ti-presentation"></i></span><h3>Communication client</h3><p>Vulgariser les données techniques et financières pour préparer l'adhésion et le vote.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">AG</span><span class="chip">FAQ</span><span class="chip">Livret</span></div></article>
-      <article class="skill-card"><span class="icon-round"><i class="ti ti-sitemap"></i></span><h3>Coordination projet</h3><p>Suivre consultations, certifications RGE, planning, interfaces acteurs et points de vigilance.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">Planning</span><span class="chip">RGE</span><span class="chip">Parties prenantes</span></div></article>
-      <article class="skill-card"><span class="icon-round"><i class="ti ti-file-check"></i></span><h3>Conformité & réception</h3><p>Structurer les contrôles, réserves, justificatifs, PV de réception et documents de clôture.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">PV</span><span class="chip">Qualité</span><span class="chip">DOE</span></div></article>
-      <article class="skill-card"><span class="icon-round"><i class="ti ti-zoom-question"></i></span><h3>Analyse & synthèse</h3><p>Produire des rapports lisibles, des recommandations hiérarchisées et des supports de décision.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">Rapport</span><span class="chip">Synthèse</span><span class="chip">Méthode</span></div></article>
+      <article class="skill-card" data-skill="audit" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-chart-dots"></i></span><h3>Audit énergétique</h3><p>Analyser bâti, équipements, consommations et déperditions pour construire un diagnostic exploitable.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">DPE</span><span class="chip">Bilan thermique</span><span class="chip">Pléiades</span></div></article>
+      <article class="skill-card" data-skill="scenarios" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-calculator"></i></span><h3>Scénarios & aides</h3><p>Comparer les bouquets de travaux, les coûts, les gains, les aides et le reste à charge.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">MPR</span><span class="chip">CEE</span><span class="chip">CAP Renov+</span></div></article>
+      <article class="skill-card" data-skill="communication" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-presentation"></i></span><h3>Communication client</h3><p>Vulgariser les données techniques et financières pour préparer l'adhésion et le vote.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">AG</span><span class="chip">FAQ</span><span class="chip">Livret</span></div></article>
+      <article class="skill-card" data-skill="coordination" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-sitemap"></i></span><h3>Coordination projet</h3><p>Suivre consultations, certifications RGE, planning, interfaces acteurs et points de vigilance.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">Planning</span><span class="chip">RGE</span><span class="chip">Parties prenantes</span></div></article>
+      <article class="skill-card" data-skill="conformite" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-file-check"></i></span><h3>Conformité & réception</h3><p>Structurer les contrôles, réserves, justificatifs, PV de réception et documents de clôture.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">PV</span><span class="chip">Qualité</span><span class="chip">DOE</span></div></article>
+      <article class="skill-card" data-skill="analyse" role="button" tabindex="0" aria-haspopup="dialog"><span class="icon-round"><i class="ti ti-zoom-question"></i></span><h3>Analyse & synthèse</h3><p>Produire des rapports lisibles, des recommandations hiérarchisées et des supports de décision.</p><div class="chip-row" style="margin-top:.9rem"><span class="chip">Rapport</span><span class="chip">Synthèse</span><span class="chip">Méthode</span></div></article>
     </div>
+    <p class="small text-soft" style="margin-top:1rem">Cliquez sur une compétence pour voir la preuve associée.</p>
   </div>
 </section>
 <section class="section-wrap" aria-labelledby="proof-title" style="padding-top:0">
@@ -114,6 +115,12 @@
   </ul>
   <span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span>
 </footer>
+<div class="modal-overlay" id="skill-modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="skill-modal-title">
+    <button class="modal-close" id="skill-modal-close" aria-label="Fermer">&times;</button>
+    <div id="skill-modal-body"></div>
+  </div>
+</div>
 <script src="script.js"></script>
 </body>
 </html>

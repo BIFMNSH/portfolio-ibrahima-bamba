@@ -46,11 +46,16 @@
   <div class="container">
     <div class="section-header"><span class="section-num">Cas</span><h2 class="section-title" id="projets-title">Projets développés</h2></div>
     <p class="section-sub">Les cas ci-dessous sont présentés avec le même cadre : contexte, problème, méthode, livrables, résultats visés et compétences démontrées. Les données chiffrées sont indiquées comme données pédagogiques lorsque le cas relève d’une formation.</p>
-    <div class="project-tabs" aria-label="Accès rapide aux projets">
-      <a href="#projet02">Projet 02 · Audit</a><a href="#projet03">Projet 03 · Scénarios</a><a href="#projet07">Projet 07 · Chantier</a><a href="#projet08">Projet 08 · Conformité</a><a href="#projet09">Projet 09 · Communication</a>
+    <div class="project-tabs" aria-label="Filtrer les études de cas" role="group">
+      <button type="button" class="active" data-filter="all" aria-pressed="true">Tous</button>
+      <button type="button" data-filter="audit" aria-pressed="false">Projet 02 · Audit</button>
+      <button type="button" data-filter="scenarios" aria-pressed="false">Projet 03 · Scénarios</button>
+      <button type="button" data-filter="chantier" aria-pressed="false">Projet 07 · Chantier</button>
+      <button type="button" data-filter="conformite" aria-pressed="false">Projet 08 · Conformité</button>
+      <button type="button" data-filter="communication" aria-pressed="false">Projet 09 · Communication</button>
     </div>
     
-    <article class="case-study" id="projet02" aria-labelledby="p02-title">
+    <article class="case-study" data-category="audit" id="projet02" aria-labelledby="p02-title">
       <div class="case-header">
         <div><span class="case-num" aria-hidden="true">Audit</span><span class="case-tag">Audit énergétique</span><h2 class="case-title" id="p02-title">Analyse énergétique initiale d’une copropriété</h2><p class="case-context">Étude de cas pédagogique · Résidence Les 300 · 320 logements · DPE E</p></div>
         <div class="case-metrics" aria-label="Chiffres clés"><div class="case-metric"><span class="case-metric-num">320</span><span class="case-metric-lbl">logements</span></div><div class="case-metric"><span class="case-metric-num">1966</span><span class="case-metric-lbl">construction</span></div><div class="case-metric"><span class="case-metric-num">E</span><span class="case-metric-lbl">DPE initial</span></div><div class="case-metric"><span class="case-metric-num">251</span><span class="case-metric-lbl">kWhEP/m²/an</span></div></div>
@@ -83,7 +88,7 @@
         </div>
       </div>
     </article>
-    <article class="case-study" id="projet03" aria-labelledby="p03-title">
+    <article class="case-study" data-category="scenarios" id="projet03" aria-labelledby="p03-title">
       <div class="case-header">
         <div><span class="case-num" aria-hidden="true">Scénarios</span><span class="case-tag">Scénarios & aides</span><h2 class="case-title" id="p03-title">Comparaison des scénarios de travaux et du financement</h2><p class="case-context">Étude de cas pédagogique · Travaux TTC simulés : 9,8 M€ · Objectif E → B</p></div>
         <div class="case-metrics" aria-label="Chiffres clés"><div class="case-metric"><span class="case-metric-num">9,8 M€</span><span class="case-metric-lbl">travaux TTC</span></div><div class="case-metric"><span class="case-metric-num">36 %</span><span class="case-metric-lbl">aides estimées</span></div><div class="case-metric"><span class="case-metric-num">E → B</span><span class="case-metric-lbl">DPE visé</span></div><div class="case-metric"><span class="case-metric-num">4</span><span class="case-metric-lbl">scénarios</span></div></div>
@@ -116,7 +121,7 @@
         </div>
       </div>
     </article>
-    <article class="case-study" id="projet07" aria-labelledby="p07-title">
+    <article class="case-study" data-category="chantier" id="projet07" aria-labelledby="p07-title">
       <div class="case-header">
         <div><span class="case-num" aria-hidden="true">Chantier</span><span class="case-tag">Coordination</span><h2 class="case-title" id="p07-title">Préparation opérationnelle du chantier</h2><p class="case-context">Étude de cas pédagogique · Consultation entreprises · Planning · Interfaces acteurs</p></div>
         <div class="case-metrics" aria-label="Chiffres clés"><div class="case-metric"><span class="case-metric-num">RGE</span><span class="case-metric-lbl">vérifié</span></div><div class="case-metric"><span class="case-metric-num">Planning</span><span class="case-metric-lbl">préparé</span></div><div class="case-metric"><span class="case-metric-num">3</span><span class="case-metric-lbl">lots suivis</span></div><div class="case-metric"><span class="case-metric-num">AG</span><span class="case-metric-lbl">post-vote</span></div></div>
@@ -149,7 +154,7 @@
         </div>
       </div>
     </article>
-    <article class="case-study" id="projet08" aria-labelledby="p08-title">
+    <article class="case-study" data-category="conformite" id="projet08" aria-labelledby="p08-title">
       <div class="case-header">
         <div><span class="case-num" aria-hidden="true">Qualité</span><span class="case-tag">Conformité</span><h2 class="case-title" id="p08-title">Contrôle qualité, réserves et réception</h2><p class="case-context">Étude de cas pédagogique · Contrôle documentaire · Réception · Clôture projet</p></div>
         <div class="case-metrics" aria-label="Chiffres clés"><div class="case-metric"><span class="case-metric-num">PV</span><span class="case-metric-lbl">réception</span></div><div class="case-metric"><span class="case-metric-num">DOE</span><span class="case-metric-lbl">contrôlé</span></div><div class="case-metric"><span class="case-metric-num">Réserves</span><span class="case-metric-lbl">suivies</span></div><div class="case-metric"><span class="case-metric-num">Qualité</span><span class="case-metric-lbl">sécurisée</span></div></div>
@@ -182,7 +187,7 @@
         </div>
       </div>
     </article>
-    <article class="case-study" id="projet09" aria-labelledby="p09-title">
+    <article class="case-study" data-category="communication" id="projet09" aria-labelledby="p09-title">
       <div class="case-header">
         <div><span class="case-num" aria-hidden="true">Com.</span><span class="case-tag">Communication</span><h2 class="case-title" id="p09-title">Communication & accompagnement des copropriétaires</h2><p class="case-context">Étude de cas pédagogique · Résidence Les 300 · 320 logements · Décision en AG</p></div>
         <div class="case-metrics" aria-label="Chiffres clés"><div class="case-metric"><span class="case-metric-num">320</span><span class="case-metric-lbl">logements</span></div><div class="case-metric"><span class="case-metric-num">9,8 M€</span><span class="case-metric-lbl">travaux TTC</span></div><div class="case-metric"><span class="case-metric-num">36 %</span><span class="case-metric-lbl">aides estimées</span></div><div class="case-metric"><span class="case-metric-num">E → B</span><span class="case-metric-lbl">DPE visé</span></div></div>

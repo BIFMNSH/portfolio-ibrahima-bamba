@@ -58,6 +58,109 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Skill detail modals (profil.html)
+  const skillModal = document.getElementById('skill-modal');
+  if (skillModal) {
+    const skillData = {
+      audit: {
+        title: 'Audit énergétique',
+        desc: "Analyser bâti, équipements, consommations et déperditions pour construire un diagnostic exploitable.",
+        proof: "Projet 02 — analyse bâti, enveloppe, systèmes, consommations et déperditions.",
+        link: 'projets.html#projet02'
+      },
+      scenarios: {
+        title: 'Scénarios & aides',
+        desc: "Comparer les bouquets de travaux, les coûts, les gains, les aides et le reste à charge.",
+        proof: "Projet 03 — matrice comparative coûts/gains/aides/reste à charge.",
+        link: 'projets.html#projet03'
+      },
+      communication: {
+        title: 'Communication client',
+        desc: "Vulgariser les données techniques et financières pour préparer l'adhésion et le vote.",
+        proof: "Projet 09 — livret, FAQ, supports AG et messages de relance.",
+        link: 'projets.html#projet09'
+      },
+      coordination: {
+        title: 'Coordination projet',
+        desc: "Suivre consultations, certifications RGE, planning, interfaces acteurs et points de vigilance.",
+        proof: "Projet 07 — consultation entreprises, vérification RGE, planning et interfaces.",
+        link: 'projets.html#projet07'
+      },
+      conformite: {
+        title: 'Conformité & réception',
+        desc: "Structurer les contrôles, réserves, justificatifs, PV de réception et documents de clôture.",
+        proof: "Projet 08 — plan de contrôle, réserves, justificatifs et réception.",
+        link: 'projets.html#projet08'
+      },
+      analyse: {
+        title: 'Analyse & synthèse',
+        desc: "Produire des rapports lisibles, des recommandations hiérarchisées et des supports de décision.",
+        proof: null,
+        link: null
+      }
+    };
+
+    const modalBody = document.getElementById('skill-modal-body');
+    const modalClose = document.getElementById('skill-modal-close');
+    let lastFocused = null;
+
+    const openSkillModal = key => {
+      const data = skillData[key];
+      if (!data) return;
+      modalBody.innerHTML = `
+        <h3 id="skill-modal-title">${data.title}</h3>
+        <p>${data.desc}</p>
+        ${data.proof ? `<div class="modal-proof"><strong>Preuve associée :</strong> ${data.proof}</div>` : ''}
+        ${data.link ? `<a href="${data.link}" class="btn btn-primary">Voir le projet <i class="ti ti-arrow-right" aria-hidden="true"></i></a>` : ''}
+      `;
+      lastFocused = document.activeElement;
+      skillModal.hidden = false;
+      modalClose.focus();
+    };
+
+    const closeSkillModal = () => {
+      skillModal.hidden = true;
+      if (lastFocused) lastFocused.focus();
+    };
+
+    document.querySelectorAll('.skill-card[data-skill]').forEach(card => {
+      card.addEventListener('click', () => openSkillModal(card.dataset.skill));
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openSkillModal(card.dataset.skill);
+        }
+      });
+    });
+
+    modalClose.addEventListener('click', closeSkillModal);
+    skillModal.addEventListener('click', event => {
+      if (event.target === skillModal) closeSkillModal();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !skillModal.hidden) closeSkillModal();
+    });
+  }
+
+  // Project category filters (projets.html)
+  const filterButtons = document.querySelectorAll('.project-tabs button[data-filter]');
+  if (filterButtons.length) {
+    const cards = document.querySelectorAll('.case-study[data-category]');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        filterButtons.forEach(b => {
+          b.classList.toggle('active', b === button);
+          b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
+        });
+        cards.forEach(card => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.hidden = !show;
+        });
+      });
+    });
+  }
+
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Scroll progress bar
