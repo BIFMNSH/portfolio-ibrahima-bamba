@@ -1,55 +1,54 @@
-(() => {
-  const bar = document.getElementById('scrollBar');
-  const topButton = document.getElementById('backToTop');
-  const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
-  const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('nav-mobile');
 
-  function updateScrollState() {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
-    if (bar) bar.style.width = pct + '%';
-    if (topButton) topButton.classList.toggle('visible', window.scrollY > 500);
+  const closeMenu = () => {
+    if (!menu || !btn) return;
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  };
 
-    let current = '';
-    sections.forEach(section => {
-      if (section.getBoundingClientRect().top <= 140) current = '#' + section.id;
+  const openMenu = () => {
+    if (!menu || !btn) return;
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  };
+
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const isOpen = menu.classList.contains('open');
+      isOpen ? closeMenu() : openMenu();
     });
-    navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === current));
+
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+    document.addEventListener('click', event => {
+      const clickedInsideMenu = menu.contains(event.target);
+      const clickedButton = btn.contains(event.target);
+      if (!clickedInsideMenu && !clickedButton && menu.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 980) closeMenu();
+    });
   }
 
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      }
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const nom = document.getElementById('nom')?.value.trim() || '';
+      const email = document.getElementById('email')?.value.trim() || '';
+      const objet = document.getElementById('objet')?.value || 'Contact portfolio';
+      const message = document.getElementById('message')?.value.trim() || '';
+      const body = `Bonjour Ibrahima,\n\n${message || 'Je souhaite échanger avec vous au sujet de votre profil en rénovation énergétique.'}\n\nNom : ${nom}\nEmail : ${email}`;
+      window.location.href = `mailto:bamba.bif@gmail.com?subject=${encodeURIComponent('Portfolio - ' + objet)}&body=${encodeURIComponent(body)}`;
     });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-  const countObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = Number(el.dataset.target || 0);
-      const decimals = Number(el.dataset.decimals || 0);
-      const suffix = el.dataset.suffix || '';
-      const duration = 900;
-      const start = performance.now();
-      function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const value = target * progress;
-        el.textContent = value.toLocaleString('fr-FR', { maximumFractionDigits: decimals, minimumFractionDigits: decimals }) + suffix;
-        if (progress < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-      countObserver.unobserve(el);
-    });
-  }, { threshold: 0.35 });
-
-  document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
-  if (topButton) topButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  window.addEventListener('scroll', updateScrollState, { passive: true });
-  updateScrollState();
-})();
+  }
+});

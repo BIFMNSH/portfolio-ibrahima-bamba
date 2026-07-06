@@ -22,6 +22,24 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--warm-off); color: var(--ink); font-size: 15px; line-height: 1.65; min-height: 100vh; }
 a { color: inherit; }
+a:hover, a:focus-visible { outline: none; }
+*:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--sage);
+  color: var(--white);
+  padding: .75rem 1rem;
+  z-index: 200;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+.skip-link:focus {
+  left: 1rem;
+}
 strong { font-weight: 600; }
 .nav { position: sticky; top: 0; z-index: 100; background: var(--ink); display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; min-height: 60px; }
 .nav-logo { font-family: var(--serif); font-size: 24px; color: var(--white); text-decoration: none; letter-spacing: .5px; flex-shrink: 0; }

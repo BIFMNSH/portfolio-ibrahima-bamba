@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="audit-fixes.css"/>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Aller au contenu principal</a>
 <nav class="nav" aria-label="Navigation principale">
   <a href="index.html" class="nav-logo">IFB<span>.</span></a>
   <ul class="nav-center">
@@ -23,7 +24,7 @@
     <li class="active"><a href="contact.html">Contact</a></li>
   </ul>
   <a href="assets/cv-ibrahima-bamba.pdf" class="nav-cta" download><i class="ti ti-download" aria-hidden="true"></i> Télécharger le CV</a>
-  <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="index.html" class="">Accueil</a>
@@ -34,7 +35,7 @@
   <a href="assets/cv-ibrahima-bamba.pdf" download>Télécharger le CV</a>
 </div>
 
-<section class="page-hero" aria-labelledby="page-title">
+<main id="main-content"><section class="page-hero" aria-labelledby="page-title">
   <div class="page-hero-inner">
     <p class="page-indicator">Page 5 sur 5</p>
     <h1 id="page-title">Contact & documents</h1>
@@ -76,20 +77,9 @@
     </div>
   </div>
 </section>
-<script>
-  const form = document.getElementById('contact-form');
-  if (form) form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const nom = document.getElementById('nom').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const objet = document.getElementById('objet').value;
-    const message = document.getElementById('message').value.trim();
-    const body = `Bonjour Ibrahima,\n\n${message || 'Je souhaite échanger avec vous au sujet de votre profil en rénovation énergétique.'}\n\nNom : ${nom}\nEmail : ${email}`;
-    window.location.href = `mailto:bamba.bif@gmail.com?subject=${encodeURIComponent('Portfolio - ' + objet)}&body=${encodeURIComponent(body)}`;
-  });
-</script>
+<script src="script.js"></script>
 
-<footer>
+</main><footer>
   <span class="footer-logo">IFB<span>.</span></span>
   <ul class="footer-links">
     <li><a href="index.html">Accueil</a></li>

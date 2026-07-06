@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="audit-fixes.css"/>
 </head>
 <body class="projects-page">
+<a class="skip-link" href="#main-content">Aller au contenu principal</a>
 <nav class="nav" aria-label="Navigation principale">
   <a href="index.html" class="nav-logo">IFB<span>.</span></a>
   <ul class="nav-center">
@@ -23,7 +24,7 @@
     <li class=""><a href="contact.html">Contact</a></li>
   </ul>
   <a href="assets/cv-ibrahima-bamba.pdf" class="nav-cta" download><i class="ti ti-download" aria-hidden="true"></i> Télécharger le CV</a>
-  <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="index.html" class="">Accueil</a>
@@ -34,7 +35,7 @@
   <a href="assets/cv-ibrahima-bamba.pdf" download>Télécharger le CV</a>
 </div>
 
-<section class="page-hero" aria-labelledby="page-title">
+<main id="main-content"><section class="page-hero" aria-labelledby="page-title">
   <div class="page-hero-inner">
     <p class="page-indicator">Page 4 sur 5</p>
     <h1 id="page-title">Études de cas</h1>
@@ -218,7 +219,7 @@
 </section>
 <div class="next-banner"><div><p class="next-banner-label">Page suivante</p><p class="next-banner-title">Contact & documents</p></div><a href="contact.html" class="btn btn-sage">Continuer <i class="ti ti-arrow-right"></i></a></div>
 
-<footer>
+</main><footer>
   <span class="footer-logo">IFB<span>.</span></span>
   <ul class="footer-links">
     <li><a href="index.html">Accueil</a></li>
@@ -229,10 +230,6 @@
   </ul>
   <span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span>
 </footer>
-<script>
-  const btn = document.getElementById('hamburger');
-  const menu = document.getElementById('nav-mobile');
-  if (btn && menu) btn.addEventListener('click', () => menu.classList.toggle('open'));
-</script>
+<script src="script.js"></script>
 </body>
 </html>

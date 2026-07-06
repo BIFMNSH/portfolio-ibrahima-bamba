@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="audit-fixes.css"/>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Aller au contenu principal</a>
 <nav class="nav" aria-label="Navigation principale">
   <a href="index.html" class="nav-logo">IFB<span>.</span></a>
   <ul class="nav-center">
@@ -23,7 +24,7 @@
     <li class=""><a href="contact.html">Contact</a></li>
   </ul>
   <a href="assets/cv-ibrahima-bamba.pdf" class="nav-cta" download><i class="ti ti-download" aria-hidden="true"></i> Télécharger le CV</a>
-  <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
   <a href="index.html" class="">Accueil</a>
@@ -34,7 +35,7 @@
   <a href="assets/cv-ibrahima-bamba.pdf" download>Télécharger le CV</a>
 </div>
 
-<section class="page-hero" aria-labelledby="page-title">
+<main id="main-content"><section class="page-hero" aria-labelledby="page-title">
   <div class="page-hero-inner" style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end">
     <div><p class="page-indicator">Page 2 sur 5</p><h1 id="page-title">Profil & <em>compétences clés</em></h1><p>Un profil scientifique reconverti vers la rénovation énergétique, capable de relier analyse technique, financement, pédagogie et coordination de projet.</p></div>
     <div class="profile-avatar" aria-label="Initiales IFB">IFB</div>
@@ -102,7 +103,7 @@
 </section>
 <div class="next-banner"><div><p class="next-banner-label">Page suivante</p><p class="next-banner-title">Roadmap professionnelle</p></div><a href="roadmap.html" class="btn btn-sage">Continuer <i class="ti ti-arrow-right"></i></a></div>
 
-<footer>
+</main><footer>
   <span class="footer-logo">IFB<span>.</span></span>
   <ul class="footer-links">
     <li><a href="index.html">Accueil</a></li>
@@ -113,10 +114,6 @@
   </ul>
   <span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span>
 </footer>
-<script>
-  const btn = document.getElementById('hamburger');
-  const menu = document.getElementById('nav-mobile');
-  if (btn && menu) btn.addEventListener('click', () => menu.classList.toggle('open'));
-</script>
+<script src="script.js"></script>
 </body>
 </html>
