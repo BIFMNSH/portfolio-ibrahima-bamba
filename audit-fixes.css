@@ -42,18 +42,18 @@ body {
 .dpe-fill {
   min-height: 24px !important;
   padding: 4px 14px !important;
-  color: #fff !important;
   font-size: 14px !important;
   line-height: 1.2 !important;
 }
 
-.dpe-fill.a { background: #00672f !important; }
-.dpe-fill.b { background: #0b5d3b !important; }
-.dpe-fill.c { background: #56640f !important; }
-.dpe-fill.d { background: #6b4b00 !important; }
-.dpe-fill.e { background: #7a3e00 !important; }
-.dpe-fill.f { background: #80331f !important; }
-.dpe-fill.g { background: #6f1f1a !important; }
+/* Vraies couleurs de l'étiquette énergie DPE (barème officiel A à G) */
+.dpe-fill.a { background: #0F6B35 !important; color: #fff !important; }
+.dpe-fill.b { background: #66AF3B !important; color: #1A1F1C !important; }
+.dpe-fill.c { background: #B5CC28 !important; color: #1A1F1C !important; }
+.dpe-fill.d { background: #F2CE1B !important; color: #1A1F1C !important; }
+.dpe-fill.e { background: #EFA232 !important; color: #1A1F1C !important; }
+.dpe-fill.f { background: #E8702E !important; color: #1A1F1C !important; }
+.dpe-fill.g { background: #B81F1A !important; color: #fff !important; }
 
 .dpe-marker {
   color: #fff !important;
