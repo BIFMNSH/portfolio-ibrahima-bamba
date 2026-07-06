@@ -22,24 +22,27 @@ Direction : premium sobre, clair, structuré, orienté recruteur.
 
 ### Couleurs principales
 
-- Vert profond : `#0f3d2e`
-  - Utilisation : hero, boutons principaux, titres, éléments forts.
-- Vert secondaire : `#1f5b43`
-  - Utilisation : accents, dégradés légers, éléments secondaires.
-- Vert doux : `#dfeee5`
-  - Utilisation : badges, fonds de cartes, zones de focus.
+- Vert sauge : `#3D6B52` (`--sage`), survol `#2E5440` (`--sage-hover`), clair `#6B9E81` (`--sage-light`)
+  - Utilisation : boutons principaux, icônes, accents, chiffres clés (KPI).
+- Fond sauge pâle : `#EAF2EC` (`--sage-pale`)
+  - Utilisation : badges, fonds d'icônes, zones de focus.
+- Noir encre : `#1A1F1C` (`--ink`), texte secondaire `#4A5249` (`--ink-soft`)
+  - Utilisation : hero, nav, footer, blocs de mise en avant (fond sombre premium).
+- Or discret : `#C8973A` (`--gold`), fond pâle `#FBF3E4` (`--gold-pale`)
+  - Utilisation : accent unique sur fond sombre (mot-clé en italique dans le H1, badges "actuel"/priorité, focus ring). À ne jamais généraliser à d'autres éléments — un seul accent chaud, dosé.
 
 ### Couleurs neutres
 
-- Blanc : `#ffffff`
-- Fond clair : `#f7f9f6`
-- Texte principal : `#1f2d24`
-- Texte secondaire : `#5f6f66`
-- Bordure : `#d9e3dc`
+- Blanc : `#FFFFFF`
+- Fond clair : `#EDF6F0` (`--warm-off`)
+- Bordure : `#D8D4CC` (`--divider`)
 
 ## Typographie
 
-Police principale : Arial / Helvetica / sans-serif.
+Deux familles, un contraste assumé :
+
+- Titres (H1–H3, chiffres clés, labels de section) : `DM Serif Display` (repli `Georgia, serif`) — porte l'identité "premium éditorial".
+- Corps de texte, boutons, UI : `Aptos` / `Avenir Next` / `system-ui` sans-serif — garde la lisibilité et la sobriété fonctionnelle.
 
 La hiérarchie doit être nette :
 
