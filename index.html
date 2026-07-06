@@ -5,15 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio d'Ibrahima Fa Bamba, chef de projet rénovation énergétique junior : copropriétés, scénarios de travaux, financement, coordination chantier et communication client." />
   <title>Ibrahima Fa Bamba | Portfolio rénovation énergétique</title>
+  <link rel="canonical" href="https://portfolio-ibrahima-bamba.vercel.app/" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Ibrahima Fa Bamba | Portfolio rénovation énergétique" />
+  <meta property="og:description" content="Chef de projet rénovation énergétique junior : copropriétés, scénarios de travaux, financement et coordination chantier." />
+  <meta property="og:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.svg" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="premium.css" />
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+  <a class="skip-link" href="#accueil">Aller au contenu principal</a>
   <div class="page">
     <header class="hero" id="accueil">
       <nav class="nav">
-        <a class="logo" href="#accueil">IFB</a>
+        <a class="logo logo-empty" href="#accueil"><span class="logo-fallback">IFB</span></a>
         <div class="nav-links">
           <a href="#preuve">Preuves</a>
+          <a href="#apropos">À propos</a>
           <a href="#coproprietes">Copropriétés</a>
           <a href="#projet-phare">Cas phare</a>
           <a href="#projets">Projets</a>
@@ -23,125 +32,47 @@
 
       <div class="hero-grid">
         <div class="hero-content">
-          <p class="kicker">Rénovation énergétique · Copropriétés · Décision collective</p>
-          <h1>Transformer un projet complexe en décision claire.</h1>
-          <p class="hero-title">Ibrahima Fa Bamba — chef de projet rénovation énergétique junior</p>
-          <p class="hero-text">J'aide à structurer les données techniques, comparer les scénarios, expliquer les financements et préparer les supports utiles aux copropriétaires, syndics et équipes projet.</p>
-          <div class="hero-buttons">
-            <a href="#projet-phare" class="btn primary">Voir le cas copropriété</a>
-            <a href="assets/cv-ibrahima-bamba.pdf" class="btn secondary" target="_blank">Télécharger le CV</a>
+          <p class="kicker hero-enter" style="--d:.05s">Rénovation énergétique · Copropriétés · Décision collective</p>
+          <h1 class="hero-enter" style="--d:.15s">Transformer un projet complexe en décision claire.</h1>
+          <p class="hero-title hero-enter" style="--d:.3s">Ibrahima Fa Bamba — chef de projet rénovation énergétique junior</p>
+          <p class="hero-text hero-enter" style="--d:.4s">J'aide à structurer les données techniques, comparer les scénarios, expliquer les financements et préparer les supports utiles aux copropriétaires, syndics et équipes projet.</p>
+          <div class="hero-buttons hero-enter" style="--d:.5s">
+            <a href="#projet-phare" class="btn primary">Voir le cas copropriété<span class="btn-arrow" aria-hidden="true">→</span></a>
+            <a href="assets/cv-ibrahima-bamba.pdf" class="btn secondary" target="_blank" rel="noopener">Télécharger le CV</a>
           </div>
         </div>
-
-        <aside class="command-center" aria-label="Synthèse métier">
-          <div class="dashboard-top">
-            <span class="status-dot"></span>
-            <span>Portfolio orienté recruteur</span>
-          </div>
-          <div class="energy-card">
-            <span>DPE initial</span><strong>E</strong><small>251 kWhEP/m²/an</small>
-          </div>
+        <aside class="command-center hero-enter" style="--d:.55s" aria-label="Synthèse métier">
+          <div class="dashboard-top"><span class="status-dot"></span><span>Portfolio orienté recruteur</span></div>
+          <div class="energy-card"><span>DPE initial</span><strong>E</strong><small>251 kWhEP/m²/an</small></div>
           <div class="energy-path"><span></span><span></span><span></span><span></span><span></span></div>
-          <div class="energy-card target">
-            <span>Objectif projet</span><strong>B</strong><small>rénovation globale</small>
-          </div>
-          <div class="mini-kpis">
-            <div><strong>320</strong><span>logements</span></div>
-            <div><strong>9,8 M€</strong><span>travaux TTC</span></div>
-            <div><strong>36%</strong><span>aides estimées</span></div>
-          </div>
+          <div class="energy-card target"><span>Objectif projet</span><strong>B</strong><small>rénovation globale</small></div>
+          <div class="mini-kpis"><div><strong class="count" data-target="320">320</strong><span>logements</span></div><div><strong class="count" data-target="9.8" data-decimals="1" data-suffix=" M€">9,8 M€</strong><span>travaux TTC</span></div><div><strong class="count" data-target="36" data-suffix="%">36%</strong><span>aides estimées</span></div></div>
         </aside>
       </div>
     </header>
 
     <main>
-      <section id="preuve" class="proof-strip reveal">
-        <article><span>Profil</span><strong>Scientifique + pédagogie</strong><p>Analyse, synthèse et vulgarisation de sujets complexes.</p></article>
-        <article><span>Marché visé</span><strong>Copropriétés</strong><p>Préparation AG, questions-réponses, décision collective.</p></article>
-        <article><span>Valeur métier</span><strong>Scénarios + financement</strong><p>Coûts, aides, restes à charge et recommandations.</p></article>
-        <article><span>Terrain</span><strong>Coordination chantier</strong><p>Devis, RGE, autorisations, planning et conformité.</p></article>
-      </section>
+      <section id="preuve" class="proof-strip reveal"><article><span>Profil</span><strong>Scientifique + pédagogie</strong><p>Analyse, synthèse et vulgarisation de sujets complexes.</p></article><article><span>Marché visé</span><strong>Copropriétés</strong><p>Préparation AG, questions-réponses, décision collective.</p></article><article><span>Valeur métier</span><strong>Scénarios + financement</strong><p>Coûts, aides, restes à charge et recommandations.</p></article><article><span>Terrain</span><strong>Coordination chantier</strong><p>Devis, RGE, autorisations, planning et conformité.</p></article></section>
 
-      <section class="intro-panel reveal">
-        <div>
-          <p class="eyebrow">Positionnement</p>
-          <h2>Un profil junior qui sait rendre la rénovation compréhensible et actionnable.</h2>
-        </div>
-        <p>Ma valeur ajoutée est de relier les dimensions techniques, financières et humaines du projet. Le portfolio ne présente pas seulement des exercices : il montre une méthode de travail pour cadrer un besoin, produire des livrables utiles et faciliter une décision.</p>
-      </section>
+      <section class="intro-panel reveal"><div><p class="eyebrow">Positionnement</p><h2>Un profil junior qui sait rendre la rénovation compréhensible et actionnable.</h2></div><p>Ma valeur ajoutée est de relier les dimensions techniques, financières et humaines du projet. Le portfolio ne présente pas seulement des exercices : il montre une méthode de travail pour cadrer un besoin, produire des livrables utiles et faciliter une décision.</p></section>
 
-      <section id="coproprietes" class="split-section reveal">
-        <div class="section-copy">
-          <p class="eyebrow">Focus métier</p>
-          <h2>Copropriétés : le cœur du positionnement</h2>
-          <p>En copropriété, la réussite dépend autant de la qualité technique que de la capacité à expliquer, rassurer et organiser les informations avant le vote.</p>
-        </div>
-        <div class="capability-grid">
-          <div><strong>Structurer</strong><span>Base documentaire, pièces manquantes, relances, classement.</span></div>
-          <div><strong>Traduire</strong><span>DPE, déperditions, scénarios, aides et reste à charge.</span></div>
-          <div><strong>Convaincre</strong><span>Supports d'AG, FAQ, réponses aux objections, bénéfices.</span></div>
-          <div><strong>Piloter</strong><span>Syndic, conseil syndical, AMO, BET, entreprises, financeurs.</span></div>
-        </div>
-      </section>
+      <section id="apropos" class="about reveal"><div class="about-media"><div class="qr-block"><div class="qr" id="qrcode" data-qr="https://linkedin.com/in/fa-ibrahima-bamba" role="img" aria-label="QR code vers LinkedIn"></div><span>Scannez pour<br />vous connecter sur LinkedIn</span></div></div><div class="about-copy"><p class="eyebrow">À propos</p><h2>Un parcours scientifique mis au service de la rénovation.</h2><p class="about-lead">En reconversion vers la rénovation énergétique, je mobilise une formation scientifique et un vrai goût de la pédagogie pour rendre des sujets techniques clairs, comparables et décidables — en particulier en copropriété.</p><div class="about-facts"><div><strong>Rigueur d'analyse</strong><span>Diagnostics, données, scénarios et déperditions décortiqués avec méthode.</span></div><div><strong>Pédagogie</strong><span>Traduire l'ITE, les aides et le reste à charge en langage clair.</span></div><div><strong>Coordination</strong><span>Syndic, conseil syndical, AMO, BET, entreprises et financeurs.</span></div></div></div></section>
 
-      <section id="projet-phare" class="case-study reveal">
-        <div class="case-header">
-          <p class="eyebrow">Cas phare</p>
-          <h2>Projet 9 — Communication d'une rénovation globale en copropriété</h2>
-          <p>Résidence LES 300 : 20 bâtiments, 320 logements, construction 1966. Objectif : rendre un projet technique et financier lisible pour préparer la décision collective.</p>
-        </div>
-        <div class="case-grid">
-          <article><span>Contexte</span><p>DPE E, objectif B, déperditions principales par menuiseries, murs et ponts thermiques.</p></article>
-          <article><span>Travaux</span><p>ITE, toiture, plancher bas, menuiseries, VMC hygro B et régulation chauffage.</p></article>
-          <article><span>Financement</span><p>9 816 072 € TTC de travaux, 3 514 359 € d'aides estimées, reste à charge moyen présenté par logement.</p></article>
-          <article><span>Livrables</span><p>Base documentaire, support d'AG, FAQ copropriétaires et recommandations post-travaux.</p></article>
-        </div>
-        <div class="case-metrics">
-          <div><strong>20</strong><span>bâtiments</span></div>
-          <div><strong>320</strong><span>logements</span></div>
-          <div><strong>E → B</strong><span>trajectoire visée</span></div>
-          <div><strong>36%</strong><span>aides estimées</span></div>
-        </div>
-      </section>
+      <section id="coproprietes" class="split-section reveal"><div class="section-copy"><p class="eyebrow">Focus métier</p><h2>Copropriétés : le cœur du positionnement</h2><p>En copropriété, la réussite dépend autant de la qualité technique que de la capacité à expliquer, rassurer et organiser les informations avant le vote.</p></div><div class="capability-grid"><div><strong>Structurer</strong><span>Base documentaire, pièces manquantes, relances, classement.</span></div><div><strong>Traduire</strong><span>DPE, déperditions, scénarios, aides et reste à charge.</span></div><div><strong>Convaincre</strong><span>Supports d'AG, FAQ, réponses aux objections, bénéfices.</span></div><div><strong>Piloter</strong><span>Syndic, conseil syndical, AMO, BET, entreprises, financeurs.</span></div></div></section>
 
-      <section id="competences" class="reveal">
-        <div class="section-head"><p class="eyebrow">Compétences clés</p><h2>Ce que je peux apporter</h2></div>
-        <div class="grid four">
-          <article class="card"><span class="icon">Audit</span><h3>Analyse énergétique</h3><p>État des lieux, bâti, équipements, consommations et postes de déperditions.</p></article>
-          <article class="card"><span class="icon">Aides</span><h3>Scénarios & financement</h3><p>Comparaison des coûts, gains, aides, restes à charge et faisabilité.</p></article>
-          <article class="card"><span class="icon">Client</span><h3>Vulgarisation</h3><p>Explication claire des enjeux techniques, financiers et réglementaires.</p></article>
-          <article class="card"><span class="icon">Chantier</span><h3>Suivi opérationnel</h3><p>Vérification devis, RGE, autorisations, planning, conformité et réception.</p></article>
-        </div>
-      </section>
+      <section id="projet-phare" class="case-study reveal"><div class="case-header"><p class="eyebrow">Cas phare</p><h2>Projet 9 — Communication d'une rénovation globale en copropriété</h2><p>Résidence LES 300 : 20 bâtiments, 320 logements, construction 1966. Objectif : rendre un projet technique et financier lisible pour préparer la décision collective.</p></div><div class="case-grid"><article><span>Contexte</span><p>DPE E, objectif B, déperditions principales par menuiseries, murs et ponts thermiques.</p></article><article><span>Travaux</span><p>ITE, toiture, plancher bas, menuiseries, VMC hygro B et régulation chauffage.</p></article><article><span>Financement</span><p>9 816 072 € TTC de travaux, 3 514 359 € d'aides estimées, reste à charge moyen présenté par logement.</p></article><article><span>Livrables</span><p>Base documentaire, support d'AG, FAQ copropriétaires et recommandations post-travaux.</p></article></div><div class="case-metrics"><div><strong class="count" data-target="20">20</strong><span>bâtiments</span></div><div><strong class="count" data-target="320">320</strong><span>logements</span></div><div><strong>E → B</strong><span>trajectoire visée</span></div><div><strong class="count" data-target="36" data-suffix="%">36%</strong><span>aides estimées</span></div></div></section>
 
-      <section class="method reveal">
-        <div class="section-head"><p class="eyebrow">Méthode</p><h2>Une approche projet lisible</h2></div>
-        <div class="timeline">
-          <article><span>Besoin</span><h3>Cadrer</h3><p>Objectifs, contraintes, documents et interlocuteurs.</p></article>
-          <article><span>Données</span><h3>Analyser</h3><p>Diagnostics, factures, plans, photos et déperditions.</p></article>
-          <article><span>Choix</span><h3>Comparer</h3><p>Coûts, gains, aides, reste à charge et risques.</p></article>
-          <article><span>Décision</span><h3>Présenter</h3><p>Supports simples, arguments et réponses aux objections.</p></article>
-          <article><span>Suivi</span><h3>Sécuriser</h3><p>Planning, entreprises, conformité et réception.</p></article>
-        </div>
-      </section>
+      <section id="competences" class="reveal"><div class="section-head"><p class="eyebrow">Compétences clés</p><h2>Ce que je peux apporter</h2></div><div class="grid four"><article class="card"><span class="icon">Audit</span><h3>Analyse énergétique</h3><p>État des lieux, bâti, équipements, consommations et postes de déperditions.</p></article><article class="card"><span class="icon">Aides</span><h3>Scénarios &amp; financement</h3><p>Comparaison des coûts, gains, aides, restes à charge et faisabilité.</p></article><article class="card"><span class="icon">Client</span><h3>Vulgarisation</h3><p>Explication claire des enjeux techniques, financiers et réglementaires.</p></article><article class="card"><span class="icon">Chantier</span><h3>Suivi opérationnel</h3><p>Vérification devis, RGE, autorisations, planning, conformité et réception.</p></article></div></section>
 
-      <section id="projets" class="reveal">
-        <div class="section-head"><p class="eyebrow">Réalisations</p><h2>Projets de mise en pratique</h2></div>
-        <div class="project-grid">
-          <article class="project featured"><div><span class="project-label">Copropriété</span><h3>Projet 9 — Communication d'un projet de rénovation globale</h3><p>Base documentaire, présentation d'AG, FAQ copropriétaires et recommandations post-travaux.</p><p class="skills">Communication · Financement · Structuration documentaire · Décision collective</p></div><div class="proof"><strong>Preuve métier</strong><span>Rendre un projet complexe compréhensible et acceptable.</span></div></article>
-          <article class="project"><span class="project-label">Financement</span><h3>Projet 3 — Scénarios et aides</h3><p>Comparer plusieurs scénarios selon coûts, gains énergétiques, aides mobilisables et restes à charge.</p><p class="skills">MaPrimeRénov' · CEE · Éco-PTZ · Analyse multicritère</p></article>
-          <article class="project"><span class="project-label">Chantier</span><h3>Projet 7 — Préparation chantier</h3><p>Vérifier devis, certifications RGE, autorisations, relances entreprises et mini-planning.</p><p class="skills">Devis · Autorisations · Coordination inter-lots · Planning</p></article>
-          <article class="project"><span class="project-label">Qualité</span><h3>Projet 8 — Contrôle conformité</h3><p>Suivre les corrections, tests d'étanchéité, documents techniques et préparation de la réception.</p><p class="skills">Contrôle qualité · DOE · Réception · Performance finale</p></article>
-          <article class="project"><span class="project-label">Audit</span><h3>Projet 4 — Audit complet</h3><p>Analyser une maison classée G et recommander une trajectoire réaliste de rénovation.</p><p class="skills">CAP Renov+ · Scénarios · Sortie de passoire</p></article>
-          <article class="project"><span class="project-label">Diagnostic</span><h3>Projet 2 — État des lieux</h3><p>Identifier les priorités de rénovation à partir de données client, factures, photos et modélisation.</p><p class="skills">Visuary · CAP Renov+ · Analyse du bâti</p></article>
-        </div>
-      </section>
+      <section class="method reveal"><div class="section-head"><p class="eyebrow">Méthode</p><h2>Une approche projet lisible</h2></div><div class="timeline"><article><span>Besoin</span><h3>Cadrer</h3><p>Objectifs, contraintes, documents et interlocuteurs.</p></article><article><span>Données</span><h3>Analyser</h3><p>Diagnostics, factures, plans, photos et déperditions.</p></article><article><span>Choix</span><h3>Comparer</h3><p>Coûts, gains, aides, reste à charge et risques.</p></article><article><span>Décision</span><h3>Présenter</h3><p>Supports simples, arguments et réponses aux objections.</p></article><article><span>Suivi</span><h3>Sécuriser</h3><p>Planning, entreprises, conformité et réception.</p></article></div></section>
 
+      <section id="projets" class="reveal"><div class="section-head"><p class="eyebrow">Réalisations</p><h2>Projets de mise en pratique</h2></div><div class="project-grid"><article class="project featured"><div><span class="project-label">Copropriété</span><h3>Projet 9 — Communication d'un projet de rénovation globale</h3><p>Base documentaire, présentation d'AG, FAQ copropriétaires et recommandations post-travaux.</p><p class="skills">Communication · Financement · Structuration documentaire · Décision collective</p></div><div class="proof"><strong>Preuve métier</strong><span>Rendre un projet complexe compréhensible et acceptable.</span></div></article><article class="project"><span class="project-label">Financement</span><h3>Projet 3 — Scénarios et aides</h3><p>Comparer plusieurs scénarios selon coûts, gains énergétiques, aides mobilisables et restes à charge.</p><p class="skills">MaPrimeRénov' · CEE · Éco-PTZ · Analyse multicritère</p></article><article class="project"><span class="project-label">Chantier</span><h3>Projet 7 — Préparation chantier</h3><p>Vérifier devis, certifications RGE, autorisations, relances entreprises et mini-planning.</p><p class="skills">Devis · Autorisations · Coordination inter-lots · Planning</p></article><article class="project"><span class="project-label">Imprévu</span><h3>Projet 5 — Gestion d’un imprévu chantier</h3><p>Analyser la défaillance d’une entreprise, comparer les options de remplacement et sécuriser la continuité du chantier.</p><p class="skills">Gestion de risque · Entreprises · RGE · Planning · Décision</p></article><article class="project"><span class="project-label">Qualité</span><h3>Projet 8 — Contrôle conformité</h3><p>Suivre les corrections, tests d'étanchéité, documents techniques et préparation de la réception.</p><p class="skills">Contrôle qualité · DOE · Réception · Performance finale</p></article><article class="project"><span class="project-label">Audit</span><h3>Projet 4 — Audit complet</h3><p>Analyser une maison classée G et recommander une trajectoire réaliste de rénovation.</p><p class="skills">CAP Renov+ · Scénarios · Sortie de passoire</p></article><article class="project"><span class="project-label">Diagnostic</span><h3>Projet 2 — État des lieux</h3><p>Identifier les priorités de rénovation à partir de données client, factures, photos et modélisation.</p><p class="skills">Visuary · CAP Renov+ · Analyse du bâti</p></article></div></section>
       <section class="tool-section section-card reveal"><p class="eyebrow">Outils</p><h2>Outils mobilisés</h2><div class="tool-tags"><span>CAP Renov+</span><span>Visuary</span><span>Pléiades</span><span>France Rénov'</span><span>Feedly AI</span><span>Géoportail Urbanisme</span><span>Géorisques</span><span>Google Workspace</span></div></section>
-
-      <section id="contact" class="contact section-card reveal"><p class="eyebrow">Contact</p><h2>Échanger sur une opportunité</h2><div class="contact-grid"><div class="contact-item"><strong>Email</strong><br><a href="mailto:bamba.bif@gmail.com">bamba.bif@gmail.com</a></div><div class="contact-item"><strong>LinkedIn</strong><br><a href="https://linkedin.com/in/fa-ibrahima-bamba" target="_blank">linkedin.com/in/fa-ibrahima-bamba</a></div><div class="contact-item"><strong>CV</strong><br><a href="assets/cv-ibrahima-bamba.pdf" target="_blank">Télécharger le PDF</a></div></div></section>
+      <section id="contact" class="contact section-card reveal"><p class="eyebrow">Contact</p><h2>Échanger sur une opportunité</h2><div class="contact-grid"><div class="contact-item"><strong>Email</strong><br><a href="mailto:bamba.bif@gmail.com">bamba.bif@gmail.com</a></div><div class="contact-item"><strong>LinkedIn</strong><br><a href="https://linkedin.com/in/fa-ibrahima-bamba" target="_blank" rel="noopener">linkedin.com/in/fa-ibrahima-bamba</a></div><div class="contact-item"><strong>CV</strong><br><a href="assets/cv-ibrahima-bamba.pdf" target="_blank" rel="noopener">Télécharger le PDF</a></div></div></section>
     </main>
     <footer><p>© 2026 Ibrahima Fa Bamba — Portfolio rénovation énergétique</p></footer>
+    <button id="backToTop" class="back-to-top" aria-label="Revenir en haut de la page" title="Haut de page">↑</button>
   </div>
+  <script src="script.js" defer></script>
 </body>
 </html>
