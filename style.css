@@ -89,6 +89,7 @@ a { color: inherit; }
   border: 1px solid rgba(255,255,255,.12);
 }
 .nav-links a:hover { background: rgba(255,255,255,.12); }
+.hero .nav-links a { border-color: rgba(255,255,255,.15); }
 
 .hero-grid {
   position: relative;
@@ -115,8 +116,18 @@ a { color: inherit; }
   border: 1px solid rgba(223,238,229,.28);
   padding: 5px 14px 5px 12px;
   border-radius: 999px;
+  letter-spacing: .07em;
 }
-.hero h1 { text-wrap: balance; }
+.hero h1 { text-wrap: balance; letter-spacing: -.035em; }
+.hero .hero-title {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.65);
+  font-weight: 400;
+  margin: 12px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
 .hero h1,
 h2 {
   font-family: var(--font-display);
