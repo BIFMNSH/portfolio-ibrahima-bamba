@@ -117,9 +117,11 @@ hr.divider { border: none; border-top: 1px solid var(--divider); }
 .dpe-track { height: 23px; background: #ece8df; border-radius: 999px; overflow: visible; position: relative; }
 .dpe-fill { height: 100%; border-radius: 999px; color: white; display: flex; align-items: center; justify-content: flex-end; padding-right: 9px; font-size: 11px; font-weight: 700; position: relative; }
 .dpe-fill.a { width: 28%; background: #2E9E58; } .dpe-fill.b { width: 43%; background: #5CAF50; } .dpe-fill.c { width: 55%; background: #B2C94E; } .dpe-fill.d { width: 68%; background: #E9C64A; } .dpe-fill.e { width: 81%; background: #E8943A; } .dpe-fill.f { width: 94%; background: #D95F35; } .dpe-fill.g { width: 100%; background: #B83B33; }
-.dpe-marker { position: absolute; bottom: 100%; margin-bottom: 6px; right: -9px; background: var(--ink); color: var(--white); font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; }
+.dpe-marker { position: absolute; bottom: 100%; margin-bottom: 10px; left: 100%; transform: translateX(-50%); background: var(--ink); color: var(--white); font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; white-space: nowrap; }
+.dpe-marker::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--ink); }
 .dpe-fill .dpe-marker { font-size: 10px !important; line-height: 1.2 !important; }
-.dpe-marker.m-cible { background: var(--sage); } .dpe-marker.m-actuel { background: var(--gold); }
+.dpe-marker.m-cible { background: var(--sage); } .dpe-marker.m-cible::after { border-top-color: var(--sage); }
+.dpe-marker.m-actuel { background: var(--gold); } .dpe-marker.m-actuel::after { border-top-color: var(--gold); }
 .dpe-note { margin-top: 1.45rem; padding-top: 1rem; border-top: 1px solid var(--divider); font-size: 12px; color: var(--ink-soft); line-height: 1.6; }
 .hero-proof { margin-top: 1.4rem; display: flex; gap: 8px; flex-wrap: wrap; }
 .stats-strip { background: var(--white); border-bottom: 1px solid var(--divider); }

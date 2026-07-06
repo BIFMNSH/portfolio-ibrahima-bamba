@@ -63,9 +63,15 @@ body {
 .dpe-marker.m-cible {
   background: #24583e !important;
 }
+.dpe-marker.m-cible::after {
+  border-top-color: #24583e !important;
+}
 
 .dpe-marker.m-actuel {
   background: #704400 !important;
+}
+.dpe-marker.m-actuel::after {
+  border-top-color: #704400 !important;
 }
 
 body.projects-page .case-study {
