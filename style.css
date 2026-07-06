@@ -108,7 +108,15 @@ a { color: inherit; }
   letter-spacing: .09em;
   text-transform: uppercase;
 }
-.hero .kicker { color: #cfe7d6; }
+.hero .kicker {
+  display: inline-block;
+  color: #cfe7d6;
+  background: rgba(223,238,229,.19);
+  border: 1px solid rgba(223,238,229,.28);
+  padding: 5px 14px 5px 12px;
+  border-radius: 999px;
+}
+.hero h1 { text-wrap: balance; }
 .hero h1,
 h2 {
   font-family: var(--font-display);
@@ -133,6 +141,7 @@ h2 {
   line-height: 1.55;
   color: #dceee3;
 }
+.hero .hero-text { font-size: 19px; line-height: 1.62; }
 .hero-buttons,
 .doc-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .btn {
@@ -149,6 +158,7 @@ h2 {
 }
 .btn:hover { transform: translateY(-2px); }
 .btn.primary { background: var(--paper); color: var(--green); box-shadow: 0 14px 32px rgba(0,0,0,.18); }
+.hero .btn.primary { background: var(--mint); }
 .btn.secondary,
 .btn.ghost { color: var(--white); border-color: rgba(255,255,255,.45); }
 .btn.dark { background: var(--green); color: var(--white); }
@@ -161,6 +171,7 @@ h2 {
   border: 1px solid rgba(255,255,255,.18);
   box-shadow: 0 34px 90px rgba(0,0,0,.22);
 }
+.hero .command-center { border-color: rgba(223,238,229,.34); }
 .dashboard-top {
   display: flex;
   align-items: center;
@@ -193,6 +204,7 @@ h2 {
 .mini-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
 .mini-kpis div { padding: 14px; border-radius: 18px; background: rgba(255,255,255,.1); }
 .mini-kpis strong { display: block; font-size: 28px; line-height: 1.25; color: #fff; }
+.hero .mini-kpis strong { color: oklch(.84 0.055 152); }
 .mini-kpis span { color: #dceee3; font-size: 11px; line-height: 1.45; font-weight: 800; }
 
 main { padding: 86px 8%; }
