@@ -54,7 +54,12 @@
       <button type="button" data-filter="conformite" aria-pressed="false">Projet 08 · Conformité</button>
       <button type="button" data-filter="communication" aria-pressed="false">Projet 09 · Communication</button>
     </div>
-    
+    <div class="view-toggle" role="group" aria-label="Mode d'affichage des projets">
+      <button type="button" class="active" data-view="detailed" aria-pressed="true"><i class="ti ti-file-text" aria-hidden="true"></i> Vue détaillée</button>
+      <button type="button" data-view="compact" aria-pressed="false"><i class="ti ti-layout-grid" aria-hidden="true"></i> Vue compacte</button>
+    </div>
+
+    <div class="case-grid" id="case-grid">
     <article class="case-study" data-category="audit" id="projet02" aria-labelledby="p02-title">
       <div class="case-header">
         <div><span class="case-num" aria-hidden="true">Audit</span><span class="case-tag">Audit énergétique</span><h2 class="case-title" id="p02-title">Analyse énergétique initiale d’une copropriété</h2><p class="case-context">Étude de cas pédagogique · Résidence Les 300 · 320 logements · DPE E</p></div>
@@ -220,6 +225,7 @@
         </div>
       </div>
     </article>
+    </div>
   </div>
 </section>
 <div class="next-banner"><div><p class="next-banner-label">Page suivante</p><p class="next-banner-title">Contact & documents</p></div><a href="contact.html" class="btn btn-sage">Continuer <i class="ti ti-arrow-right"></i></a></div>

@@ -142,6 +142,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Detailed / compact view toggle (projets.html)
+  const viewButtons = document.querySelectorAll('.view-toggle button[data-view]');
+  const caseGrid = document.getElementById('case-grid');
+  if (viewButtons.length && caseGrid) {
+    viewButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const isCompact = button.dataset.view === 'compact';
+        viewButtons.forEach(b => {
+          b.classList.toggle('active', b === button);
+          b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
+        });
+        caseGrid.classList.toggle('view-compact', isCompact);
+      });
+    });
+  }
+
   // Project category filters (projets.html)
   const filterButtons = document.querySelectorAll('.project-tabs button[data-filter]');
   if (filterButtons.length) {
