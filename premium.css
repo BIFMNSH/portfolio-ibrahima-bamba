@@ -5,19 +5,5 @@
 .hero{min-height:auto!important;padding-top:24px!important;padding-bottom:72px!important}.hero-grid{max-width:1440px;margin:0 auto;grid-template-columns:minmax(0,.98fr) minmax(360px,.62fr)!important;gap:44px!important}.hero h1{font-size:clamp(44px,5.2vw,74px)!important;max-width:760px}.hero-title,.hero-text{font-size:21px!important;max-width:720px}.command-center{max-width:520px;justify-self:end;background:#10382a!important}.energy-card,.mini-kpis div,.case-metrics div{background:#174735!important;border-color:#3e735a!important;color:#fff!important}.energy-card span,.energy-card small,.mini-kpis span,.case-metrics span{color:#e7f3ea!important}.kicker,.eyebrow,.dashboard-top,.proof-strip span,.case-grid span,.project-label,.icon,.skills,.mini-kpis span{font-size:14px!important;line-height:1.45!important;text-transform:none!important;letter-spacing:.01em!important}.nav-links a{font-size:14px!important}.mini-kpis div,.about-facts div,.capability-grid div,.case-grid article,.proof,.contact-item{padding:16px!important}.about-facts div{background:#fff!important;border:1px solid var(--line)!important}.project-proof{margin-top:16px;padding:16px 0 0;border-top:1px solid var(--line);color:var(--muted)}.project-proof strong{color:var(--green)}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr!important}.command-center{justify-self:stretch;max-width:none}.hero h1{font-size:44px!important}.hero-title,.hero-text{font-size:19px!important}}
 
-
-/* Flatten about section after Impeccable audit */
-.about {
-  grid-template-columns: 1fr !important;
-}
-
-.about-media,
-.qr-block,
-.qr {
-  display: none !important;
-}
-
-.about-copy {
-  max-width: 980px;
-}
-
+/* Impeccable nested-card cleanup */
+.about-facts div{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;padding:0!important}.about-facts{gap:26px!important}.about-copy{max-width:980px}.about{grid-template-columns:1fr!important}
