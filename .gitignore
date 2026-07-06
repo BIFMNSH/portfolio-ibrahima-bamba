@@ -1,3 +1,6 @@
-
-# Local Codex / Impeccable hooks
 .codex/
+.DS_Store
+Thumbs.db
+*.dc.html
+node_modules/
+.vercel/
