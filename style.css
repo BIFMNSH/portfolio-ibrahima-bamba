@@ -45,37 +45,69 @@ a:hover { outline: none; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 strong { font-weight: 600; }
 .nav { position: sticky; top: 0; z-index: 100; background: var(--ink); display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; min-height: 60px; }
-.nav-logo { min-width: 44px; min-height: 44px; color: var(--white); text-decoration: none; flex-shrink: 0; display: inline-flex; align-items: center; }
+.nav-logo { min-width: 44px; min-height: 44px; color: var(--white); text-decoration: none; flex-shrink: 0; display: inline-flex; align-items: center; perspective: 700px; }
 .brand-monogram {
-  width: 48px;
-  height: 36px;
-  border: 1px solid rgba(120,169,140,.42);
-  border-radius: var(--radius-sm);
+  width: 64px;
+  height: 40px;
+  border-radius: 9px 9px 9px 3px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,.04);
+  background: rgba(255,255,255,.055);
   color: var(--white);
   font-family: var(--serif);
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1;
-  letter-spacing: .04em;
+  letter-spacing: .055em;
   position: relative;
+  isolation: isolate;
+  box-shadow:
+    inset 0 0 0 1px rgba(120,169,140,.44),
+    inset 8px 0 0 rgba(47,111,79,.18);
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: transform .35s var(--ease-out-expo, ease), box-shadow .35s var(--ease-out-expo, ease), background .35s;
+}
+.brand-monogram::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  right: 14px;
+  bottom: 8px;
+  height: 1px;
+  background: var(--sage-light);
+  opacity: .68;
+  transform-origin: left center;
 }
 .brand-monogram::after {
   content: '';
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--gold);
   position: absolute;
-  right: 6px;
-  bottom: 5px;
+  right: 8px;
+  bottom: 7px;
+  box-shadow: 0 0 0 3px rgba(200,151,58,.12);
+  transition: transform .35s var(--ease-out-expo, ease), box-shadow .35s var(--ease-out-expo, ease);
+}
+.nav-logo:hover .brand-monogram {
+  background: rgba(255,255,255,.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(200,151,58,.58),
+    inset 8px 0 0 rgba(47,111,79,.26);
+  transform: rotateX(0deg) rotateY(-7deg) translateY(-1px);
+}
+.nav-logo:hover .brand-monogram::after {
+  transform: translate(2px, -2px);
+  box-shadow: 0 0 0 5px rgba(200,151,58,.14);
 }
 .nav-center { display: flex; align-items: center; gap: 1.35rem; list-style: none; }
-.nav-center a { color: rgba(255,255,255,.66); text-decoration: none; font-size: 14px; letter-spacing: .02em; padding: 8px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+.nav-center a { color: rgba(255,255,255,.66); text-decoration: none; font-size: 14px; letter-spacing: .02em; padding: 8px 0; position: relative; transition: color .2s; }
+.nav-center a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 2px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: right center; transition: transform .28s var(--ease-out-expo, ease); }
 .nav-center a:hover { color: rgba(255,255,255,.9); }
-.nav-center li.active a { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-center a:hover::after, .nav-center li.active a::after { transform: scaleX(1); transform-origin: left center; }
+.nav-center li.active a { color: var(--gold); }
 .nav-cta { background: var(--sage); color: var(--white); border: none; padding: 10px 18px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: background .2s; flex-shrink: 0; }
 .nav-cta:hover { background: var(--sage-hover); }
 .nav-hamburger { display: none; width: 44px; height: 44px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
@@ -308,7 +340,7 @@ hr.divider { border: none; border-top: 1px solid var(--divider); }
 .modal-card a.btn { margin-top: .8rem; }
 footer { background: var(--ink); padding: 1.75rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: .85rem; flex-wrap: wrap; }
 .footer-logo { display: inline-flex; align-items: center; color: rgba(255,255,255,.42); }
-.footer-mark { width: 42px; height: 32px; opacity: .72; }
+.footer-mark { width: 52px; height: 34px; opacity: .72; }
 .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
 .footer-links a { color: rgba(255,255,255,.72); min-height: 44px; display: inline-flex; align-items: center; font-size: 13px; text-decoration: none; transition: color .2s; }
 .footer-links a:hover { color: rgba(255,255,255,.92); }
@@ -368,6 +400,11 @@ footer { background: var(--ink); padding: 1.75rem 3rem; display: flex; align-ite
     transform: translateY(-4px);
     box-shadow: 0 4px 8px rgba(26,31,28,.12);
   }
+  .contact-link:hover .contact-link-value,
+  .inline-link:hover { color: var(--sage); }
+  .contact-link:hover > i:last-child,
+  .btn:hover i:last-child,
+  .inline-link:hover i { transform: translateX(3px); }
 }
 
 /* ============ Motion ============ */
@@ -378,6 +415,26 @@ footer { background: var(--ink); padding: 1.75rem 3rem; display: flex; align-ite
    the class, every element below keeps its normal box-model opacity: 1
    — content is never permanently blank. */
 :root { --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); }
+
+.js-motion .brand-monogram {
+  animation: motionLogoArrival .75s var(--ease-out-expo) both;
+}
+.js-motion .brand-monogram::before {
+  transform: scaleX(0);
+  animation: motionLogoRule .75s var(--ease-out-expo) .35s forwards;
+}
+.js-motion .brand-monogram::after {
+  animation: motionLogoDot .7s var(--ease-out-expo) .55s both;
+}
+@keyframes motionLogoArrival {
+  from { opacity: 0; filter: blur(8px); transform: translateY(-8px) rotateX(18deg); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0) rotateX(0); }
+}
+@keyframes motionLogoRule { to { transform: scaleX(1); } }
+@keyframes motionLogoDot {
+  from { opacity: 0; transform: scale(.4); }
+  to { opacity: 1; transform: scale(1); }
+}
 
 .hero::after, .page-hero::after {
   transform: translate3d(var(--gx, 0px), var(--gy, 0px), 0);
@@ -448,6 +505,7 @@ footer { background: var(--ink); padding: 1.75rem 3rem; display: flex; align-ite
 
 /* Buttons: concise feedback without decorative sweeps. */
 .btn { position: relative; overflow: hidden; transition: background .2s, color .2s, border-color .2s, transform .25s var(--ease-out-expo), box-shadow .25s var(--ease-out-expo); }
+.btn i:last-child, .contact-link > i:last-child, .inline-link i { transition: transform .25s var(--ease-out-expo); }
 .btn-primary:hover, .btn-sage:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(61,107,82,.28); }
 .btn-primary:active, .btn-sage:active { transform: scale(.97); }
 .btn-outline:hover, .btn-ghost:hover, .btn-dark:hover { transform: scale(1.035) translateY(-2px); }
@@ -457,6 +515,7 @@ footer { background: var(--ink); padding: 1.75rem 3rem; display: flex; align-ite
 .kpi-card, .feature-card, .skill-card, .timeline-card, .result-card {
   transition: transform .25s var(--ease-out-expo), box-shadow .25s var(--ease-out-expo);
 }
+.motion-revealed { transform-origin: center top; }
 /* Scroll progress bar, injected by script.js — an added overlay, never hides page content */
 .scroll-progress {
   position: fixed; top: 0; left: 0; height: 3px; width: 100%;
@@ -470,14 +529,17 @@ footer { background: var(--ink); padding: 1.75rem 3rem; display: flex; align-ite
   html { scroll-behavior: auto; }
   .js-motion .hero-eyebrow-dot,
   .js-motion .hero-eyebrow, .js-motion .hero-sub, .js-motion .page-hero p:not(.page-indicator), .js-motion .hero-buttons .btn, .js-motion .button-row .btn, .js-motion .hero-proof,
-  .js-motion .page-hero h1, .js-motion .hero-title .word, .js-motion .dpe-card, .js-motion .dpe-fill, .js-motion .dpe-marker {
+  .js-motion .page-hero h1, .js-motion .hero-title .word, .js-motion .dpe-card, .js-motion .dpe-fill, .js-motion .dpe-marker,
+  .js-motion .brand-monogram, .js-motion .brand-monogram::before, .js-motion .brand-monogram::after {
     animation: none !important;
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;
   }
   .hero::after, .page-hero::after, .scroll-progress,
-  .kpi-card, .feature-card, .skill-card, .timeline-card, .result-card { transition: none !important; }
+  .kpi-card, .feature-card, .skill-card, .timeline-card, .result-card,
+  .brand-monogram, .brand-monogram::after, .nav-center a::after,
+  .btn i:last-child, .contact-link > i:last-child, .inline-link i { transition: none !important; }
   .scroll-progress { display: none; }
 }
 

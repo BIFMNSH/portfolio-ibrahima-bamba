@@ -69,31 +69,31 @@ document.addEventListener('DOMContentLoaded', () => {
       audit: {
         title: 'Audit énergétique',
         desc: "Analyser bâti, équipements, consommations et déperditions pour construire un diagnostic exploitable.",
-        proof: "Projet 02 — analyse bâti, enveloppe, systèmes, consommations et déperditions.",
+        proof: "Projet 2 : analyse bâti, enveloppe, systèmes, consommations et déperditions.",
         link: 'projets.html#projet02'
       },
       scenarios: {
         title: 'Scénarios & aides',
         desc: "Comparer les bouquets de travaux, les coûts, les gains, les aides et le reste à charge.",
-        proof: "Projet 03 — matrice comparative coûts/gains/aides/reste à charge.",
+        proof: "Projet 3 : matrice comparative coûts/gains/aides/reste à charge.",
         link: 'projets.html#projet03'
       },
       communication: {
         title: 'Communication client',
         desc: "Vulgariser les données techniques et financières pour préparer l'adhésion et le vote.",
-        proof: "Projet 09 — livret, FAQ, supports AG et messages de relance.",
+        proof: "Projet 9 : livret, FAQ, supports AG et messages de relance.",
         link: 'projets.html#projet09'
       },
       coordination: {
         title: 'Coordination projet',
         desc: "Suivre consultations, certifications RGE, planning, interfaces acteurs et points de vigilance.",
-        proof: "Projet 07 — consultation entreprises, vérification RGE, planning et interfaces.",
+        proof: "Projet 7 : consultation entreprises, vérification RGE, planning et interfaces.",
         link: 'projets.html#projet07'
       },
       conformite: {
         title: 'Conformité & réception',
         desc: "Structurer les contrôles, réserves, justificatifs, PV de réception et documents de clôture.",
-        proof: "Projet 08 — plan de contrôle, réserves, justificatifs et réception.",
+        proof: "Projet 8 : plan de contrôle, réserves, justificatifs et réception.",
         link: 'projets.html#projet08'
       },
       analyse: {
@@ -235,6 +235,43 @@ document.addEventListener('DOMContentLoaded', () => {
         ticking = false;
       });
     }, { passive: true });
+  }
+
+  // Premium scroll reveal: progressive, lightweight, and never required for content visibility.
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const revealTargets = [
+      ...document.querySelectorAll(
+        '.section-wrap .section-header, .principle, .feature-card, .card, .position-box, .timeline-card, .case-study, .contact-link, .proof-table, .next-banner'
+      )
+    ].filter(element => !element.closest('.skill-modal'));
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const element = entry.target;
+        const index = Number(element.dataset.revealIndex || 0);
+        element.classList.add('motion-revealed');
+        element.animate(
+          [
+            { opacity: 0, transform: 'translateY(18px) scale(.985)', filter: 'blur(8px)' },
+            { opacity: 1, transform: 'translateY(0) scale(1)', filter: 'blur(0)' }
+          ],
+          {
+            duration: 620,
+            delay: Math.min((index % 6) * 55, 220),
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            fill: 'both'
+          }
+        );
+        revealObserver.unobserve(element);
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+
+    revealTargets.forEach((element, index) => {
+      element.dataset.revealIndex = String(index);
+      revealObserver.observe(element);
+    });
   }
 
   // Hero glow follows the pointer
