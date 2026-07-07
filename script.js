@@ -5,6 +5,9 @@
 document.documentElement.classList.add('js-motion');
 
 document.addEventListener('DOMContentLoaded', () => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('nav-mobile');
 
@@ -127,15 +130,23 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       lastFocused = document.activeElement;
       skillModal.hidden = false;
+      requestAnimationFrame(() => skillModal.classList.add('visible'));
       setBackgroundInert(true);
       modalClose.focus();
     };
 
+    const MODAL_EXIT_MS = 180;
+
     const closeSkillModal = () => {
       if (skillModal.hidden) return;
-      skillModal.hidden = true;
       setBackgroundInert(false);
       if (lastFocused) lastFocused.focus();
+      skillModal.classList.remove('visible');
+      if (reduceMotion) {
+        skillModal.hidden = true;
+      } else {
+        setTimeout(() => { skillModal.hidden = true; }, MODAL_EXIT_MS);
+      }
     };
 
     document.querySelectorAll('.skill-card[data-skill]').forEach(card => {
@@ -204,18 +215,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         cards.forEach(card => {
           const show = filter === 'all' || card.dataset.category === filter;
-          card.hidden = !show;
+          if (show === !card.hidden) return;
+          if (reduceMotion || typeof card.animate !== 'function') {
+            card.hidden = !show;
+            return;
+          }
+          if (show) {
+            card.hidden = false;
+            card.animate(
+              [{ opacity: 0, transform: 'translateY(8px) scale(.98)' }, { opacity: 1, transform: 'translateY(0) scale(1)' }],
+              { duration: 220, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' }
+            );
+          } else {
+            const fadeOut = card.animate(
+              [{ opacity: 1, transform: 'translateY(0) scale(1)' }, { opacity: 0, transform: 'translateY(8px) scale(.98)' }],
+              { duration: 160, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' }
+            );
+            fadeOut.onfinish = () => { card.hidden = true; };
+          }
         });
         if (projectStatus) {
-          const visibleCount = [...cards].filter(card => !card.hidden).length;
+          const visibleCount = filter === 'all' ? cards.length : [...cards].filter(card => card.dataset.category === filter).length;
           projectStatus.textContent = `${visibleCount} étude${visibleCount > 1 ? 's' : ''} de cas affichée${visibleCount > 1 ? 's' : ''}.`;
         }
       });
     });
   }
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   // Scroll progress bar
   if (!reduceMotion) {
