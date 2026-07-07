@@ -7,6 +7,14 @@
   <meta name="description" content="Roadmap professionnelle d&#x27;Ibrahima Fa Bamba, de la formation scientifique au métier de chef de projet rénovation énergétique."/>
   <link rel="canonical" href="https://portfolio-ibrahima-bamba.vercel.app/roadmap.html"/>
   <meta name="theme-color" content="#1A1F1C"/>
+  <meta name="color-scheme" content="light dark"/>
+  <script>
+    try {
+      const storedTheme = localStorage.getItem('ifb-theme');
+      const preferredTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+      document.documentElement.dataset.theme = storedTheme === 'day' || storedTheme === 'night' ? storedTheme : preferredTheme;
+    } catch {}
+  </script>
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="fr_FR"/>
   <meta property="og:site_name" content="Portfolio Ibrahima Fa Bamba"/>
@@ -22,7 +30,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css"/>
-  <link rel="stylesheet" href="style.css?v=20260707-3d-motion"/>
+  <link rel="stylesheet" href="style.css?v=20260707-theme"/>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Aller au contenu principal</a>
@@ -36,6 +44,7 @@
     <li class=""><a href="nohoba.html">NOHOBA</a></li>
     <li class=""><a href="contact.html">Contact</a></li>
   </ul>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activer le thème nuit" aria-pressed="false"><i class="ti ti-moon" aria-hidden="true"></i><span class="theme-toggle-text">Nuit</span></button>
   <a href="assets/cv-ibrahima-bamba.pdf" class="nav-cta" download><i class="ti ti-download" aria-hidden="true"></i> Télécharger le CV</a>
   <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
 </nav>
@@ -102,6 +111,6 @@
   </ul>
   <span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span>
 </footer>
-<script src="script.js?v=20260707-3d-motion"></script>
+<script src="script.js?v=20260707-theme"></script>
 </body>
 </html>

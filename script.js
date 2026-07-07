@@ -4,9 +4,50 @@
 // even if this line never ran, every section would still render normally.
 document.documentElement.classList.add('js-motion');
 
+const THEME_STORAGE_KEY = 'ifb-theme';
+const getStoredTheme = () => {
+  try {
+    const theme = window.localStorage.getItem(THEME_STORAGE_KEY);
+    return theme === 'day' || theme === 'night' ? theme : null;
+  } catch {
+    return null;
+  }
+};
+const getPreferredTheme = () => (
+  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'
+);
+const applyTheme = theme => {
+  const nextTheme = theme === 'night' ? 'night' : 'day';
+  document.documentElement.dataset.theme = nextTheme;
+  document.documentElement.style.colorScheme = nextTheme === 'night' ? 'dark' : 'light';
+  document.querySelectorAll('[data-theme-toggle]').forEach(toggle => {
+    const isNight = nextTheme === 'night';
+    toggle.setAttribute('aria-pressed', String(isNight));
+    toggle.setAttribute('aria-label', isNight ? 'Activer le thème jour' : 'Activer le thème nuit');
+    const icon = toggle.querySelector('i');
+    const label = toggle.querySelector('.theme-toggle-text');
+    if (icon) icon.className = isNight ? 'ti ti-sun' : 'ti ti-moon';
+    if (label) label.textContent = isNight ? 'Jour' : 'Nuit';
+  });
+};
+applyTheme(getStoredTheme() || getPreferredTheme());
+
 document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  applyTheme(document.documentElement.dataset.theme || getPreferredTheme());
+  document.querySelectorAll('[data-theme-toggle]').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const nextTheme = document.documentElement.dataset.theme === 'night' ? 'day' : 'night';
+      try {
+        window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+      } catch {
+        // Theme still changes for this session if storage is unavailable.
+      }
+      applyTheme(nextTheme);
+    });
+  });
 
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('nav-mobile');
