@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // Premium scroll reveal: progressive, lightweight, and never required for content visibility.
+  // 3D scroll reveal: progressive, lightweight, and never required for content visibility.
   if (!reduceMotion && 'IntersectionObserver' in window) {
     const revealTargets = [
       ...document.querySelectorAll(
@@ -279,12 +279,12 @@ document.addEventListener('DOMContentLoaded', () => {
         element.classList.add('motion-revealed');
         element.animate(
           [
-            { opacity: 0, transform: 'translateY(18px) scale(.985)', filter: 'blur(8px)' },
-            { opacity: 1, transform: 'translateY(0) scale(1)', filter: 'blur(0)' }
+            { opacity: 0, transform: 'perspective(1000px) rotateX(10deg) rotateY(-5deg) translateY(28px) translateZ(-36px) scale(.965)', filter: 'blur(10px)' },
+            { opacity: 1, transform: 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) translateZ(0) scale(1)', filter: 'blur(0)' }
           ],
           {
-            duration: 620,
-            delay: Math.min((index % 6) * 55, 220),
+            duration: 760,
+            delay: Math.min((index % 5) * 70, 240),
             easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
             fill: 'both'
           }
@@ -296,6 +296,43 @@ document.addEventListener('DOMContentLoaded', () => {
     revealTargets.forEach((element, index) => {
       element.dataset.revealIndex = String(index);
       revealObserver.observe(element);
+    });
+  }
+
+  // Pointer-driven 3D depth on important cards and calls-to-action.
+  if (!reduceMotion && finePointer) {
+    const tiltTargets = [
+      ...document.querySelectorAll(
+        '.feature-card, .skill-card, .timeline-card, .card, .position-box, .case-study, .contact-link, .next-banner'
+      )
+    ].filter(element => !element.closest('.skill-modal') && !element.classList.contains('dpe-card'));
+
+    tiltTargets.forEach(element => {
+      element.classList.add('motion-3d');
+      let tiltFrame = 0;
+
+      element.addEventListener('pointermove', event => {
+        if (tiltFrame) return;
+        tiltFrame = requestAnimationFrame(() => {
+          const rect = element.getBoundingClientRect();
+          const px = (event.clientX - rect.left) / rect.width - 0.5;
+          const py = (event.clientY - rect.top) / rect.height - 0.5;
+          const maxTilt = element.classList.contains('case-study') ? 3.2 : 5.5;
+
+          element.style.setProperty('--rx', `${(-py * maxTilt).toFixed(2)}deg`);
+          element.style.setProperty('--ry', `${(px * maxTilt).toFixed(2)}deg`);
+          element.style.setProperty('--tz', element.classList.contains('contact-link') ? '8px' : '18px');
+          element.classList.add('is-tilting');
+          tiltFrame = 0;
+        });
+      }, { passive: true });
+
+      element.addEventListener('pointerleave', () => {
+        element.classList.remove('is-tilting');
+        element.style.removeProperty('--rx');
+        element.style.removeProperty('--ry');
+        element.style.removeProperty('--tz');
+      });
     });
   }
 
@@ -319,7 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // DPE card: subtle pointer tilt
+  // DPE card: stronger 3D pointer tilt
   if (!reduceMotion && finePointer) {
     const dpeCard = document.querySelector('.dpe-card');
     if (dpeCard) {
@@ -331,12 +368,12 @@ document.addEventListener('DOMContentLoaded', () => {
           const rect = dpeCard.getBoundingClientRect();
           const px = (clientX - rect.left) / rect.width - 0.5;
           const py = (clientY - rect.top) / rect.height - 0.5;
-          dpeCard.style.transform = `perspective(900px) rotateY(${px * 6}deg) rotateX(${-py * 6}deg) scale(1.01)`;
+          dpeCard.style.transform = `perspective(1000px) rotateY(${px * 9}deg) rotateX(${-py * 9}deg) translateZ(18px) scale(1.025)`;
           dpeFrame = 0;
         });
       }, { passive: true });
       dpeCard.addEventListener('mouseleave', () => {
-        dpeCard.style.transform = 'perspective(900px) rotateY(0) rotateX(0) scale(1)';
+        dpeCard.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) translateZ(0) scale(1)';
       });
     }
   }
