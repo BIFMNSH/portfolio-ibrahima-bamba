@@ -19,7 +19,7 @@
   <meta property="og:locale" content="fr_FR"/>
   <meta property="og:site_name" content="Portfolio Ibrahima Fa Bamba"/>
   <meta property="og:title" content="Études de cas | Ibrahima Fa Bamba"/>
-  <meta property="og:description" content="Projets appliqués : contexte, actions, livrables, résultats, compétences et outils."/>
+  <meta property="og:description" content="Projets appliqués en rénovation énergétique avec détail au clic."/>
   <meta property="og:url" content="https://portfolio-ibrahima-bamba.vercel.app/projets.html"/>
   <meta property="og:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -32,87 +32,64 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css"/>
   <link rel="stylesheet" href="style.css?v=20260708-premium"/>
   <style>
-    .projects-page .page-hero { padding-bottom: 3.1rem; }
-    .projects-hero-line { display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; }
-    .projects-note { max-width: 360px; border: 1px solid rgba(200,151,58,.28); border-radius: var(--radius-lg); padding: 1.05rem 1.15rem; background: rgba(255,255,255,.07); color: rgba(255,255,255,.76); display:flex; gap:.8rem; align-items:flex-start; box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
-    .projects-note i { color: var(--gold); font-size: 24px; flex:0 0 auto; margin-top:.1rem; }
-    .projects-note strong { color: var(--white); display:block; margin-bottom:.15rem; }
-    .project-proof-layout { display:grid; grid-template-columns:minmax(300px, 420px) minmax(0,1fr); gap:1.3rem; align-items:start; }
-    .project-list-panel, .project-detail-panel, .project-help-strip { background: var(--surface-raised, var(--surface)); border:1px solid var(--divider); border-radius:var(--radius-lg); box-shadow:var(--shadow); }
-    .project-list-panel { padding: .75rem; position:sticky; top: calc(var(--nav-height, 60px) + 1rem); }
-    .project-list-head { padding:.65rem .7rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .project-list-head h2 { font-family: var(--serif); font-size: 24px; font-weight:400; line-height:1.1; margin:0; color:var(--ink); }
-    .project-list-head p { margin:.25rem 0 0; color:var(--ink-soft); font-size:13px; line-height:1.45; }
-    .project-count { color:var(--sage); background:var(--sage-pale); border:1px solid var(--hairline, var(--divider)); border-radius:999px; padding:.3rem .65rem; font-size:12px; font-weight:800; white-space:nowrap; }
-    .project-card-list { display:grid; gap:.75rem; }
-    .project-card { width:100%; display:grid; grid-template-columns: 118px minmax(0,1fr) auto; gap:.9rem; align-items:center; text-align:left; border:1px solid var(--divider); background:var(--surface); color:var(--ink); border-radius:var(--radius-md); padding:.55rem; cursor:pointer; position:relative; overflow:hidden; box-shadow:0 3px 6px rgba(26,31,28,.05); transition: transform .22s var(--ease-out-expo, ease), border-color .22s, box-shadow .22s, background .22s; }
-    .project-card:hover, .project-card:focus-visible { border-color:rgba(200,151,58,.54); transform:translateY(-1px); box-shadow:0 9px 20px rgba(26,31,28,.09); }
-    .project-card.is-active { border-color:var(--sage); box-shadow:0 0 0 1px rgba(47,111,79,.26), 0 12px 28px rgba(47,111,79,.12); }
-    .project-banner { min-height:82px; border-radius:calc(var(--radius-md) - 2px); display:flex; align-items:flex-end; justify-content:flex-start; padding:.55rem; color:var(--white); background:linear-gradient(135deg, #1A1F1C, #2F6F4F); position:relative; overflow:hidden; }
-    .project-banner::before { content:''; position:absolute; inset:-40%; background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.28), transparent 28%), radial-gradient(circle at 80% 70%, rgba(200,151,58,.34), transparent 26%); transform:rotate(-8deg); }
-    .project-banner::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(10,15,12,.64)); }
-    .project-card[data-project="p03"] .project-banner { background:linear-gradient(135deg, #244A39, #78A98C); }
-    .project-card[data-project="p04"] .project-banner { background:linear-gradient(135deg, #1D2B22, #C8973A); }
-    .project-card[data-project="p05"] .project-banner { background:linear-gradient(135deg, #26362C, #4F7A5D); }
-    .project-card[data-project="p06"] .project-banner { background:linear-gradient(135deg, #20342A, #6E8F7B); }
-    .project-card[data-project="p07"] .project-banner { background:linear-gradient(135deg, #1B2A23, #8C6A2F); }
-    .project-card[data-project="p08"] .project-banner { background:linear-gradient(135deg, #153528, #2F6F4F); }
-    .project-card[data-project="p09"] .project-banner { background:linear-gradient(135deg, #243B30, #9A7A36); }
-    .project-banner span { position:relative; z-index:1; display:inline-flex; align-items:center; gap:.35rem; font-size:12px; font-weight:800; letter-spacing:.02em; background:rgba(10,15,12,.55); border:1px solid rgba(255,255,255,.16); border-radius:999px; padding:.28rem .5rem; backdrop-filter: blur(8px); }
-    .project-card-title { font-family:var(--serif); font-size:19px; font-weight:400; color:var(--ink); line-height:1.15; margin:0 0 .35rem; }
-    .project-card-meta { color:var(--ink-soft); font-size:13px; line-height:1.35; margin:0 0 .5rem; }
-    .project-card .chip-row { gap:.35rem; }
-    .project-card .chip { font-size:11px; padding:3px 7px; }
-    .project-card-arrow { width:34px; height:34px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:var(--sage); background:var(--sage-pale); border:1px solid var(--hairline, var(--divider)); transition:transform .22s, background .22s; }
-    .project-card.is-active .project-card-arrow { transform:rotate(90deg); background:var(--sage); color:var(--white); }
-    .project-preview { position:absolute; inset:.55rem auto .55rem .55rem; width:118px; border-radius:calc(var(--radius-md) - 2px); background:rgba(15,24,18,.74); color:var(--white); z-index:2; display:flex; align-items:center; justify-content:center; text-align:center; padding:.65rem; font-size:12px; font-weight:750; opacity:0; transform:scale(.96); transition: opacity .18s, transform .18s; pointer-events:none; backdrop-filter:blur(8px); }
-    .project-card:hover .project-preview, .project-card:focus-visible .project-preview { opacity:1; transform:scale(1); }
-    .project-detail-panel { padding:1.35rem; min-height: 640px; }
-    .project-detail-top { display:flex; align-items:flex-start; justify-content:space-between; gap:1.25rem; border-bottom:1px solid var(--divider); padding-bottom:1.15rem; margin-bottom:1.2rem; }
-    .project-detail-kicker { color:var(--sage); font-size:13px; font-weight:800; display:inline-flex; gap:.4rem; align-items:center; margin-bottom:.55rem; }
-    .project-detail-title { font-family:var(--serif); font-size:34px; line-height:1.08; font-weight:400; color:var(--ink); margin:0 0 .55rem; }
-    .project-detail-sub { color:var(--ink-soft); margin:0; max-width:680px; line-height:1.6; }
-    .project-detail-badge { background:var(--gold-pale); color:#704400; border:1px solid rgba(200,151,58,.32); border-radius:999px; padding:.45rem .7rem; font-size:12px; font-weight:800; white-space:nowrap; }
-    [data-theme="night"] .project-detail-badge { color:#F3DEB5; }
+    .projects-page .page-hero { padding-bottom: 3rem; }
+    .projects-intro { max-width: 1100px; margin: 0 auto; }
+    .projects-grid-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.2rem; }
+    .project-card { width:100%; min-height:260px; border:1px solid var(--divider); border-radius:var(--radius-lg); padding:0; background:var(--surface-raised, var(--surface)); color:var(--ink); text-align:left; cursor:pointer; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; transition:transform .24s var(--ease-out-expo, ease), box-shadow .24s var(--ease-out-expo, ease), border-color .24s; }
+    .project-card:hover, .project-card:focus-visible { transform:translateY(-4px); border-color:rgba(200,151,58,.62); box-shadow:0 18px 32px rgba(26,31,28,.12); }
+    .project-banner { height:108px; padding:.85rem; color:var(--white); display:flex; align-items:flex-end; justify-content:space-between; gap:.75rem; position:relative; overflow:hidden; background:linear-gradient(135deg, #1A1F1C, #2F6F4F); }
+    .project-card:nth-child(2) .project-banner { background:linear-gradient(135deg, #244A39, #78A98C); }
+    .project-card:nth-child(3) .project-banner { background:linear-gradient(135deg, #1D2B22, #C8973A); }
+    .project-card:nth-child(4) .project-banner { background:linear-gradient(135deg, #26362C, #4F7A5D); }
+    .project-card:nth-child(5) .project-banner { background:linear-gradient(135deg, #20342A, #6E8F7B); }
+    .project-card:nth-child(6) .project-banner { background:linear-gradient(135deg, #1B2A23, #8C6A2F); }
+    .project-card:nth-child(7) .project-banner { background:linear-gradient(135deg, #153528, #2F6F4F); }
+    .project-card:nth-child(8) .project-banner { background:linear-gradient(135deg, #243B30, #9A7A36); }
+    .project-banner::before { content:''; position:absolute; inset:-55%; background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.30), transparent 26%), radial-gradient(circle at 78% 70%, rgba(200,151,58,.34), transparent 26%); transform:rotate(-10deg); }
+    .project-banner::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(8,13,10,.62)); }
+    .project-banner span, .project-banner i { position:relative; z-index:1; }
+    .project-number { display:inline-flex; align-items:center; gap:.35rem; background:rgba(10,15,12,.56); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:.32rem .58rem; font-size:12px; font-weight:800; backdrop-filter:blur(8px); }
+    .project-banner i { width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.18); font-size:20px; }
+    .project-body { padding:1.05rem; flex:1; display:flex; flex-direction:column; gap:.75rem; }
+    .project-body h3 { margin:0; font-family:var(--serif); font-size:23px; line-height:1.12; font-weight:400; color:var(--ink); }
+    .project-type { margin:0; color:var(--ink-soft); font-size:14px; line-height:1.45; }
+    .project-body .chip-row { margin-top:auto; gap:.42rem; }
+    .project-body .chip { font-size:11px; padding:4px 7px; }
+    .project-card-footer { display:flex; justify-content:space-between; align-items:center; gap:1rem; border-top:1px solid var(--divider); padding:.8rem 1.05rem; color:var(--sage); font-size:13px; font-weight:800; }
+    .project-card-footer i { transition:transform .2s; }
+    .project-card:hover .project-card-footer i, .project-card:focus-visible .project-card-footer i { transform:translateX(3px); }
+    .project-modal { position:fixed; inset:0; z-index:300; display:none; align-items:flex-start; justify-content:center; padding:clamp(1rem, 5vw, 3rem); overflow:auto; background:rgba(10,16,12,.62); backdrop-filter:blur(8px); }
+    .project-modal.open { display:flex; }
+    .project-modal-card { width:min(980px, 100%); background:var(--surface); color:var(--ink); border:1px solid var(--divider); border-top:4px solid var(--gold); border-radius:var(--radius-lg); box-shadow:0 24px 70px rgba(0,0,0,.28); overflow:hidden; }
+    .project-modal-header { background:var(--panel-dark); color:var(--white); padding:1.35rem 1.5rem; display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }
+    .project-modal-kicker { color:var(--gold); font-size:13px; font-weight:800; display:inline-flex; align-items:center; gap:.4rem; margin-bottom:.55rem; }
+    .project-modal-title { font-family:var(--serif); font-size:34px; line-height:1.08; font-weight:400; margin:0 0 .5rem; color:var(--white); }
+    .project-modal-sub { margin:0; color:rgba(255,255,255,.66); max-width:700px; line-height:1.55; }
+    .project-modal-close { border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.08); color:rgba(255,255,255,.86); border-radius:999px; min-width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:0 0 auto; }
+    .project-modal-close:hover, .project-modal-close:focus-visible { border-color:var(--gold); color:var(--gold); }
+    .project-modal-body { padding:1.5rem; }
     .project-detail-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
-    .project-detail-block { border:1px solid var(--divider); border-radius:var(--radius-md); padding:1rem; background:linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.36)); min-height:170px; }
+    .project-detail-block { border:1px solid var(--divider); border-radius:var(--radius-md); padding:1rem; background:linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.32)); min-height:160px; }
     [data-theme="night"] .project-detail-block { background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)); }
-    .project-detail-block h3 { margin:0 0 .7rem; font-size:16px; color:var(--ink); display:flex; align-items:center; gap:.55rem; }
+    .project-detail-block h3 { margin:0 0 .75rem; font-size:16px; color:var(--ink); display:flex; align-items:center; gap:.55rem; }
     .project-detail-block h3 i { width:32px; height:32px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:var(--sage-pale); color:var(--sage); border:1px solid var(--hairline, var(--divider)); }
     .project-detail-block ul { margin:0; padding-left:1.1rem; color:var(--ink-soft); display:grid; gap:.45rem; line-height:1.45; }
     .project-detail-block li::marker { color:var(--gold); }
-    .project-detail-block .chip-row { margin-top:.1rem; }
-    .project-detail-block .chip { margin-bottom:.25rem; }
-    .project-detail-actions { margin-top:1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; background:var(--sage-pale); border:1px solid var(--hairline, var(--divider)); border-radius:var(--radius-md); padding:1rem; }
-    .project-detail-actions p { margin:0; color:var(--ink-soft); max-width:620px; }
-    .project-help-strip { margin-top:1.4rem; padding:1rem; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
-    .project-help-item { display:flex; align-items:center; gap:.75rem; color:var(--ink-soft); font-size:14px; border-right:1px solid var(--divider); min-width:0; }
-    .project-help-item:last-child { border-right:none; }
-    .project-help-item i { width:36px; height:36px; border-radius:50%; flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center; color:var(--sage); background:var(--sage-pale); border:1px solid var(--hairline, var(--divider)); }
-    .project-bottom-cta { margin-top:1.6rem; }
-    @media (max-width: 980px) {
-      .projects-hero-line { display:block; }
-      .projects-note { margin-top:1.4rem; max-width:none; }
-      .project-proof-layout { grid-template-columns:1fr; }
-      .project-list-panel { position:static; }
-      .project-card-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
-      .project-card { grid-template-columns:1fr; }
-      .project-banner, .project-preview { width:100%; min-height:92px; inset:.55rem .55rem auto .55rem; }
-      .project-card-arrow { position:absolute; top:.85rem; right:.85rem; z-index:3; }
-    }
-    @media (max-width: 720px) {
-      .project-card-list { grid-template-columns:1fr; }
-      .project-detail-panel { padding:1rem; min-height:0; }
-      .project-detail-top { display:block; }
-      .project-detail-badge { display:inline-flex; margin-top:1rem; }
-      .project-detail-title { font-size:28px; }
+    .project-detail-block .chip-row { gap:.45rem; }
+    .project-modal-note { margin-top:1rem; border:1px solid var(--hairline, var(--divider)); background:var(--sage-pale); border-radius:var(--radius-md); padding:1rem; color:var(--ink-soft); }
+    .project-modal-note strong { color:var(--ink); }
+    .projects-next { margin-top:1.5rem; }
+    @media (max-width: 980px) { .projects-grid-cards { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width: 680px) {
+      .projects-grid-cards { grid-template-columns:1fr; }
+      .project-modal { padding:.75rem; }
+      .project-modal-header { padding:1.05rem; }
+      .project-modal-title { font-size:27px; }
+      .project-modal-body { padding:1rem; }
       .project-detail-grid { grid-template-columns:1fr; }
-      .project-help-strip { grid-template-columns:1fr; }
-      .project-help-item { border-right:none; border-bottom:1px solid var(--divider); padding-bottom:.8rem; }
-      .project-help-item:last-child { border-bottom:none; padding-bottom:0; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .project-card, .project-card-arrow, .project-preview { transition:none; }
+      .project-card, .project-card-footer i { transition:none; }
       .project-card:hover, .project-card:focus-visible { transform:none; }
     }
   </style>
@@ -145,50 +122,18 @@
 
 <main id="main-content">
   <section class="page-hero" aria-labelledby="page-title">
-    <div class="page-hero-inner projects-hero-line">
-      <div>
-        <span class="page-indicator">Projets appliqués</span>
-        <h1 id="page-title">Projets</h1>
-        <p>Une interface concise pour lire rapidement les preuves métier : contexte, actions, livrables, résultats, compétences et outils.</p>
-      </div>
-      <aside class="projects-note" aria-label="Aide de lecture">
-        <i class="ti ti-pointer" aria-hidden="true"></i>
-        <div><strong>Survol : aperçu rapide</strong><span>Clic : détail complet du projet sélectionné.</span></div>
-      </aside>
+    <div class="page-hero-inner projects-intro">
+      <span class="page-indicator">Projets appliqués</span>
+      <h1 id="page-title">Projets</h1>
+      <p>Études de cas appliquées en rénovation énergétique.</p>
     </div>
   </section>
 
-  <section class="section-wrap" aria-labelledby="projects-proof-title">
+  <section class="section-wrap" aria-labelledby="projects-list-title">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" id="projects-proof-title">Liste des projets</h2>
-        <p class="section-sub">Études de cas issues d’un cadre pédagogique, non présentées comme des missions client. Chaque projet montre une méthode professionnelle applicable en rénovation énergétique.</p>
-      </div>
-
-      <div class="project-proof-layout">
-        <aside class="project-list-panel" aria-label="Sélection des projets">
-          <div class="project-list-head">
-            <div>
-              <h2>Projets travaillés</h2>
-              <p>Choisir un projet pour afficher le détail.</p>
-            </div>
-            <span class="project-count">8 projets</span>
-          </div>
-          <div class="project-card-list" id="project-card-list"></div>
-        </aside>
-
-        <section class="project-detail-panel" aria-labelledby="project-detail-title" aria-live="polite">
-          <div id="project-detail"></div>
-        </section>
-      </div>
-
-      <div class="project-help-strip" aria-label="Mode d’interaction">
-        <div class="project-help-item"><i class="ti ti-eye" aria-hidden="true"></i><span><strong>Survol</strong> : aperçu rapide du projet.</span></div>
-        <div class="project-help-item"><i class="ti ti-click" aria-hidden="true"></i><span><strong>Clic</strong> : détail complet à droite.</span></div>
-        <div class="project-help-item"><i class="ti ti-check" aria-hidden="true"></i><span><strong>Détail</strong> : 6 rubriques métier.</span></div>
-      </div>
-
-      <div class="next-banner project-bottom-cta">
+      <div class="section-header"><h2 class="section-title" id="projects-list-title">Liste des projets</h2></div>
+      <div class="projects-grid-cards" id="projects-grid" aria-label="Liste des projets"></div>
+      <div class="next-banner projects-next">
         <div>
           <p class="next-banner-label">Projet personnel complémentaire</p>
           <p class="next-banner-title">NOHOBA & construction durable</p>
@@ -198,6 +143,16 @@
     </div>
   </section>
 </main>
+
+<div class="project-modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" aria-describedby="project-modal-sub" hidden>
+  <div class="project-modal-card">
+    <div class="project-modal-header">
+      <div id="project-modal-header-content"></div>
+      <button class="project-modal-close" type="button" id="project-modal-close" aria-label="Fermer le détail du projet"><i class="ti ti-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="project-modal-body" id="project-modal-body"></div>
+  </div>
+</div>
 
 <footer>
   <span class="footer-logo"><span class="brand-monogram footer-mark" aria-hidden="true">IFB</span></span>
@@ -215,174 +170,104 @@
 <script src="script.js?v=20260708-premium"></script>
 <script>
   const projects = [
-    {
-      id: 'p02', number: 'Projet 2', title: 'Audit énergétique initial', type: 'Audit copropriété', icon: 'ti-search',
-      meta: 'Résidence Les 300 · 320 logements · DPE E', tags: ['Audit', 'Copropriété', 'Diagnostic'], badge: 'Projet appliqué',
-      summary: 'Objectiver l’état initial avant de proposer des scénarios.',
-      context: ['Copropriété construite en 1966', '320 logements, enveloppe vieillissante', 'Consommation initiale estimée à 251 kWhEP/m²/an'],
-      actions: ['Analyser le bâti, les systèmes et les usages', 'Identifier les principaux postes de déperdition', 'Hiérarchiser les priorités techniques'],
-      deliverables: ['Fiche diagnostic', 'Carte des déperditions', 'Synthèse vulgarisée'],
-      results: ['Diagnostic structuré', 'Priorités techniques clarifiées', 'Base exploitable pour les scénarios'],
-      skills: ['Audit énergétique', 'Analyse bâti', 'DPE', 'Synthèse technique', 'Vulgarisation'],
-      tools: ['Visuary', 'CAP Renov+', 'Excel', 'Relevés terrain simulés']
-    },
-    {
-      id: 'p03', number: 'Projet 3', title: 'Scénarios de rénovation', type: 'Scénarios & aides', icon: 'ti-calculator',
-      meta: 'Travaux simulés 9,8 M€ · Objectif E → B', tags: ['Scénarios', 'Aides', 'Décision'], badge: 'Étude détaillée',
-      summary: 'Comparer des bouquets de travaux, les aides et le reste à charge.',
-      context: ['Besoin de choisir un scénario cohérent', 'Montant global important à rendre compréhensible', 'Conseil syndical à accompagner dans l’arbitrage'],
-      actions: ['Construire une matrice comparative', 'Comparer coûts, gains, aides et contraintes', 'Préparer une recommandation argumentée'],
-      deliverables: ['Matrice scénarios', 'Tableau aides / reste à charge', 'Support de synthèse pour décision'],
-      results: ['Scénario recommandé', 'Aides financières clarifiées', 'Base de vote plus lisible'],
-      skills: ['Comparaison multicritère', 'Aides financières', 'Analyse économique', 'Aide à la décision'],
-      tools: ['CAP Renov+', 'Excel', 'PowerPoint', 'France Rénov’']
-    },
-    {
-      id: 'p04', number: 'Projet 4', title: 'Rénovation globale', type: 'Logement individuel', icon: 'ti-home-eco',
-      meta: 'Maison individuelle · rénovation par étapes', tags: ['Maison', 'Travaux', 'Aides'], badge: 'Projet appliqué',
-      summary: 'Structurer un parcours de rénovation pour un logement individuel.',
-      context: ['Maison avec besoins de performance et confort', 'Arbitrage entre travaux prioritaires et budget', 'Recherche d’un parcours progressif'],
-      actions: ['Analyser les besoins du ménage', 'Prioriser les postes de travaux', 'Relier gains attendus et aides mobilisables'],
-      deliverables: ['Plan de rénovation', 'Fiche priorités travaux', 'Synthèse aides mobilisables'],
-      results: ['Parcours travaux clarifié', 'Priorités budgétaires posées', 'Décision facilitée pour le ménage'],
-      skills: ['Logement individuel', 'Rénovation globale', 'Conseil', 'Hiérarchisation'],
-      tools: ['CAP Renov+', 'Visuary', 'Excel', 'Documentation aides']
-    },
-    {
-      id: 'p05', number: 'Projet 5', title: 'Analyse des offres', type: 'Consultation entreprises', icon: 'ti-file-invoice',
-      meta: 'Comparaison devis · sélection entreprise', tags: ['Devis', 'RGE', 'Choix'], badge: 'Projet appliqué',
-      summary: 'Comparer les offres pour sécuriser le choix d’une entreprise.',
-      context: ['Plusieurs offres techniques à comparer', 'Besoin de vérifier cohérence, prix et garanties', 'Critères de sélection à rendre objectifs'],
-      actions: ['Lire les devis et périmètres de travaux', 'Vérifier les qualifications et points de vigilance', 'Construire une grille de comparaison'],
-      deliverables: ['Tableau comparatif des offres', 'Liste des points de vigilance', 'Synthèse de recommandation'],
-      results: ['Choix mieux argumenté', 'Risques identifiés', 'Comparaison plus transparente'],
-      skills: ['Analyse devis', 'RGE', 'Comparaison', 'Préparation décision'],
-      tools: ['Excel', 'Grille multicritère', 'Référentiels RGE', 'Documents entreprises']
-    },
-    {
-      id: 'p06', number: 'Projet 6', title: 'Veille réglementaire', type: 'Transition énergétique', icon: 'ti-rss',
-      meta: 'Règles, aides et obligations · synthèse utile', tags: ['Veille', 'Règles', 'Synthèse'], badge: 'Projet appliqué',
-      summary: 'Transformer une veille technique et réglementaire en repères exploitables.',
-      context: ['Réglementations et aides évolutives', 'Besoin de repères fiables pour les projets', 'Informations souvent dispersées'],
-      actions: ['Identifier les sources fiables', 'Comparer les impacts sur les projets', 'Synthétiser les points à retenir'],
-      deliverables: ['Note de veille', 'Tableau d’impacts', 'Synthèse opérationnelle'],
-      results: ['Repères réglementaires clarifiés', 'Décisions mieux sécurisées', 'Information plus accessible'],
-      skills: ['Veille', 'Analyse réglementaire', 'Synthèse', 'Rigueur documentaire'],
-      tools: ['Sites institutionnels', 'Tableur', 'Notes structurées', 'Documentation métier']
-    },
-    {
-      id: 'p07', number: 'Projet 7', title: 'Préparation chantier', type: 'Planification & coordination', icon: 'ti-tools',
-      meta: 'Préparer le lancement et les interfaces acteurs', tags: ['Chantier', 'Planning', 'MOE'], badge: 'Étude détaillée',
-      summary: 'Préparer les étapes avant travaux et les points de coordination.',
-      context: ['Projet à passer de la décision à l’exécution', 'Plusieurs acteurs à coordonner', 'Documents et jalons à sécuriser'],
-      actions: ['Identifier les jalons de préparation', 'Structurer les rôles et interfaces', 'Anticiper les points de blocage'],
-      deliverables: ['Planning de préparation', 'Check-list de lancement', 'Tableau acteurs / responsabilités'],
-      results: ['Démarrage mieux cadré', 'Responsabilités clarifiées', 'Risques opérationnels anticipés'],
-      skills: ['Coordination', 'Planification', 'Gestion des risques', 'Suivi projet'],
-      tools: ['Excel', 'Planning', 'Check-list', 'Supports de réunion']
-    },
-    {
-      id: 'p08', number: 'Projet 8', title: 'Suivi qualité & conformité', type: 'Réception', icon: 'ti-clipboard-check',
-      meta: 'Contrôles, réserves et documents attendus', tags: ['Qualité', 'Conformité', 'Réception'], badge: 'Étude détaillée',
-      summary: 'Sécuriser la fin de chantier et les documents de réception.',
-      context: ['Travaux à contrôler avant validation', 'Réserves et justificatifs à suivre', 'Besoin de traçabilité documentaire'],
-      actions: ['Définir les points de contrôle', 'Lister les documents attendus', 'Suivre réserves et corrections'],
-      deliverables: ['Check-list réception', 'Tableau de réserves', 'Liste des justificatifs'],
-      results: ['Réception mieux sécurisée', 'Documents suivis', 'Points de conformité identifiés'],
-      skills: ['Contrôle qualité', 'Conformité', 'Réception', 'Rigueur opérationnelle'],
-      tools: ['Check-list', 'Tableur', 'PV de réception', 'Dossier documentaire']
-    },
-    {
-      id: 'p09', number: 'Projet 9', title: 'Communication copropriété', type: 'Support AG & pédagogie', icon: 'ti-users',
-      meta: 'Vulgarisation, supports AG et aide au vote', tags: ['Communication', 'AG', 'Pédagogie'], badge: 'Étude détaillée',
-      summary: 'Rendre un dossier technique compréhensible pour les copropriétaires.',
-      context: ['Décision collective à préparer', 'Données techniques et financières complexes', 'Besoin d’adhésion et de clarté avant vote'],
-      actions: ['Vulgariser les scénarios', 'Préparer les supports de présentation', 'Anticiper les questions des copropriétaires'],
-      deliverables: ['Support AG', 'FAQ copropriétaires', 'Synthèse de décision'],
-      results: ['Information plus accessible', 'Vote mieux préparé', 'Dialogue facilité entre acteurs'],
-      skills: ['Pédagogie', 'Communication non spécialiste', 'Synthèse', 'Aide à la décision'],
-      tools: ['PowerPoint', 'Canva', 'Excel', 'Supports de synthèse']
-    }
+    { id:'p02', number:'Projet 2', title:'Audit énergétique initial', type:'Audit copropriété', icon:'ti-search', meta:'Résidence Les 300 · 320 logements · DPE E', tags:['Audit','Copropriété','Diagnostic'], context:['Copropriété construite en 1966','320 logements, enveloppe vieillissante','Consommation initiale estimée à 251 kWhEP/m²/an'], actions:['Analyser le bâti, les systèmes et les usages','Identifier les principaux postes de déperdition','Hiérarchiser les priorités techniques'], deliverables:['Fiche diagnostic','Carte des déperditions','Synthèse vulgarisée'], results:['Diagnostic structuré','Priorités techniques clarifiées','Base exploitable pour les scénarios'], skills:['Audit énergétique','Analyse bâti','DPE','Synthèse technique','Vulgarisation'], tools:['Visuary','CAP Renov+','Excel','Relevés terrain simulés'] },
+    { id:'p03', number:'Projet 3', title:'Scénarios de rénovation', type:'Scénarios & aides financières', icon:'ti-calculator', meta:'Travaux simulés 9,8 M€ · Objectif E → B', tags:['Scénarios','Aides','Décision'], context:['Besoin de choisir un scénario cohérent','Montant global important à rendre compréhensible','Conseil syndical à accompagner dans l’arbitrage'], actions:['Construire une matrice comparative','Comparer coûts, gains, aides et contraintes','Préparer une recommandation argumentée'], deliverables:['Matrice scénarios','Tableau aides / reste à charge','Support de synthèse pour décision'], results:['Scénario recommandé','Aides financières clarifiées','Base de vote plus lisible'], skills:['Comparaison multicritère','Aides financières','Analyse économique','Aide à la décision'], tools:['CAP Renov+','Excel','PowerPoint','France Rénov’'] },
+    { id:'p04', number:'Projet 4', title:'Rénovation globale', type:'Logement individuel', icon:'ti-home-eco', meta:'Maison individuelle · rénovation par étapes', tags:['Maison','Travaux','Aides'], context:['Maison avec besoins de performance et confort','Arbitrage entre travaux prioritaires et budget','Recherche d’un parcours progressif'], actions:['Analyser les besoins du ménage','Prioriser les postes de travaux','Relier gains attendus et aides mobilisables'], deliverables:['Plan de rénovation','Fiche priorités travaux','Synthèse aides mobilisables'], results:['Parcours travaux clarifié','Priorités budgétaires posées','Décision facilitée pour le ménage'], skills:['Logement individuel','Rénovation globale','Conseil','Hiérarchisation'], tools:['CAP Renov+','Visuary','Excel','Documentation aides'] },
+    { id:'p05', number:'Projet 5', title:'Analyse des offres', type:'Consultation entreprises', icon:'ti-file-invoice', meta:'Comparaison devis · sélection entreprise', tags:['Devis','RGE','Choix'], context:['Plusieurs offres techniques à comparer','Besoin de vérifier cohérence, prix et garanties','Critères de sélection à rendre objectifs'], actions:['Lire les devis et périmètres de travaux','Vérifier les qualifications et points de vigilance','Construire une grille de comparaison'], deliverables:['Tableau comparatif des offres','Liste des points de vigilance','Synthèse de recommandation'], results:['Choix mieux argumenté','Risques identifiés','Comparaison plus transparente'], skills:['Analyse devis','RGE','Comparaison','Préparation décision'], tools:['Excel','Grille multicritère','Référentiels RGE','Documents entreprises'] },
+    { id:'p06', number:'Projet 6', title:'Veille réglementaire', type:'Transition énergétique', icon:'ti-rss', meta:'Règles, aides et obligations · synthèse utile', tags:['Veille','Règles','Synthèse'], context:['Réglementations et aides évolutives','Besoin de repères fiables pour les projets','Informations souvent dispersées'], actions:['Identifier les sources fiables','Comparer les impacts sur les projets','Synthétiser les points à retenir'], deliverables:['Note de veille','Tableau d’impacts','Synthèse opérationnelle'], results:['Repères réglementaires clarifiés','Décisions mieux sécurisées','Information plus accessible'], skills:['Veille','Analyse réglementaire','Synthèse','Rigueur documentaire'], tools:['Sites institutionnels','Tableur','Notes structurées','Documentation métier'] },
+    { id:'p07', number:'Projet 7', title:'Préparation chantier', type:'Planification & coordination', icon:'ti-tools', meta:'Préparer le lancement et les interfaces acteurs', tags:['Chantier','Planning','MOE'], context:['Projet à passer de la décision à l’exécution','Plusieurs acteurs à coordonner','Documents et jalons à sécuriser'], actions:['Identifier les jalons de préparation','Structurer les rôles et interfaces','Anticiper les points de blocage'], deliverables:['Planning de préparation','Check-list de lancement','Tableau acteurs / responsabilités'], results:['Démarrage mieux cadré','Responsabilités clarifiées','Risques opérationnels anticipés'], skills:['Coordination','Planification','Gestion des risques','Suivi projet'], tools:['Excel','Planning','Check-list','Supports de réunion'] },
+    { id:'p08', number:'Projet 8', title:'Suivi qualité & conformité', type:'Réception', icon:'ti-clipboard-check', meta:'Contrôles, réserves et documents attendus', tags:['Qualité','Conformité','Réception'], context:['Travaux à contrôler avant validation','Réserves et justificatifs à suivre','Besoin de traçabilité documentaire'], actions:['Définir les points de contrôle','Lister les documents attendus','Suivre réserves et corrections'], deliverables:['Check-list réception','Tableau de réserves','Liste des justificatifs'], results:['Réception mieux sécurisée','Documents suivis','Points de conformité identifiés'], skills:['Contrôle qualité','Conformité','Réception','Rigueur opérationnelle'], tools:['Check-list','Tableur','PV de réception','Dossier documentaire'] },
+    { id:'p09', number:'Projet 9', title:'Communication copropriété', type:'Support AG & pédagogie', icon:'ti-users', meta:'Vulgarisation, supports AG et aide au vote', tags:['Communication','AG','Pédagogie'], context:['Décision collective à préparer','Données techniques et financières complexes','Besoin d’adhésion et de clarté avant vote'], actions:['Vulgariser les scénarios','Préparer les supports de présentation','Anticiper les questions des copropriétaires'], deliverables:['Support AG','FAQ copropriétaires','Synthèse de décision'], results:['Information plus accessible','Vote mieux préparé','Dialogue facilité entre acteurs'], skills:['Pédagogie','Communication non spécialiste','Synthèse','Aide à la décision'], tools:['PowerPoint','Canva','Excel','Supports de synthèse'] }
   ];
 
-  const list = document.getElementById('project-card-list');
-  const detail = document.getElementById('project-detail');
+  const grid = document.getElementById('projects-grid');
+  const modal = document.getElementById('project-modal');
+  const modalHeader = document.getElementById('project-modal-header-content');
+  const modalBody = document.getElementById('project-modal-body');
+  const closeButton = document.getElementById('project-modal-close');
+  let lastFocused = null;
 
-  const renderTags = tags => tags.map(tag => `<span class="chip">${tag}</span>`).join('');
-  const renderList = items => items.map(item => `<li>${item}</li>`).join('');
+  const tags = items => items.map(item => `<span class="chip">${item}</span>`).join('');
+  const list = items => items.map(item => `<li>${item}</li>`).join('');
 
-  const renderProjectCard = project => `
-    <button type="button" class="project-card" data-project="${project.id}" aria-controls="project-detail">
-      <span class="project-preview"><i class="ti ti-eye" aria-hidden="true"></i>&nbsp; Aperçu rapide</span>
-      <span class="project-banner" aria-hidden="true"><span><i class="ti ${project.icon}" aria-hidden="true"></i>${project.number}</span></span>
-      <span>
-        <h3 class="project-card-title">${project.title}</h3>
-        <p class="project-card-meta">${project.type}</p>
-        <span class="chip-row">${renderTags(project.tags)}</span>
-      </span>
-      <span class="project-card-arrow" aria-hidden="true"><i class="ti ti-chevron-right"></i></span>
-    </button>
-  `;
-
-  const renderDetailBlock = (icon, title, items) => `
+  const detailBlock = (icon, title, items) => `
     <section class="project-detail-block">
       <h3><i class="ti ${icon}" aria-hidden="true"></i>${title}</h3>
-      <ul>${renderList(items)}</ul>
-    </section>
-  `;
+      <ul>${list(items)}</ul>
+    </section>`;
 
-  const renderChipBlock = (icon, title, items) => `
+  const chipBlock = (icon, title, items) => `
     <section class="project-detail-block">
       <h3><i class="ti ${icon}" aria-hidden="true"></i>${title}</h3>
-      <div class="chip-row">${renderTags(items)}</div>
-    </section>
-  `;
+      <div class="chip-row">${tags(items)}</div>
+    </section>`;
 
-  const showProject = id => {
-    const project = projects.find(item => item.id === id) || projects[0];
-    document.querySelectorAll('.project-card').forEach(card => {
-      const isActive = card.dataset.project === project.id;
-      card.classList.toggle('is-active', isActive);
-      card.setAttribute('aria-pressed', String(isActive));
-    });
-    detail.innerHTML = `
-      <div class="project-detail-top">
-        <div>
-          <span class="project-detail-kicker"><i class="ti ${project.icon}" aria-hidden="true"></i>${project.number} · ${project.type}</span>
-          <h2 class="project-detail-title" id="project-detail-title">${project.title}</h2>
-          <p class="project-detail-sub">${project.summary} <br><span class="text-soft">${project.meta}</span></p>
-        </div>
-        <span class="project-detail-badge">${project.badge}</span>
-      </div>
+  const renderCard = project => `
+    <button type="button" class="project-card" data-project="${project.id}" aria-haspopup="dialog" aria-controls="project-modal">
+      <span class="project-banner" aria-hidden="true"><span class="project-number"><i class="ti ${project.icon}" aria-hidden="true"></i>${project.number}</span><i class="ti ti-arrow-up-right" aria-hidden="true"></i></span>
+      <span class="project-body"><h3>${project.title}</h3><p class="project-type">${project.type}</p><span class="chip-row">${tags(project.tags)}</span></span>
+      <span class="project-card-footer"><span>Voir le détail</span><i class="ti ti-arrow-right" aria-hidden="true"></i></span>
+    </button>`;
+
+  const openProject = id => {
+    const project = projects.find(item => item.id === id);
+    if (!project) return;
+    lastFocused = document.activeElement;
+    modalHeader.innerHTML = `
+      <span class="project-modal-kicker"><i class="ti ${project.icon}" aria-hidden="true"></i>${project.number} · ${project.type}</span>
+      <h2 class="project-modal-title" id="project-modal-title">${project.title}</h2>
+      <p class="project-modal-sub" id="project-modal-sub">${project.meta}</p>`;
+    modalBody.innerHTML = `
       <div class="project-detail-grid">
-        ${renderDetailBlock('ti-building', 'Contexte', project.context)}
-        ${renderDetailBlock('ti-route', 'Actions menées', project.actions)}
-        ${renderDetailBlock('ti-folder', 'Livrables réalisés', project.deliverables)}
-        ${renderDetailBlock('ti-chart-bar', 'Résultats obtenus', project.results)}
-        ${renderChipBlock('ti-certificate', 'Compétences mobilisées', project.skills)}
-        ${renderChipBlock('ti-tool', 'Outils utilisés', project.tools)}
+        ${detailBlock('ti-building', 'Contexte', project.context)}
+        ${detailBlock('ti-route', 'Actions menées', project.actions)}
+        ${detailBlock('ti-folder', 'Livrables réalisés', project.deliverables)}
+        ${detailBlock('ti-chart-bar', 'Résultats obtenus', project.results)}
+        ${chipBlock('ti-certificate', 'Compétences mobilisées', project.skills)}
+        ${chipBlock('ti-tool', 'Outils utilisés', project.tools)}
       </div>
-      <div class="project-detail-actions">
-        <p><strong>Lecture recruteur :</strong> ce projet montre la capacité à analyser, structurer, produire des livrables et rendre la décision plus lisible.</p>
-        <a href="contact.html" class="btn btn-sage">Me contacter <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-      </div>
-    `;
+      <div class="project-modal-note"><strong>Statut :</strong> exemple issu d’un projet appliqué de formation, non présenté comme une mission client réelle.</div>`;
+    modal.hidden = false;
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+    closeButton.focus();
   };
 
-  if (list && detail) {
-    list.innerHTML = projects.map(renderProjectCard).join('');
-    list.addEventListener('click', event => {
+  const closeProject = () => {
+    modal.classList.remove('open');
+    modal.hidden = true;
+    document.body.classList.remove('modal-open');
+    if (lastFocused) lastFocused.focus();
+  };
+
+  if (grid) {
+    grid.innerHTML = projects.map(renderCard).join('');
+    grid.addEventListener('click', event => {
       const card = event.target.closest('.project-card');
-      if (!card) return;
-      showProject(card.dataset.project);
+      if (card) openProject(card.dataset.project);
     });
-    list.addEventListener('mouseover', event => {
-      const card = event.target.closest('.project-card');
-      if (!card || window.matchMedia('(hover: none)').matches) return;
-      card.setAttribute('title', projects.find(project => project.id === card.dataset.project)?.summary || 'Voir le détail');
-    });
-    showProject('p02');
   }
+
+  closeButton.addEventListener('click', closeProject);
+  modal.addEventListener('click', event => {
+    if (event.target === modal) closeProject();
+  });
+  document.addEventListener('keydown', event => {
+    if (modal.hidden) return;
+    if (event.key === 'Escape') closeProject();
+    if (event.key !== 'Tab') return;
+    const focusable = [...modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')];
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
 </script>
 </body>
 </html>
