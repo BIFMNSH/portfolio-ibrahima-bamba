@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!reduceMotion && 'IntersectionObserver' in window) {
     const revealTargets = [
       ...document.querySelectorAll(
-        '.section-wrap .section-header, .principle, .feature-card, .card, .position-box, .timeline-card, .case-study, .contact-link, .proof-table, .next-banner'
+        '.section-wrap .section-header, .principle, .feature-card, .card, .position-box, .timeline-card, .case-study, .contact-link, .proof-table, .next-banner, .nohoba-qr-card'
       )
     ].filter(element => !element.closest('.skill-modal'));
 
@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!reduceMotion && finePointer) {
     const tiltTargets = [
       ...document.querySelectorAll(
-        '.feature-card, .skill-card, .timeline-card, .card, .position-box, .case-study, .contact-link, .next-banner'
+        '.feature-card, .skill-card, .timeline-card, .card, .position-box, .case-study, .contact-link, .next-banner, .nohoba-qr-card'
       )
     ].filter(element => !element.closest('.skill-modal') && !element.classList.contains('dpe-card'));
 
