@@ -19,7 +19,7 @@
   <meta property="og:locale" content="fr_FR"/>
   <meta property="og:site_name" content="Portfolio Ibrahima Fa Bamba"/>
   <meta property="og:title" content="Études de cas | Ibrahima Fa Bamba"/>
-  <meta property="og:description" content="Cinq mises en pratique de formation : audit, scénarios, chantier, conformité et communication copropriété."/>
+  <meta property="og:description" content="Projets appliqués : contexte, actions, livrables, résultats, compétences et outils."/>
   <meta property="og:url" content="https://portfolio-ibrahima-bamba.vercel.app/projets.html"/>
   <meta property="og:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -31,360 +31,175 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css"/>
   <link rel="stylesheet" href="style.css?v=20260708-premium"/>
+  <style>
+    .projects-page .page-hero { padding-bottom: 3.1rem; }
+    .projects-hero-line { display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; }
+    .projects-note { max-width: 360px; border: 1px solid rgba(200,151,58,.28); border-radius: var(--radius-lg); padding: 1.05rem 1.15rem; background: rgba(255,255,255,.07); color: rgba(255,255,255,.76); display:flex; gap:.8rem; align-items:flex-start; box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
+    .projects-note i { color: var(--gold); font-size: 24px; flex:0 0 auto; margin-top:.1rem; }
+    .projects-note strong { color: var(--white); display:block; margin-bottom:.15rem; }
+    .project-proof-layout { display:grid; grid-template-columns:minmax(300px, 420px) minmax(0,1fr); gap:1.3rem; align-items:start; }
+    .project-list-panel, .project-detail-panel, .project-help-strip { background: var(--surface-raised, var(--surface)); border:1px solid var(--divider); border-radius:var(--radius-lg); box-shadow:var(--shadow); }
+    .project-list-panel { padding: .75rem; position:sticky; top: calc(var(--nav-height, 60px) + 1rem); }
+    .project-list-head { padding:.65rem .7rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .project-list-head h2 { font-family: var(--serif); font-size: 24px; font-weight:400; line-height:1.1; margin:0; color:var(--ink); }
+    .project-list-head p { margin:.25rem 0 0; color:var(--ink-soft); font-size:13px; line-height:1.45; }
+    .project-count { color:var(--sage); background:var(--sage-pale); border:1px solid var(--hairline, var(--divider)); border-radius:999px; padding:.3rem .65rem; font-size:12px; font-weight:800; white-space:nowrap; }
+    .project-card-list { display:grid; gap:.75rem; }
+    .project-card { width:100%; display:grid; grid-template-columns: 118px minmax(0,1fr) auto; gap:.9rem; align-items:center; text-align:left; border:1px solid var(--divider); background:var(--surface); color:var(--ink); border-radius:var(--radius-md); padding:.55rem; cursor:pointer; position:relative; overflow:hidden; box-shadow:0 3px 6px rgba(26,31,28,.05); transition: transform .22s var(--ease-out-expo, ease), border-color .22s, box-shadow .22s, background .22s; }
+    .project-card:hover, .project-card:focus-visible { border-color:rgba(200,151,58,.54); transform:translateY(-1px); box-shadow:0 9px 20px rgba(26,31,28,.09); }
+    .project-card.is-active { border-color:var(--sage); box-shadow:0 0 0 1px rgba(47,111,79,.26), 0 12px 28px rgba(47,111,79,.12); }
+    .project-banner { min-height:82px; border-radius:calc(var(--radius-md) - 2px); display:flex; align-items:flex-end; justify-content:flex-start; padding:.55rem; color:var(--white); background:linear-gradient(135deg, #1A1F1C, #2F6F4F); position:relative; overflow:hidden; }
+    .project-banner::before { content:''; position:absolute; inset:-40%; background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.28), transparent 28%), radial-gradient(circle at 80% 70%, rgba(200,151,58,.34), transparent 26%); transform:rotate(-8deg); }
+    .project-banner::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(10,15,12,.64)); }
+    .project-card[data-project="p03"] .project-banner { background:linear-gradient(135deg, #244A39, #78A98C); }
+    .project-card[data-project="p04"] .project-banner { background:linear-gradient(135deg, #1D2B22, #C8973A); }
+    .project-card[data-project="p05"] .project-banner { background:linear-gradient(135deg, #26362C, #4F7A5D); }
+    .project-card[data-project="p06"] .project-banner { background:linear-gradient(135deg, #20342A, #6E8F7B); }
+    .project-card[data-project="p07"] .project-banner { background:linear-gradient(135deg, #1B2A23, #8C6A2F); }
+    .project-card[data-project="p08"] .project-banner { background:linear-gradient(135deg, #153528, #2F6F4F); }
+    .project-card[data-project="p09"] .project-banner { background:linear-gradient(135deg, #243B30, #9A7A36); }
+    .project-banner span { position:relative; z-index:1; display:inline-flex; align-items:center; gap:.35rem; font-size:12px; font-weight:800; letter-spacing:.02em; background:rgba(10,15,12,.55); border:1px solid rgba(255,255,255,.16); border-radius:999px; padding:.28rem .5rem; backdrop-filter: blur(8px); }
+    .project-card-title { font-family:var(--serif); font-size:19px; font-weight:400; color:var(--ink); line-height:1.15; margin:0 0 .35rem; }
+    .project-card-meta { color:var(--ink-soft); font-size:13px; line-height:1.35; margin:0 0 .5rem; }
+    .project-card .chip-row { gap:.35rem; }
+    .project-card .chip { font-size:11px; padding:3px 7px; }
+    .project-card-arrow { width:34px; height:34px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:var(--sage); background:var(--sage-pale); border:1px solid var(--hairline, var(--divider)); transition:transform .22s, background .22s; }
+    .project-card.is-active .project-card-arrow { transform:rotate(90deg); background:var(--sage); color:var(--white); }
+    .project-preview { position:absolute; inset:.55rem auto .55rem .55rem; width:118px; border-radius:calc(var(--radius-md) - 2px); background:rgba(15,24,18,.74); color:var(--white); z-index:2; display:flex; align-items:center; justify-content:center; text-align:center; padding:.65rem; font-size:12px; font-weight:750; opacity:0; transform:scale(.96); transition: opacity .18s, transform .18s; pointer-events:none; backdrop-filter:blur(8px); }
+    .project-card:hover .project-preview, .project-card:focus-visible .project-preview { opacity:1; transform:scale(1); }
+    .project-detail-panel { padding:1.35rem; min-height: 640px; }
+    .project-detail-top { display:flex; align-items:flex-start; justify-content:space-between; gap:1.25rem; border-bottom:1px solid var(--divider); padding-bottom:1.15rem; margin-bottom:1.2rem; }
+    .project-detail-kicker { color:var(--sage); font-size:13px; font-weight:800; display:inline-flex; gap:.4rem; align-items:center; margin-bottom:.55rem; }
+    .project-detail-title { font-family:var(--serif); font-size:34px; line-height:1.08; font-weight:400; color:var(--ink); margin:0 0 .55rem; }
+    .project-detail-sub { color:var(--ink-soft); margin:0; max-width:680px; line-height:1.6; }
+    .project-detail-badge { background:var(--gold-pale); color:#704400; border:1px solid rgba(200,151,58,.32); border-radius:999px; padding:.45rem .7rem; font-size:12px; font-weight:800; white-space:nowrap; }
+    [data-theme="night"] .project-detail-badge { color:#F3DEB5; }
+    .project-detail-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .project-detail-block { border:1px solid var(--divider); border-radius:var(--radius-md); padding:1rem; background:linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.36)); min-height:170px; }
+    [data-theme="night"] .project-detail-block { background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)); }
+    .project-detail-block h3 { margin:0 0 .7rem; font-size:16px; color:var(--ink); display:flex; align-items:center; gap:.55rem; }
+    .project-detail-block h3 i { width:32px; height:32px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:var(--sage-pale); color:var(--sage); border:1px solid var(--hairline, var(--divider)); }
+    .project-detail-block ul { margin:0; padding-left:1.1rem; color:var(--ink-soft); display:grid; gap:.45rem; line-height:1.45; }
+    .project-detail-block li::marker { color:var(--gold); }
+    .project-detail-block .chip-row { margin-top:.1rem; }
+    .project-detail-block .chip { margin-bottom:.25rem; }
+    .project-detail-actions { margin-top:1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; background:var(--sage-pale); border:1px solid var(--hairline, var(--divider)); border-radius:var(--radius-md); padding:1rem; }
+    .project-detail-actions p { margin:0; color:var(--ink-soft); max-width:620px; }
+    .project-help-strip { margin-top:1.4rem; padding:1rem; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+    .project-help-item { display:flex; align-items:center; gap:.75rem; color:var(--ink-soft); font-size:14px; border-right:1px solid var(--divider); min-width:0; }
+    .project-help-item:last-child { border-right:none; }
+    .project-help-item i { width:36px; height:36px; border-radius:50%; flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center; color:var(--sage); background:var(--sage-pale); border:1px solid var(--hairline, var(--divider)); }
+    .project-bottom-cta { margin-top:1.6rem; }
+    @media (max-width: 980px) {
+      .projects-hero-line { display:block; }
+      .projects-note { margin-top:1.4rem; max-width:none; }
+      .project-proof-layout { grid-template-columns:1fr; }
+      .project-list-panel { position:static; }
+      .project-card-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .project-card { grid-template-columns:1fr; }
+      .project-banner, .project-preview { width:100%; min-height:92px; inset:.55rem .55rem auto .55rem; }
+      .project-card-arrow { position:absolute; top:.85rem; right:.85rem; z-index:3; }
+    }
+    @media (max-width: 720px) {
+      .project-card-list { grid-template-columns:1fr; }
+      .project-detail-panel { padding:1rem; min-height:0; }
+      .project-detail-top { display:block; }
+      .project-detail-badge { display:inline-flex; margin-top:1rem; }
+      .project-detail-title { font-size:28px; }
+      .project-detail-grid { grid-template-columns:1fr; }
+      .project-help-strip { grid-template-columns:1fr; }
+      .project-help-item { border-right:none; border-bottom:1px solid var(--divider); padding-bottom:.8rem; }
+      .project-help-item:last-child { border-bottom:none; padding-bottom:0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .project-card, .project-card-arrow, .project-preview { transition:none; }
+      .project-card:hover, .project-card:focus-visible { transform:none; }
+    }
+  </style>
 </head>
 <body class="projects-page">
 <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 <nav class="nav" aria-label="Navigation principale">
   <a href="index.html" class="nav-logo" aria-label="Accueil — Ibrahima Fa Bamba"><span class="brand-monogram" aria-hidden="true">IFB</span></a>
   <ul class="nav-center">
-    <li class=""><a href="index.html">Accueil</a></li>
-    <li class=""><a href="profil.html">Profil</a></li>
-    <li class=""><a href="roadmap.html">Roadmap</a></li>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="roadmap.html">Roadmap</a></li>
     <li class="active"><a href="projets.html" aria-current="page">Projets</a></li>
-    <li class=""><a href="nohoba.html">NOHOBA</a></li>
-    <li class=""><a href="contact.html">Contact</a></li>
+    <li><a href="nohoba.html">NOHOBA</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activer le thème nuit" aria-pressed="false"><i class="ti ti-moon" aria-hidden="true"></i><span class="theme-toggle-text">Nuit</span></button>
   <a href="assets/cv-ibrahima-bamba.pdf" class="nav-cta" download><i class="ti ti-download" aria-hidden="true"></i> Télécharger le CV</a>
   <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
-  <a href="index.html" class="">Accueil</a>
-  <a href="profil.html" class="">Profil</a>
-  <a href="roadmap.html" class="">Roadmap</a>
+  <a href="index.html">Accueil</a>
+  <a href="profil.html">Profil</a>
+  <a href="roadmap.html">Roadmap</a>
   <a href="projets.html" class="active" aria-current="page">Projets</a>
-  <a href="nohoba.html" class="">NOHOBA</a>
-  <a href="contact.html" class="">Contact</a>
+  <a href="nohoba.html">NOHOBA</a>
+  <a href="contact.html">Contact</a>
   <a href="assets/cv-ibrahima-bamba.pdf" download>Télécharger le CV</a>
 </div>
 
-<main id="main-content"><section class="page-hero" aria-labelledby="page-title">
-  <div class="page-hero-inner">
-    <h1 id="page-title">Études de cas</h1>
-    <p>Des projets structurés pour démontrer les compétences attendues d’un chef de projet rénovation énergétique : audit, scénarios, coordination, conformité et communication copropriété.</p>
-  </div>
-</section>
-<section class="section-wrap" aria-labelledby="projets-title">
-  <div class="container">
-    <div class="section-header"><h2 class="section-title" id="projets-title">Projets développés</h2></div>
-    <p class="section-sub"><strong>Cadre :</strong> les études de cas détaillées ci-dessous ont été réalisées en formation professionnelle. Elles présentent la méthode suivie et les livrables-types travaillés à partir de données pédagogiques ; elles ne sont pas présentées comme des missions client.</p>
-    <div class="grid-2" style="margin-bottom:2.25rem">
-      <article class="card">
-        <h3 class="feature-title" style="margin-top:0">Formation chef de projet en rénovation énergétique : projets appliqués</h3>
-        <p class="text-soft">Dans le cadre de ma formation, j’ai travaillé sur plusieurs projets appliqués couvrant les grandes étapes d’un parcours de rénovation : audit énergétique, scénarios de travaux, financement, sélection d’entreprises, préparation de chantier, suivi qualité, communication auprès des copropriétaires et valorisation des livrables.</p>
-        <p class="text-soft" style="margin-top:1rem">Dans ce portfolio, je mets en avant les projets appliqués qui démontrent le mieux mon positionnement professionnel : analyser un bâtiment, construire des scénarios de rénovation, comparer les solutions, préparer une opération, suivre la qualité et rendre les informations compréhensibles pour des acteurs non spécialistes.</p>
-      </article>
-      <article class="position-box">
-        <h3>Base de preuves professionnelles</h3>
-        <p>Ce parcours de projets appliqués relie la lecture technique, les arbitrages financiers, la préparation opérationnelle, la qualité et la communication copropriété.</p>
-        <div class="chip-row" style="margin-top:1.2rem"><span class="tag dark">Audit</span><span class="tag dark">Financement</span><span class="tag dark">Chantier</span><span class="tag dark">Qualité</span><span class="tag dark">Communication</span></div>
-      </article>
+<main id="main-content">
+  <section class="page-hero" aria-labelledby="page-title">
+    <div class="page-hero-inner projects-hero-line">
+      <div>
+        <span class="page-indicator">Projets appliqués</span>
+        <h1 id="page-title">Projets</h1>
+        <p>Une interface concise pour lire rapidement les preuves métier : contexte, actions, livrables, résultats, compétences et outils.</p>
+      </div>
+      <aside class="projects-note" aria-label="Aide de lecture">
+        <i class="ti ti-pointer" aria-hidden="true"></i>
+        <div><strong>Survol : aperçu rapide</strong><span>Clic : détail complet du projet sélectionné.</span></div>
+      </aside>
     </div>
-    <div class="card" style="margin-bottom:2.25rem">
-      <h3 class="feature-title" style="margin-top:0">Parcours de projets travaillés</h3>
-      <ul class="case-list">
-        <li><i class="ti ti-search" aria-hidden="true"></i><span>Projet 2 : audit énergétique initial d’une copropriété</span></li>
-        <li><i class="ti ti-calculator" aria-hidden="true"></i><span>Projet 3 : scénarios de rénovation et aides financières</span></li>
-        <li><i class="ti ti-home-eco" aria-hidden="true"></i><span>Projet 4 : étude de rénovation globale</span></li>
-        <li><i class="ti ti-file-invoice" aria-hidden="true"></i><span>Projet 5 : analyse des offres et sélection d’entreprise</span></li>
-        <li><i class="ti ti-rss" aria-hidden="true"></i><span>Projet 6 : veille réglementaire et transition énergétique</span></li>
-        <li><i class="ti ti-tools" aria-hidden="true"></i><span>Projet 7 : préparation de chantier</span></li>
-        <li><i class="ti ti-clipboard-check" aria-hidden="true"></i><span>Projet 8 : suivi qualité, réception et conformité</span></li>
-        <li><i class="ti ti-users" aria-hidden="true"></i><span>Projet 9 : communication copropriétaires et aide à la décision</span></li>
-      </ul>
-    </div>
-    <div class="card" style="margin-bottom:2.25rem">
-      <h3 class="feature-title" style="margin-top:0">Exemples de livrables travaillés</h3>
-      <p class="text-soft">Les projets appliqués m’ont permis de travailler sur des livrables utiles en rénovation énergétique : matrice comparative de scénarios, tableau aides / reste à charge, support de présentation AG, check-list de conformité et synthèse de décision.</p>
-    </div>
-    <section class="deliverable-proof-section" aria-labelledby="deliverable-proof-title">
+  </section>
+
+  <section class="section-wrap" aria-labelledby="projects-proof-title">
+    <div class="container">
       <div class="section-header">
-        <h2 class="section-title" id="deliverable-proof-title">Preuves de livrables</h2>
-        <p class="section-sub">Ces exemples de livrables issus de projets appliqués permettent de montrer la méthode de travail : analyser les données, comparer les scénarios, rendre les aides compréhensibles, préparer la décision et sécuriser les étapes du projet.</p>
-        <p class="deliverable-proof-note"><i class="ti ti-info-circle" aria-hidden="true"></i> Les livrables présentés sont des exemples de structuration issus de projets pédagogiques et ne correspondent pas à des missions client réelles.</p>
+        <h2 class="section-title" id="projects-proof-title">Liste des projets</h2>
+        <p class="section-sub">Études de cas issues d’un cadre pédagogique, non présentées comme des missions client. Chaque projet montre une méthode professionnelle applicable en rénovation énergétique.</p>
       </div>
-      <div class="deliverable-proof-grid">
-        <article class="deliverable-proof-card">
-          <span class="tag">Projet appliqué</span>
-          <h3>Matrice comparative de scénarios</h3>
-          <p>Comparer plusieurs bouquets de travaux selon les gains énergétiques, les coûts estimés, les contraintes techniques, les aides mobilisables et le reste à charge.</p>
-          <div class="chip-row" aria-label="Compétences démontrées">
-            <span class="chip">Analyse énergétique</span>
-            <span class="chip">Comparaison multicritère</span>
-            <span class="chip">Aide à la décision</span>
-            <span class="chip">Vulgarisation technique</span>
+
+      <div class="project-proof-layout">
+        <aside class="project-list-panel" aria-label="Sélection des projets">
+          <div class="project-list-head">
+            <div>
+              <h2>Projets travaillés</h2>
+              <p>Choisir un projet pour afficher le détail.</p>
+            </div>
+            <span class="project-count">8 projets</span>
           </div>
-        </article>
-        <article class="deliverable-proof-card">
-          <span class="tag">Projet appliqué</span>
-          <h3>Tableau aides et reste à charge</h3>
-          <p>Structurer les informations financières pour rendre lisibles les aides mobilisables, les montants estimés, les conditions d’éligibilité et le coût restant pour le ménage ou la copropriété.</p>
-          <div class="chip-row" aria-label="Compétences démontrées">
-            <span class="chip">Lecture des dispositifs d’aide</span>
-            <span class="chip">Structuration financière</span>
-            <span class="chip">Clarté des hypothèses</span>
-            <span class="chip">Accompagnement à la décision</span>
-          </div>
-        </article>
-        <article class="deliverable-proof-card">
-          <span class="tag">Projet appliqué</span>
-          <h3>Support de présentation pour assemblée générale</h3>
-          <p>Transformer un dossier technique en support clair pour présenter les scénarios, les bénéfices attendus, les impacts financiers et les étapes de décision aux copropriétaires.</p>
-          <div class="chip-row" aria-label="Compétences démontrées">
-            <span class="chip">Communication non spécialiste</span>
-            <span class="chip">Synthèse</span>
-            <span class="chip">Préparation au vote</span>
-            <span class="chip">Pédagogie de projet</span>
-          </div>
-        </article>
-        <article class="deliverable-proof-card">
-          <span class="tag">Projet appliqué</span>
-          <h3>Check-list conformité et réception</h3>
-          <p>Préparer le suivi de fin de chantier en identifiant les points de contrôle, les réserves possibles, les documents attendus et les éléments à vérifier avant validation.</p>
-          <div class="chip-row" aria-label="Compétences démontrées">
-            <span class="chip">Suivi qualité</span>
-            <span class="chip">Contrôle documentaire</span>
-            <span class="chip">Coordination chantier</span>
-            <span class="chip">Rigueur opérationnelle</span>
-          </div>
-        </article>
-        <article class="deliverable-proof-card">
-          <span class="tag">Projet appliqué</span>
-          <h3>Synthèse de décision</h3>
-          <p>Produire une synthèse courte pour aider les acteurs à comprendre les options, les risques, les arbitrages et les prochaines étapes du projet.</p>
-          <div class="chip-row" aria-label="Compétences démontrées">
-            <span class="chip">Synthèse</span>
-            <span class="chip">Hiérarchisation</span>
-            <span class="chip">Aide à la décision</span>
-            <span class="chip">Communication projet</span>
-          </div>
-        </article>
-      </div>
-    </section>
-    <div class="section-header"><h2 class="section-title" id="case-title">Études de cas détaillées</h2></div>
-    <div class="project-tabs" aria-label="Filtrer les études de cas" role="group">
-      <button type="button" class="active" data-filter="all" aria-pressed="true" aria-controls="case-grid">Tous</button>
-      <button type="button" data-filter="audit" aria-pressed="false" aria-controls="case-grid">Projet 2 · Audit</button>
-      <button type="button" data-filter="scenarios" aria-pressed="false" aria-controls="case-grid">Projet 3 · Scénarios</button>
-      <button type="button" data-filter="chantier" aria-pressed="false" aria-controls="case-grid">Projet 7 · Chantier</button>
-      <button type="button" data-filter="conformite" aria-pressed="false" aria-controls="case-grid">Projet 8 · Conformité</button>
-      <button type="button" data-filter="communication" aria-pressed="false" aria-controls="case-grid">Projet 9 · Communication</button>
-    </div>
-    <div class="view-toggle" role="group" aria-label="Mode d'affichage des projets">
-      <button type="button" class="active" data-view="detailed" aria-pressed="true" aria-controls="case-grid"><i class="ti ti-file-text" aria-hidden="true"></i> Vue détaillée</button>
-      <button type="button" data-view="compact" aria-pressed="false" aria-controls="case-grid"><i class="ti ti-layout-grid" aria-hidden="true"></i> Vue compacte</button>
-    </div>
-    <p class="sr-only" id="project-status" aria-live="polite"></p>
-    <p class="small text-soft" style="margin-top:1rem"><a href="nohoba.html" class="inline-link">Voir la page dédiée : NOHOBA & construction durable <i class="ti ti-arrow-right" aria-hidden="true"></i></a></p>
+          <div class="project-card-list" id="project-card-list"></div>
+        </aside>
 
-    <div class="case-grid" id="case-grid">
-    <article class="case-study" data-category="audit" id="projet02" aria-labelledby="p02-title">
-      <div class="case-header">
-        <div><span class="case-num" aria-hidden="true">Audit</span><span class="case-tag">Audit énergétique</span><h2 class="case-title" id="p02-title">Analyse énergétique initiale d’une copropriété</h2><p class="case-context">Étude de cas pédagogique · Résidence Les 300 · 320 logements · DPE E</p></div>
-        <div class="case-metrics" aria-label="Chiffres clés"><div class="case-metric"><span class="case-metric-num">320</span><span class="case-metric-lbl">logements</span></div><div class="case-metric"><span class="case-metric-num">1966</span><span class="case-metric-lbl">construction</span></div><div class="case-metric"><span class="case-metric-num">E</span><span class="case-metric-lbl">DPE initial</span></div><div class="case-metric"><span class="case-metric-num">251</span><span class="case-metric-lbl">kWhEP/m²/an</span></div></div>
+        <section class="project-detail-panel" aria-labelledby="project-detail-title" aria-live="polite">
+          <div id="project-detail"></div>
+        </section>
       </div>
-      <div class="case-body">
 
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-building label-icon" aria-hidden="true"></i><span class="label-eyebrow">Contexte</span><span class="label-title">Situation de départ</span></div>
-          <div class="case-section-content"><h3>Comprendre l’état initial</h3><p>La première étape consiste à objectiver la situation énergétique de la résidence avant toute proposition de travaux : bâti, équipements, consommations et points de déperdition.</p><ul class="case-list"><li><i class="ti ti-calendar" aria-hidden="true"></i><span>Immeuble collectif construit en 1966 avec enveloppe vieillissante</span></li><li><i class="ti ti-temperature" aria-hidden="true"></i><span>Consommation initiale estimée à 251 kWhEP/m²/an</span></li><li><i class="ti ti-chart-bar" aria-hidden="true"></i><span>Classe énergétique E à améliorer par une rénovation globale</span></li></ul><p class="evidence-note">Statut : étude de cas de formation professionnelle, données pédagogiques structurées pour démontrer la méthode.</p></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-alert-triangle label-icon" aria-hidden="true"></i><span class="label-eyebrow">Problème</span><span class="label-title">Enjeu à résoudre</span></div>
-          <div class="case-section-content"><h3>Poser un diagnostic fiable avant de chiffrer</h3><p>Sans diagnostic clair, les scénarios de rénovation risquent de manquer de cohérence ou de ne pas répondre aux vrais postes de pertes énergétiques.</p><ul class="case-list"><li><i class="ti ti-search" aria-hidden="true"></i><span>Identifier les postes prioritaires de déperdition</span></li><li><i class="ti ti-settings" aria-hidden="true"></i><span>Relier enveloppe, ventilation, chauffage et usages</span></li><li><i class="ti ti-file-analytics" aria-hidden="true"></i><span>Préparer une base technique exploitable pour les scénarios</span></li></ul></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-route label-icon" aria-hidden="true"></i><span class="label-eyebrow">Méthode</span><span class="label-title">Démarche</span></div>
-          <div class="case-section-content"><h3>Une méthode en cinq temps</h3><p>La démarche suit une logique de chef de projet : cadrer, collecter les données, analyser les écarts, synthétiser les constats et préparer les recommandations.</p><div class="method-steps"><div class="method-step"><strong>1. Cadrer</strong><span>Contexte, objectifs, acteurs</span></div><div class="method-step"><strong>2. Collecter</strong><span>Données et documents</span></div><div class="method-step"><strong>3. Analyser</strong><span>Hypothèses et écarts</span></div><div class="method-step"><strong>4. Synthétiser</strong><span>Livrables lisibles</span></div><div class="method-step"><strong>5. Recommander</strong><span>Décision et suites</span></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-package label-icon" aria-hidden="true"></i><span class="label-eyebrow">Livrables</span><span class="label-title">Supports produits</span></div>
-          <div class="case-section-content"><h3>Des livrables utiles pour la suite du projet</h3><p>Le travail produit une base de décision pour le syndic, le conseil syndical et les futurs arbitrages techniques.</p><div class="livrables-grid"><div class="livrable-item"><i class="ti ti-file-analytics livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Fiche diagnostic</p><p class="livrable-desc">Synthèse du bâti, des systèmes et consommations.</p></div></div><div class="livrable-item"><i class="ti ti-chart-dots livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Carte des déperditions</p><p class="livrable-desc">Hiérarchisation des postes énergétiques.</p></div></div><div class="livrable-item"><i class="ti ti-list-check livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Priorités techniques</p><p class="livrable-desc">Actions à approfondir dans les scénarios.</p></div></div><div class="livrable-item"><i class="ti ti-message-2 livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Synthèse vulgarisée</p><p class="livrable-desc">Lecture accessible aux copropriétaires.</p></div></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-trophy label-icon" aria-hidden="true"></i><span class="label-eyebrow">Résultat</span><span class="label-title">Apport métier</span></div>
-          <div class="case-section-content"><h3>Un socle technique pour décider</h3><p>Le projet montre la capacité à produire une lecture structurée avant de passer à la phase scénario et financement.</p><div class="results-grid"><div class="result-card"><span class="result-num">Diagnostic</span><span class="result-lbl">structuré</span></div><div class="result-card"><span class="result-num">Priorités</span><span class="result-lbl">hiérarchisées</span></div><div class="result-card"><span class="result-num">Données</span><span class="result-lbl">exploitables</span></div><div class="result-card"><span class="result-num">Base</span><span class="result-lbl">scénarios</span></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-certificate label-icon" aria-hidden="true"></i><span class="label-eyebrow">Compétences</span><span class="label-title">Démontrées</span></div>
-          <div class="case-section-content"><h3>Compétences mises en pratique</h3><p>Cette étude de cas de formation mobilise une méthode et des livrables-types transposables au travail d’une équipe projet.</p><div class="chip-row"><span class="chip">Audit énergétique</span><span class="chip">Analyse bâti</span><span class="chip">DPE</span><span class="chip">Synthèse technique</span><span class="chip">Vulgarisation</span></div></div>
-        </div>
+      <div class="project-help-strip" aria-label="Mode d’interaction">
+        <div class="project-help-item"><i class="ti ti-eye" aria-hidden="true"></i><span><strong>Survol</strong> : aperçu rapide du projet.</span></div>
+        <div class="project-help-item"><i class="ti ti-click" aria-hidden="true"></i><span><strong>Clic</strong> : détail complet à droite.</span></div>
+        <div class="project-help-item"><i class="ti ti-check" aria-hidden="true"></i><span><strong>Détail</strong> : 6 rubriques métier.</span></div>
       </div>
-    </article>
-    <article class="case-study" data-category="scenarios" id="projet03" aria-labelledby="p03-title">
-      <div class="case-header">
-        <div><span class="case-num" aria-hidden="true">Scénarios</span><span class="case-tag">Scénarios & aides</span><h2 class="case-title" id="p03-title">Comparaison des scénarios de travaux et du financement</h2><p class="case-context">Étude de cas pédagogique · Travaux TTC simulés : 9,8 M€ · Objectif E → B</p></div>
-        <div class="case-metrics" aria-label="Chiffres clés"><div class="case-metric"><span class="case-metric-num">9,8 M€</span><span class="case-metric-lbl">travaux TTC</span></div><div class="case-metric"><span class="case-metric-num">36 %</span><span class="case-metric-lbl">aides estimées</span></div><div class="case-metric"><span class="case-metric-num">E → B</span><span class="case-metric-lbl">DPE visé</span></div><div class="case-metric"><span class="case-metric-num">4</span><span class="case-metric-lbl">scénarios</span></div></div>
-      </div>
-      <div class="case-body">
 
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-building label-icon" aria-hidden="true"></i><span class="label-eyebrow">Contexte</span><span class="label-title">Besoin de décision</span></div>
-          <div class="case-section-content"><h3>Comparer plusieurs options de rénovation</h3><p>Après le diagnostic, la copropriété doit comprendre les scénarios possibles, leurs bénéfices, leurs limites et leur impact financier.</p><ul class="case-list"><li><i class="ti ti-git-compare" aria-hidden="true"></i><span>Comparer des bouquets de travaux cohérents</span></li><li><i class="ti ti-coin" aria-hidden="true"></i><span>Évaluer coûts, aides et reste à charge</span></li><li><i class="ti ti-scale" aria-hidden="true"></i><span>Aider le conseil syndical à arbitrer</span></li></ul><p class="evidence-note">Statut : étude de cas de formation professionnelle. Les montants sont utilisés comme support d’analyse et de démonstration.</p></div>
+      <div class="next-banner project-bottom-cta">
+        <div>
+          <p class="next-banner-label">Projet personnel complémentaire</p>
+          <p class="next-banner-title">NOHOBA & construction durable</p>
         </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-alert-triangle label-icon" aria-hidden="true"></i><span class="label-eyebrow">Problème</span><span class="label-title">Enjeu financier</span></div>
-          <div class="case-section-content"><h3>Transformer le coût global en décision compréhensible</h3><p>Un montant global important peut bloquer la décision. Le rôle du chef de projet est de rendre visibles les aides, le reste à charge et les bénéfices attendus.</p><ul class="case-list"><li><i class="ti ti-question-mark" aria-hidden="true"></i><span>Rendre les aides lisibles pour des non-spécialistes</span></li><li><i class="ti ti-report-money" aria-hidden="true"></i><span>Comparer les restes à charge par scénario</span></li><li><i class="ti ti-chart-infographic" aria-hidden="true"></i><span>Relier investissement, économies et valorisation patrimoniale</span></li></ul></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-route label-icon" aria-hidden="true"></i><span class="label-eyebrow">Méthode</span><span class="label-title">Démarche</span></div>
-          <div class="case-section-content"><h3>Construire une matrice comparative</h3><p>La démarche consiste à consolider les hypothèses, définir des critères de comparaison et produire une recommandation argumentée.</p><div class="method-steps"><div class="method-step"><strong>1. Cadrer</strong><span>Contexte, objectifs, acteurs</span></div><div class="method-step"><strong>2. Collecter</strong><span>Données et documents</span></div><div class="method-step"><strong>3. Analyser</strong><span>Hypothèses et écarts</span></div><div class="method-step"><strong>4. Synthétiser</strong><span>Livrables lisibles</span></div><div class="method-step"><strong>5. Recommander</strong><span>Décision et suites</span></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-package label-icon" aria-hidden="true"></i><span class="label-eyebrow">Livrables</span><span class="label-title">Supports produits</span></div>
-          <div class="case-section-content"><h3>Des outils de comparaison opérationnels</h3><p>Les livrables permettent de passer d’une liste de travaux à une décision éclairée.</p><div class="livrables-grid"><div class="livrable-item"><i class="ti ti-table livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Matrice scénarios</p><p class="livrable-desc">Coûts, gains, aides, risques et priorités.</p></div></div><div class="livrable-item"><i class="ti ti-calculator livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Tableau aides</p><p class="livrable-desc">MaPrimeRénov’, CEE, subventions et reste à charge.</p></div></div><div class="livrable-item"><i class="ti ti-presentation livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Synthèse décisionnelle</p><p class="livrable-desc">Lecture rapide pour conseil syndical et AG.</p></div></div><div class="livrable-item"><i class="ti ti-thumb-up livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Recommandation</p><p class="livrable-desc">Scénario priorisé avec justification.</p></div></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-trophy label-icon" aria-hidden="true"></i><span class="label-eyebrow">Résultat</span><span class="label-title">Apport métier</span></div>
-          <div class="case-section-content"><h3>Une aide au choix argumentée</h3><p>Le projet démontre une capacité à rapprocher contraintes techniques, dispositifs financiers et décision collective.</p><div class="results-grid"><div class="result-card"><span class="result-num">4</span><span class="result-lbl">options comparées</span></div><div class="result-card"><span class="result-num">36 %</span><span class="result-lbl">aides estimées</span></div><div class="result-card"><span class="result-num">E → B</span><span class="result-lbl">objectif</span></div><div class="result-card"><span class="result-num">RAC</span><span class="result-lbl">explicité</span></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-certificate label-icon" aria-hidden="true"></i><span class="label-eyebrow">Compétences</span><span class="label-title">Démontrées</span></div>
-          <div class="case-section-content"><h3>Compétences mises en pratique</h3><p>Cette étude de cas de formation mobilise une méthode et des livrables-types transposables au travail d’une équipe projet.</p><div class="chip-row"><span class="chip">Scénarios</span><span class="chip">Aides financières</span><span class="chip">CAP Renov+</span><span class="chip">Excel</span><span class="chip">Aide à la décision</span></div></div>
-        </div>
-      </div>
-    </article>
-    <article class="case-study" data-category="chantier" id="projet07" aria-labelledby="p07-title">
-      <div class="case-header">
-        <div><span class="case-num" aria-hidden="true">Chantier</span><span class="case-tag">Coordination</span><h2 class="case-title" id="p07-title">Préparation opérationnelle du chantier</h2><p class="case-context">Étude de cas pédagogique · Consultation entreprises · Planning · Interfaces acteurs</p></div>
-        <div class="case-metrics" aria-label="Chiffres clés"><div class="case-metric"><span class="case-metric-num">RGE</span><span class="case-metric-lbl">vérifié</span></div><div class="case-metric"><span class="case-metric-num">Planning</span><span class="case-metric-lbl">préparé</span></div><div class="case-metric"><span class="case-metric-num">3</span><span class="case-metric-lbl">lots suivis</span></div><div class="case-metric"><span class="case-metric-num">AG</span><span class="case-metric-lbl">post-vote</span></div></div>
-      </div>
-      <div class="case-body">
-
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-building-factory label-icon" aria-hidden="true"></i><span class="label-eyebrow">Contexte</span><span class="label-title">Passage à l’opérationnel</span></div>
-          <div class="case-section-content"><h3>Préparer le chantier après la décision</h3><p>Une fois le scénario retenu, le projet doit être sécurisé : entreprises, certifications, calendrier, contraintes d’occupation et communication résidents.</p><ul class="case-list"><li><i class="ti ti-briefcase" aria-hidden="true"></i><span>Identifier les entreprises et lots à consulter</span></li><li><i class="ti ti-certificate" aria-hidden="true"></i><span>Vérifier les qualifications RGE et assurances</span></li><li><i class="ti ti-calendar-stats" aria-hidden="true"></i><span>Préparer un planning compatible avec une copropriété occupée</span></li></ul><p class="evidence-note">Statut : étude de cas pédagogique orientée préparation de mission chef de projet.</p></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-alert-triangle label-icon" aria-hidden="true"></i><span class="label-eyebrow">Problème</span><span class="label-title">Risque projet</span></div>
-          <div class="case-section-content"><h3>Limiter les risques avant démarrage</h3><p>Un chantier mal préparé peut générer retards, incompréhensions, surcoûts et tensions avec les copropriétaires.</p><ul class="case-list"><li><i class="ti ti-clock-exclamation" aria-hidden="true"></i><span>Anticiper les interfaces entre lots</span></li><li><i class="ti ti-file-certificate" aria-hidden="true"></i><span>Sécuriser les pièces administratives et techniques</span></li><li><i class="ti ti-message-report" aria-hidden="true"></i><span>Prévoir une communication claire pendant les travaux</span></li></ul></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-route label-icon" aria-hidden="true"></i><span class="label-eyebrow">Méthode</span><span class="label-title">Démarche</span></div>
-          <div class="case-section-content"><h3>Organiser les acteurs et les jalons</h3><p>La démarche s’appuie sur un tableau de suivi : demandes de devis, pièces reçues, points ouverts, échéances et responsabilités.</p><div class="method-steps"><div class="method-step"><strong>1. Cadrer</strong><span>Contexte, objectifs, acteurs</span></div><div class="method-step"><strong>2. Collecter</strong><span>Données et documents</span></div><div class="method-step"><strong>3. Analyser</strong><span>Hypothèses et écarts</span></div><div class="method-step"><strong>4. Synthétiser</strong><span>Livrables lisibles</span></div><div class="method-step"><strong>5. Recommander</strong><span>Décision et suites</span></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-package label-icon" aria-hidden="true"></i><span class="label-eyebrow">Livrables</span><span class="label-title">Supports produits</span></div>
-          <div class="case-section-content"><h3>Des outils de pilotage chantier</h3><p>Les livrables structurent la préparation opérationnelle et facilitent le suivi par le maître d’ouvrage ou l’équipe projet.</p><div class="livrables-grid"><div class="livrable-item"><i class="ti ti-list-details livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Tableau de consultation</p><p class="livrable-desc">Entreprises, lots, devis, relances et statuts.</p></div></div><div class="livrable-item"><i class="ti ti-certificate livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Check RGE</p><p class="livrable-desc">Certifications, assurances et pièces obligatoires.</p></div></div><div class="livrable-item"><i class="ti ti-calendar livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Macro-planning</p><p class="livrable-desc">Jalons clés, dépendances et points de vigilance.</p></div></div><div class="livrable-item"><i class="ti ti-users livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Plan acteurs</p><p class="livrable-desc">Rôles, responsabilités et circuits d’échange.</p></div></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-trophy label-icon" aria-hidden="true"></i><span class="label-eyebrow">Résultat</span><span class="label-title">Apport métier</span></div>
-          <div class="case-section-content"><h3>Une préparation qui sécurise l’exécution</h3><p>Le projet montre la capacité à passer de la décision au pilotage opérationnel, en tenant compte des contraintes de la copropriété.</p><div class="results-grid"><div class="result-card"><span class="result-num">Lots</span><span class="result-lbl">structurés</span></div><div class="result-card"><span class="result-num">RGE</span><span class="result-lbl">contrôlé</span></div><div class="result-card"><span class="result-num">Jalons</span><span class="result-lbl">planifiés</span></div><div class="result-card"><span class="result-num">Risques</span><span class="result-lbl">anticipés</span></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-certificate label-icon" aria-hidden="true"></i><span class="label-eyebrow">Compétences</span><span class="label-title">Démontrées</span></div>
-          <div class="case-section-content"><h3>Compétences mises en pratique</h3><p>Cette étude de cas de formation mobilise une méthode et des livrables-types transposables au travail d’une équipe projet.</p><div class="chip-row"><span class="chip">Coordination</span><span class="chip">RGE</span><span class="chip">Planning</span><span class="chip">Consultation</span><span class="chip">Parties prenantes</span></div></div>
-        </div>
-      </div>
-    </article>
-    <article class="case-study" data-category="conformite" id="projet08" aria-labelledby="p08-title">
-      <div class="case-header">
-        <div><span class="case-num" aria-hidden="true">Qualité</span><span class="case-tag">Conformité</span><h2 class="case-title" id="p08-title">Contrôle qualité, réserves et réception</h2><p class="case-context">Étude de cas pédagogique · Contrôle documentaire · Réception · Clôture projet</p></div>
-        <div class="case-metrics" aria-label="Chiffres clés"><div class="case-metric"><span class="case-metric-num">PV</span><span class="case-metric-lbl">réception</span></div><div class="case-metric"><span class="case-metric-num">DOE</span><span class="case-metric-lbl">contrôlé</span></div><div class="case-metric"><span class="case-metric-num">Réserves</span><span class="case-metric-lbl">suivies</span></div><div class="case-metric"><span class="case-metric-num">Qualité</span><span class="case-metric-lbl">sécurisée</span></div></div>
-      </div>
-      <div class="case-body">
-
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-file-check label-icon" aria-hidden="true"></i><span class="label-eyebrow">Contexte</span><span class="label-title">Fin de chantier</span></div>
-          <div class="case-section-content"><h3>Sécuriser la réception des travaux</h3><p>La réception est une phase critique : elle conditionne la clôture du chantier, le traitement des réserves, les justificatifs et la satisfaction des copropriétaires.</p><ul class="case-list"><li><i class="ti ti-clipboard-check" aria-hidden="true"></i><span>Préparer les points de contrôle par lot</span></li><li><i class="ti ti-file-description" aria-hidden="true"></i><span>Réunir les justificatifs techniques et administratifs</span></li><li><i class="ti ti-list-check" aria-hidden="true"></i><span>Suivre les réserves jusqu’à levée</span></li></ul><p class="evidence-note">Statut : étude de cas pédagogique centrée sur la posture de contrôle et de sécurisation projet.</p></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-alert-triangle label-icon" aria-hidden="true"></i><span class="label-eyebrow">Problème</span><span class="label-title">Qualité & conformité</span></div>
-          <div class="case-section-content"><h3>Éviter une clôture fragile</h3><p>Sans contrôle structuré, des écarts peuvent rester ouverts : non-conformités, justificatifs manquants, réserves non traitées ou incompréhensions avec les résidents.</p><ul class="case-list"><li><i class="ti ti-alert-circle" aria-hidden="true"></i><span>Identifier les écarts avant signature</span></li><li><i class="ti ti-folder" aria-hidden="true"></i><span>Centraliser les documents de fin de chantier</span></li><li><i class="ti ti-message-circle-check" aria-hidden="true"></i><span>Formaliser les décisions et les corrections attendues</span></li></ul></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-route label-icon" aria-hidden="true"></i><span class="label-eyebrow">Méthode</span><span class="label-title">Démarche</span></div>
-          <div class="case-section-content"><h3>Contrôler, tracer, clôturer</h3><p>La démarche repose sur une grille de contrôle, un registre des réserves, une liste documentaire et un suivi des actions correctives.</p><div class="method-steps"><div class="method-step"><strong>1. Cadrer</strong><span>Contexte, objectifs, acteurs</span></div><div class="method-step"><strong>2. Collecter</strong><span>Données et documents</span></div><div class="method-step"><strong>3. Analyser</strong><span>Hypothèses et écarts</span></div><div class="method-step"><strong>4. Synthétiser</strong><span>Livrables lisibles</span></div><div class="method-step"><strong>5. Recommander</strong><span>Décision et suites</span></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-package label-icon" aria-hidden="true"></i><span class="label-eyebrow">Livrables</span><span class="label-title">Supports produits</span></div>
-          <div class="case-section-content"><h3>Des documents de clôture exploitables</h3><p>Les livrables donnent une vision claire des contrôles effectués, des réserves et des pièces nécessaires à la clôture.</p><div class="livrables-grid"><div class="livrable-item"><i class="ti ti-clipboard-list livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Grille de contrôle</p><p class="livrable-desc">Points à vérifier par lot et par zone.</p></div></div><div class="livrable-item"><i class="ti ti-alert-square-rounded livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Registre réserves</p><p class="livrable-desc">Anomalies, responsables, délais et statut.</p></div></div><div class="livrable-item"><i class="ti ti-file-certificate livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Liste justificatifs</p><p class="livrable-desc">Documents techniques, garanties, attestations et DOE.</p></div></div><div class="livrable-item"><i class="ti ti-file-check livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Synthèse réception</p><p class="livrable-desc">Décisions, réserves et prochaines actions.</p></div></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-trophy label-icon" aria-hidden="true"></i><span class="label-eyebrow">Résultat</span><span class="label-title">Apport métier</span></div>
-          <div class="case-section-content"><h3>Une clôture projet maîtrisée</h3><p>Le projet démontre la capacité à sécuriser la conformité, tracer les écarts et préparer une réception professionnelle.</p><div class="results-grid"><div class="result-card"><span class="result-num">PV</span><span class="result-lbl">préparé</span></div><div class="result-card"><span class="result-num">Réserves</span><span class="result-lbl">suivies</span></div><div class="result-card"><span class="result-num">DOE</span><span class="result-lbl">contrôlé</span></div><div class="result-card"><span class="result-num">Clôture</span><span class="result-lbl">sécurisée</span></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-certificate label-icon" aria-hidden="true"></i><span class="label-eyebrow">Compétences</span><span class="label-title">Démontrées</span></div>
-          <div class="case-section-content"><h3>Compétences mises en pratique</h3><p>Cette étude de cas de formation mobilise une méthode et des livrables-types transposables au travail d’une équipe projet.</p><div class="chip-row"><span class="chip">Conformité</span><span class="chip">Réception</span><span class="chip">Réserves</span><span class="chip">DOE</span><span class="chip">Contrôle qualité</span></div></div>
-        </div>
-      </div>
-    </article>
-    <article class="case-study" data-category="communication" id="projet09" aria-labelledby="p09-title">
-      <div class="case-header">
-        <div><span class="case-num" aria-hidden="true">Com.</span><span class="case-tag">Communication</span><h2 class="case-title" id="p09-title">Communication & accompagnement des copropriétaires</h2><p class="case-context">Étude de cas pédagogique · Résidence Les 300 · 320 logements · Décision en AG</p></div>
-        <div class="case-metrics" aria-label="Chiffres clés"><div class="case-metric"><span class="case-metric-num">320</span><span class="case-metric-lbl">logements</span></div><div class="case-metric"><span class="case-metric-num">9,8 M€</span><span class="case-metric-lbl">travaux TTC</span></div><div class="case-metric"><span class="case-metric-num">36 %</span><span class="case-metric-lbl">aides estimées</span></div><div class="case-metric"><span class="case-metric-num">E → B</span><span class="case-metric-lbl">DPE visé</span></div></div>
-      </div>
-      <div class="case-body">
-
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-building-community label-icon" aria-hidden="true"></i><span class="label-eyebrow">Contexte</span><span class="label-title">Décision collective</span></div>
-          <div class="case-section-content"><h3>Préparer l’adhésion des copropriétaires</h3><p>La copropriété doit voter un projet ambitieux. Les copropriétaires ont besoin de comprendre les enjeux techniques, financiers et patrimoniaux avant de se prononcer.</p><ul class="case-list"><li><i class="ti ti-users" aria-hidden="true"></i><span>Public hétérogène : propriétaires occupants, bailleurs, profils financiers variés</span></li><li><i class="ti ti-coin" aria-hidden="true"></i><span>Coût global élevé nécessitant une explication du reste à charge</span></li><li><i class="ti ti-presentation" aria-hidden="true"></i><span>Besoin de supports accessibles pour l’assemblée générale</span></li></ul><p class="evidence-note">Statut : étude de cas de formation professionnelle ; données pédagogiques utilisées pour démontrer une stratégie d’accompagnement.</p></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-alert-triangle label-icon" aria-hidden="true"></i><span class="label-eyebrow">Problème</span><span class="label-title">Freins à lever</span></div>
-          <div class="case-section-content"><h3>Réduire les incompréhensions avant le vote</h3><p>Un projet de rénovation globale peut être refusé si les bénéfices, les aides, les contraintes et le calendrier ne sont pas clairement compris.</p><ul class="case-list"><li><i class="ti ti-question-mark" aria-hidden="true"></i><span>Inquiétudes sur le coût et les aides réellement mobilisables</span></li><li><i class="ti ti-mood-sad" aria-hidden="true"></i><span>Méfiance face aux chiffres et aux promesses d’économie</span></li><li><i class="ti ti-hand-stop" aria-hidden="true"></i><span>Risque de blocage en AG faute de pédagogie</span></li></ul></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-route label-icon" aria-hidden="true"></i><span class="label-eyebrow">Méthode</span><span class="label-title">Démarche</span></div>
-          <div class="case-section-content"><h3>Construire une stratégie de communication</h3><p>La démarche consiste à identifier les freins, structurer les messages, adapter les supports et organiser l’information avant la décision collective.</p><div class="method-steps"><div class="method-step"><strong>1. Segmenter</strong><span>Profils et inquiétudes</span></div><div class="method-step"><strong>2. Clarifier</strong><span>Messages essentiels</span></div><div class="method-step"><strong>3. Produire</strong><span>Livret, FAQ, slides</span></div><div class="method-step"><strong>4. Expliquer</strong><span>Réunion et AG</span></div><div class="method-step"><strong>5. Suivre</strong><span>Questions et relances</span></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-package label-icon" aria-hidden="true"></i><span class="label-eyebrow">Livrables</span><span class="label-title">Supports produits</span></div>
-          <div class="case-section-content"><h3>5 livrables pour accompagner la décision</h3><p>Les supports transforment un dossier complexe en éléments compréhensibles et directement utilisables par le syndic et le conseil syndical.</p><div class="livrables-grid"><div class="livrable-item"><i class="ti ti-book livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Livret copropriétaires</p><p class="livrable-desc">Projet, travaux, bénéfices, calendrier et aides.</p></div></div><div class="livrable-item"><i class="ti ti-help livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">FAQ</p><p class="livrable-desc">Réponses aux objections financières et techniques.</p></div></div><div class="livrable-item"><i class="ti ti-presentation livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Support AG</p><p class="livrable-desc">Synthèse claire pour le vote des travaux.</p></div></div><div class="livrable-item"><i class="ti ti-mail livrable-icon" aria-hidden="true"></i><div><p class="livrable-name">Messages de relance</p><p class="livrable-desc">Informations aux copropriétaires et suivi des questions.</p></div></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-trophy label-icon" aria-hidden="true"></i><span class="label-eyebrow">Résultat</span><span class="label-title">Apport métier</span></div>
-          <div class="case-section-content"><h3>Des copropriétaires mieux informés</h3><p>Le projet démontre la capacité à fédérer, informer et accompagner une décision collective sur un projet de rénovation ambitieux.</p><div class="results-grid"><div class="result-card"><span class="result-num">Clarté</span><span class="result-lbl">des informations</span></div><div class="result-card"><span class="result-num">FAQ</span><span class="result-lbl">objections traitées</span></div><div class="result-card"><span class="result-num">AG</span><span class="result-lbl">vote préparé</span></div><div class="result-card"><span class="result-num">Décision</span><span class="result-lbl">facilitée</span></div></div></div>
-        </div>
-        <div class="case-section">
-          <div class="case-section-label"><i class="ti ti-certificate label-icon" aria-hidden="true"></i><span class="label-eyebrow">Compétences</span><span class="label-title">Démontrées</span></div>
-          <div class="case-section-content"><h3>Compétences mises en pratique</h3><p>Cette étude de cas de formation mobilise une méthode et des livrables-types transposables au travail d’une équipe projet.</p><div class="chip-row"><span class="chip">Communication</span><span class="chip">Pédagogie</span><span class="chip">Copropriété</span><span class="chip">Relation client</span><span class="chip">Supports AG</span></div></div>
-        </div>
-      </div>
-    </article>
-    </div>
-  </div>
-</section>
-<hr class="divider"/>
-<section class="section-wrap" aria-labelledby="perso-title" style="padding-top:0">
-  <div class="container">
-    <div class="section-header"><h2 class="section-title" id="perso-title">NOHOBA : digitalisation BTP & construction durable</h2></div>
-    <p class="section-sub">Une initiative entrepreneuriale personnelle en développement, distincte des études de cas de formation : digitalisation du suivi de projets BTP, pédagogie terrain et construction durable.</p>
-    <div class="grid-2">
-      <article class="feature-card">
-        <span class="tag">NOHOBA</span>
-        <h3>Plateforme digitale pour les projets BTP</h3>
-        <p>NOHOBA est un projet entrepreneurial de plateforme SaaS dédiée à la gestion, au suivi et à la valorisation des projets BTP. Le projet vise à centraliser les documents, rapports, échanges, étapes de chantier et informations clés afin de rendre les projets de construction plus lisibles, mieux suivis et plus professionnels.</p>
-        <p style="margin-top:1rem">Mon rôle porte sur l'analyse des besoins métiers BTP, la conception fonctionnelle, les parcours utilisateurs, le suivi du développement frontend/backend et le positionnement produit.</p>
-      </article>
-      <article class="feature-card">
-        <span class="tag">Terre crue</span>
-        <h3>Accompagnement de projets en Côte d'Ivoire</h3>
-        <p>Ce projet s’inscrit également dans une réflexion plus large sur la valorisation des matériaux durables, notamment la construction en terre crue en Côte d’Ivoire, à travers une approche centrée sur la pédagogie, la structuration projet et l’accompagnement des acteurs de terrain.</p>
-        <p style="margin-top:1rem">La terre crue est présentée ici comme une démarche d’accompagnement et de valorisation des matériaux locaux, sans prétendre à une expertise technique complète sur les systèmes constructifs.</p>
-      </article>
-    </div>
-    <div class="card" style="margin-top:1.5rem">
-      <h3 class="feature-title" style="margin-top:0">Compétences mobilisées</h3>
-      <div class="chip-row">
-        <span class="chip">Analyse des besoins métiers BTP</span>
-        <span class="chip">Conception fonctionnelle SaaS</span>
-        <span class="chip">Modules dossiers, rapports, documents, messagerie, assistant IA</span>
-        <span class="chip">Parcours utilisateurs</span>
-        <span class="chip">Suivi frontend/backend</span>
-        <span class="chip">Digitalisation du suivi de projet</span>
-        <span class="chip">Vulgarisation technique</span>
-        <span class="chip">Matériaux locaux et durables</span>
+        <a href="nohoba.html" class="btn btn-sage">Voir NOHOBA <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
-    <div class="evidence-note"><strong>Ce que cela démontre :</strong> ces projets renforcent mon positionnement à l'interface entre gestion de projet, digitalisation du BTP, pédagogie, innovation SaaS et valorisation des matériaux durables.</div>
-    <div class="button-row" style="margin-top:1.5rem"><a href="nohoba.html" class="btn btn-sage">Voir la page NOHOBA <i class="ti ti-arrow-right" aria-hidden="true"></i></a><a href="https://erp-terre-crue.vercel.app/" target="_blank" rel="noopener" class="btn btn-ghost">Ouvrir NOHOBA-Solution <i class="ti ti-external-link" aria-hidden="true"></i></a><a href="contact.html" class="btn btn-ghost">Échanger sur ces projets</a></div>
-  </div>
-</section>
-<div class="next-banner"><div><p class="next-banner-label">Page suivante</p><p class="next-banner-title">NOHOBA & construction durable</p></div><a href="nohoba.html" class="btn btn-sage">Continuer <i class="ti ti-arrow-right" aria-hidden="true"></i></a></div>
+  </section>
+</main>
 
-</main><footer>
+<footer>
   <span class="footer-logo"><span class="brand-monogram footer-mark" aria-hidden="true">IFB</span></span>
   <ul class="footer-links">
     <li><a href="index.html">Accueil</a></li>
@@ -396,6 +211,178 @@
   </ul>
   <span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span>
 </footer>
-<script src="script.js?v=20260708-audit"></script>
+
+<script src="script.js?v=20260708-premium"></script>
+<script>
+  const projects = [
+    {
+      id: 'p02', number: 'Projet 2', title: 'Audit énergétique initial', type: 'Audit copropriété', icon: 'ti-search',
+      meta: 'Résidence Les 300 · 320 logements · DPE E', tags: ['Audit', 'Copropriété', 'Diagnostic'], badge: 'Projet appliqué',
+      summary: 'Objectiver l’état initial avant de proposer des scénarios.',
+      context: ['Copropriété construite en 1966', '320 logements, enveloppe vieillissante', 'Consommation initiale estimée à 251 kWhEP/m²/an'],
+      actions: ['Analyser le bâti, les systèmes et les usages', 'Identifier les principaux postes de déperdition', 'Hiérarchiser les priorités techniques'],
+      deliverables: ['Fiche diagnostic', 'Carte des déperditions', 'Synthèse vulgarisée'],
+      results: ['Diagnostic structuré', 'Priorités techniques clarifiées', 'Base exploitable pour les scénarios'],
+      skills: ['Audit énergétique', 'Analyse bâti', 'DPE', 'Synthèse technique', 'Vulgarisation'],
+      tools: ['Visuary', 'CAP Renov+', 'Excel', 'Relevés terrain simulés']
+    },
+    {
+      id: 'p03', number: 'Projet 3', title: 'Scénarios de rénovation', type: 'Scénarios & aides', icon: 'ti-calculator',
+      meta: 'Travaux simulés 9,8 M€ · Objectif E → B', tags: ['Scénarios', 'Aides', 'Décision'], badge: 'Étude détaillée',
+      summary: 'Comparer des bouquets de travaux, les aides et le reste à charge.',
+      context: ['Besoin de choisir un scénario cohérent', 'Montant global important à rendre compréhensible', 'Conseil syndical à accompagner dans l’arbitrage'],
+      actions: ['Construire une matrice comparative', 'Comparer coûts, gains, aides et contraintes', 'Préparer une recommandation argumentée'],
+      deliverables: ['Matrice scénarios', 'Tableau aides / reste à charge', 'Support de synthèse pour décision'],
+      results: ['Scénario recommandé', 'Aides financières clarifiées', 'Base de vote plus lisible'],
+      skills: ['Comparaison multicritère', 'Aides financières', 'Analyse économique', 'Aide à la décision'],
+      tools: ['CAP Renov+', 'Excel', 'PowerPoint', 'France Rénov’']
+    },
+    {
+      id: 'p04', number: 'Projet 4', title: 'Rénovation globale', type: 'Logement individuel', icon: 'ti-home-eco',
+      meta: 'Maison individuelle · rénovation par étapes', tags: ['Maison', 'Travaux', 'Aides'], badge: 'Projet appliqué',
+      summary: 'Structurer un parcours de rénovation pour un logement individuel.',
+      context: ['Maison avec besoins de performance et confort', 'Arbitrage entre travaux prioritaires et budget', 'Recherche d’un parcours progressif'],
+      actions: ['Analyser les besoins du ménage', 'Prioriser les postes de travaux', 'Relier gains attendus et aides mobilisables'],
+      deliverables: ['Plan de rénovation', 'Fiche priorités travaux', 'Synthèse aides mobilisables'],
+      results: ['Parcours travaux clarifié', 'Priorités budgétaires posées', 'Décision facilitée pour le ménage'],
+      skills: ['Logement individuel', 'Rénovation globale', 'Conseil', 'Hiérarchisation'],
+      tools: ['CAP Renov+', 'Visuary', 'Excel', 'Documentation aides']
+    },
+    {
+      id: 'p05', number: 'Projet 5', title: 'Analyse des offres', type: 'Consultation entreprises', icon: 'ti-file-invoice',
+      meta: 'Comparaison devis · sélection entreprise', tags: ['Devis', 'RGE', 'Choix'], badge: 'Projet appliqué',
+      summary: 'Comparer les offres pour sécuriser le choix d’une entreprise.',
+      context: ['Plusieurs offres techniques à comparer', 'Besoin de vérifier cohérence, prix et garanties', 'Critères de sélection à rendre objectifs'],
+      actions: ['Lire les devis et périmètres de travaux', 'Vérifier les qualifications et points de vigilance', 'Construire une grille de comparaison'],
+      deliverables: ['Tableau comparatif des offres', 'Liste des points de vigilance', 'Synthèse de recommandation'],
+      results: ['Choix mieux argumenté', 'Risques identifiés', 'Comparaison plus transparente'],
+      skills: ['Analyse devis', 'RGE', 'Comparaison', 'Préparation décision'],
+      tools: ['Excel', 'Grille multicritère', 'Référentiels RGE', 'Documents entreprises']
+    },
+    {
+      id: 'p06', number: 'Projet 6', title: 'Veille réglementaire', type: 'Transition énergétique', icon: 'ti-rss',
+      meta: 'Règles, aides et obligations · synthèse utile', tags: ['Veille', 'Règles', 'Synthèse'], badge: 'Projet appliqué',
+      summary: 'Transformer une veille technique et réglementaire en repères exploitables.',
+      context: ['Réglementations et aides évolutives', 'Besoin de repères fiables pour les projets', 'Informations souvent dispersées'],
+      actions: ['Identifier les sources fiables', 'Comparer les impacts sur les projets', 'Synthétiser les points à retenir'],
+      deliverables: ['Note de veille', 'Tableau d’impacts', 'Synthèse opérationnelle'],
+      results: ['Repères réglementaires clarifiés', 'Décisions mieux sécurisées', 'Information plus accessible'],
+      skills: ['Veille', 'Analyse réglementaire', 'Synthèse', 'Rigueur documentaire'],
+      tools: ['Sites institutionnels', 'Tableur', 'Notes structurées', 'Documentation métier']
+    },
+    {
+      id: 'p07', number: 'Projet 7', title: 'Préparation chantier', type: 'Planification & coordination', icon: 'ti-tools',
+      meta: 'Préparer le lancement et les interfaces acteurs', tags: ['Chantier', 'Planning', 'MOE'], badge: 'Étude détaillée',
+      summary: 'Préparer les étapes avant travaux et les points de coordination.',
+      context: ['Projet à passer de la décision à l’exécution', 'Plusieurs acteurs à coordonner', 'Documents et jalons à sécuriser'],
+      actions: ['Identifier les jalons de préparation', 'Structurer les rôles et interfaces', 'Anticiper les points de blocage'],
+      deliverables: ['Planning de préparation', 'Check-list de lancement', 'Tableau acteurs / responsabilités'],
+      results: ['Démarrage mieux cadré', 'Responsabilités clarifiées', 'Risques opérationnels anticipés'],
+      skills: ['Coordination', 'Planification', 'Gestion des risques', 'Suivi projet'],
+      tools: ['Excel', 'Planning', 'Check-list', 'Supports de réunion']
+    },
+    {
+      id: 'p08', number: 'Projet 8', title: 'Suivi qualité & conformité', type: 'Réception', icon: 'ti-clipboard-check',
+      meta: 'Contrôles, réserves et documents attendus', tags: ['Qualité', 'Conformité', 'Réception'], badge: 'Étude détaillée',
+      summary: 'Sécuriser la fin de chantier et les documents de réception.',
+      context: ['Travaux à contrôler avant validation', 'Réserves et justificatifs à suivre', 'Besoin de traçabilité documentaire'],
+      actions: ['Définir les points de contrôle', 'Lister les documents attendus', 'Suivre réserves et corrections'],
+      deliverables: ['Check-list réception', 'Tableau de réserves', 'Liste des justificatifs'],
+      results: ['Réception mieux sécurisée', 'Documents suivis', 'Points de conformité identifiés'],
+      skills: ['Contrôle qualité', 'Conformité', 'Réception', 'Rigueur opérationnelle'],
+      tools: ['Check-list', 'Tableur', 'PV de réception', 'Dossier documentaire']
+    },
+    {
+      id: 'p09', number: 'Projet 9', title: 'Communication copropriété', type: 'Support AG & pédagogie', icon: 'ti-users',
+      meta: 'Vulgarisation, supports AG et aide au vote', tags: ['Communication', 'AG', 'Pédagogie'], badge: 'Étude détaillée',
+      summary: 'Rendre un dossier technique compréhensible pour les copropriétaires.',
+      context: ['Décision collective à préparer', 'Données techniques et financières complexes', 'Besoin d’adhésion et de clarté avant vote'],
+      actions: ['Vulgariser les scénarios', 'Préparer les supports de présentation', 'Anticiper les questions des copropriétaires'],
+      deliverables: ['Support AG', 'FAQ copropriétaires', 'Synthèse de décision'],
+      results: ['Information plus accessible', 'Vote mieux préparé', 'Dialogue facilité entre acteurs'],
+      skills: ['Pédagogie', 'Communication non spécialiste', 'Synthèse', 'Aide à la décision'],
+      tools: ['PowerPoint', 'Canva', 'Excel', 'Supports de synthèse']
+    }
+  ];
+
+  const list = document.getElementById('project-card-list');
+  const detail = document.getElementById('project-detail');
+
+  const renderTags = tags => tags.map(tag => `<span class="chip">${tag}</span>`).join('');
+  const renderList = items => items.map(item => `<li>${item}</li>`).join('');
+
+  const renderProjectCard = project => `
+    <button type="button" class="project-card" data-project="${project.id}" aria-controls="project-detail">
+      <span class="project-preview"><i class="ti ti-eye" aria-hidden="true"></i>&nbsp; Aperçu rapide</span>
+      <span class="project-banner" aria-hidden="true"><span><i class="ti ${project.icon}" aria-hidden="true"></i>${project.number}</span></span>
+      <span>
+        <h3 class="project-card-title">${project.title}</h3>
+        <p class="project-card-meta">${project.type}</p>
+        <span class="chip-row">${renderTags(project.tags)}</span>
+      </span>
+      <span class="project-card-arrow" aria-hidden="true"><i class="ti ti-chevron-right"></i></span>
+    </button>
+  `;
+
+  const renderDetailBlock = (icon, title, items) => `
+    <section class="project-detail-block">
+      <h3><i class="ti ${icon}" aria-hidden="true"></i>${title}</h3>
+      <ul>${renderList(items)}</ul>
+    </section>
+  `;
+
+  const renderChipBlock = (icon, title, items) => `
+    <section class="project-detail-block">
+      <h3><i class="ti ${icon}" aria-hidden="true"></i>${title}</h3>
+      <div class="chip-row">${renderTags(items)}</div>
+    </section>
+  `;
+
+  const showProject = id => {
+    const project = projects.find(item => item.id === id) || projects[0];
+    document.querySelectorAll('.project-card').forEach(card => {
+      const isActive = card.dataset.project === project.id;
+      card.classList.toggle('is-active', isActive);
+      card.setAttribute('aria-pressed', String(isActive));
+    });
+    detail.innerHTML = `
+      <div class="project-detail-top">
+        <div>
+          <span class="project-detail-kicker"><i class="ti ${project.icon}" aria-hidden="true"></i>${project.number} · ${project.type}</span>
+          <h2 class="project-detail-title" id="project-detail-title">${project.title}</h2>
+          <p class="project-detail-sub">${project.summary} <br><span class="text-soft">${project.meta}</span></p>
+        </div>
+        <span class="project-detail-badge">${project.badge}</span>
+      </div>
+      <div class="project-detail-grid">
+        ${renderDetailBlock('ti-building', 'Contexte', project.context)}
+        ${renderDetailBlock('ti-route', 'Actions menées', project.actions)}
+        ${renderDetailBlock('ti-folder', 'Livrables réalisés', project.deliverables)}
+        ${renderDetailBlock('ti-chart-bar', 'Résultats obtenus', project.results)}
+        ${renderChipBlock('ti-certificate', 'Compétences mobilisées', project.skills)}
+        ${renderChipBlock('ti-tool', 'Outils utilisés', project.tools)}
+      </div>
+      <div class="project-detail-actions">
+        <p><strong>Lecture recruteur :</strong> ce projet montre la capacité à analyser, structurer, produire des livrables et rendre la décision plus lisible.</p>
+        <a href="contact.html" class="btn btn-sage">Me contacter <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    `;
+  };
+
+  if (list && detail) {
+    list.innerHTML = projects.map(renderProjectCard).join('');
+    list.addEventListener('click', event => {
+      const card = event.target.closest('.project-card');
+      if (!card) return;
+      showProject(card.dataset.project);
+    });
+    list.addEventListener('mouseover', event => {
+      const card = event.target.closest('.project-card');
+      if (!card || window.matchMedia('(hover: none)').matches) return;
+      card.setAttribute('title', projects.find(project => project.id === card.dataset.project)?.summary || 'Voir le détail');
+    });
+    showProject('p02');
+  }
+</script>
 </body>
 </html>
