@@ -33,20 +33,23 @@
   <link rel="stylesheet" href="style.css?v=20260708-premium"/>
   <style>
     .coordination-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.2rem; }
-    .coordination-card { width:100%; min-height:250px; border:1px solid var(--divider); border-radius:var(--radius-lg); padding:0; background:var(--surface-raised, var(--surface)); color:var(--ink); text-align:left; cursor:pointer; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; transition:transform .24s var(--ease-out-expo, ease), box-shadow .24s var(--ease-out-expo, ease), border-color .24s; }
+    .coordination-card { --opening-orange:#E9782F; width:100%; min-height:250px; border:1px solid var(--divider); border-radius:var(--radius-lg); padding:0; background:var(--surface-raised, var(--surface)); color:var(--ink); text-align:left; cursor:pointer; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; transition:transform .24s var(--ease-out-expo, ease), box-shadow .24s var(--ease-out-expo, ease), border-color .24s; }
     .coordination-card:hover, .coordination-card:focus-visible { transform:translateY(-4px); border-color:rgba(47,111,79,.46); box-shadow:0 18px 32px rgba(26,31,28,.12); }
+    .coordination-card.is-opening { border-color:var(--opening-orange); box-shadow:0 18px 34px rgba(233,120,47,.22); }
     .coordination-banner { height:104px; padding:.85rem; color:var(--white); display:flex; align-items:flex-end; justify-content:space-between; gap:.75rem; position:relative; overflow:hidden; background:linear-gradient(135deg, #1A1F1C, #2F6F4F); }
     .coordination-card:nth-child(2) .coordination-banner { background:linear-gradient(135deg, #244A39, #78A98C); }
     .coordination-card:nth-child(3) .coordination-banner { background:linear-gradient(135deg, #20342A, #6E8F7B); }
     .coordination-card:nth-child(4) .coordination-banner { background:linear-gradient(135deg, #26362C, #4F7A5D); }
     .coordination-card:nth-child(5) .coordination-banner { background:linear-gradient(135deg, #153528, #2F6F4F); }
-    .coordination-banner::before { content:''; position:absolute; inset:-55%; background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.28), transparent 26%), radial-gradient(circle at 78% 70%, rgba(120,169,140,.30), transparent 26%); transform:rotate(-10deg); }
+    .coordination-banner::before { content:''; position:absolute; inset:-55%; background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.28), transparent 26%), radial-gradient(circle at 78% 70%, rgba(120,169,140,.30), transparent 26%); transform:rotate(-10deg); transition:background .28s ease; }
+    .coordination-card.is-opening .coordination-banner::before { background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.28), transparent 26%), radial-gradient(circle at 78% 70%, rgba(233,120,47,.38), transparent 28%); }
     .coordination-banner::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(8,13,10,.62)); }
     .coordination-banner span, .coordination-banner i { position:relative; z-index:1; }
-    .coordination-number { display:inline-flex; align-items:center; gap:.35rem; background:rgba(10,15,12,.56); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:.32rem .58rem; font-size:12px; font-weight:800; backdrop-filter:blur(8px); }
+    .coordination-number { display:inline-flex; align-items:center; gap:.35rem; background:rgba(10,15,12,.56); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:.32rem .58rem; font-size:12px; font-weight:800; backdrop-filter:blur(8px); transition:border-color .24s ease, background-color .24s ease; }
+    .coordination-card.is-opening .coordination-number { border-color:rgba(233,120,47,.58); background:rgba(18,18,14,.66); }
     .coordination-banner i { width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.18); font-size:20px; }
-    .coordination-number i:first-child { transform-origin:center; transition:transform .36s var(--ease-out-expo, ease), background-color .24s ease, border-color .24s ease; }
-    .coordination-card.is-opening .coordination-number i:first-child { transform:translateX(72px) scale(1.08); background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.34); }
+    .coordination-number i:first-child { transform-origin:center; transition:transform .36s var(--ease-out-expo, ease), background-color .24s ease, border-color .24s ease, box-shadow .24s ease; }
+    .coordination-card.is-opening .coordination-number i:first-child { transform:translateX(72px) scale(1.08); background:var(--opening-orange); border-color:var(--opening-orange); color:var(--white); box-shadow:0 0 0 6px rgba(233,120,47,.16); }
     .coordination-body { padding:1.05rem; flex:1; display:flex; flex-direction:column; gap:.75rem; }
     .coordination-body h3 { margin:0; font-family:var(--serif); font-size:23px; line-height:1.12; font-weight:400; color:var(--ink); }
     .coordination-type { margin:0; color:var(--ink-soft); font-size:14px; line-height:1.45; }
@@ -79,7 +82,7 @@
     .coordination-modal-note strong { color:var(--ink); }
     @media (max-width:980px) { .coordination-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
     @media (max-width:680px) { .coordination-grid, .coordination-detail-grid { grid-template-columns:1fr; } .coordination-modal, .coordination-modal-body { padding:1rem; } .coordination-modal-header { padding:1.05rem; } .coordination-modal-title { font-size:27px; } .coordination-modal-note { display:grid; } }
-    @media (prefers-reduced-motion: reduce) { .coordination-card, .coordination-card-footer i, .coordination-number i:first-child { transition:none; } .coordination-card:hover, .coordination-card:focus-visible, .coordination-card.is-opening .coordination-number i:first-child { transform:none; } }
+    @media (prefers-reduced-motion: reduce) { .coordination-card, .coordination-card-footer i, .coordination-number, .coordination-number i:first-child, .coordination-banner::before { transition:none; } .coordination-card:hover, .coordination-card:focus-visible, .coordination-card.is-opening .coordination-number i:first-child { transform:none; } }
   </style>
 </head>
 <body>
