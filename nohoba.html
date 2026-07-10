@@ -45,6 +45,8 @@
     .coordination-banner span, .coordination-banner i { position:relative; z-index:1; }
     .coordination-number { display:inline-flex; align-items:center; gap:.35rem; background:rgba(10,15,12,.56); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:.32rem .58rem; font-size:12px; font-weight:800; backdrop-filter:blur(8px); }
     .coordination-banner i { width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.18); font-size:20px; }
+    .coordination-number i:first-child { transform-origin:center; transition:transform .36s var(--ease-out-expo, ease), background-color .24s ease, border-color .24s ease; }
+    .coordination-card.is-opening .coordination-number i:first-child { transform:translateX(72px) scale(1.08); background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.34); }
     .coordination-body { padding:1.05rem; flex:1; display:flex; flex-direction:column; gap:.75rem; }
     .coordination-body h3 { margin:0; font-family:var(--serif); font-size:23px; line-height:1.12; font-weight:400; color:var(--ink); }
     .coordination-type { margin:0; color:var(--ink-soft); font-size:14px; line-height:1.45; }
@@ -77,7 +79,7 @@
     .coordination-modal-note strong { color:var(--ink); }
     @media (max-width:980px) { .coordination-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
     @media (max-width:680px) { .coordination-grid, .coordination-detail-grid { grid-template-columns:1fr; } .coordination-modal, .coordination-modal-body { padding:1rem; } .coordination-modal-header { padding:1.05rem; } .coordination-modal-title { font-size:27px; } .coordination-modal-note { display:grid; } }
-    @media (prefers-reduced-motion: reduce) { .coordination-card, .coordination-card-footer i { transition:none; } .coordination-card:hover, .coordination-card:focus-visible { transform:none; } }
+    @media (prefers-reduced-motion: reduce) { .coordination-card, .coordination-card-footer i, .coordination-number i:first-child { transition:none; } .coordination-card:hover, .coordination-card:focus-visible, .coordination-card.is-opening .coordination-number i:first-child { transform:none; } }
   </style>
 </head>
 <body>
@@ -241,6 +243,7 @@
   const proofModalHeader = document.getElementById('coordination-modal-header-content');
   const proofModalBody = document.getElementById('coordination-modal-body');
   const proofCloseButton = document.getElementById('coordination-modal-close');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let proofLastFocused = null;
 
   const proofTags = items => items.map(item => `<span class="chip">${item}</span>`).join('');
@@ -285,7 +288,17 @@
     proofGrid.innerHTML = coordinationProofs.map(renderProofCard).join('');
     proofGrid.addEventListener('click', event => {
       const card = event.target.closest('.coordination-card');
-      if (card) openProof(card.dataset.proof);
+      if (!card || card.classList.contains('is-opening')) return;
+      const launch = () => openProof(card.dataset.proof);
+      if (prefersReducedMotion) {
+        launch();
+        return;
+      }
+      card.classList.add('is-opening');
+      window.setTimeout(() => {
+        card.classList.remove('is-opening');
+        launch();
+      }, 280);
     });
   }
 
