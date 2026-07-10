@@ -31,6 +31,27 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css"/>
   <link rel="stylesheet" href="style.css?v=20260708-premium"/>
+  <style>
+    .orbital-card{position:relative;overflow:hidden;border-radius:28px;padding:2rem;background:linear-gradient(135deg,rgba(26,31,28,.96),rgba(41,49,43,.92));color:var(--white);box-shadow:var(--shadow-soft)}
+    .orbital-card:before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle,rgba(205,168,94,.18),transparent 45%);pointer-events:none}
+    .orbital-layout{position:relative;z-index:1;display:grid;grid-template-columns:minmax(220px,.8fr) 1.2fr;gap:2rem;align-items:center}
+    .orbital-copy p{color:rgba(255,255,255,.78);margin-top:.9rem;line-height:1.7}
+    .orbital-stage{position:relative;min-height:430px;display:grid;place-items:center}
+    .orbital-ring{position:relative;width:min(430px,82vw);height:min(430px,82vw);border:1px solid rgba(255,255,255,.16);border-radius:50%;animation:slow-orbit 36s linear infinite}
+    .orbital-core{position:absolute;inset:50% auto auto 50%;width:116px;min-height:116px;transform:translate(-50%,-50%);border-radius:50%;display:grid;place-items:center;text-align:center;padding:1rem;background:rgba(255,255,255,.95);color:#1a1f1c;font-weight:800;box-shadow:0 18px 50px rgba(0,0,0,.3);z-index:2}
+    .orbital-node{position:absolute;left:50%;top:50%;width:136px;min-height:78px;display:grid;place-items:center;text-align:center;padding:.75rem;border-radius:18px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.48);backdrop-filter:blur(10px);color:var(--white);font-size:.78rem;font-weight:700;line-height:1.25;box-shadow:0 14px 30px rgba(0,0,0,.18);animation:counter-orbit 36s linear infinite}
+    .orbital-node span{display:block;margin-top:.28rem;color:rgba(255,255,255,.68);font-size:.68rem;font-weight:500}
+    .orbital-node:nth-child(1){transform:rotate(0deg) translateX(190px) rotate(0deg)}
+    .orbital-node:nth-child(2){transform:rotate(60deg) translateX(190px) rotate(-60deg)}
+    .orbital-node:nth-child(3){transform:rotate(120deg) translateX(190px) rotate(-120deg)}
+    .orbital-node:nth-child(4){transform:rotate(180deg) translateX(190px) rotate(-180deg)}
+    .orbital-node:nth-child(5){transform:rotate(240deg) translateX(190px) rotate(-240deg)}
+    .orbital-node:nth-child(6){transform:rotate(300deg) translateX(190px) rotate(-300deg)}
+    @keyframes slow-orbit{to{transform:rotate(360deg)}}
+    @keyframes counter-orbit{to{rotate:-360deg}}
+    @media (max-width:860px){.orbital-layout{grid-template-columns:1fr}.orbital-stage{min-height:auto}.orbital-ring{width:100%;height:auto;border:0;border-radius:0;animation:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.orbital-core{position:static;transform:none;width:auto;min-height:auto;border-radius:18px;grid-column:1/-1}.orbital-node{position:static;transform:none!important;animation:none;width:auto;min-height:auto}.orbital-node span{font-size:.72rem}}
+    @media (prefers-reduced-motion:reduce){.orbital-ring,.orbital-node{animation:none}}
+  </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Aller au contenu principal</a>
@@ -64,6 +85,32 @@
     <p>Une trajectoire de reconversion structurée : capitaliser sur la rigueur scientifique, acquérir les outils métier, produire des livrables et viser un poste opérationnel en rénovation énergétique. Je ne pars pas de zéro : je transfère une méthode d’analyse scientifique et de synthèse vers un métier de terrain, de coordination et de décision.</p>
   </div>
 </section>
+
+<section class="section-wrap" aria-labelledby="orbital-title">
+  <div class="container">
+    <div class="orbital-card">
+      <div class="orbital-layout">
+        <div class="orbital-copy">
+          <p class="page-indicator" style="color:rgba(255,255,255,.72)">Vue synthétique</p>
+          <h2 class="section-title" id="orbital-title" style="color:var(--white)">Un parcours qui relie analyse, énergie et coordination terrain</h2>
+          <p>Cette vue orbitale résume les piliers du profil : méthode scientifique, rénovation énergétique, outils métier, projets appliqués, coordination indépendante de projets en terre crue et objectif professionnel.</p>
+        </div>
+        <div class="orbital-stage" aria-label="Vue orbitale du parcours professionnel">
+          <div class="orbital-ring">
+            <div class="orbital-node">Socle scientifique<span>analyse · méthode</span></div>
+            <div class="orbital-node">Rénovation énergétique<span>bâti · aides · scénarios</span></div>
+            <div class="orbital-node">Outils métier<span>CAP Renov+ · Visuary · Pléiades</span></div>
+            <div class="orbital-node">Projets appliqués<span>audit · chantier · conformité</span></div>
+            <div class="orbital-node">Terre crue<span>coordination · suivi · reporting</span></div>
+            <div class="orbital-node">Objectif métier<span>chef de projet rénovation</span></div>
+          </div>
+          <div class="orbital-core">Décision claire</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section-wrap" aria-labelledby="timeline-title">
   <div class="container">
     <div class="section-header"><h2 class="section-title" id="timeline-title">Trajectoire en 5 étapes</h2></div>
