@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>NOHOBA & coordination de projet de construction en terre crue | Ibrahima Fa Bamba</title>
-  <meta name="description" content="NOHOBA et expérience complémentaire de coordination de projet de construction en terre crue."/>
+  <meta name="description" content="NOHOBA et preuves complémentaires de coordination de projets de construction en terre crue : cadrage, dossier technique, devis, factures, planning et digitalisation du suivi BTP."/>
   <link rel="canonical" href="https://portfolio-ibrahima-bamba.vercel.app/nohoba.html"/>
   <meta name="theme-color" content="#1A1F1C"/>
   <meta name="color-scheme" content="light dark"/>
@@ -19,7 +19,7 @@
   <meta property="og:locale" content="fr_FR"/>
   <meta property="og:site_name" content="Portfolio Ibrahima Fa Bamba"/>
   <meta property="og:title" content="NOHOBA & coordination de projet de construction en terre crue | Ibrahima Fa Bamba"/>
-  <meta property="og:description" content="Projet digital BTP et expérience complémentaire de coordination de projet de construction en terre crue."/>
+  <meta property="og:description" content="Projet digital BTP et preuves complémentaires de coordination de projet de construction en terre crue."/>
   <meta property="og:url" content="https://portfolio-ibrahima-bamba.vercel.app/nohoba.html"/>
   <meta property="og:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -39,6 +39,7 @@
     .coordination-card:nth-child(2) .coordination-banner { background:linear-gradient(135deg, #244A39, #78A98C); }
     .coordination-card:nth-child(3) .coordination-banner { background:linear-gradient(135deg, #20342A, #6E8F7B); }
     .coordination-card:nth-child(4) .coordination-banner { background:linear-gradient(135deg, #26362C, #4F7A5D); }
+    .coordination-card:nth-child(5) .coordination-banner { background:linear-gradient(135deg, #153528, #2F6F4F); }
     .coordination-banner::before { content:''; position:absolute; inset:-55%; background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.28), transparent 26%), radial-gradient(circle at 78% 70%, rgba(120,169,140,.30), transparent 26%); transform:rotate(-10deg); }
     .coordination-banner::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(8,13,10,.62)); }
     .coordination-banner span, .coordination-banner i { position:relative; z-index:1; }
@@ -52,6 +53,7 @@
     .coordination-card-footer { display:flex; justify-content:space-between; align-items:center; gap:1rem; border-top:1px solid var(--divider); padding:.8rem 1.05rem; color:var(--sage); font-size:13px; font-weight:800; }
     .coordination-card-footer i { transition:transform .2s; }
     .coordination-card:hover .coordination-card-footer i, .coordination-card:focus-visible .coordination-card-footer i { transform:translateX(3px); }
+    .coordination-proof-note { margin-bottom:1.2rem; max-width:980px; color:var(--ink-soft); line-height:1.65; }
     .coordination-modal { position:fixed; inset:0; z-index:300; display:none; align-items:flex-start; justify-content:center; padding:clamp(1rem, 5vw, 3rem); overflow:auto; background:rgba(10,16,12,.62); backdrop-filter:blur(8px); }
     .coordination-modal.open { display:flex; }
     .coordination-modal-card { width:min(980px, 100%); background:var(--surface); color:var(--ink); border:1px solid var(--divider); border-radius:var(--radius-lg); box-shadow:0 24px 70px rgba(0,0,0,.28); overflow:hidden; }
@@ -70,11 +72,11 @@
     .coordination-detail-block ul { margin:0; padding-left:1.1rem; color:var(--ink-soft); display:grid; gap:.45rem; line-height:1.45; }
     .coordination-detail-block li::marker { color:var(--sage); }
     .coordination-detail-block .chip-row { gap:.45rem; }
-    .coordination-modal-note { margin-top:1rem; border:1px solid var(--hairline, var(--divider)); background:var(--sage-pale); border-radius:var(--radius-md); padding:1rem; color:var(--ink-soft); }
+    .coordination-modal-note { margin-top:1rem; border:1px solid var(--hairline, var(--divider)); background:var(--sage-pale); border-radius:var(--radius-md); padding:1rem; color:var(--ink-soft); display:flex; align-items:center; justify-content:space-between; gap:1rem; }
     .coordination-modal-note p { margin:0; }
     .coordination-modal-note strong { color:var(--ink); }
     @media (max-width:980px) { .coordination-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width:680px) { .coordination-grid, .coordination-detail-grid { grid-template-columns:1fr; } .coordination-modal { padding:.75rem; } .coordination-modal-header { padding:1.05rem; } .coordination-modal-title { font-size:27px; } .coordination-modal-body { padding:1rem; } }
+    @media (max-width:680px) { .coordination-grid, .coordination-detail-grid { grid-template-columns:1fr; } .coordination-modal, .coordination-modal-body { padding:1rem; } .coordination-modal-header { padding:1.05rem; } .coordination-modal-title { font-size:27px; } .coordination-modal-note { display:grid; } }
     @media (prefers-reduced-motion: reduce) { .coordination-card, .coordination-card-footer i { transition:none; } .coordination-card:hover, .coordination-card:focus-visible { transform:none; } }
   </style>
 </head>
@@ -121,9 +123,9 @@
   <div class="container">
     <div class="section-header"><h2 class="section-title" id="summary-title">En bref</h2></div>
     <div class="grid-3">
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-building" aria-hidden="true"></i></span><h3>Construction en terre crue</h3><p>Expérience complémentaire sur des projets de construction en terre crue en Côte d’Ivoire.</p></article>
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-folders" aria-hidden="true"></i></span><h3>Suivi BTP</h3><p>Structuration des besoins, documents, devis, factures, plannings et rapports.</p></article>
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-layout-dashboard" aria-hidden="true"></i></span><h3>NOHOBA</h3><p>Réflexion sur une solution digitale pour centraliser les informations de projets BTP.</p></article>
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-building" aria-hidden="true"></i></span><h3>Construction en terre crue</h3><p>Expérience complémentaire sur des projets de construction en terre crue en Côte d’Ivoire : études, rapports, plans, contrats et images de projet.</p></article>
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-folders" aria-hidden="true"></i></span><h3>Suivi BTP</h3><p>Structuration des besoins, devis, commandes, livraisons, factures, plannings et rapports de suivi.</p></article>
+      <article class="feature-card"><span class="icon-round"><i class="ti ti-layout-dashboard" aria-hidden="true"></i></span><h3>Digitalisation</h3><p>Réflexion NOHOBA autour d’une solution digitale pour centraliser les informations, les documents et les indicateurs de projets BTP.</p></article>
     </div>
   </div>
 </section>
@@ -132,6 +134,7 @@
 <section class="section-wrap" aria-labelledby="evidence-title">
   <div class="container">
     <div class="section-header"><h2 class="section-title" id="evidence-title">Preuves de coordination de projets</h2></div>
+    <p class="coordination-proof-note">Les dossiers analysés permettent de structurer les preuves en une progression métier : étudier, contractualiser, chiffrer, suivre et digitaliser. Les documents sensibles doivent rester anonymisés avant toute publication.</p>
     <div class="coordination-grid" id="coordination-proof-grid" aria-label="Preuves de coordination de projets de construction en terre crue"></div>
   </div>
 </section>
@@ -141,10 +144,10 @@
   <div class="container">
     <div class="section-header"><h2 class="section-title" id="skills-title">Compétences démontrées</h2></div>
     <div class="principles-grid">
-      <article class="principle"><h3>Recueillir les besoins</h3><p>Clarifier les attentes, contraintes et priorités du projet.</p></article>
-      <article class="principle"><h3>Coordonner les acteurs</h3><p>Faciliter les échanges entre clients, porteur de projet et équipes terrain.</p></article>
-      <article class="principle"><h3>Structurer les documents</h3><p>Préparer et organiser devis, factures, documents contractuels et éléments de suivi.</p></article>
-      <article class="principle"><h3>Suivre l’avancement</h3><p>Rendre lisibles les étapes, les points en attente et les informations utiles à la décision.</p></article>
+      <article class="principle"><h3>Analyser le besoin</h3><p>Clarifier les attentes, contraintes, priorités et informations disponibles avant lancement.</p></article>
+      <article class="principle"><h3>Structurer le dossier</h3><p>Organiser les pièces techniques, contractuelles, financières et administratives.</p></article>
+      <article class="principle"><h3>Suivre l’avancement</h3><p>Rendre lisibles les étapes, documents, points ouverts, décisions et informations utiles.</p></article>
+      <article class="principle"><h3>Digitaliser le suivi</h3><p>Transformer des documents dispersés en tableaux, indicateurs et supports exploitables.</p></article>
     </div>
   </div>
 </section>
@@ -153,7 +156,7 @@
   <div class="container">
     <div class="position-box">
       <h2 class="section-title" id="link-title" style="color:var(--white); margin-bottom:1rem">Lien avec la rénovation énergétique</h2>
-      <p>Cette expérience reste complémentaire : elle confirme ma capacité à analyser un besoin, structurer un dossier, coordonner des acteurs et produire des supports de suivi clairs.</p>
+      <p>Cette expérience reste complémentaire : elle confirme ma capacité à analyser un besoin, structurer un dossier, coordonner des acteurs, suivre des documents projet et produire des supports de décision clairs.</p>
     </div>
   </div>
 </section>
@@ -188,38 +191,48 @@
 </footer>
 <script src="script.js?v=20260708-audit"></script>
 <script>
+  const EARTH_PROJECTS_URL = 'https://drive.google.com/drive/folders/1azVVZ4cIqcfhlk8qyNO37HBD7Mz32d_L?usp=drive_link';
+  const OPERATIONS_URL = 'https://drive.google.com/drive/folders/1mZRBjewljL8KITwz-UkgxsEj1wcjYged?usp=drive_link';
   const coordinationProofs = [
     {
-      id:'need', number:'Preuve 1', title:'Cadrage du besoin', type:'Recueil & clarification', icon:'ti-clipboard-text', meta:'Transformer une demande client en éléments exploitables pour le projet', tags:['Besoin','Cadrage','Objectifs'],
-      context:['Projet de construction en terre crue avec attentes à clarifier','Besoin de comprendre les priorités, contraintes et informations disponibles','Objectif : poser une base claire avant devis, planning ou suivi'],
-      actions:['Recueillir les attentes du client ou du porteur de projet','Reformuler les besoins et les contraintes principales','Préparer les informations utiles aux échanges avec les équipes de réalisation'],
-      deliverables:['Notes de besoin anonymisées','Synthèse de cadrage','Liste des informations manquantes','Points à confirmer avant engagement'],
-      results:['Demande clarifiée','Informations mieux structurées','Échanges facilités entre client, porteur de projet et équipes'],
-      skills:['Recueil du besoin','Reformulation','Analyse','Préparation projet']
+      id:'study', number:'Preuve 1', title:'Étude & cadrage de projet', type:'Rapports de visite et études', icon:'ti-clipboard-text', meta:'Transformer un besoin de construction en dossier de départ exploitable', tags:['Étude','Visite','Cadrage'], proofUrl:EARTH_PROJECTS_URL,
+      context:['Dossiers de projets en terre crue avec rapports de visite et études d’éco-construction','Besoin de comprendre le terrain, les attentes, les contraintes et les informations disponibles','Objectif : poser une base claire avant chiffrage, décision ou lancement'],
+      actions:['Recueillir les attentes et informations de départ','Identifier les contraintes du projet et les données manquantes','Reformuler le besoin dans une synthèse compréhensible pour les acteurs'],
+      deliverables:['Rapports de visite anonymisés','Études de projet d’éco-construction','Synthèses de cadrage','Listes des points à confirmer'],
+      results:['Besoin mieux défini','Dossier de départ structuré','Échanges facilités entre client, porteur de projet et équipes'],
+      skills:['Analyse du besoin','Recueil d’informations','Synthèse','Cadrage projet']
     },
     {
-      id:'documents', number:'Preuve 2', title:'Documents projet', type:'Documents & suivi administratif', icon:'ti-file-invoice', meta:'Structurer les documents nécessaires au suivi du projet', tags:['Devis','Factures','Contrats'],
-      context:['Projets nécessitant une organisation claire des documents','Besoin de suivre les échanges, pièces contractuelles, devis et factures','Objectif : rendre les informations accessibles et vérifiables'],
-      actions:['Classer les devis, factures et documents contractuels','Repérer les éléments manquants ou à confirmer','Faciliter la circulation des documents entre les acteurs'],
-      deliverables:['Extraits anonymisés de devis','Factures ou documents de suivi','Tableau de classement documentaire','Liste des pièces à compléter'],
-      results:['Documents mieux organisés','Suivi administratif plus lisible','Points bloquants identifiés plus tôt'],
-      skills:['Structuration documentaire','Rigueur','Suivi administratif','Coordination']
+      id:'technical', number:'Preuve 2', title:'Dossier technique & contractuel', type:'Plans, contrats et pièces projet', icon:'ti-file-description', meta:'Organiser les documents nécessaires à la compréhension et au suivi du projet', tags:['Plans','Contrats','Dossier'], proofUrl:EARTH_PROJECTS_URL,
+      context:['Dossiers comprenant plans, contrats, pièces techniques et images de projet','Besoin de rassembler les documents utiles dans une logique de suivi','Objectif : rendre le dossier projet lisible et partageable'],
+      actions:['Classer les plans, contrats et pièces de projet','Repérer les éléments manquants ou à compléter','Préparer les documents pour les échanges avec les parties prenantes'],
+      deliverables:['Plans anonymisés','Contrats ou extraits contractuels','Dossier de pièces projet','Images ou éléments de repérage'],
+      results:['Documents mieux organisés','Informations plus faciles à retrouver','Suivi technique et administratif plus lisible'],
+      skills:['Structuration documentaire','Rigueur','Lecture de pièces projet','Organisation']
     },
     {
-      id:'planning', number:'Preuve 3', title:'Planning & suivi', type:'Avancement terrain', icon:'ti-calendar-stats', meta:'Suivre les étapes, les points en attente et l’avancement du projet', tags:['Planning','Suivi','Avancement'],
-      context:['Projet impliquant plusieurs étapes et acteurs terrain','Besoin de suivre les jalons, les retards, les décisions et les points en attente','Objectif : garder une vision claire de l’avancement'],
-      actions:['Mettre à jour les étapes et points à suivre','Identifier les informations à transmettre aux acteurs concernés','Alerter sur les points en attente ou à arbitrer'],
-      deliverables:['Planning de suivi anonymisé','Liste des points ouverts','Tableau d’avancement','Messages de coordination'],
-      results:['Avancement rendu lisible','Coordination facilitée','Meilleure anticipation des retards ou blocages'],
+      id:'financial', number:'Preuve 3', title:'Suivi administratif & financier', type:'Devis, commandes et factures', icon:'ti-file-invoice', meta:'Suivre les pièces financières et administratives liées aux projets BTP', tags:['Devis','Factures','Commandes'], proofUrl:OPERATIONS_URL,
+      context:['Dossier de gestion comprenant devis, commandes, livraisons et factures','Besoin de suivre les pièces et leur avancement','Objectif : sécuriser les informations financières et administratives'],
+      actions:['Organiser les devis, commandes, livraisons et factures','Repérer les pièces à compléter ou à vérifier','Préparer une lecture claire des éléments de suivi financier'],
+      deliverables:['Récapitulatifs de devis anonymisés','Factures anonymisées','Dossiers commandes et livraisons','Tableaux de suivi administratif'],
+      results:['Suivi financier plus clair','Pièces mieux classées','Points bloquants identifiés plus tôt'],
+      skills:['Suivi administratif','Analyse de devis','Classement documentaire','Coordination']
+    },
+    {
+      id:'planning', number:'Preuve 4', title:'Planning & suivi chantier', type:'Jalons et avancement', icon:'ti-calendar-stats', meta:'Rendre visibles les étapes, les retards, les points ouverts et les décisions', tags:['Planning','Suivi','Avancement'], proofUrl:OPERATIONS_URL,
+      context:['Projets impliquant plusieurs étapes et acteurs terrain','Besoin de suivre les jalons, décisions, retards et points en attente','Objectif : garder une vision claire de l’avancement du chantier'],
+      actions:['Structurer le planning et les étapes du projet','Mettre à jour les points ouverts et informations à transmettre','Alerter sur les blocages ou décisions à prendre'],
+      deliverables:['Planning de chantier anonymisé','Tableau d’avancement','Liste des points ouverts','Messages ou comptes rendus de coordination'],
+      results:['Avancement rendu lisible','Coordination facilitée','Meilleure anticipation des blocages'],
       skills:['Planification','Suivi opérationnel','Communication acteurs','Gestion des priorités']
     },
     {
-      id:'reporting', number:'Preuve 4', title:'Reporting projet', type:'Compte rendu & synthèse', icon:'ti-report', meta:'Produire une synthèse claire pour faciliter la décision', tags:['Reporting','Compte rendu','Décision'],
-      context:['Besoin de rendre compte de l’avancement sans jargon technique','Plusieurs informations à synthétiser : documents, décisions, étapes, blocages','Objectif : faciliter la compréhension et la prise de décision'],
-      actions:['Synthétiser les informations clés du projet','Mettre en avant les points décidés, en attente ou à surveiller','Adapter le niveau de détail selon le destinataire'],
-      deliverables:['Compte rendu de suivi anonymisé','Rapport d’avancement','Synthèse des décisions','Liste des prochaines actions'],
-      results:['Décisions mieux préparées','Vision partagée entre acteurs','Informations complexes rendues plus claires'],
-      skills:['Synthèse','Reporting','Communication claire','Aide à la décision']
+      id:'digital', number:'Preuve 5', title:'Digitalisation du suivi BTP', type:'Outils, BOQ et tableau de bord', icon:'ti-layout-dashboard', meta:'Transformer des documents de suivi en indicateurs et supports de pilotage', tags:['BOQ','Tableau de bord','NOHOBA'], proofUrl:OPERATIONS_URL,
+      context:['Présence d’outils Excel, BOQ, tableau de bord et application de gestion','Besoin de centraliser les informations dispersées dans les dossiers projet','Objectif : préfigurer une solution de suivi BTP plus structurée avec NOHOBA'],
+      actions:['Identifier les données utiles au pilotage de projet','Structurer les indicateurs de suivi des devis, factures et documents','Relier l’expérience terrain à une réflexion de digitalisation BTP'],
+      deliverables:['Outil de quantification ou BOQ','Tableau de bord de suivi','Application ou fichier de gestion','Modèle d’organisation des données projet'],
+      results:['Suivi plus exploitable','Données mieux centralisées','Lien clair entre terrain, gestion documentaire et NOHOBA'],
+      skills:['Digitalisation BTP','Structuration de données','Suivi d’indicateurs','Amélioration continue']
     }
   ];
 
@@ -254,7 +267,7 @@
         ${proofDetailBlock('ti-chart-bar', 'Résultats obtenus', proof.results)}
         ${proofChipBlock('ti-certificate', 'Compétences mobilisées', proof.skills)}
       </div>
-      <div class="coordination-modal-note"><p><strong>Confidentialité :</strong> les preuves doivent être anonymisées avant publication ou mise en ligne dans un dossier partagé.</p></div>`;
+      <div class="coordination-modal-note"><p><strong>Confidentialité :</strong> preuves à anonymiser avant publication. Les dossiers sources peuvent être cités comme preuves disponibles sur demande.</p><a href="${proof.proofUrl}" class="btn btn-sage" target="_blank" rel="noopener">Voir le dossier source <i class="ti ti-external-link" aria-hidden="true"></i></a></div>`;
     proofModal.hidden = false;
     proofModal.classList.add('open');
     document.body.classList.add('modal-open');
@@ -276,26 +289,28 @@
     });
   }
 
-  proofCloseButton.addEventListener('click', closeProof);
-  proofModal.addEventListener('click', event => {
-    if (event.target === proofModal) closeProof();
-  });
-  document.addEventListener('keydown', event => {
-    if (proofModal.hidden) return;
-    if (event.key === 'Escape') closeProof();
-    if (event.key !== 'Tab') return;
-    const focusable = [...proofModal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')];
-    if (!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
-  });
+  if (proofCloseButton && proofModal) {
+    proofCloseButton.addEventListener('click', closeProof);
+    proofModal.addEventListener('click', event => {
+      if (event.target === proofModal) closeProof();
+    });
+    document.addEventListener('keydown', event => {
+      if (proofModal.hidden) return;
+      if (event.key === 'Escape') closeProof();
+      if (event.key !== 'Tab') return;
+      const focusable = [...proofModal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')];
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  }
 </script>
 </body>
 </html>
