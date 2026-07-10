@@ -35,8 +35,9 @@
     .projects-page .page-hero { padding-bottom: 3rem; }
     .projects-intro { max-width: 1100px; margin: 0 auto; }
     .projects-grid-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.2rem; }
-    .project-card { width:100%; min-height:260px; border:1px solid var(--divider); border-radius:var(--radius-lg); padding:0; background:var(--surface-raised, var(--surface)); color:var(--ink); text-align:left; cursor:pointer; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; transition:transform .24s var(--ease-out-expo, ease), box-shadow .24s var(--ease-out-expo, ease), border-color .24s; }
+    .project-card { --opening-orange:#E9782F; width:100%; min-height:260px; border:1px solid var(--divider); border-radius:var(--radius-lg); padding:0; background:var(--surface-raised, var(--surface)); color:var(--ink); text-align:left; cursor:pointer; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; transition:transform .24s var(--ease-out-expo, ease), box-shadow .24s var(--ease-out-expo, ease), border-color .24s; }
     .project-card:hover, .project-card:focus-visible { transform:translateY(-4px); border-color:rgba(200,151,58,.62); box-shadow:0 18px 32px rgba(26,31,28,.12); }
+    .project-card.is-opening { border-color:var(--opening-orange); box-shadow:0 18px 34px rgba(233,120,47,.22); }
     .project-banner { height:108px; padding:.85rem; color:var(--white); display:flex; align-items:flex-end; justify-content:space-between; gap:.75rem; position:relative; overflow:hidden; background:linear-gradient(135deg, #1A1F1C, #2F6F4F); }
     .project-card:nth-child(2) .project-banner { background:linear-gradient(135deg, #244A39, #78A98C); }
     .project-card:nth-child(3) .project-banner { background:linear-gradient(135deg, #1D2B22, #C8973A); }
@@ -45,11 +46,15 @@
     .project-card:nth-child(6) .project-banner { background:linear-gradient(135deg, #1B2A23, #8C6A2F); }
     .project-card:nth-child(7) .project-banner { background:linear-gradient(135deg, #153528, #2F6F4F); }
     .project-card:nth-child(8) .project-banner { background:linear-gradient(135deg, #243B30, #9A7A36); }
-    .project-banner::before { content:''; position:absolute; inset:-55%; background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.30), transparent 26%), radial-gradient(circle at 78% 70%, rgba(200,151,58,.34), transparent 26%); transform:rotate(-10deg); }
+    .project-banner::before { content:''; position:absolute; inset:-55%; background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.30), transparent 26%), radial-gradient(circle at 78% 70%, rgba(200,151,58,.34), transparent 26%); transform:rotate(-10deg); transition:background .28s ease; }
+    .project-card.is-opening .project-banner::before { background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.30), transparent 26%), radial-gradient(circle at 78% 70%, rgba(233,120,47,.40), transparent 28%); }
     .project-banner::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(8,13,10,.62)); }
     .project-banner span, .project-banner i { position:relative; z-index:1; }
-    .project-number { display:inline-flex; align-items:center; gap:.35rem; background:rgba(10,15,12,.56); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:.32rem .58rem; font-size:12px; font-weight:800; backdrop-filter:blur(8px); }
+    .project-number { display:inline-flex; align-items:center; gap:.35rem; background:rgba(10,15,12,.56); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:.32rem .58rem; font-size:12px; font-weight:800; backdrop-filter:blur(8px); transition:border-color .24s ease, background-color .24s ease; }
+    .project-card.is-opening .project-number { border-color:rgba(233,120,47,.58); background:rgba(18,18,14,.66); }
     .project-banner i { width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.18); font-size:20px; }
+    .project-number i:first-child { transform-origin:center; transition:transform .36s var(--ease-out-expo, ease), background-color .24s ease, border-color .24s ease, box-shadow .24s ease; }
+    .project-card.is-opening .project-number i:first-child { transform:translateX(72px) scale(1.08); background:var(--opening-orange); border-color:var(--opening-orange); color:var(--white); box-shadow:0 0 0 6px rgba(233,120,47,.16); }
     .project-body { padding:1.05rem; flex:1; display:flex; flex-direction:column; gap:.75rem; }
     .project-body h3 { margin:0; font-family:var(--serif); font-size:23px; line-height:1.12; font-weight:400; color:var(--ink); }
     .project-type { margin:0; color:var(--ink-soft); font-size:14px; line-height:1.45; }
@@ -98,8 +103,8 @@
       .project-training-box, .project-detail-grid { grid-template-columns:1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .project-card, .project-card-footer i { transition:none; }
-      .project-card:hover, .project-card:focus-visible { transform:none; }
+      .project-card, .project-card-footer i, .project-number, .project-number i:first-child, .project-banner::before { transition:none; }
+      .project-card:hover, .project-card:focus-visible, .project-card.is-opening .project-number i:first-child { transform:none; }
     }
   </style>
 </head>
@@ -264,6 +269,7 @@
   const modalHeader = document.getElementById('project-modal-header-content');
   const modalBody = document.getElementById('project-modal-body');
   const closeButton = document.getElementById('project-modal-close');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let lastFocused = null;
 
   const tags = items => items.map(item => `<span class="chip">${item}</span>`).join('');
@@ -327,30 +333,42 @@
     grid.innerHTML = projects.map(renderCard).join('');
     grid.addEventListener('click', event => {
       const card = event.target.closest('.project-card');
-      if (card) openProject(card.dataset.project);
+      if (!card || card.classList.contains('is-opening')) return;
+      const launch = () => openProject(card.dataset.project);
+      if (prefersReducedMotion) {
+        launch();
+        return;
+      }
+      card.classList.add('is-opening');
+      window.setTimeout(() => {
+        card.classList.remove('is-opening');
+        launch();
+      }, 280);
     });
   }
 
-  closeButton.addEventListener('click', closeProject);
-  modal.addEventListener('click', event => {
-    if (event.target === modal) closeProject();
-  });
-  document.addEventListener('keydown', event => {
-    if (modal.hidden) return;
-    if (event.key === 'Escape') closeProject();
-    if (event.key !== 'Tab') return;
-    const focusable = [...modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')];
-    if (!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
-  });
+  if (closeButton && modal) {
+    closeButton.addEventListener('click', closeProject);
+    modal.addEventListener('click', event => {
+      if (event.target === modal) closeProject();
+    });
+    document.addEventListener('keydown', event => {
+      if (modal.hidden) return;
+      if (event.key === 'Escape') closeProject();
+      if (event.key !== 'Tab') return;
+      const focusable = [...modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')];
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  }
 </script>
 </body>
 </html>
