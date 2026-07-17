@@ -1,0 +1,154 @@
+/* Accent orange — décision claire */
+:root {
+  --decision: #E9782F;
+  --decision-hover: #D8661F;
+  --decision-soft: #FFF1E8;
+  --decision-soft-strong: #FDE6D6;
+  --decision-line: rgba(233,120,47,.28);
+  --decision-glow: rgba(233,120,47,.18);
+}
+
+[data-theme="night"] {
+  --decision: #FF914D;
+  --decision-hover: #FFA56C;
+  --decision-soft: #352116;
+  --decision-soft-strong: #472719;
+  --decision-line: rgba(255,145,77,.34);
+  --decision-glow: rgba(255,145,77,.22);
+}
+
+*:focus-visible { outline-color: var(--decision); }
+.skip-link,
+.nav-cta,
+.btn-primary,
+.btn-sage {
+  background: var(--decision);
+  border-color: var(--decision);
+  color: #fff;
+}
+
+.skip-link:hover,
+.nav-cta:hover,
+.btn-primary:hover,
+.btn-sage:hover {
+  background: var(--decision-hover);
+  border-color: var(--decision-hover);
+}
+
+.nav-center a::after,
+.page-indicator::before,
+.hero-eyebrow-dot {
+  background: var(--decision);
+}
+
+.nav-center li.active a,
+.nav-mobile a.active,
+.hero-title em,
+.page-hero h1 em,
+.page-indicator,
+.hero-eyebrow-text,
+.section-num,
+.inline-link,
+.next-banner-label,
+.contact-link-label,
+.kpi-num {
+  color: var(--decision);
+}
+
+.brand-monogram::after {
+  background: var(--decision);
+  box-shadow: 0 0 0 3px var(--decision-glow);
+}
+
+.nav-logo:hover .brand-monogram,
+.feature-card:hover,
+.card:hover,
+.principle:hover,
+.kpi-card:hover,
+.contact-link:hover,
+.project-card:hover,
+.project-card:focus-visible,
+.coordination-card:hover,
+.coordination-card:focus-visible {
+  border-color: var(--decision-line);
+}
+
+.nav-logo:hover .brand-monogram::after {
+  box-shadow: 0 0 0 5px var(--decision-glow);
+}
+
+.btn-ghost {
+  color: var(--decision);
+  border-color: var(--decision);
+}
+.btn-ghost:hover { background: var(--decision-soft); }
+
+.tag.gold,
+.proof-status.available,
+.project-modal-kicker,
+.project-card-footer,
+.coordination-card-footer {
+  color: var(--decision);
+}
+
+.tag.gold,
+.chip,
+.icon-round,
+.project-detail-block h3 i,
+.coordination-detail-block h3 i {
+  background: var(--decision-soft);
+  color: var(--decision);
+  border-color: var(--decision-line);
+}
+
+.position-box::after {
+  background: radial-gradient(circle at 90% 20%, var(--decision-glow), transparent 38%);
+}
+
+.project-modal-card,
+.coordination-modal-card {
+  border-top: 4px solid var(--decision);
+}
+
+.project-modal-close:hover,
+.project-modal-close:focus-visible,
+.coordination-modal-close:hover,
+.coordination-modal-close:focus-visible {
+  border-color: var(--decision);
+  color: var(--decision);
+}
+
+.project-detail-block li::marker,
+.coordination-detail-block li::marker {
+  color: var(--decision);
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--decision);
+  box-shadow: 0 0 0 3px var(--decision-glow);
+}
+
+.dpe-marker.m-actuel { background: var(--decision); }
+.m-cible { background: var(--sage); }
+
+.scroll-progress { background: var(--decision); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav-cta,
+  .btn-primary,
+  .btn-sage,
+  .project-card,
+  .coordination-card {
+    transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  }
+  .project-card:hover,
+  .coordination-card:hover {
+    box-shadow: 0 12px 28px var(--decision-glow);
+  }
+}
