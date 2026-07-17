@@ -1,10 +1,7 @@
-// Opt in to the entrance animations defined in style.css under .js-motion.
-// Added immediately (not gated behind DOMContentLoaded) so it never delays
-// past first paint. Nothing on the page is hidden by default in CSS, so
-// even if this line never ran, every section would still render normally.
 document.documentElement.classList.add('js-motion');
 
 const THEME_STORAGE_KEY = 'ifb-theme';
+
 const getStoredTheme = () => {
   try {
     const theme = window.localStorage.getItem(THEME_STORAGE_KEY);
@@ -13,23 +10,28 @@ const getStoredTheme = () => {
     return null;
   }
 };
+
 const getPreferredTheme = () => (
   window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'
 );
+
 const applyTheme = theme => {
   const nextTheme = theme === 'night' ? 'night' : 'day';
   document.documentElement.dataset.theme = nextTheme;
   document.documentElement.style.colorScheme = nextTheme === 'night' ? 'dark' : 'light';
+
   document.querySelectorAll('[data-theme-toggle]').forEach(toggle => {
     const isNight = nextTheme === 'night';
     toggle.setAttribute('aria-pressed', String(isNight));
     toggle.setAttribute('aria-label', isNight ? 'Activer le thème jour' : 'Activer le thème nuit');
+
     const icon = toggle.querySelector('i');
     const label = toggle.querySelector('.theme-toggle-text');
     if (icon) icon.className = isNight ? 'ti ti-sun' : 'ti ti-moon';
     if (label) label.textContent = isNight ? 'Jour' : 'Nuit';
   });
 };
+
 applyTheme(getStoredTheme() || getPreferredTheme());
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,49 +39,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   applyTheme(document.documentElement.dataset.theme || getPreferredTheme());
+
   document.querySelectorAll('[data-theme-toggle]').forEach(toggle => {
     toggle.addEventListener('click', () => {
       const nextTheme = document.documentElement.dataset.theme === 'night' ? 'day' : 'night';
       try {
         window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
-      } catch {
-        // Theme still changes for this session if storage is unavailable.
-      }
+      } catch {}
       applyTheme(nextTheme);
     });
   });
 
-  const btn = document.getElementById('hamburger');
-  const menu = document.getElementById('nav-mobile');
+  const menuButton = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('nav-mobile');
 
   const closeMenu = () => {
-    if (!menu || !btn) return;
-    menu.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-    btn.setAttribute('aria-label', 'Ouvrir le menu');
+    if (!menuButton || !mobileMenu) return;
+    mobileMenu.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Ouvrir le menu');
   };
 
-  const openMenu = () => {
-    if (!menu || !btn) return;
-    menu.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-    btn.setAttribute('aria-label', 'Fermer le menu');
-  };
-
-  if (btn && menu) {
-    btn.addEventListener('click', () => {
-      const isOpen = menu.classList.contains('open');
-      isOpen ? closeMenu() : openMenu();
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', () => {
+      const shouldOpen = !mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open', shouldOpen);
+      menuButton.setAttribute('aria-expanded', String(shouldOpen));
+      menuButton.setAttribute('aria-label', shouldOpen ? 'Fermer le menu' : 'Ouvrir le menu');
     });
 
-    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
     document.addEventListener('click', event => {
-      const clickedInsideMenu = menu.contains(event.target);
-      const clickedButton = btn.contains(event.target);
-      if (!clickedInsideMenu && !clickedButton && menu.classList.contains('open')) {
-        closeMenu();
-      }
+      if (!mobileMenu.classList.contains('open')) return;
+      if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
     });
 
     document.addEventListener('keydown', event => {
@@ -91,58 +84,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const form = document.getElementById('contact-form');
-  if (form) {
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
     const formStatus = document.getElementById('form-status');
-    form.addEventListener('submit', event => {
+
+    contactForm.addEventListener('submit', event => {
       event.preventDefault();
       const nom = document.getElementById('nom')?.value.trim() || '';
       const email = document.getElementById('email')?.value.trim() || '';
       const objet = document.getElementById('objet')?.value || 'Contact portfolio';
       const message = document.getElementById('message')?.value.trim() || '';
       const body = `Bonjour Ibrahima,\n\n${message || 'Je souhaite échanger avec vous au sujet de votre profil en rénovation énergétique.'}\n\nNom : ${nom}\nEmail : ${email}`;
+
       if (formStatus) formStatus.textContent = 'Votre message est prêt. Ouverture de votre messagerie…';
-      window.location.href = `mailto:bamba.bif@gmail.com?subject=${encodeURIComponent('Portfolio - ' + objet)}&body=${encodeURIComponent(body)}`;
+      window.location.href = `mailto:bamba.bif@gmail.com?subject=${encodeURIComponent(`Portfolio - ${objet}`)}&body=${encodeURIComponent(body)}`;
     });
   }
 
-  // Skill detail modals (profil.html)
   const skillModal = document.getElementById('skill-modal');
   if (skillModal) {
     const skillData = {
       audit: {
         title: 'Audit énergétique',
-        desc: "Analyser bâti, équipements, consommations et déperditions pour construire un diagnostic exploitable.",
-        proof: "Projet 2 : analyse bâti, enveloppe, systèmes, consommations et déperditions.",
+        desc: 'Analyser le bâti, les équipements, les consommations et les déperditions pour construire un diagnostic exploitable.',
+        proof: 'Projet 2 : analyse du bâti, de l’enveloppe, des systèmes et des consommations.',
         link: 'projets.html#projet02'
       },
       scenarios: {
         title: 'Scénarios & aides',
-        desc: "Comparer les bouquets de travaux, les coûts, les gains, les aides et le reste à charge.",
-        proof: "Projet 3 : matrice comparative coûts/gains/aides/reste à charge.",
+        desc: 'Comparer les bouquets de travaux, les coûts, les gains, les aides et le reste à charge.',
+        proof: 'Projet 3 : comparaison des coûts, gains, aides et reste à charge.',
         link: 'projets.html#projet03'
       },
       communication: {
         title: 'Communication client',
-        desc: "Vulgariser les données techniques et financières pour préparer l'adhésion et le vote.",
-        proof: "Projet 9 : livret, FAQ, supports AG et messages de relance.",
+        desc: 'Vulgariser les données techniques et financières pour préparer l’adhésion et la décision.',
+        proof: 'Projet 9 : supports d’assemblée générale, livret et FAQ.',
         link: 'projets.html#projet09'
       },
       coordination: {
         title: 'Coordination projet',
-        desc: "Suivre consultations, certifications RGE, planning, interfaces acteurs et points de vigilance.",
-        proof: "Projet 7 : consultation entreprises, vérification RGE, planning et interfaces.",
+        desc: 'Suivre les consultations, qualifications, plannings, interfaces et points de vigilance.',
+        proof: 'Projet 7 : préparation du chantier, planning et répartition des responsabilités.',
         link: 'projets.html#projet07'
       },
       conformite: {
         title: 'Conformité & réception',
-        desc: "Structurer les contrôles, réserves, justificatifs, PV de réception et documents de clôture.",
-        proof: "Projet 8 : plan de contrôle, réserves, justificatifs et réception.",
+        desc: 'Structurer les contrôles, réserves, justificatifs et documents de clôture.',
+        proof: 'Projet 8 : plan de contrôle, réserves et réception.',
         link: 'projets.html#projet08'
       },
       analyse: {
         title: 'Analyse & synthèse',
-        desc: "Produire des rapports lisibles, des recommandations hiérarchisées et des supports de décision.",
+        desc: 'Produire des rapports lisibles, des recommandations hiérarchisées et des supports de décision.',
         proof: null,
         link: null
       }
@@ -154,21 +148,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastFocused = null;
 
     const setBackgroundInert = isInert => {
-      backgroundRegions.forEach(region => {
-        region.inert = isInert;
-      });
+      backgroundRegions.forEach(region => { region.inert = isInert; });
       document.body.classList.toggle('modal-open', isInert);
     };
 
     const openSkillModal = key => {
       const data = skillData[key];
-      if (!data) return;
+      if (!data || !modalBody || !modalClose) return;
+
       modalBody.innerHTML = `
         <h3 id="skill-modal-title">${data.title}</h3>
         <p id="skill-modal-description">${data.desc}</p>
         ${data.proof ? `<div class="modal-proof"><strong>Preuve associée :</strong> ${data.proof}</div>` : ''}
         ${data.link ? `<a href="${data.link}" class="btn btn-primary">Voir le projet <i class="ti ti-arrow-right" aria-hidden="true"></i></a>` : ''}
       `;
+
       lastFocused = document.activeElement;
       skillModal.hidden = false;
       requestAnimationFrame(() => skillModal.classList.add('visible'));
@@ -176,18 +170,17 @@ document.addEventListener('DOMContentLoaded', () => {
       modalClose.focus();
     };
 
-    const MODAL_EXIT_MS = 180;
-
     const closeSkillModal = () => {
       if (skillModal.hidden) return;
       setBackgroundInert(false);
-      if (lastFocused) lastFocused.focus();
       skillModal.classList.remove('visible');
-      if (reduceMotion) {
+
+      const finish = () => {
         skillModal.hidden = true;
-      } else {
-        setTimeout(() => { skillModal.hidden = true; }, MODAL_EXIT_MS);
-      }
+        if (lastFocused instanceof HTMLElement) lastFocused.focus();
+      };
+
+      reduceMotion ? finish() : window.setTimeout(finish, 180);
     };
 
     document.querySelectorAll('.skill-card[data-skill]').forEach(card => {
@@ -200,10 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    modalClose.addEventListener('click', closeSkillModal);
+    modalClose?.addEventListener('click', closeSkillModal);
     skillModal.addEventListener('click', event => {
       if (event.target === skillModal) closeSkillModal();
     });
+
     document.addEventListener('keydown', event => {
       if (skillModal.hidden) return;
       if (event.key === 'Escape') {
@@ -211,10 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       if (event.key !== 'Tab') return;
+
       const focusable = [...skillModal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')];
       if (!focusable.length) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
+
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
         last.focus();
@@ -225,146 +221,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Detailed / compact view toggle (projets.html)
-  const viewButtons = document.querySelectorAll('.view-toggle button[data-view]');
-  const caseGrid = document.getElementById('case-grid');
-  const projectStatus = document.getElementById('project-status');
-  if (viewButtons.length && caseGrid) {
-    viewButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const isCompact = button.dataset.view === 'compact';
-        viewButtons.forEach(b => {
-          b.classList.toggle('active', b === button);
-          b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
-        });
-        caseGrid.classList.toggle('view-compact', isCompact);
-        if (projectStatus) projectStatus.textContent = isCompact ? 'Vue compacte activée.' : 'Vue détaillée activée.';
-      });
-    });
-  }
-
-  // Project category filters (projets.html)
-  const filterButtons = document.querySelectorAll('.project-tabs button[data-filter]');
-  if (filterButtons.length) {
-    const cards = document.querySelectorAll('.case-study[data-category]');
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.dataset.filter;
-        filterButtons.forEach(b => {
-          b.classList.toggle('active', b === button);
-          b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
-        });
-        cards.forEach(card => {
-          const show = filter === 'all' || card.dataset.category === filter;
-          if (show === !card.hidden) return;
-          if (reduceMotion || typeof card.animate !== 'function') {
-            card.hidden = !show;
-            return;
-          }
-          if (show) {
-            card.hidden = false;
-            card.animate(
-              [{ opacity: 0, transform: 'translateY(8px) scale(.98)' }, { opacity: 1, transform: 'translateY(0) scale(1)' }],
-              { duration: 220, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' }
-            );
-          } else {
-            const fadeOut = card.animate(
-              [{ opacity: 1, transform: 'translateY(0) scale(1)' }, { opacity: 0, transform: 'translateY(8px) scale(.98)' }],
-              { duration: 160, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' }
-            );
-            fadeOut.onfinish = () => { card.hidden = true; };
-          }
-        });
-        if (projectStatus) {
-          const visibleCount = filter === 'all' ? cards.length : [...cards].filter(card => card.dataset.category === filter).length;
-          projectStatus.textContent = `${visibleCount} étude${visibleCount > 1 ? 's' : ''} de cas affichée${visibleCount > 1 ? 's' : ''}.`;
-        }
-      });
-    });
-  }
-
-  // Scroll progress bar
   if (!reduceMotion) {
     const progress = document.createElement('div');
     progress.className = 'scroll-progress';
     progress.setAttribute('aria-hidden', 'true');
     document.body.appendChild(progress);
+
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        const h = document.documentElement;
-        const max = h.scrollHeight - h.clientHeight;
-        const pct = max > 0 ? h.scrollTop / max : 0;
-        progress.style.transform = `scaleX(${pct})`;
+        const page = document.documentElement;
+        const maximum = page.scrollHeight - page.clientHeight;
+        progress.style.transform = `scaleX(${maximum > 0 ? page.scrollTop / maximum : 0})`;
         ticking = false;
       });
     }, { passive: true });
   }
 
-  // 3D scroll reveal: progressive, lightweight, and never required for content visibility.
   if (!reduceMotion && 'IntersectionObserver' in window) {
-    const revealTargets = [
-      ...document.querySelectorAll(
-        '.section-wrap .section-header, .principle, .feature-card, .card, .position-box, .timeline-card, .case-study, .contact-link, .proof-table, .next-banner, .nohoba-qr-card'
-      )
-    ].filter(element => !element.closest('.skill-modal'));
+    const targets = [...document.querySelectorAll(
+      '.section-wrap .section-header, .principle, .feature-card, .card, .position-box, .timeline-card, .contact-link, .proof-table, .next-banner'
+    )].filter(element => !element.closest('.skill-modal'));
 
-    const revealObserver = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-
         const element = entry.target;
         const index = Number(element.dataset.revealIndex || 0);
         element.classList.add('motion-revealed');
         element.animate(
           [
-            { opacity: 0, transform: 'perspective(1000px) rotateX(10deg) rotateY(-5deg) translateY(28px) translateZ(-36px) scale(.965)', filter: 'blur(10px)' },
-            { opacity: 1, transform: 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) translateZ(0) scale(1)', filter: 'blur(0)' }
+            { opacity: 0, transform: 'translateY(24px) scale(.98)', filter: 'blur(8px)' },
+            { opacity: 1, transform: 'translateY(0) scale(1)', filter: 'blur(0)' }
           ],
           {
-            duration: 760,
-            delay: Math.min((index % 5) * 70, 240),
+            duration: 620,
+            delay: Math.min((index % 5) * 60, 200),
             easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
             fill: 'both'
           }
         );
-        revealObserver.unobserve(element);
+        observer.unobserve(element);
       });
-    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
 
-    revealTargets.forEach((element, index) => {
+    targets.forEach((element, index) => {
       element.dataset.revealIndex = String(index);
-      revealObserver.observe(element);
+      observer.observe(element);
     });
   }
 
-  // Pointer-driven 3D depth on important cards and calls-to-action.
   if (!reduceMotion && finePointer) {
-    const tiltTargets = [
-      ...document.querySelectorAll(
-        '.feature-card, .skill-card, .timeline-card, .card, .position-box, .case-study, .contact-link, .next-banner, .nohoba-qr-card'
-      )
-    ].filter(element => !element.closest('.skill-modal') && !element.classList.contains('dpe-card'));
+    const tiltTargets = [...document.querySelectorAll(
+      '.feature-card, .skill-card, .timeline-card, .card, .position-box, .contact-link, .next-banner'
+    )].filter(element => !element.closest('.skill-modal') && !element.classList.contains('dpe-card'));
 
     tiltTargets.forEach(element => {
+      let frame = 0;
       element.classList.add('motion-3d');
-      let tiltFrame = 0;
 
       element.addEventListener('pointermove', event => {
-        if (tiltFrame) return;
-        tiltFrame = requestAnimationFrame(() => {
+        if (frame) return;
+        frame = requestAnimationFrame(() => {
           const rect = element.getBoundingClientRect();
-          const px = (event.clientX - rect.left) / rect.width - 0.5;
-          const py = (event.clientY - rect.top) / rect.height - 0.5;
-          const maxTilt = element.classList.contains('case-study') ? 3.2 : 5.5;
-
-          element.style.setProperty('--rx', `${(-py * maxTilt).toFixed(2)}deg`);
-          element.style.setProperty('--ry', `${(px * maxTilt).toFixed(2)}deg`);
-          element.style.setProperty('--tz', element.classList.contains('contact-link') ? '8px' : '18px');
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          element.style.setProperty('--rx', `${(-y * 4.5).toFixed(2)}deg`);
+          element.style.setProperty('--ry', `${(x * 4.5).toFixed(2)}deg`);
+          element.style.setProperty('--tz', '14px');
           element.classList.add('is-tilting');
-          tiltFrame = 0;
+          frame = 0;
         });
       }, { passive: true });
 
@@ -375,47 +303,19 @@ document.addEventListener('DOMContentLoaded', () => {
         element.style.removeProperty('--tz');
       });
     });
-  }
 
-  // Hero glow follows the pointer
-  if (!reduceMotion && finePointer) {
-    const heroEl = document.querySelector('.hero, .page-hero');
-    if (heroEl) {
-      let heroFrame = 0;
-      heroEl.addEventListener('pointermove', event => {
-        if (heroFrame) return;
-        const { clientX, clientY } = event;
-        heroFrame = requestAnimationFrame(() => {
-          const rect = heroEl.getBoundingClientRect();
-          const px = ((clientX - rect.left) / rect.width - 0.5) * 60;
-          const py = ((clientY - rect.top) / rect.height - 0.5) * 60;
-          heroEl.style.setProperty('--gx', `${px}px`);
-          heroEl.style.setProperty('--gy', `${py}px`);
-          heroFrame = 0;
+    const hero = document.querySelector('.hero, .page-hero');
+    if (hero) {
+      let frame = 0;
+      hero.addEventListener('pointermove', event => {
+        if (frame) return;
+        frame = requestAnimationFrame(() => {
+          const rect = hero.getBoundingClientRect();
+          hero.style.setProperty('--gx', `${(((event.clientX - rect.left) / rect.width) - 0.5) * 60}px`);
+          hero.style.setProperty('--gy', `${(((event.clientY - rect.top) / rect.height) - 0.5) * 60}px`);
+          frame = 0;
         });
       }, { passive: true });
-    }
-  }
-
-  // DPE card: stronger 3D pointer tilt
-  if (!reduceMotion && finePointer) {
-    const dpeCard = document.querySelector('.dpe-card');
-    if (dpeCard) {
-      let dpeFrame = 0;
-      dpeCard.addEventListener('pointermove', event => {
-        if (dpeFrame) return;
-        const { clientX, clientY } = event;
-        dpeFrame = requestAnimationFrame(() => {
-          const rect = dpeCard.getBoundingClientRect();
-          const px = (clientX - rect.left) / rect.width - 0.5;
-          const py = (clientY - rect.top) / rect.height - 0.5;
-          dpeCard.style.transform = `perspective(1000px) rotateY(${px * 9}deg) rotateX(${-py * 9}deg) translateZ(18px) scale(1.025)`;
-          dpeFrame = 0;
-        });
-      }, { passive: true });
-      dpeCard.addEventListener('mouseleave', () => {
-        dpeCard.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) translateZ(0) scale(1)';
-      });
     }
   }
 });
