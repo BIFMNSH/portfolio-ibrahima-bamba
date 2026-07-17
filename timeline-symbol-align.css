@@ -1,0 +1,6 @@
+/* Alignement vertical minimal des symboles avec les titres des cartes */
+@media (min-width: 761px) {
+  .timeline-dot {
+    padding-top: 13px;
+  }
+}
