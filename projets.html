@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <title>Projets appliqués | Ibrahima Fa Bamba</title>
-  <meta name="description" content="Études de cas et livrables en rénovation énergétique : état des lieux, scénarios, audit, chantier, conformité, veille et communication."/>
+  <title>Études de cas : audit, aides et copropriété | Ibrahima Fa Bamba</title>
+  <meta name="description" content="Études de cas d’Ibrahima Fa Bamba en rénovation énergétique : état des lieux, scénarios technico-financiers, audit, chantier, conformité et communication copropriété."/>
   <link rel="canonical" href="https://portfolio-ibrahima-bamba.vercel.app/projets.html"/>
   <meta name="theme-color" content="#1A1F1C"/>
   <meta name="color-scheme" content="light dark"/>
@@ -18,8 +18,8 @@
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="fr_FR"/>
   <meta property="og:site_name" content="Portfolio Ibrahima Fa Bamba"/>
-  <meta property="og:title" content="Projets appliqués | Ibrahima Fa Bamba"/>
-  <meta property="og:description" content="Études de cas en rénovation énergétique avec détails au clic."/>
+  <meta property="og:title" content="Études de cas en rénovation énergétique | Ibrahima Fa Bamba"/>
+  <meta property="og:description" content="Des preuves métier structurées selon les trois blocs du titre RNCP39259."/>
   <meta property="og:url" content="https://portfolio-ibrahima-bamba.vercel.app/projets.html"/>
   <meta property="og:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -30,345 +30,65 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css"/>
-  <link rel="stylesheet" href="style.css?v=20260708-premium"/>
+  <link rel="stylesheet" href="style.css?v=20260717-lot2"/>
   <style>
-    .projects-page .page-hero { padding-bottom: 3rem; }
-    .projects-intro { max-width: 1100px; margin: 0 auto; }
-    .projects-grid-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.2rem; }
-    .project-card { --opening-orange:#E9782F; width:100%; min-height:260px; border:1px solid var(--divider); border-radius:var(--radius-lg); padding:0; background:var(--surface-raised, var(--surface)); color:var(--ink); text-align:left; cursor:pointer; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; transition:transform .24s var(--ease-out-expo, ease), box-shadow .24s var(--ease-out-expo, ease), border-color .24s; }
-    .project-card:hover, .project-card:focus-visible { transform:translateY(-4px); border-color:rgba(200,151,58,.62); box-shadow:0 18px 32px rgba(26,31,28,.12); }
-    .project-card.is-opening { border-color:var(--opening-orange); box-shadow:0 18px 34px rgba(233,120,47,.22); }
-    .project-banner { height:108px; padding:.85rem; color:var(--white); display:flex; align-items:flex-end; justify-content:space-between; gap:.75rem; position:relative; overflow:hidden; background:linear-gradient(135deg, #1A1F1C, #2F6F4F); }
-    .project-card:nth-child(2) .project-banner { background:linear-gradient(135deg, #244A39, #78A98C); }
-    .project-card:nth-child(3) .project-banner { background:linear-gradient(135deg, #1D2B22, #C8973A); }
-    .project-card:nth-child(4) .project-banner { background:linear-gradient(135deg, #26362C, #4F7A5D); }
-    .project-card:nth-child(5) .project-banner { background:linear-gradient(135deg, #20342A, #6E8F7B); }
-    .project-card:nth-child(6) .project-banner { background:linear-gradient(135deg, #1B2A23, #8C6A2F); }
-    .project-card:nth-child(7) .project-banner { background:linear-gradient(135deg, #153528, #2F6F4F); }
-    .project-card:nth-child(8) .project-banner { background:linear-gradient(135deg, #243B30, #9A7A36); }
-    .project-banner::before { content:''; position:absolute; inset:-55%; background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.30), transparent 26%), radial-gradient(circle at 78% 70%, rgba(200,151,58,.34), transparent 26%); transform:rotate(-10deg); transition:background .28s ease; }
-    .project-card.is-opening .project-banner::before { background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.30), transparent 26%), radial-gradient(circle at 78% 70%, rgba(233,120,47,.40), transparent 28%); }
-    .project-banner::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(8,13,10,.62)); }
-    .project-banner span, .project-banner i { position:relative; z-index:1; }
-    .project-number { display:inline-flex; align-items:center; gap:.35rem; background:rgba(10,15,12,.56); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:.32rem .58rem; font-size:12px; font-weight:800; backdrop-filter:blur(8px); transition:border-color .24s ease, background-color .24s ease; }
-    .project-card.is-opening .project-number { border-color:rgba(233,120,47,.58); background:rgba(18,18,14,.66); }
-    .project-banner i { width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.18); font-size:20px; }
-    .project-number i:first-child { transform-origin:center; transition:transform .36s var(--ease-out-expo, ease), background-color .24s ease, border-color .24s ease, box-shadow .24s ease; }
-    .project-card.is-opening .project-number i:first-child { transform:translateX(72px) scale(1.08); background:var(--opening-orange); border-color:var(--opening-orange); color:var(--white); box-shadow:0 0 0 6px rgba(233,120,47,.16); }
-    .project-body { padding:1.05rem; flex:1; display:flex; flex-direction:column; gap:.75rem; }
-    .project-body h3 { margin:0; font-family:var(--serif); font-size:23px; line-height:1.12; font-weight:400; color:var(--ink); }
-    .project-type { margin:0; color:var(--ink-soft); font-size:14px; line-height:1.45; }
-    .project-body .chip-row { margin-top:auto; gap:.42rem; }
-    .project-body .chip { font-size:11px; padding:4px 7px; }
-    .project-card-footer { display:flex; justify-content:space-between; align-items:center; gap:1rem; border-top:1px solid var(--divider); padding:.8rem 1.05rem; color:var(--sage); font-size:13px; font-weight:800; }
-    .project-card-footer i { transition:transform .2s; }
-    .project-card:hover .project-card-footer i, .project-card:focus-visible .project-card-footer i { transform:translateX(3px); }
-    .project-evidence-cta { margin-top:1.4rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.15rem 1.25rem; border:1px solid var(--divider); border-radius:var(--radius-lg); background:var(--surface-raised, var(--surface)); box-shadow:var(--shadow); }
-    .project-evidence-cta p { margin:0; color:var(--ink-soft); line-height:1.55; }
-    .project-evidence-cta strong { color:var(--ink); display:block; margin-bottom:.15rem; }
-    .project-modal { position:fixed; inset:0; z-index:300; display:none; align-items:flex-start; justify-content:center; padding:clamp(1rem, 5vw, 3rem); overflow:auto; background:rgba(10,16,12,.62); backdrop-filter:blur(8px); }
-    .project-modal.open { display:flex; }
-    .project-modal-card { width:min(980px, 100%); background:var(--surface); color:var(--ink); border:1px solid var(--divider); border-top:4px solid var(--gold); border-radius:var(--radius-lg); box-shadow:0 24px 70px rgba(0,0,0,.28); overflow:hidden; }
-    .project-modal-header { background:var(--panel-dark); color:var(--white); padding:1.35rem 1.5rem; display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }
-    .project-modal-kicker { color:var(--gold); font-size:13px; font-weight:800; display:inline-flex; align-items:center; gap:.4rem; margin-bottom:.55rem; }
-    .project-modal-title { font-family:var(--serif); font-size:34px; line-height:1.08; font-weight:400; margin:0 0 .5rem; color:var(--white); }
-    .project-modal-sub { margin:0; color:rgba(255,255,255,.66); max-width:700px; line-height:1.55; }
-    .project-modal-close { border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.08); color:rgba(255,255,255,.86); border-radius:999px; min-width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:0 0 auto; }
-    .project-modal-close:hover, .project-modal-close:focus-visible { border-color:var(--gold); color:var(--gold); }
-    .project-modal-body { padding:1.5rem; }
-    .project-training-box { margin-bottom:1rem; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; }
-    .project-training-item { border:1px solid var(--divider); border-radius:var(--radius-md); background:var(--sage-pale); padding:.85rem 1rem; }
-    .project-training-label { display:block; color:var(--sage); font-size:12px; font-weight:800; letter-spacing:.02em; margin-bottom:.25rem; }
-    .project-training-value { color:var(--ink); font-weight:700; line-height:1.35; }
-    .project-detail-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
-    .project-detail-block { border:1px solid var(--divider); border-radius:var(--radius-md); padding:1rem; background:linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.32)); min-height:160px; }
-    [data-theme="night"] .project-detail-block { background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)); }
-    .project-detail-block h3 { margin:0 0 .75rem; font-size:16px; color:var(--ink); display:flex; align-items:center; gap:.55rem; }
-    .project-detail-block h3 i { width:32px; height:32px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:var(--sage-pale); color:var(--sage); border:1px solid var(--hairline, var(--divider)); }
-    .project-detail-block ul { margin:0; padding-left:1.1rem; color:var(--ink-soft); display:grid; gap:.45rem; line-height:1.45; }
-    .project-detail-block li::marker { color:var(--gold); }
-    .project-detail-block .chip-row { gap:.45rem; }
-    .project-modal-note { margin-top:1rem; border:1px solid var(--hairline, var(--divider)); background:var(--sage-pale); border-radius:var(--radius-md); padding:1rem; color:var(--ink-soft); display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .project-modal-note p { margin:0; }
-    .project-modal-note strong { color:var(--ink); }
-    .projects-next { margin-top:1.5rem; }
-    @media (max-width: 980px) { .projects-grid-cards { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width: 680px) {
-      .projects-grid-cards { grid-template-columns:1fr; }
-      .project-evidence-cta, .project-modal-note { display:grid; }
-      .project-modal { padding:.75rem; }
-      .project-modal-header { padding:1.05rem; }
-      .project-modal-title { font-size:27px; }
-      .project-modal-body { padding:1rem; }
-      .project-training-box, .project-detail-grid { grid-template-columns:1fr; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .project-card, .project-card-footer i, .project-number, .project-number i:first-child, .project-banner::before { transition:none; }
-      .project-card:hover, .project-card:focus-visible, .project-card.is-opening .project-number i:first-child { transform:none; }
-    }
+    .project-status-note{display:flex;gap:.75rem;align-items:flex-start;padding:1rem 1.1rem;border:1px solid rgba(200,151,58,.28);background:var(--gold-pale);border-radius:var(--radius-md);margin-top:1.4rem;color:#6b5121;font-size:13px;line-height:1.55}.project-status-note i{color:var(--gold);font-size:20px;flex:0 0 auto}[data-theme="night"] .project-status-note{color:#f3deb5}.project-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.project-index a{text-decoration:none}.project-index .feature-card{transition:transform .2s,border-color .2s}.project-index .feature-card:hover{transform:translateY(-2px);border-color:var(--sage-light)}.case-static{background:var(--surface-raised);border:1px solid var(--divider);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;margin-bottom:2rem;scroll-margin-top:90px}.case-static-header{background:linear-gradient(135deg,var(--panel-dark),#132016);color:var(--white);padding:1.5rem 1.7rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start}.case-static-kicker{display:flex;gap:.55rem;align-items:center;color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.03em}.case-static h2{font-family:var(--serif);font-size:29px;font-weight:400;line-height:1.12;margin:.55rem 0;color:var(--white)}.case-static-sub{color:rgba(255,255,255,.66);font-size:14px}.proof-status{white-space:nowrap;border-radius:999px;padding:.38rem .65rem;font-size:11px;font-weight:800;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08)}.proof-status.available{border-color:rgba(120,169,140,.65);color:#b8e2c6}.proof-status.pending{color:rgba(255,255,255,.7)}.case-static-body{padding:1.5rem 1.7rem}.case-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-bottom:1.2rem}.case-meta-item{background:var(--sage-pale);border:1px solid var(--hairline);border-radius:var(--radius-md);padding:.8rem .9rem}.case-meta-item span{display:block;font-size:11px;color:var(--sage);font-weight:800;letter-spacing:.03em;margin-bottom:.2rem}.case-meta-item strong{font-size:13px;color:var(--ink)}.case-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.case-block{border:1px solid var(--divider);border-radius:var(--radius-md);padding:1rem;background:var(--surface-soft)}.case-block h3{font-size:16px;margin-bottom:.65rem;display:flex;align-items:center;gap:.45rem}.case-block h3 i{color:var(--sage)}.case-block ul{padding-left:1.15rem;color:var(--ink-soft);font-size:14px;line-height:1.55;display:grid;gap:.35rem}.case-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--divider)}.case-footer p{font-size:13px;color:var(--ink-soft)}.case-footer .btn[aria-disabled="true"]{opacity:.58;pointer-events:none}.rncp-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.rncp-map .principle{min-height:100%}@media(max-width:900px){.project-index,.rncp-map{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:680px){.project-index,.rncp-map,.case-meta,.case-columns{grid-template-columns:1fr}.case-static-header{grid-template-columns:1fr}.proof-status{justify-self:start}.case-footer{align-items:flex-start;flex-direction:column}}
   </style>
 </head>
-<body class="projects-page">
+<body>
 <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 <nav class="nav" aria-label="Navigation principale">
   <a href="index.html" class="nav-logo" aria-label="Accueil — Ibrahima Fa Bamba"><span class="brand-monogram" aria-hidden="true" style="width:auto;min-width:160px;padding:0 .85rem;font-size:14px;letter-spacing:.01em;white-space:nowrap">Ibrahima Fa Bamba</span></a>
   <ul class="nav-center">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="profil.html">Profil</a></li>
-    <li><a href="roadmap.html">Parcours</a></li>
-    <li class="active"><a href="projets.html" aria-current="page">Projets</a></li>
-    <li><a href="nohoba.html">NOHOBA</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html">Accueil</a></li><li><a href="profil.html">Profil</a></li><li><a href="roadmap.html">Parcours</a></li><li class="active"><a href="projets.html" aria-current="page">Projets</a></li><li><a href="nohoba.html">NOHOBA</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
   <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activer le thème nuit" aria-pressed="false"><i class="ti ti-moon" aria-hidden="true"></i><span class="theme-toggle-text">Nuit</span></button>
   <a href="assets/cv-ibrahima-bamba.pdf" class="nav-cta" download><i class="ti ti-download" aria-hidden="true"></i> Télécharger le CV</a>
   <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
 </nav>
-<div class="nav-mobile" id="nav-mobile">
-  <a href="index.html">Accueil</a>
-  <a href="profil.html">Profil</a>
-  <a href="roadmap.html">Parcours</a>
-  <a href="projets.html" class="active" aria-current="page">Projets</a>
-  <a href="nohoba.html">NOHOBA</a>
-  <a href="contact.html">Contact</a>
-  <a href="assets/cv-ibrahima-bamba.pdf" download>Télécharger le CV</a>
-</div>
+<div class="nav-mobile" id="nav-mobile"><a href="index.html">Accueil</a><a href="profil.html">Profil</a><a href="roadmap.html">Parcours</a><a href="projets.html" class="active" aria-current="page">Projets</a><a href="nohoba.html">NOHOBA</a><a href="contact.html">Contact</a><a href="assets/cv-ibrahima-bamba.pdf" download>Télécharger le CV</a></div>
 
 <main id="main-content">
-  <section class="page-hero" aria-labelledby="page-title">
-    <div class="page-hero-inner projects-intro">
-      <p class="page-indicator">Projets appliqués</p>
-      <h1 id="page-title">Études de cas et livrables</h1>
-      <p>Une sélection de projets de formation structurés comme des preuves métier : contexte, actions, livrables, compétences et documents associés. Cliquez sur une carte pour afficher le détail.</p>
-    </div>
-  </section>
+<section class="page-hero" aria-labelledby="page-title"><div class="page-hero-inner"><p class="page-indicator">Projets appliqués</p><h1 id="page-title">Études de cas & preuves métier</h1><p>Les projets ci-dessous ont été réalisés dans le cadre de la formation certifiante. Ils démontrent une méthode de travail et des compétences mobilisables, sans être présentés comme des missions clients réelles.</p></div></section>
 
-  <section class="section-wrap" aria-labelledby="summary-title">
-    <div class="container">
-      <div class="section-header"><h2 class="section-title" id="summary-title">Lecture rapide</h2></div>
-      <div class="principles-grid">
-        <article class="principle"><h3>Analyser</h3><p>État des lieux, diagnostic, données bâti, équipements, consommations et contraintes.</p></article>
-        <article class="principle"><h3>Comparer</h3><p>Scénarios, coûts, gains, aides financières, arbitrages et reste à charge.</p></article>
-        <article class="principle"><h3>Coordonner</h3><p>Documents, acteurs, planning, suivi chantier, conformité et communication.</p></article>
-      </div>
-    </div>
-  </section>
+<section class="section-wrap" aria-labelledby="map-title"><div class="container"><div class="section-header"><h2 class="section-title" id="map-title">Cartographie RNCP39259</h2></div><div class="rncp-map"><article class="principle"><h3>BC01 — Concevoir</h3><p>Projets 2 à 4 : état des lieux, scénarios technico-financiers et audit énergétique.</p></article><article class="principle"><h3>BC02 — Superviser</h3><p>Projets 5, 7 et 8 : imprévus, préparation chantier, conformité et réception.</p></article><article class="principle"><h3>BC03 — Conseiller</h3><p>Projets 6 et 9 : veille réglementaire, communication et accompagnement à la décision.</p></article></div><div class="project-status-note"><i class="ti ti-info-circle" aria-hidden="true"></i><p><strong>État de publication :</strong> les livrables du projet 2 sont actuellement consultables. Les autres études de cas sont décrites sur le site, mais leurs dossiers publics sont en cours de sélection, d’anonymisation et de mise en ligne.</p></div></div></section>
 
-  <hr class="divider"/>
-  <section class="section-wrap" aria-labelledby="projects-list-title">
-    <div class="container">
-      <div class="section-header"><h2 class="section-title" id="projects-list-title">Liste des projets</h2></div>
-      <div class="projects-grid-cards" id="projects-grid" aria-label="Liste des projets"></div>
-      <div class="project-evidence-cta">
-        <p><strong>Dossier complet des preuves portfolio</strong>Accéder au dossier Drive regroupant les livrables sélectionnés.</p>
-        <a href="https://drive.google.com/drive/folders/1E6nsyFD5ZaUVleyyYTcobD2HgMA-u8Cs" class="btn btn-sage" target="_blank" rel="noopener">Voir le dossier complet <i class="ti ti-external-link" aria-hidden="true"></i></a>
-      </div>
-      <div class="next-banner projects-next">
-        <div><p class="next-banner-label">Projet personnel complémentaire</p><p class="next-banner-title">NOHOBA & construction durable</p></div>
-        <a href="nohoba.html" class="btn btn-sage">Voir NOHOBA <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </section>
+<hr class="divider"/>
+<section class="section-wrap" aria-labelledby="index-title"><div class="container"><div class="section-header"><h2 class="section-title" id="index-title">Accès rapide</h2></div><div class="project-index">
+<a href="#projet02"><article class="feature-card"><h3>Projet 2</h3><p>État des lieux d’un bâtiment existant</p><span class="tag gold">Preuves disponibles</span></article></a>
+<a href="#projet03"><article class="feature-card"><h3>Projet 3</h3><p>Scénarios de rénovation et aides</p><span class="tag">Publication en cours</span></article></a>
+<a href="#projet04"><article class="feature-card"><h3>Projet 4</h3><p>Audit énergétique complet</p><span class="tag">Publication en cours</span></article></a>
+<a href="#projet05"><article class="feature-card"><h3>Projet 5</h3><p>Imprévus au lancement des travaux</p><span class="tag">Publication en cours</span></article></a>
+<a href="#projet06"><article class="feature-card"><h3>Projet 6</h3><p>Veille réglementaire</p><span class="tag">Publication en cours</span></article></a>
+<a href="#projet07"><article class="feature-card"><h3>Projet 7</h3><p>Phases initiales d’un chantier</p><span class="tag">Publication en cours</span></article></a>
+<a href="#projet08"><article class="feature-card"><h3>Projet 8</h3><p>Conformité des travaux</p><span class="tag">Publication en cours</span></article></a>
+<a href="#projet09"><article class="feature-card"><h3>Projet 9</h3><p>Communication copropriété</p><span class="tag">Publication en cours</span></article></a>
+</div></div></section>
+
+<section class="section-wrap" aria-labelledby="cases-title" style="padding-top:0"><div class="container"><div class="section-header"><h2 class="section-title" id="cases-title">Détail des études de cas</h2></div>
+
+<article class="case-static" id="projet02"><header class="case-static-header"><div><span class="case-static-kicker"><i class="ti ti-search"></i>Projet 2 · Maison individuelle</span><h2>État des lieux d’un bâtiment existant</h2><p class="case-static-sub">Maison construite en 1970, 137 m², étude pédagogique localisée en Côte-d’Or.</p></div><span class="proof-status available">Preuves disponibles</span></header><div class="case-static-body"><div class="case-meta"><div class="case-meta-item"><span>Bloc RNCP</span><strong>BC01 — Concevoir un plan de rénovation énergétique</strong></div><div class="case-meta-item"><span>Outils</span><strong>CAP Renov+, Visuary, tableur</strong></div></div><div class="case-columns"><section class="case-block"><h3><i class="ti ti-route"></i>Actions menées</h3><ul><li>Préparation du rendez-vous et collecte des données client</li><li>Analyse du bâti, des équipements, des plans et des consommations</li><li>Structuration d’une pré-synthèse et d’un rapport Cap Renov</li></ul></section><section class="case-block"><h3><i class="ti ti-folder"></i>Livrables</h3><ul><li>Formulaire de préparation de visite</li><li>Email client et pré-synthèse</li><li>Plan d’habitation</li><li>Rapport et synthèse Cap Renov</li></ul></section><section class="case-block"><h3><i class="ti ti-certificate"></i>Compétences démontrées</h3><ul><li>Analyse du bâtiment existant</li><li>Lecture de plans et données énergétiques</li><li>Transformation d’un rapport technique en support de décision</li></ul></section><section class="case-block"><h3><i class="ti ti-alert-triangle"></i>Limites explicites</h3><ul><li>Simulation pédagogique et non audit réglementaire</li><li>Données à consolider par une visite terrain</li><li>Cas présenté avec anonymisation à finaliser pour certains fichiers</li></ul></section></div><footer class="case-footer"><p>Le dossier public contient les livrables actuellement disponibles. Les données doivent être considérées comme pédagogiques ou anonymisées.</p><a href="https://drive.google.com/drive/folders/1_k6_hkc5bPpR1BDYOwfIxtaqzIj3Y3s2" class="btn btn-sage" target="_blank" rel="noopener">Consulter les livrables <i class="ti ti-external-link"></i></a></footer></div></article>
+
+<article class="case-static" id="projet03"><header class="case-static-header"><div><span class="case-static-kicker"><i class="ti ti-calculator"></i>Projet 3 · Scénarios & aides</span><h2>Guider le client vers le meilleur scénario de rénovation</h2><p class="case-static-sub">Comparer plusieurs solutions pour éclairer l’arbitrage technique et financier.</p></div><span class="proof-status pending">Publication en cours</span></header><div class="case-static-body"><div class="case-meta"><div class="case-meta-item"><span>Bloc RNCP</span><strong>BC01 — Concevoir un plan de rénovation énergétique</strong></div><div class="case-meta-item"><span>Outils</span><strong>CAP Renov+, tableur, documentation aides</strong></div></div><div class="case-columns"><section class="case-block"><h3><i class="ti ti-route"></i>Actions menées</h3><ul><li>Construction d’une comparaison multicritère</li><li>Analyse des coûts, gains, aides et reste à charge</li><li>Formulation d’une recommandation argumentée</li></ul></section><section class="case-block"><h3><i class="ti ti-folder"></i>Livrables prévus</h3><ul><li>Matrice comparative des scénarios</li><li>Tableau des aides et du reste à charge</li><li>Synthèse de recommandation</li></ul></section></div><footer class="case-footer"><p>Les documents sont en cours de sélection et d’anonymisation avant publication.</p><span class="btn btn-ghost" aria-disabled="true">Livrables bientôt disponibles</span></footer></div></article>
+
+<article class="case-static" id="projet04"><header class="case-static-header"><div><span class="case-static-kicker"><i class="ti ti-home-eco"></i>Projet 4 · Audit</span><h2>Maîtriser la gestion complète d’un audit énergétique</h2><p class="case-static-sub">Relier état initial, scénarios chiffrés, recommandations et parcours de rénovation.</p></div><span class="proof-status pending">Publication en cours</span></header><div class="case-static-body"><div class="case-meta"><div class="case-meta-item"><span>Bloc RNCP</span><strong>BC01 — Concevoir un plan de rénovation énergétique</strong></div><div class="case-meta-item"><span>Outils</span><strong>CAP Renov+, Visuary, tableur</strong></div></div><div class="case-columns"><section class="case-block"><h3><i class="ti ti-route"></i>Actions menées</h3><ul><li>Recueil et analyse des besoins du maître d’ouvrage</li><li>État des lieux de la structure et des systèmes</li><li>Développement de scénarios chiffrés</li></ul></section><section class="case-block"><h3><i class="ti ti-folder"></i>Livrables prévus</h3><ul><li>Rapport d’audit énergétique</li><li>Scénarios de rénovation chiffrés</li><li>Synthèse client et recommandations</li></ul></section></div><footer class="case-footer"><p>La description démontre la méthode ; les preuves documentaires seront publiées après contrôle.</p><span class="btn btn-ghost" aria-disabled="true">Livrables bientôt disponibles</span></footer></div></article>
+
+<article class="case-static" id="projet05"><header class="case-static-header"><div><span class="case-static-kicker"><i class="ti ti-file-invoice"></i>Projet 5 · Gestion d’imprévu</span><h2>Maîtriser des imprévus au lancement des travaux</h2><p class="case-static-sub">Comparer les offres, vérifier les qualifications et sécuriser une décision rapide.</p></div><span class="proof-status pending">Publication en cours</span></header><div class="case-static-body"><div class="case-meta"><div class="case-meta-item"><span>Bloc RNCP</span><strong>BC02 — Superviser un projet de rénovation énergétique</strong></div><div class="case-meta-item"><span>Outils</span><strong>Tableur, grille multicritère, référentiels RGE</strong></div></div><div class="case-columns"><section class="case-block"><h3><i class="ti ti-route"></i>Actions menées</h3><ul><li>Lecture des devis et périmètres de travaux</li><li>Vérification des qualifications et points de vigilance</li><li>Recommandation argumentée</li></ul></section><section class="case-block"><h3><i class="ti ti-folder"></i>Livrables prévus</h3><ul><li>Tableau comparatif des offres</li><li>Liste des risques et points de vigilance</li><li>Note de recommandation</li></ul></section></div><footer class="case-footer"><p>Les livrables seront ouverts après retrait des informations sensibles.</p><span class="btn btn-ghost" aria-disabled="true">Livrables bientôt disponibles</span></footer></div></article>
+
+<article class="case-static" id="projet06"><header class="case-static-header"><div><span class="case-static-kicker"><i class="ti ti-rss"></i>Projet 6 · Veille</span><h2>Mettre en place une veille réglementaire</h2><p class="case-static-sub">Transformer les évolutions réglementaires en repères opérationnels pour les projets.</p></div><span class="proof-status pending">Publication en cours</span></header><div class="case-static-body"><div class="case-meta"><div class="case-meta-item"><span>Bloc RNCP</span><strong>BC03 — Conseiller et assister en rénovation énergétique</strong></div><div class="case-meta-item"><span>Outils</span><strong>Sources institutionnelles, tableur, notes structurées</strong></div></div><div class="case-columns"><section class="case-block"><h3><i class="ti ti-route"></i>Actions menées</h3><ul><li>Identification des sources institutionnelles fiables</li><li>Analyse des impacts sur les projets</li><li>Synthèse des points de vigilance</li></ul></section><section class="case-block"><h3><i class="ti ti-folder"></i>Livrables prévus</h3><ul><li>Note de veille</li><li>Tableau de suivi réglementaire</li><li>Synthèse opérationnelle</li></ul></section></div><footer class="case-footer"><p>La publication sera réalisée après vérification de la fraîcheur des références.</p><span class="btn btn-ghost" aria-disabled="true">Livrables bientôt disponibles</span></footer></div></article>
+
+<article class="case-static" id="projet07"><header class="case-static-header"><div><span class="case-static-kicker"><i class="ti ti-tools"></i>Projet 7 · Préparation chantier</span><h2>Gérer les phases initiales d’un chantier</h2><p class="case-static-sub">Clarifier les jalons, responsabilités, interfaces et documents avant le démarrage.</p></div><span class="proof-status pending">Publication en cours</span></header><div class="case-static-body"><div class="case-meta"><div class="case-meta-item"><span>Bloc RNCP</span><strong>BC02 — Superviser un projet de rénovation énergétique</strong></div><div class="case-meta-item"><span>Outils</span><strong>Planning, check-list, matrice de responsabilités</strong></div></div><div class="case-columns"><section class="case-block"><h3><i class="ti ti-route"></i>Actions menées</h3><ul><li>Identification des étapes de préparation</li><li>Organisation des rôles et interfaces</li><li>Anticipation des points de blocage</li></ul></section><section class="case-block"><h3><i class="ti ti-folder"></i>Livrables prévus</h3><ul><li>Planning de préparation</li><li>Check-list de lancement</li><li>Tableau acteurs / responsabilités</li></ul></section></div><footer class="case-footer"><p>Le dossier public sera ajouté après validation de la sélection finale.</p><span class="btn btn-ghost" aria-disabled="true">Livrables bientôt disponibles</span></footer></div></article>
+
+<article class="case-static" id="projet08"><header class="case-static-header"><div><span class="case-static-kicker"><i class="ti ti-file-check"></i>Projet 8 · Conformité</span><h2>Garantir la conformité des travaux réalisés</h2><p class="case-static-sub">Structurer les contrôles, réserves, justificatifs et documents de réception.</p></div><span class="proof-status pending">Publication en cours</span></header><div class="case-static-body"><div class="case-meta"><div class="case-meta-item"><span>Bloc RNCP</span><strong>BC02 — Superviser un projet de rénovation énergétique</strong></div><div class="case-meta-item"><span>Outils</span><strong>Plan de contrôle, check-list, tableau des réserves</strong></div></div><div class="case-columns"><section class="case-block"><h3><i class="ti ti-route"></i>Actions menées</h3><ul><li>Définition des points de contrôle</li><li>Traçabilité des écarts et réserves</li><li>Vérification des justificatifs de clôture</li></ul></section><section class="case-block"><h3><i class="ti ti-folder"></i>Livrables prévus</h3><ul><li>Plan de contrôle</li><li>Tableau de suivi des réserves</li><li>Check-list de réception</li></ul></section></div><footer class="case-footer"><p>Les preuves seront publiées après contrôle de conformité documentaire.</p><span class="btn btn-ghost" aria-disabled="true">Livrables bientôt disponibles</span></footer></div></article>
+
+<article class="case-static" id="projet09"><header class="case-static-header"><div><span class="case-static-kicker"><i class="ti ti-presentation"></i>Projet 9 · Copropriété</span><h2>Communiquer sur un projet de rénovation en copropriété</h2><p class="case-static-sub">Vulgariser les scénarios et préparer la décision collective en assemblée générale.</p></div><span class="proof-status pending">Publication en cours</span></header><div class="case-static-body"><div class="case-meta"><div class="case-meta-item"><span>Bloc RNCP</span><strong>BC03 — Conseiller et assister en rénovation énergétique</strong></div><div class="case-meta-item"><span>Outils</span><strong>PowerPoint, Canva, tableur, supports de synthèse</strong></div></div><div class="case-columns"><section class="case-block"><h3><i class="ti ti-route"></i>Actions menées</h3><ul><li>Vulgarisation des scénarios techniques et financiers</li><li>Préparation des supports de présentation</li><li>Anticipation des questions des copropriétaires</li></ul></section><section class="case-block"><h3><i class="ti ti-folder"></i>Livrables prévus</h3><ul><li>Support d’assemblée générale</li><li>Livret copropriétaires</li><li>FAQ et synthèse de décision</li></ul></section></div><footer class="case-footer"><p>Cette étude de cas sera prioritaire dans la prochaine mise en ligne des preuves.</p><span class="btn btn-ghost" aria-disabled="true">Livrables bientôt disponibles</span></footer></div></article>
+
+<div class="project-evidence-cta"><p><strong>Livrables actuellement disponibles</strong>Le dossier public est en cours de constitution. Il contient aujourd’hui principalement les preuves du projet 2.</p><a href="https://drive.google.com/drive/folders/1E6nsyFD5ZaUVleyyYTcobD2HgMA-u8Cs" class="btn btn-sage" target="_blank" rel="noopener">Ouvrir le dossier public <i class="ti ti-external-link"></i></a></div>
+</div></section>
+
+<div class="next-banner"><div><p class="next-banner-label">Projet complémentaire</p><p class="next-banner-title">NOHOBA & construction durable</p></div><a href="nohoba.html" class="btn btn-sage">Voir NOHOBA <i class="ti ti-arrow-right"></i></a></div>
 </main>
-
-<div class="project-modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" aria-describedby="project-modal-sub" hidden>
-  <div class="project-modal-card">
-    <div class="project-modal-header">
-      <div id="project-modal-header-content"></div>
-      <button class="project-modal-close" type="button" id="project-modal-close" aria-label="Fermer le détail du projet"><i class="ti ti-x" aria-hidden="true"></i></button>
-    </div>
-    <div class="project-modal-body" id="project-modal-body"></div>
-  </div>
-</div>
-
-<footer>
-  <span class="footer-logo"><span class="brand-monogram footer-mark" aria-hidden="true" style="width:auto;min-width:160px;padding:0 .85rem;font-size:14px;letter-spacing:.01em;white-space:nowrap">Ibrahima Fa Bamba</span></span>
-  <ul class="footer-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="profil.html">Profil</a></li>
-    <li><a href="roadmap.html">Parcours</a></li>
-    <li><a href="projets.html">Projets</a></li>
-    <li><a href="nohoba.html">NOHOBA</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span>
-</footer>
-
-<script src="script.js?v=20260708-premium"></script>
-<script>
-  const COMPLETE_PORTFOLIO_URL = 'https://drive.google.com/drive/folders/1E6nsyFD5ZaUVleyyYTcobD2HgMA-u8Cs';
-  const projects = [
-    {
-      id:'p02', anchor:'projet02', number:'Projet 2', title:'État des lieux d’un bâtiment existant', officialTitle:'Réalisez un état des lieux d’un bâtiment existant', rncp:'BC01 — Concevoir un plan de rénovation énergétique', type:'Maison individuelle', icon:'ti-search', meta:'Maison individuelle de M. Dupont · 1970 · 137 m² · Côte-d’Or', tags:['Maison individuelle','Cap Renov+','Visuary'], proofUrl:'https://drive.google.com/drive/folders/1_k6_hkc5bPpR1BDYOwfIxtaqzIj3Y3s2',
-      context:['Cas travaillé : maison individuelle de M. Dupont, construite en 1970, 137 m², en Côte-d’Or','Besoin : préparer une visite et rassembler les informations utiles avant analyse','Objectif : réaliser un état des lieux énergétique clair et exploitable'],
-      actions:['Préparer la visite et le recueil d’informations client','Analyser les données bâti, surfaces, plans, équipements et consommations','Structurer les informations dans une pré-synthèse puis dans un rapport Cap Renov'],
-      deliverables:['Formulaire de préparation de visite','Email de préparation du rendez-vous client','Pré-synthèse du profil client','Plan d’habitation','Rapport d’audit Cap Renov'],
-      results:['Dossier de départ clarifié','Informations techniques organisées','Base exploitable pour les scénarios de rénovation'],
-      skills:['Préparation rendez-vous client','Analyse du bâti','Lecture de plan','Consommations énergétiques','Synthèse technique'], tools:['Cap Renov+','Visuary','Tableur','Documents client']
-    },
-    {
-      id:'p03', anchor:'projet03', number:'Projet 3', title:'Scénarios de rénovation', officialTitle:'Guidez le client vers le meilleur scénario de rénovation', rncp:'BC01 — Concevoir un plan de rénovation énergétique', type:'Scénarios & aides financières', icon:'ti-calculator', meta:'Comparer plusieurs scénarios pour guider le client vers le meilleur choix de travaux', tags:['Scénarios','Aides','Décision'], proofUrl:'https://drive.google.com/drive/folders/1J5QWB4Fl5aETrtIcoMmRBDs46G9P4Up_',
-      context:['Besoin : identifier plusieurs solutions de rénovation possibles','Contrainte : rendre les coûts, gains, aides et arbitrages compréhensibles','Objectif : formuler une recommandation lisible et argumentée'],
-      actions:['Construire une comparaison de scénarios','Analyser les coûts, gains énergétiques, aides et reste à charge','Adapter le vocabulaire pour un public non technique'],
-      deliverables:['Matrice comparative de scénarios','Tableau aides financières / reste à charge','Synthèse de recommandation'],
-      results:['Scénarios hiérarchisés','Choix de travaux mieux argumenté','Décision client facilitée'],
-      skills:['Comparaison multicritère','Aides financières','Analyse économique','Vulgarisation','Aide à la décision'], tools:['Cap Renov+','Tableur','Supports de synthèse','Documentation aides']
-    },
-    {
-      id:'p04', anchor:'projet04', number:'Projet 4', title:'Audit énergétique complet', officialTitle:'Maîtrisez la gestion complète d’un audit énergétique', rncp:'BC01 — Concevoir un plan de rénovation énergétique', type:'Audit & rénovation globale', icon:'ti-home-eco', meta:'Accompagner un client dans la rénovation énergétique de son bâtiment à travers un audit structuré', tags:['Audit','Rénovation globale','Conseil'], proofUrl:'https://drive.google.com/drive/folders/1F8RcdR_vOHjhuJ3OXFid1RA9mbCw-l6R',
-      context:['Besoin : disposer d’une évaluation énergétique complète','Objectif : relier état des lieux, scénarios et conseils au client','Enjeu : proposer un parcours de rénovation cohérent'],
-      actions:['Recueillir et analyser les besoins du maître d’ouvrage','Réaliser l’état des lieux de la structure','Développer plusieurs scénarios chiffrés et conseiller le client'],
-      deliverables:['Rapport d’audit énergétique','Scénarios de rénovation chiffrés','Synthèse client et recommandations'],
-      results:['Parcours de rénovation clarifié','Priorités de travaux posées','Conseil client mieux structuré'],
-      skills:['Audit énergétique','Recueil des besoins','État des lieux','Scénarios chiffrés','Conseil client'], tools:['Cap Renov+','Visuary','Tableur','Documentation technique']
-    },
-    {
-      id:'p05', anchor:'projet05', number:'Projet 5', title:'Imprévus au lancement des travaux', officialTitle:'Maîtrisez des imprévus au lancement des travaux', rncp:'BC02 — Superviser un projet de rénovation énergétique', type:'Consultation entreprises', icon:'ti-file-invoice', meta:'Analyser une situation d’imprévu, comparer les offres et sécuriser la décision', tags:['Devis','RGE','Planning'], proofUrl:'https://drive.google.com/drive/folders/1gDs8IEbi0Tp4FNNgLs_YWl3XfS-ZlEsk',
-      context:['Situation : un imprévu intervient au démarrage des travaux','Besoin : comparer rapidement les solutions possibles','Objectif : sécuriser la décision sans perdre la maîtrise du planning'],
-      actions:['Lire les devis et périmètres de travaux','Vérifier les qualifications et les points de vigilance','Construire une grille de comparaison et formuler une recommandation'],
-      deliverables:['Tableau comparatif des offres','Liste des points de vigilance','Recommandation argumentée'],
-      results:['Choix d’entreprise mieux sécurisé','Risques identifiés','Décision plus transparente'],
-      skills:['Analyse de devis','Vérification RGE','Gestion d’imprévu','Comparaison multicritère','Préparation décision'], tools:['Tableur','Grille multicritère','Référentiels RGE','Documents entreprises']
-    },
-    {
-      id:'p06', anchor:'projet06', number:'Projet 6', title:'Veille réglementaire', officialTitle:'Mettez en place une veille réglementaire', rncp:'BC03 — Conseiller et assister en rénovation énergétique', type:'Transition énergétique', icon:'ti-rss', meta:'Transformer la veille en repères opérationnels pour les projets de rénovation', tags:['Veille','Réglementation','Synthèse'], proofUrl:'https://drive.google.com/drive/folders/1fId083qWdEW9aorgNtvnXcYTLsn7EjUl',
-      context:['Les règles, aides et obligations évoluent régulièrement','Besoin : repérer les sources fiables et comprendre les impacts projet','Objectif : transformer l’information en repères utilisables'],
-      actions:['Identifier les sources institutionnelles fiables','Comparer les impacts des évolutions réglementaires','Synthétiser les points à retenir pour les projets'],
-      deliverables:['Note de veille','Tableau de suivi réglementaire','Synthèse opérationnelle'],
-      results:['Informations fiabilisées','Décisions mieux sécurisées','Veille rendue exploitable'],
-      skills:['Veille réglementaire','Analyse documentaire','Synthèse','Rigueur','Conseil'], tools:['Sources institutionnelles','Tableur','Notes structurées','Documentation métier']
-    },
-    {
-      id:'p07', anchor:'projet07', number:'Projet 7', title:'Phases initiales d’un chantier', officialTitle:'Gérez les phases initiales d’un chantier', rncp:'BC02 — Superviser un projet de rénovation énergétique', type:'Planification & coordination', icon:'ti-tools', meta:'Préparer le lancement d’un chantier en clarifiant jalons, rôles et documents', tags:['Chantier','Coordination','Suivi'], proofUrl:'https://drive.google.com/drive/folders/1RLzU4ME3JQ4gz8tLRRsGBPV8WzNHct-w',
-      context:['Le projet passe de la décision aux travaux','Plusieurs acteurs doivent intervenir au bon moment','Besoin : clarifier les jalons, responsabilités et documents attendus'],
-      actions:['Identifier les étapes de préparation du chantier','Structurer les rôles, responsabilités et interfaces','Anticiper les points de blocage opérationnels'],
-      deliverables:['Planning de préparation','Check-list de lancement','Tableau acteurs / responsabilités'],
-      results:['Démarrage mieux cadré','Responsabilités clarifiées','Risques opérationnels anticipés'],
-      skills:['Coordination projet','Planification','Gestion des risques','Suivi opérationnel','Communication acteurs'], tools:['Planning','Tableur','Check-list','Supports de réunion']
-    },
-    {
-      id:'p08', anchor:'projet08', number:'Projet 8', title:'Conformité des travaux', officialTitle:'Contrôlez et validez la conformité de travaux', rncp:'BC02 — Superviser un projet de rénovation énergétique', type:'Réception & contrôle qualité', icon:'ti-clipboard-check', meta:'Contrôler et valider la conformité des travaux avant réception et clôture documentaire', tags:['Conformité','Réception','Qualité'], proofUrl:'https://drive.google.com/drive/folders/18Vpi0jHY-vDjZNQtfw8Z3ZrccS3LBulo',
-      context:['Des travaux doivent être contrôlés avant validation finale','Besoin : suivre les réserves, justificatifs et documents attendus','Objectif : sécuriser la réception et la clôture du projet'],
-      actions:['Définir les points de contrôle','Lister les justificatifs et documents attendus','Suivre les réserves et corrections'],
-      deliverables:['Check-list de conformité','Tableau de réserves','Liste des justificatifs','Éléments de réception'],
-      results:['Réception mieux sécurisée','Traçabilité documentaire renforcée','Points de conformité identifiés'],
-      skills:['Contrôle qualité','Conformité travaux','Réception','Suivi des réserves','Rigueur documentaire'], tools:['Check-list','Tableur','PV de réception','Dossier documentaire']
-    },
-    {
-      id:'p09', anchor:'projet09', number:'Projet 9', title:'Communication copropriété', officialTitle:'Communiquez efficacement votre projet de rénovation', rncp:'BC03 — Conseiller et assister en rénovation énergétique', type:'Support AG & pédagogie', icon:'ti-users', meta:'Rendre le projet compréhensible pour préparer l’adhésion, les échanges et le vote', tags:['AG','Pédagogie','Décision collective'], proofUrl:'https://drive.google.com/drive/folders/1fpmHbI5s-L-9LGHXs6djsQNOMNRYeY5i',
-      context:['Une décision collective doit être préparée avant vote','Le dossier technique, financier et réglementaire peut être difficile à comprendre','Besoin : faciliter l’adhésion et réduire les incompréhensions'],
-      actions:['Vulgariser les scénarios de rénovation','Préparer les supports de présentation et de réponse','Anticiper les questions des copropriétaires'],
-      deliverables:['Support AG','Livret copropriétaire','FAQ','Messages de relance','Synthèse de décision'],
-      results:['Information plus accessible','Vote mieux préparé','Dialogue facilité entre acteurs'],
-      skills:['Pédagogie','Communication non spécialiste','Synthèse','Aide à la décision','Accompagnement copropriétaires'], tools:['PowerPoint','Canva','Tableur','Supports de synthèse']
-    }
-  ];
-
-  const grid = document.getElementById('projects-grid');
-  const modal = document.getElementById('project-modal');
-  const modalHeader = document.getElementById('project-modal-header-content');
-  const modalBody = document.getElementById('project-modal-body');
-  const closeButton = document.getElementById('project-modal-close');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let lastFocused = null;
-
-  const tags = items => items.map(item => `<span class="chip">${item}</span>`).join('');
-  const list = items => items.map(item => `<li>${item}</li>`).join('');
-
-  const detailBlock = (icon, title, items) => `
-    <section class="project-detail-block">
-      <h3><i class="ti ${icon}" aria-hidden="true"></i>${title}</h3>
-      <ul>${list(items)}</ul>
-    </section>`;
-
-  const chipBlock = (icon, title, items) => `
-    <section class="project-detail-block">
-      <h3><i class="ti ${icon}" aria-hidden="true"></i>${title}</h3>
-      <div class="chip-row">${tags(items)}</div>
-    </section>`;
-
-  const renderCard = project => `
-    <button type="button" class="project-card" id="${project.anchor}" data-project="${project.id}" aria-haspopup="dialog" aria-controls="project-modal">
-      <span class="project-banner" aria-hidden="true"><span class="project-number"><i class="ti ${project.icon}" aria-hidden="true"></i>${project.number}</span><i class="ti ti-arrow-up-right" aria-hidden="true"></i></span>
-      <span class="project-body"><h3>${project.title}</h3><p class="project-type">${project.type}</p><span class="chip-row">${tags(project.tags)}</span></span>
-      <span class="project-card-footer"><span>Voir le détail</span><i class="ti ti-arrow-right" aria-hidden="true"></i></span>
-    </button>`;
-
-  const openProject = id => {
-    const project = projects.find(item => item.id === id);
-    if (!project) return;
-    lastFocused = document.activeElement;
-    modalHeader.innerHTML = `
-      <span class="project-modal-kicker"><i class="ti ${project.icon}" aria-hidden="true"></i>${project.number} · ${project.type}</span>
-      <h2 class="project-modal-title" id="project-modal-title">${project.title}</h2>
-      <p class="project-modal-sub" id="project-modal-sub">${project.meta}</p>`;
-    modalBody.innerHTML = `
-      <div class="project-training-box" aria-label="Référence formation">
-        <div class="project-training-item"><span class="project-training-label">Intitulé formation</span><span class="project-training-value">${project.officialTitle}</span></div>
-        <div class="project-training-item"><span class="project-training-label">Bloc RNCP associé</span><span class="project-training-value">${project.rncp}</span></div>
-      </div>
-      <div class="project-detail-grid">
-        ${detailBlock('ti-building', 'Contexte, besoin et objectif', project.context)}
-        ${detailBlock('ti-route', 'Actions menées', project.actions)}
-        ${detailBlock('ti-folder', 'Livrables réalisés', project.deliverables)}
-        ${detailBlock('ti-chart-bar', 'Résultats obtenus', project.results)}
-        ${chipBlock('ti-certificate', 'Compétences mobilisées', project.skills)}
-        ${chipBlock('ti-tool', 'Outils utilisés', project.tools)}
-      </div>
-      <div class="project-modal-note"><p><strong>Preuves :</strong> projet appliqué de formation, présenté comme preuve métier et non comme mission client réelle.</p><a href="${project.proofUrl}" class="btn btn-sage" target="_blank" rel="noopener">Voir les livrables <i class="ti ti-external-link" aria-hidden="true"></i></a></div>`;
-    modal.hidden = false;
-    modal.classList.add('open');
-    document.body.classList.add('modal-open');
-    closeButton.focus();
-  };
-
-  const closeProject = () => {
-    modal.classList.remove('open');
-    modal.hidden = true;
-    document.body.classList.remove('modal-open');
-    if (lastFocused) lastFocused.focus();
-  };
-
-  if (grid) {
-    grid.innerHTML = projects.map(renderCard).join('');
-    grid.addEventListener('click', event => {
-      const card = event.target.closest('.project-card');
-      if (!card || card.classList.contains('is-opening')) return;
-      const launch = () => openProject(card.dataset.project);
-      if (prefersReducedMotion) {
-        launch();
-        return;
-      }
-      card.classList.add('is-opening');
-      window.setTimeout(() => {
-        card.classList.remove('is-opening');
-        launch();
-      }, 280);
-    });
-  }
-
-  if (closeButton && modal) {
-    closeButton.addEventListener('click', closeProject);
-    modal.addEventListener('click', event => {
-      if (event.target === modal) closeProject();
-    });
-    document.addEventListener('keydown', event => {
-      if (modal.hidden) return;
-      if (event.key === 'Escape') closeProject();
-      if (event.key !== 'Tab') return;
-      const focusable = [...modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')];
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    });
-  }
-</script>
+<footer><span class="footer-logo"><span class="brand-monogram footer-mark" aria-hidden="true" style="width:auto;min-width:160px;padding:0 .85rem;font-size:14px;letter-spacing:.01em;white-space:nowrap">Ibrahima Fa Bamba</span></span><ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="profil.html">Profil</a></li><li><a href="roadmap.html">Parcours</a></li><li><a href="projets.html">Projets</a></li><li><a href="nohoba.html">NOHOBA</a></li><li><a href="contact.html">Contact</a></li></ul><span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span></footer>
+<script src="script.js?v=20260708-audit"></script>
 </body>
 </html>
