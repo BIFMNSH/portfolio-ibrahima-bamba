@@ -3,330 +3,73 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <title>NOHOBA & coordination de projet de construction en terre crue | Ibrahima Fa Bamba</title>
-  <meta name="description" content="NOHOBA et preuves complémentaires de coordination de projets de construction en terre crue : cadrage, dossier technique, devis, factures, planning et digitalisation du suivi BTP."/>
+  <title>NOHOBA & coordination BTP durable | Ibrahima Fa Bamba</title>
+  <meta name="description" content="NOHOBA, projet digital BTP complémentaire au positionnement principal d’Ibrahima Fa Bamba en rénovation énergétique : cadrage, documents, devis, factures, planning et suivi de projets en terre crue."/>
   <link rel="canonical" href="https://portfolio-ibrahima-bamba.vercel.app/nohoba.html"/>
   <meta name="theme-color" content="#1A1F1C"/>
   <meta name="color-scheme" content="light dark"/>
-  <script>
-    try {
-      const storedTheme = localStorage.getItem('ifb-theme');
-      const preferredTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
-      document.documentElement.dataset.theme = storedTheme === 'day' || storedTheme === 'night' ? storedTheme : preferredTheme;
-    } catch {}
-  </script>
+  <script>try{const t=localStorage.getItem('ifb-theme');document.documentElement.dataset.theme=t==='day'||t==='night'?t:(matchMedia('(prefers-color-scheme: dark)').matches?'night':'day')}catch{}</script>
   <meta property="og:type" content="website"/>
   <meta property="og:locale" content="fr_FR"/>
   <meta property="og:site_name" content="Portfolio Ibrahima Fa Bamba"/>
-  <meta property="og:title" content="NOHOBA & coordination de projet de construction en terre crue | Ibrahima Fa Bamba"/>
-  <meta property="og:description" content="Projet digital BTP et preuves complémentaires de coordination de projet de construction en terre crue."/>
+  <meta property="og:title" content="NOHOBA & coordination BTP durable | Ibrahima Fa Bamba"/>
+  <meta property="og:description" content="Projet digital BTP et expérience complémentaire de coordination de projets en terre crue."/>
   <meta property="og:url" content="https://portfolio-ibrahima-bamba.vercel.app/nohoba.html"/>
   <meta property="og:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.png"/>
   <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css"/>
-  <link rel="stylesheet" href="style.css?v=20260708-premium"/>
+  <link rel="stylesheet" href="style.css?v=20260717-nohoba"/>
   <style>
-    .coordination-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.2rem; }
-    .coordination-card { --opening-orange:#E9782F; width:100%; min-height:250px; border:1px solid var(--divider); border-radius:var(--radius-lg); padding:0; background:var(--surface-raised, var(--surface)); color:var(--ink); text-align:left; cursor:pointer; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; transition:transform .24s var(--ease-out-expo, ease), box-shadow .24s var(--ease-out-expo, ease), border-color .24s; }
-    .coordination-card:hover, .coordination-card:focus-visible { transform:translateY(-4px); border-color:rgba(47,111,79,.46); box-shadow:0 18px 32px rgba(26,31,28,.12); }
-    .coordination-card.is-opening { border-color:var(--opening-orange); box-shadow:0 18px 34px rgba(233,120,47,.22); }
-    .coordination-banner { height:104px; padding:.85rem; color:var(--white); display:flex; align-items:flex-end; justify-content:space-between; gap:.75rem; position:relative; overflow:hidden; background:linear-gradient(135deg, #1A1F1C, #2F6F4F); }
-    .coordination-card:nth-child(2) .coordination-banner { background:linear-gradient(135deg, #244A39, #78A98C); }
-    .coordination-card:nth-child(3) .coordination-banner { background:linear-gradient(135deg, #20342A, #6E8F7B); }
-    .coordination-card:nth-child(4) .coordination-banner { background:linear-gradient(135deg, #26362C, #4F7A5D); }
-    .coordination-card:nth-child(5) .coordination-banner { background:linear-gradient(135deg, #153528, #2F6F4F); }
-    .coordination-banner::before { content:''; position:absolute; inset:-55%; background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.28), transparent 26%), radial-gradient(circle at 78% 70%, rgba(120,169,140,.30), transparent 26%); transform:rotate(-10deg); transition:background .28s ease; }
-    .coordination-card.is-opening .coordination-banner::before { background:radial-gradient(circle at 25% 25%, rgba(255,255,255,.28), transparent 26%), radial-gradient(circle at 78% 70%, rgba(233,120,47,.38), transparent 28%); }
-    .coordination-banner::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(8,13,10,.62)); }
-    .coordination-banner span, .coordination-banner i { position:relative; z-index:1; }
-    .coordination-number { display:inline-flex; align-items:center; gap:.35rem; background:rgba(10,15,12,.56); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:.32rem .58rem; font-size:12px; font-weight:800; backdrop-filter:blur(8px); transition:border-color .24s ease, background-color .24s ease; }
-    .coordination-card.is-opening .coordination-number { border-color:rgba(233,120,47,.58); background:rgba(18,18,14,.66); }
-    .coordination-banner i { width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.18); font-size:20px; }
-    .coordination-number i:first-child { transform-origin:center; transition:transform .36s var(--ease-out-expo, ease), background-color .24s ease, border-color .24s ease, box-shadow .24s ease; }
-    .coordination-card.is-opening .coordination-number i:first-child { transform:translateX(72px) scale(1.08); background:var(--opening-orange); border-color:var(--opening-orange); color:var(--white); box-shadow:0 0 0 6px rgba(233,120,47,.16); }
-    .coordination-body { padding:1.05rem; flex:1; display:flex; flex-direction:column; gap:.75rem; }
-    .coordination-body h3 { margin:0; font-family:var(--serif); font-size:23px; line-height:1.12; font-weight:400; color:var(--ink); }
-    .coordination-type { margin:0; color:var(--ink-soft); font-size:14px; line-height:1.45; }
-    .coordination-body .chip-row { margin-top:auto; gap:.42rem; }
-    .coordination-body .chip { font-size:11px; padding:4px 7px; }
-    .coordination-card-footer { display:flex; justify-content:space-between; align-items:center; gap:1rem; border-top:1px solid var(--divider); padding:.8rem 1.05rem; color:var(--sage); font-size:13px; font-weight:800; }
-    .coordination-card-footer i { transition:transform .2s; }
-    .coordination-card:hover .coordination-card-footer i, .coordination-card:focus-visible .coordination-card-footer i { transform:translateX(3px); }
-    .coordination-proof-note { margin-bottom:1.2rem; max-width:980px; color:var(--ink-soft); line-height:1.65; }
-    .coordination-modal { position:fixed; inset:0; z-index:300; display:none; align-items:flex-start; justify-content:center; padding:clamp(1rem, 5vw, 3rem); overflow:auto; background:rgba(10,16,12,.62); backdrop-filter:blur(8px); }
-    .coordination-modal.open { display:flex; }
-    .coordination-modal-card { width:min(980px, 100%); background:var(--surface); color:var(--ink); border:1px solid var(--divider); border-radius:var(--radius-lg); box-shadow:0 24px 70px rgba(0,0,0,.28); overflow:hidden; }
-    .coordination-modal-header { background:var(--panel-dark); color:var(--white); padding:1.35rem 1.5rem; display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }
-    .coordination-modal-kicker { color:var(--sage-light); font-size:13px; font-weight:800; display:inline-flex; align-items:center; gap:.4rem; margin-bottom:.55rem; }
-    .coordination-modal-title { font-family:var(--serif); font-size:34px; line-height:1.08; font-weight:400; margin:0 0 .5rem; color:var(--white); }
-    .coordination-modal-sub { margin:0; color:rgba(255,255,255,.66); max-width:700px; line-height:1.55; }
-    .coordination-modal-close { border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.08); color:rgba(255,255,255,.86); border-radius:999px; min-width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:0 0 auto; }
-    .coordination-modal-close:hover, .coordination-modal-close:focus-visible { border-color:var(--sage-light); color:var(--sage-light); }
-    .coordination-modal-body { padding:1.5rem; }
-    .coordination-detail-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
-    .coordination-detail-block { border:1px solid var(--divider); border-radius:var(--radius-md); padding:1rem; background:linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.32)); min-height:150px; }
-    [data-theme="night"] .coordination-detail-block { background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)); }
-    .coordination-detail-block h3 { margin:0 0 .75rem; font-size:16px; color:var(--ink); display:flex; align-items:center; gap:.55rem; }
-    .coordination-detail-block h3 i { width:32px; height:32px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:var(--sage-pale); color:var(--sage); border:1px solid var(--hairline, var(--divider)); }
-    .coordination-detail-block ul { margin:0; padding-left:1.1rem; color:var(--ink-soft); display:grid; gap:.45rem; line-height:1.45; }
-    .coordination-detail-block li::marker { color:var(--sage); }
-    .coordination-detail-block .chip-row { gap:.45rem; }
-    .coordination-modal-note { margin-top:1rem; border:1px solid var(--hairline, var(--divider)); background:var(--sage-pale); border-radius:var(--radius-md); padding:1rem; color:var(--ink-soft); display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .coordination-modal-note p { margin:0; }
-    .coordination-modal-note strong { color:var(--ink); }
-    @media (max-width:980px) { .coordination-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width:680px) { .coordination-grid, .coordination-detail-grid { grid-template-columns:1fr; } .coordination-modal, .coordination-modal-body { padding:1rem; } .coordination-modal-header { padding:1.05rem; } .coordination-modal-title { font-size:27px; } .coordination-modal-note { display:grid; } }
-    @media (prefers-reduced-motion: reduce) { .coordination-card, .coordination-card-footer i, .coordination-number, .coordination-number i:first-child, .coordination-banner::before { transition:none; } .coordination-card:hover, .coordination-card:focus-visible, .coordination-card.is-opening .coordination-number i:first-child { transform:none; } }
+    .nohoba-role{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.nohoba-note{display:flex;gap:.7rem;align-items:flex-start;padding:1rem 1.1rem;border:1px solid rgba(200,151,58,.26);background:var(--gold-pale);border-radius:var(--radius-md);color:#6b5121;font-size:13px;line-height:1.55}.nohoba-note i{color:var(--gold);font-size:20px;flex:0 0 auto}[data-theme="night"] .nohoba-note{color:#f3deb5}.coordination-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}.coordination-card{width:100%;min-height:248px;border:1px solid var(--divider);border-radius:var(--radius-lg);padding:0;background:var(--surface-raised);color:var(--ink);text-align:left;cursor:pointer;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .22s,border-color .22s,box-shadow .22s}.coordination-card:hover,.coordination-card:focus-visible{transform:translateY(-4px);border-color:var(--sage);box-shadow:var(--shadow-hover)}.coordination-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.coordination-banner{height:104px;padding:.85rem;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;background:linear-gradient(135deg,#1A1F1C,#2F6F4F)}.coordination-card:nth-child(2) .coordination-banner{background:linear-gradient(135deg,#244A39,#78A98C)}.coordination-card:nth-child(3) .coordination-banner{background:linear-gradient(135deg,#20342A,#6E8F7B)}.coordination-card:nth-child(4) .coordination-banner{background:linear-gradient(135deg,#26362C,#4F7A5D)}.coordination-card:nth-child(5) .coordination-banner{background:linear-gradient(135deg,#153528,#2F6F4F)}.coordination-number{display:inline-flex;align-items:center;gap:.4rem;background:rgba(10,15,12,.56);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.35rem .65rem;font-size:12px;font-weight:800}.coordination-banner>i{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);font-size:20px}.coordination-body{padding:1.05rem;flex:1;display:flex;flex-direction:column;gap:.7rem}.coordination-body h3{margin:0;font-family:var(--serif);font-size:23px;line-height:1.12;font-weight:400}.coordination-type{color:var(--ink-soft);font-size:14px}.coordination-body .chip-row{margin-top:auto}.coordination-card-footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--divider);padding:.8rem 1.05rem;color:var(--sage);font-size:13px;font-weight:800}.coordination-modal{position:fixed;inset:0;z-index:300;display:none;align-items:flex-start;justify-content:center;padding:clamp(1rem,5vw,3rem);overflow:auto;background:rgba(10,16,12,.68);backdrop-filter:blur(7px)}.coordination-modal.open{display:flex}.coordination-modal-card{width:min(980px,100%);background:var(--surface);border:1px solid var(--divider);border-top:4px solid var(--sage);border-radius:var(--radius-lg);box-shadow:0 24px 70px rgba(0,0,0,.3);overflow:hidden}.coordination-modal-header{background:var(--panel-dark);color:#fff;padding:1.35rem 1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}.coordination-modal-kicker{color:var(--sage-light);font-size:13px;font-weight:800;display:inline-flex;align-items:center;gap:.4rem;margin-bottom:.55rem}.coordination-modal-title{font-family:var(--serif);font-size:34px;line-height:1.08;font-weight:400;margin:0 0 .5rem}.coordination-modal-sub{color:rgba(255,255,255,.68);max-width:700px}.coordination-modal-close{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;border-radius:50%;min-width:44px;height:44px;cursor:pointer}.coordination-modal-body{padding:1.5rem}.coordination-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.coordination-detail-block{border:1px solid var(--divider);border-radius:var(--radius-md);padding:1rem;background:var(--surface-soft)}.coordination-detail-block h3{font-size:16px;margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem}.coordination-detail-block h3 i{color:var(--sage)}.coordination-detail-block ul{padding-left:1.15rem;color:var(--ink-soft);display:grid;gap:.4rem}.coordination-modal-note{margin-top:1rem;border:1px solid var(--divider);background:var(--sage-pale);border-radius:var(--radius-md);padding:1rem;color:var(--ink-soft)}@media(max-width:900px){.nohoba-role,.coordination-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:680px){.nohoba-role,.coordination-grid,.coordination-detail-grid{grid-template-columns:1fr}.coordination-modal{padding:.75rem}.coordination-modal-title{font-size:27px}}
   </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"NOHOBA","creator":{"@type":"Person","name":"Ibrahima Fa Bamba"},"description":"Projet digital BTP complémentaire visant à structurer le suivi documentaire, administratif et opérationnel de projets de construction."}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 <nav class="nav" aria-label="Navigation principale">
-  <a href="index.html" class="nav-logo" aria-label="Accueil — Ibrahima Fa Bamba"><span class="brand-monogram" aria-hidden="true" style="width:auto;min-width:160px;padding:0 .85rem;font-size:14px;letter-spacing:.01em;white-space:nowrap">Ibrahima Fa Bamba</span></a>
-  <ul class="nav-center">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="profil.html">Profil</a></li>
-    <li><a href="roadmap.html">Parcours</a></li>
-    <li><a href="projets.html">Projets</a></li>
-    <li class="active"><a href="nohoba.html" aria-current="page">NOHOBA</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+  <a href="index.html" class="nav-logo" aria-label="Accueil — Ibrahima Fa Bamba"><span class="brand-monogram" aria-hidden="true" style="width:auto;min-width:160px;padding:0 .85rem;font-size:14px;white-space:nowrap">Ibrahima Fa Bamba</span></a>
+  <ul class="nav-center"><li><a href="index.html">Accueil</a></li><li><a href="profil.html">Profil</a></li><li><a href="roadmap.html">Parcours</a></li><li><a href="projets.html">Projets</a></li><li class="active"><a href="nohoba.html" aria-current="page">NOHOBA</a></li><li><a href="contact.html">Contact</a></li></ul>
   <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activer le thème nuit" aria-pressed="false"><i class="ti ti-moon" aria-hidden="true"></i><span class="theme-toggle-text">Nuit</span></button>
   <a href="assets/cv-ibrahima-bamba.pdf" class="nav-cta" download><i class="ti ti-download" aria-hidden="true"></i> Télécharger le CV</a>
   <button class="nav-hamburger" aria-label="Ouvrir le menu" id="hamburger" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
 </nav>
-<div class="nav-mobile" id="nav-mobile">
-  <a href="index.html">Accueil</a>
-  <a href="profil.html">Profil</a>
-  <a href="roadmap.html">Parcours</a>
-  <a href="projets.html">Projets</a>
-  <a href="nohoba.html" class="active" aria-current="page">NOHOBA</a>
-  <a href="contact.html">Contact</a>
-  <a href="assets/cv-ibrahima-bamba.pdf" download>Télécharger le CV</a>
-</div>
+<div class="nav-mobile" id="nav-mobile"><a href="index.html">Accueil</a><a href="profil.html">Profil</a><a href="roadmap.html">Parcours</a><a href="projets.html">Projets</a><a href="nohoba.html" class="active" aria-current="page">NOHOBA</a><a href="contact.html">Contact</a><a href="assets/cv-ibrahima-bamba.pdf" download>Télécharger le CV</a></div>
 
 <main id="main-content">
-<section class="page-hero" aria-labelledby="page-title">
-  <div class="page-hero-inner">
-    <p class="page-indicator">Expérience complémentaire</p>
-    <h1 id="page-title"><span style="color:var(--gold)">NOHOBA</span> & coordination de projet de construction en terre crue</h1>
-    <p>NOHOBA est un projet digital BTP en développement. Il complète mon positionnement principal en rénovation énergétique en valorisant une expérience de structuration, de suivi documentaire et d’accompagnement de projets de construction durable.</p>
-    <div class="button-row" style="margin-top:1.8rem">
-      <a href="https://erp-terre-crue.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary"><i class="ti ti-external-link" aria-hidden="true"></i> Voir NOHOBA-Solution</a>
-      <a href="profil.html" class="btn btn-outline"><i class="ti ti-user" aria-hidden="true"></i> Retour au profil</a>
-    </div>
-  </div>
-</section>
+<section class="page-hero" aria-labelledby="page-title"><div class="page-hero-inner"><p class="page-indicator">Expérience complémentaire</p><h1 id="page-title"><span style="color:var(--gold)">NOHOBA</span> & coordination BTP durable</h1><p>NOHOBA est un projet digital BTP en développement. Mon rôle porte sur le cadrage fonctionnel, la structuration des données métier et la traduction de besoins de suivi en fonctionnalités exploitables. Cette expérience reste complémentaire à ma cible principale en rénovation énergétique.</p><div class="button-row" style="margin-top:1.8rem"><a href="https://erp-terre-crue.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary"><i class="ti ti-external-link" aria-hidden="true"></i> Voir le prototype</a><a href="projets.html" class="btn btn-outline"><i class="ti ti-folder" aria-hidden="true"></i> Voir les projets rénovation</a></div></div></section>
 
-<section class="section-wrap" aria-labelledby="summary-title">
-  <div class="container">
-    <div class="section-header"><h2 class="section-title" id="summary-title">En bref</h2></div>
-    <div class="grid-3">
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-building" aria-hidden="true"></i></span><h3>Construction en terre crue</h3><p>Expérience complémentaire sur des projets de construction en terre crue en Côte d’Ivoire : études, rapports, plans, contrats et images de projet.</p></article>
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-folders" aria-hidden="true"></i></span><h3>Suivi BTP</h3><p>Structuration des besoins, devis, commandes, livraisons, factures, plannings et rapports de suivi.</p></article>
-      <article class="feature-card"><span class="icon-round"><i class="ti ti-layout-dashboard" aria-hidden="true"></i></span><h3>Digitalisation</h3><p>Réflexion NOHOBA autour d’une solution digitale pour centraliser les informations, les documents et les indicateurs de projets BTP.</p></article>
-    </div>
-  </div>
-</section>
+<section class="section-wrap" aria-labelledby="role-title"><div class="container"><div class="section-header"><h2 class="section-title" id="role-title">Rôle et périmètre</h2></div><div class="nohoba-role"><article class="principle"><h3>Cadrage fonctionnel</h3><p>Identifier les utilisateurs, leurs besoins, les documents manipulés et les étapes clés du suivi BTP.</p></article><article class="principle"><h3>Structuration métier</h3><p>Organiser devis, factures, paiements, chantiers, clients, pièces justificatives et indicateurs.</p></article><article class="principle"><h3>Validation opérationnelle</h3><p>Vérifier la cohérence des parcours, des données et des cas d’usage à partir de situations concrètes.</p></article></div><div class="nohoba-note" style="margin-top:1.4rem"><i class="ti ti-info-circle" aria-hidden="true"></i><p><strong>Positionnement :</strong> NOHOBA n’est pas présenté comme une entreprise établie ni comme une mission de maîtrise d’œuvre. Il s’agit d’un projet numérique en développement et d’un support de démonstration de compétences en cadrage, coordination et structuration de données BTP.</p></div></div></section>
 
 <hr class="divider"/>
-<section class="section-wrap" aria-labelledby="evidence-title">
-  <div class="container">
-    <div class="section-header"><h2 class="section-title" id="evidence-title">Preuves de coordination de projets</h2></div>
-    <p class="coordination-proof-note">Les dossiers analysés permettent de structurer les preuves en une progression métier : étudier, contractualiser, chiffrer, suivre et digitaliser. Les documents sensibles doivent rester anonymisés avant toute publication.</p>
-    <div class="coordination-grid" id="coordination-proof-grid" aria-label="Preuves de coordination de projets de construction en terre crue"></div>
-  </div>
-</section>
+<section class="section-wrap" aria-labelledby="proof-title"><div class="container"><div class="section-header"><h2 class="section-title" id="proof-title">Preuves complémentaires</h2></div><p class="text-soft" style="max-width:850px;margin-bottom:1.3rem">Les cartes ci-dessous décrivent les familles de preuves mobilisées. Les documents sources peuvent contenir des données sensibles et ne doivent être publiés qu’après anonymisation.</p><div class="coordination-grid" id="coordination-grid"></div></div></section>
 
 <hr class="divider"/>
-<section class="section-wrap" aria-labelledby="skills-title">
-  <div class="container">
-    <div class="section-header"><h2 class="section-title" id="skills-title">Compétences démontrées</h2></div>
-    <div class="principles-grid">
-      <article class="principle"><h3>Analyser le besoin</h3><p>Clarifier les attentes, contraintes, priorités et informations disponibles avant lancement.</p></article>
-      <article class="principle"><h3>Structurer le dossier</h3><p>Organiser les pièces techniques, contractuelles, financières et administratives.</p></article>
-      <article class="principle"><h3>Suivre l’avancement</h3><p>Rendre lisibles les étapes, documents, points ouverts, décisions et informations utiles.</p></article>
-      <article class="principle"><h3>Digitaliser le suivi</h3><p>Transformer des documents dispersés en tableaux, indicateurs et supports exploitables.</p></article>
-    </div>
-  </div>
-</section>
+<section class="section-wrap" aria-labelledby="transfer-title"><div class="container"><div class="section-header"><h2 class="section-title" id="transfer-title">Compétences transférables</h2></div><div class="grid-3"><article class="feature-card"><h3>Analyser un besoin</h3><p>Clarifier les acteurs, les contraintes, les informations disponibles et les décisions attendues.</p></article><article class="feature-card"><h3>Structurer un dossier</h3><p>Organiser les pièces techniques, administratives et financières pour rendre le suivi exploitable.</p></article><article class="feature-card"><h3>Suivre les interfaces</h3><p>Relier documents, jalons, responsabilités, risques et indicateurs dans une logique de coordination.</p></article></div></div></section>
 
-<section class="section-wrap" aria-labelledby="link-title" style="padding-top:0">
-  <div class="container">
-    <div class="position-box">
-      <h2 class="section-title" id="link-title" style="color:var(--white); margin-bottom:1rem">Lien avec la rénovation énergétique</h2>
-      <p>Cette expérience reste complémentaire : elle confirme ma capacité à analyser un besoin, structurer un dossier, coordonner des acteurs, suivre des documents projet et produire des supports de décision clairs.</p>
-    </div>
-  </div>
-</section>
-
-<div class="next-banner">
-  <div><p class="next-banner-label">Retour</p><p class="next-banner-title">Profil & compétences clés</p></div>
-  <a href="profil.html" class="btn btn-sage">Voir le profil <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-</div>
+<section class="section-wrap" style="padding-top:0"><div class="container"><div class="position-box"><h2 class="section-title" style="color:var(--white);margin-bottom:1rem">Lien avec la rénovation énergétique</h2><p>Cette expérience confirme des compétences utiles au pilotage de rénovation : cadrage du besoin, contrôle des informations, suivi documentaire, coordination des acteurs et production de supports de décision. Elle ne remplace pas les études de cas énergétiques présentées dans la page Projets.</p></div></div></section>
+<div class="next-banner"><div><p class="next-banner-label">Cible principale</p><p class="next-banner-title">Études de cas en rénovation énergétique</p></div><a href="projets.html" class="btn btn-sage">Voir les projets <i class="ti ti-arrow-right" aria-hidden="true"></i></a></div>
 </main>
 
-<div class="coordination-modal" id="coordination-modal" role="dialog" aria-modal="true" aria-labelledby="coordination-modal-title" aria-describedby="coordination-modal-sub" hidden>
-  <div class="coordination-modal-card">
-    <div class="coordination-modal-header">
-      <div id="coordination-modal-header-content"></div>
-      <button class="coordination-modal-close" type="button" id="coordination-modal-close" aria-label="Fermer le détail"><i class="ti ti-x" aria-hidden="true"></i></button>
-    </div>
-    <div class="coordination-modal-body" id="coordination-modal-body"></div>
-  </div>
-</div>
-
-<footer>
-  <span class="footer-logo"><span class="brand-monogram footer-mark" aria-hidden="true" style="width:auto;min-width:160px;padding:0 .85rem;font-size:14px;letter-spacing:.01em;white-space:nowrap">Ibrahima Fa Bamba</span></span>
-  <ul class="footer-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="profil.html">Profil</a></li>
-    <li><a href="roadmap.html">Parcours</a></li>
-    <li><a href="projets.html">Projets</a></li>
-    <li><a href="nohoba.html">NOHOBA</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span>
-</footer>
+<div class="coordination-modal" id="coordination-modal" role="dialog" aria-modal="true" aria-labelledby="coordination-modal-title" aria-describedby="coordination-modal-sub" hidden><div class="coordination-modal-card"><div class="coordination-modal-header"><div id="coordination-modal-header-content"></div><button class="coordination-modal-close" type="button" id="coordination-modal-close" aria-label="Fermer le détail"><i class="ti ti-x" aria-hidden="true"></i></button></div><div class="coordination-modal-body" id="coordination-modal-body"></div></div></div>
+<footer><span class="footer-logo"><span class="brand-monogram footer-mark" aria-hidden="true" style="width:auto;min-width:160px;padding:0 .85rem;font-size:14px;white-space:nowrap">Ibrahima Fa Bamba</span></span><ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="profil.html">Profil</a></li><li><a href="roadmap.html">Parcours</a></li><li><a href="projets.html">Projets</a></li><li><a href="nohoba.html">NOHOBA</a></li><li><a href="contact.html">Contact</a></li></ul><span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique</span></footer>
 <script src="script.js?v=20260708-audit"></script>
 <script>
-  const EARTH_PROJECTS_URL = 'https://drive.google.com/drive/folders/1azVVZ4cIqcfhlk8qyNO37HBD7Mz32d_L?usp=drive_link';
-  const OPERATIONS_URL = 'https://drive.google.com/drive/folders/1mZRBjewljL8KITwz-UkgxsEj1wcjYged?usp=drive_link';
-  const coordinationProofs = [
-    {
-      id:'study', number:'Preuve 1', title:'Étude & cadrage de projet', type:'Rapports de visite et études', icon:'ti-clipboard-text', meta:'Transformer un besoin de construction en dossier de départ exploitable', tags:['Étude','Visite','Cadrage'], proofUrl:EARTH_PROJECTS_URL,
-      context:['Dossiers de projets en terre crue avec rapports de visite et études d’éco-construction','Besoin de comprendre le terrain, les attentes, les contraintes et les informations disponibles','Objectif : poser une base claire avant chiffrage, décision ou lancement'],
-      actions:['Recueillir les attentes et informations de départ','Identifier les contraintes du projet et les données manquantes','Reformuler le besoin dans une synthèse compréhensible pour les acteurs'],
-      deliverables:['Rapports de visite anonymisés','Études de projet d’éco-construction','Synthèses de cadrage','Listes des points à confirmer'],
-      results:['Besoin mieux défini','Dossier de départ structuré','Échanges facilités entre client, porteur de projet et équipes'],
-      skills:['Analyse du besoin','Recueil d’informations','Synthèse','Cadrage projet']
-    },
-    {
-      id:'technical', number:'Preuve 2', title:'Dossier technique & contractuel', type:'Plans, contrats et pièces projet', icon:'ti-file-description', meta:'Organiser les documents nécessaires à la compréhension et au suivi du projet', tags:['Plans','Contrats','Dossier'], proofUrl:EARTH_PROJECTS_URL,
-      context:['Dossiers comprenant plans, contrats, pièces techniques et images de projet','Besoin de rassembler les documents utiles dans une logique de suivi','Objectif : rendre le dossier projet lisible et partageable'],
-      actions:['Classer les plans, contrats et pièces de projet','Repérer les éléments manquants ou à compléter','Préparer les documents pour les échanges avec les parties prenantes'],
-      deliverables:['Plans anonymisés','Contrats ou extraits contractuels','Dossier de pièces projet','Images ou éléments de repérage'],
-      results:['Documents mieux organisés','Informations plus faciles à retrouver','Suivi technique et administratif plus lisible'],
-      skills:['Structuration documentaire','Rigueur','Lecture de pièces projet','Organisation']
-    },
-    {
-      id:'financial', number:'Preuve 3', title:'Suivi administratif & financier', type:'Devis, commandes et factures', icon:'ti-file-invoice', meta:'Suivre les pièces financières et administratives liées aux projets BTP', tags:['Devis','Factures','Commandes'], proofUrl:OPERATIONS_URL,
-      context:['Dossier de gestion comprenant devis, commandes, livraisons et factures','Besoin de suivre les pièces et leur avancement','Objectif : sécuriser les informations financières et administratives'],
-      actions:['Organiser les devis, commandes, livraisons et factures','Repérer les pièces à compléter ou à vérifier','Préparer une lecture claire des éléments de suivi financier'],
-      deliverables:['Récapitulatifs de devis anonymisés','Factures anonymisées','Dossiers commandes et livraisons','Tableaux de suivi administratif'],
-      results:['Suivi financier plus clair','Pièces mieux classées','Points bloquants identifiés plus tôt'],
-      skills:['Suivi administratif','Analyse de devis','Classement documentaire','Coordination']
-    },
-    {
-      id:'planning', number:'Preuve 4', title:'Planning & suivi chantier', type:'Jalons et avancement', icon:'ti-calendar-stats', meta:'Rendre visibles les étapes, les retards, les points ouverts et les décisions', tags:['Planning','Suivi','Avancement'], proofUrl:OPERATIONS_URL,
-      context:['Projets impliquant plusieurs étapes et acteurs terrain','Besoin de suivre les jalons, décisions, retards et points en attente','Objectif : garder une vision claire de l’avancement du chantier'],
-      actions:['Structurer le planning et les étapes du projet','Mettre à jour les points ouverts et informations à transmettre','Alerter sur les blocages ou décisions à prendre'],
-      deliverables:['Planning de chantier anonymisé','Tableau d’avancement','Liste des points ouverts','Messages ou comptes rendus de coordination'],
-      results:['Avancement rendu lisible','Coordination facilitée','Meilleure anticipation des blocages'],
-      skills:['Planification','Suivi opérationnel','Communication acteurs','Gestion des priorités']
-    },
-    {
-      id:'digital', number:'Preuve 5', title:'Digitalisation du suivi BTP', type:'Outils, BOQ et tableau de bord', icon:'ti-layout-dashboard', meta:'Transformer des documents de suivi en indicateurs et supports de pilotage', tags:['BOQ','Tableau de bord','NOHOBA'], proofUrl:OPERATIONS_URL,
-      context:['Présence d’outils Excel, BOQ, tableau de bord et application de gestion','Besoin de centraliser les informations dispersées dans les dossiers projet','Objectif : préfigurer une solution de suivi BTP plus structurée avec NOHOBA'],
-      actions:['Identifier les données utiles au pilotage de projet','Structurer les indicateurs de suivi des devis, factures et documents','Relier l’expérience terrain à une réflexion de digitalisation BTP'],
-      deliverables:['Outil de quantification ou BOQ','Tableau de bord de suivi','Application ou fichier de gestion','Modèle d’organisation des données projet'],
-      results:['Suivi plus exploitable','Données mieux centralisées','Lien clair entre terrain, gestion documentaire et NOHOBA'],
-      skills:['Digitalisation BTP','Structuration de données','Suivi d’indicateurs','Amélioration continue']
-    }
-  ];
-
-  const proofGrid = document.getElementById('coordination-proof-grid');
-  const proofModal = document.getElementById('coordination-modal');
-  const proofModalHeader = document.getElementById('coordination-modal-header-content');
-  const proofModalBody = document.getElementById('coordination-modal-body');
-  const proofCloseButton = document.getElementById('coordination-modal-close');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let proofLastFocused = null;
-
-  const proofTags = items => items.map(item => `<span class="chip">${item}</span>`).join('');
-  const proofList = items => items.map(item => `<li>${item}</li>`).join('');
-  const proofDetailBlock = (icon, title, items) => `<section class="coordination-detail-block"><h3><i class="ti ${icon}" aria-hidden="true"></i>${title}</h3><ul>${proofList(items)}</ul></section>`;
-  const proofChipBlock = (icon, title, items) => `<section class="coordination-detail-block"><h3><i class="ti ${icon}" aria-hidden="true"></i>${title}</h3><div class="chip-row">${proofTags(items)}</div></section>`;
-  const renderProofCard = proof => `
-    <button type="button" class="coordination-card" data-proof="${proof.id}" aria-haspopup="dialog" aria-controls="coordination-modal">
-      <span class="coordination-banner" aria-hidden="true"><span class="coordination-number"><i class="ti ${proof.icon}" aria-hidden="true"></i>${proof.number}</span><i class="ti ti-arrow-up-right" aria-hidden="true"></i></span>
-      <span class="coordination-body"><h3>${proof.title}</h3><p class="coordination-type">${proof.type}</p><span class="chip-row">${proofTags(proof.tags)}</span></span>
-      <span class="coordination-card-footer"><span>Voir le détail</span><i class="ti ti-arrow-right" aria-hidden="true"></i></span>
-    </button>`;
-
-  const openProof = id => {
-    const proof = coordinationProofs.find(item => item.id === id);
-    if (!proof) return;
-    proofLastFocused = document.activeElement;
-    proofModalHeader.innerHTML = `<span class="coordination-modal-kicker"><i class="ti ${proof.icon}" aria-hidden="true"></i>${proof.number} · ${proof.type}</span><h2 class="coordination-modal-title" id="coordination-modal-title">${proof.title}</h2><p class="coordination-modal-sub" id="coordination-modal-sub">${proof.meta}</p>`;
-    proofModalBody.innerHTML = `
-      <div class="coordination-detail-grid">
-        ${proofDetailBlock('ti-building', 'Contexte, besoin et objectif', proof.context)}
-        ${proofDetailBlock('ti-route', 'Actions menées', proof.actions)}
-        ${proofDetailBlock('ti-folder', 'Preuves à intégrer', proof.deliverables)}
-        ${proofDetailBlock('ti-chart-bar', 'Résultats obtenus', proof.results)}
-        ${proofChipBlock('ti-certificate', 'Compétences mobilisées', proof.skills)}
-      </div>
-      <div class="coordination-modal-note"><p><strong>Confidentialité :</strong> preuves à anonymiser avant publication. Les dossiers sources peuvent être cités comme preuves disponibles sur demande.</p><a href="${proof.proofUrl}" class="btn btn-sage" target="_blank" rel="noopener">Voir le dossier source <i class="ti ti-external-link" aria-hidden="true"></i></a></div>`;
-    proofModal.hidden = false;
-    proofModal.classList.add('open');
-    document.body.classList.add('modal-open');
-    proofCloseButton.focus();
-  };
-
-  const closeProof = () => {
-    proofModal.classList.remove('open');
-    proofModal.hidden = true;
-    document.body.classList.remove('modal-open');
-    if (proofLastFocused) proofLastFocused.focus();
-  };
-
-  if (proofGrid) {
-    proofGrid.innerHTML = coordinationProofs.map(renderProofCard).join('');
-    proofGrid.addEventListener('click', event => {
-      const card = event.target.closest('.coordination-card');
-      if (!card || card.classList.contains('is-opening')) return;
-      const launch = () => openProof(card.dataset.proof);
-      if (prefersReducedMotion) {
-        launch();
-        return;
-      }
-      card.classList.add('is-opening');
-      window.setTimeout(() => {
-        card.classList.remove('is-opening');
-        launch();
-      }, 280);
-    });
-  }
-
-  if (proofCloseButton && proofModal) {
-    proofCloseButton.addEventListener('click', closeProof);
-    proofModal.addEventListener('click', event => {
-      if (event.target === proofModal) closeProof();
-    });
-    document.addEventListener('keydown', event => {
-      if (proofModal.hidden) return;
-      if (event.key === 'Escape') closeProof();
-      if (event.key !== 'Tab') return;
-      const focusable = [...proofModal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')];
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    });
-  }
+const proofs=[
+{id:'study',n:'Preuve 1',title:'Étude & cadrage',type:'Rapports de visite et besoins',icon:'ti-clipboard-text',tags:['Besoin','Visite','Cadrage'],meta:'Transformer des informations dispersées en base de projet exploitable',actions:['Recueillir les attentes et contraintes','Identifier les informations manquantes','Reformuler le besoin et les priorités'],deliverables:['Rapports de visite','Synthèses de cadrage','Listes de points à confirmer'],skills:['Analyse du besoin','Synthèse','Cadrage projet']},
+{id:'docs',n:'Preuve 2',title:'Dossier technique & contractuel',type:'Plans, contrats et pièces projet',icon:'ti-file-description',tags:['Plans','Contrats','Dossier'],meta:'Organiser les documents nécessaires au suivi et aux échanges',actions:['Classer les plans et pièces','Repérer les éléments incomplets','Préparer les documents pour les parties prenantes'],deliverables:['Dossiers de pièces','Extraits contractuels','Plans et repères projet'],skills:['Organisation documentaire','Rigueur','Lecture de pièces']},
+{id:'finance',n:'Preuve 3',title:'Suivi administratif & financier',type:'Devis, factures et paiements',icon:'ti-file-invoice',tags:['Devis','Factures','Paiements'],meta:'Rendre lisible l’état des pièces financières et administratives',actions:['Organiser les devis et factures','Vérifier les correspondances entre pièces','Identifier les éléments en attente'],deliverables:['Récapitulatifs','Tableaux de suivi','Historique des paiements'],skills:['Analyse de devis','Suivi administratif','Contrôle de cohérence']},
+{id:'planning',n:'Preuve 4',title:'Planning & suivi opérationnel',type:'Jalons, points ouverts et avancement',icon:'ti-calendar-stats',tags:['Planning','Suivi','Risques'],meta:'Maintenir une vision claire des étapes, décisions et blocages',actions:['Structurer les jalons','Mettre à jour les points ouverts','Signaler les risques et décisions attendues'],deliverables:['Planning','Tableau d’avancement','Liste des points ouverts'],skills:['Planification','Coordination','Gestion des priorités']},
+{id:'digital',n:'Preuve 5',title:'Digitalisation du suivi BTP',type:'Données, tableaux de bord et prototype',icon:'ti-layout-dashboard',tags:['Données','Dashboard','NOHOBA'],meta:'Transformer les besoins terrain en fonctionnalités de suivi',actions:['Définir les données utiles','Structurer les relations entre objets métier','Tester la cohérence des parcours'],deliverables:['Modèle de données','Tableau de bord','Prototype applicatif'],skills:['Cadrage fonctionnel','Structuration de données','Amélioration continue']}
+];
+const grid=document.getElementById('coordination-grid'),modal=document.getElementById('coordination-modal'),head=document.getElementById('coordination-modal-header-content'),body=document.getElementById('coordination-modal-body'),close=document.getElementById('coordination-modal-close');let last=null;const chips=a=>a.map(x=>`<span class="chip">${x}</span>`).join('');const list=a=>a.map(x=>`<li>${x}</li>`).join('');grid.innerHTML=proofs.map(p=>`<button type="button" class="coordination-card" data-id="${p.id}" aria-haspopup="dialog" aria-controls="coordination-modal" aria-label="Voir le détail de ${p.title}"><span class="coordination-banner" aria-hidden="true"><span class="coordination-number"><i class="ti ${p.icon}"></i>${p.n}</span><i class="ti ti-arrow-up-right"></i></span><span class="coordination-body"><h3>${p.title}</h3><p class="coordination-type">${p.type}</p><span class="chip-row">${chips(p.tags)}</span></span><span class="coordination-card-footer"><span>Voir le détail</span><i class="ti ti-arrow-right"></i></span></button>`).join('');
+function openProof(id){const p=proofs.find(x=>x.id===id);if(!p)return;last=document.activeElement;head.innerHTML=`<span class="coordination-modal-kicker"><i class="ti ${p.icon}"></i>${p.n} · ${p.type}</span><h2 class="coordination-modal-title" id="coordination-modal-title">${p.title}</h2><p class="coordination-modal-sub" id="coordination-modal-sub">${p.meta}</p>`;body.innerHTML=`<div class="coordination-detail-grid"><section class="coordination-detail-block"><h3><i class="ti ti-route"></i>Actions menées</h3><ul>${list(p.actions)}</ul></section><section class="coordination-detail-block"><h3><i class="ti ti-folder"></i>Preuves associées</h3><ul>${list(p.deliverables)}</ul></section><section class="coordination-detail-block"><h3><i class="ti ti-certificate"></i>Compétences</h3><div class="chip-row">${chips(p.skills)}</div></section><section class="coordination-detail-block"><h3><i class="ti ti-shield-lock"></i>Publication</h3><p class="text-soft">Les éléments publics doivent être sélectionnés, expurgés des données personnelles et accompagnés d’un contexte explicatif.</p></section></div><div class="coordination-modal-note"><strong>Statut :</strong> preuve complémentaire décrite, document public anonymisé à préparer.</div>`;modal.hidden=false;modal.classList.add('open');document.body.classList.add('modal-open');document.querySelectorAll('body > nav,body > main,body > footer').forEach(x=>x.inert=true);close.focus();history.replaceState(null,'',`#${id}`)}
+function closeProof(){modal.classList.remove('open');modal.hidden=true;document.body.classList.remove('modal-open');document.querySelectorAll('body > nav,body > main,body > footer').forEach(x=>x.inert=false);history.replaceState(null,'',location.pathname);if(last)last.focus()}
+grid.addEventListener('click',e=>{const c=e.target.closest('.coordination-card');if(c)openProof(c.dataset.id)});close.addEventListener('click',closeProof);modal.addEventListener('click',e=>{if(e.target===modal)closeProof()});document.addEventListener('keydown',e=>{if(modal.hidden)return;if(e.key==='Escape')closeProof();if(e.key!=='Tab')return;const f=[...modal.querySelectorAll('button,a[href],[tabindex]:not([tabindex="-1"])')];if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});const h=location.hash.slice(1);if(proofs.some(p=>p.id===h))openProof(h);
 </script>
 </body>
 </html>
