@@ -6,6 +6,8 @@
   --decision-soft-strong: #FDE6D6;
   --decision-line: rgba(233,120,47,.28);
   --decision-glow: rgba(233,120,47,.18);
+  --card-light: rgba(255,255,255,.92);
+  --card-light-soft: rgba(255,255,255,.48);
 }
 
 [data-theme="night"] {
@@ -15,6 +17,8 @@
   --decision-soft-strong: #472719;
   --decision-line: rgba(255,145,77,.34);
   --decision-glow: rgba(255,145,77,.22);
+  --card-light: rgba(255,255,255,.72);
+  --card-light-soft: rgba(255,255,255,.30);
 }
 
 *:focus-visible { outline-color: var(--decision); }
@@ -139,6 +143,41 @@ select:focus {
 
 .scroll-progress { background: var(--decision); }
 
+/* Éclairage 3D blanc : aucune lueur orange derrière les cartes */
+.feature-card,
+.card,
+.principle,
+.kpi-card,
+.contact-link,
+.project-card,
+.coordination-card,
+.timeline-card,
+.next-banner {
+  position: relative;
+  isolation: isolate;
+}
+
+.feature-card::after,
+.card::after,
+.principle::after,
+.kpi-card::after,
+.contact-link::after,
+.project-card::after,
+.coordination-card::after,
+.timeline-card::after,
+.next-banner::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 15%, var(--card-light-soft), transparent 62%);
+  filter: blur(16px);
+  transition: opacity .24s ease;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .nav-cta,
   .btn-primary,
@@ -147,8 +186,31 @@ select:focus {
   .coordination-card {
     transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
   }
+
+  .feature-card:hover,
+  .card:hover,
+  .principle:hover,
+  .kpi-card:hover,
+  .contact-link:hover,
   .project-card:hover,
-  .coordination-card:hover {
-    box-shadow: 0 12px 28px var(--decision-glow);
+  .coordination-card:hover,
+  .timeline-card:hover,
+  .next-banner:hover {
+    box-shadow:
+      0 14px 34px rgba(26,31,28,.13),
+      0 0 26px var(--card-light-soft),
+      inset 0 1px 0 var(--card-light);
+  }
+
+  .feature-card:hover::after,
+  .card:hover::after,
+  .principle:hover::after,
+  .kpi-card:hover::after,
+  .contact-link:hover::after,
+  .project-card:hover::after,
+  .coordination-card:hover::after,
+  .timeline-card:hover::after,
+  .next-banner:hover::after {
+    opacity: 1;
   }
 }
