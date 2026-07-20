@@ -1,0 +1,7 @@
+/* Neutralisation des bandeaux décoratifs en tête de carte */
+.feature-card::before,
+.card::before,
+.skill-card::before,
+.deliverable-proof-card::before {
+  display: none !important;
+}
