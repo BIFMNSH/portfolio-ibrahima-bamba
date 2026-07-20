@@ -1,0 +1,58 @@
+/* Accueil uniquement — raffinement de la palette verte du mode nuit */
+[data-theme="night"] {
+  --decision: #6FA98B;
+  --decision-hover: #91C0A5;
+  --decision-soft: #183329;
+  --decision-soft-strong: #214438;
+  --decision-line: rgba(111,169,139,.34);
+  --decision-glow: rgba(197,157,91,.18);
+  --sage: #6FA98B;
+  --sage-hover: #91C0A5;
+  --sage-light: #B5D2C0;
+  --sage-pale: #183329;
+  --warm-off: #0E1713;
+  --ink: #F2F6F3;
+  --ink-soft: #B7C6BD;
+  --panel-dark: #0A120F;
+  --divider: #29483B;
+  --hairline: rgba(145,192,165,.20);
+}
+
+[data-theme="night"] body {
+  background: #0E1713;
+}
+
+[data-theme="night"] .nav,
+[data-theme="night"] footer {
+  background: #0A120F;
+}
+
+[data-theme="night"] .hero {
+  background:
+    radial-gradient(circle at 82% 28%, rgba(111,169,139,.11), transparent 30%),
+    linear-gradient(135deg, #0D1712 0%, #10251E 58%, #142B23 100%);
+}
+
+[data-theme="night"] .dpe-card {
+  background: linear-gradient(180deg, rgba(20,43,35,.94), rgba(13,29,23,.94));
+  border-color: rgba(111,169,139,.28);
+  box-shadow: 0 20px 44px rgba(0,0,0,.28), 0 0 0 1px rgba(197,157,91,.08);
+}
+
+[data-theme="night"] .feature-card,
+[data-theme="night"] .card,
+[data-theme="night"] .case-fact-strip {
+  background: #14231D;
+  border-color: #29483B;
+}
+
+[data-theme="night"] .tag.dark {
+  background: rgba(111,169,139,.10);
+  border-color: rgba(145,192,165,.22);
+  color: #D9E7DE;
+}
+
+[data-theme="night"] .value-item i,
+[data-theme="night"] .icon-round {
+  color: #91C0A5;
+}
