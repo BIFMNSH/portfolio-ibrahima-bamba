@@ -3,8 +3,17 @@
   if (document.querySelector('link[href^="decision-orange.css"]')) return;
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'decision-orange.css?v=20260717';
+  link.href = 'decision-orange.css?v=20260722-palette';
   document.head.appendChild(link);
+})();
+
+// Charge le rendu SVG Heroicons en amelioration progressive.
+(() => {
+  if (document.querySelector('script[src^="heroicons.js"]')) return;
+  const script = document.createElement('script');
+  script.src = 'heroicons.js?v=20260722';
+  script.defer = true;
+  document.head.appendChild(script);
 })();
 
 document.documentElement.classList.add('js-motion');
