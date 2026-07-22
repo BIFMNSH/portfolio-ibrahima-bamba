@@ -23,7 +23,7 @@
     'ti-tools': 'wrench',
     'ti-target-arrow': 'target',
     'ti-report-analytics': 'chart-column-big',
-    'ti-home-eco': 'house-leaf',
+    'ti-home-eco': 'house',
     'ti-file-invoice': 'file-text',
     'ti-rss': 'rss',
     'ti-route': 'route',
@@ -39,30 +39,39 @@
     'ti-brand-linkedin': 'linkedin'
   };
 
-  const ensureLucide = () => new Promise(resolve => {
-    if (window.lucide?.createIcons) {
-      resolve();
-      return;
-    }
+  let lucidePromise = null;
+  let rendering = false;
 
-    const existing = document.querySelector('script[data-lucide-cdn]');
-    if (existing) {
-      existing.addEventListener('load', resolve, { once: true });
-      existing.addEventListener('error', resolve, { once: true });
-      return;
-    }
+  const ensureLucide = () => {
+    if (window.lucide?.createIcons) return Promise.resolve(true);
+    if (lucidePromise) return lucidePromise;
 
-    const script = document.createElement('script');
-    script.src = LUCIDE_SRC;
-    script.defer = true;
-    script.dataset.lucideCdn = 'true';
-    script.addEventListener('load', resolve, { once: true });
-    script.addEventListener('error', resolve, { once: true });
-    document.head.appendChild(script);
-  });
+    lucidePromise = new Promise(resolve => {
+      const existing = document.querySelector('script[data-lucide-cdn]');
+      if (existing) {
+        existing.addEventListener('load', () => resolve(Boolean(window.lucide?.createIcons)), { once: true });
+        existing.addEventListener('error', () => resolve(false), { once: true });
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = LUCIDE_SRC;
+      script.defer = true;
+      script.dataset.lucideCdn = 'true';
+      script.addEventListener('load', () => resolve(Boolean(window.lucide?.createIcons)), { once: true });
+      script.addEventListener('error', () => resolve(false), { once: true });
+      document.head.appendChild(script);
+    });
+
+    return lucidePromise;
+  };
 
   const prepareLucideIcons = (root = document) => {
-    root.querySelectorAll('i.ti:not([data-lucide-ready])').forEach(node => {
+    const candidates = [];
+    if (root.matches?.('i.ti:not([data-lucide-ready])')) candidates.push(root);
+    root.querySelectorAll?.('i.ti:not([data-lucide-ready])').forEach(node => candidates.push(node));
+
+    candidates.forEach(node => {
       if (node.closest('.theme-toggle')) return;
       const tablerName = [...node.classList].find(name => iconMap[name]);
       if (!tablerName) return;
@@ -73,32 +82,30 @@
   };
 
   const renderLucideIcons = async (root = document) => {
+    if (rendering) return;
+    rendering = true;
     prepareLucideIcons(root);
-    await ensureLucide();
-    if (!window.lucide?.createIcons) return;
-    window.lucide.createIcons({
-      attrs: {
-        class: ['lucide-icon'],
-        'aria-hidden': 'true',
-        'stroke-width': 1.8
-      }
-    });
+    const ready = await ensureLucide();
+    if (ready) {
+      window.lucide.createIcons({
+        attrs: {
+          class: ['lucide-icon'],
+          'aria-hidden': 'true',
+          'stroke-width': 1.8
+        }
+      });
+    }
+    rendering = false;
   };
 
   window.renderLucideIcons = renderLucideIcons;
 
   const start = () => {
     renderLucideIcons();
-    const observer = new MutationObserver(mutations => {
-      mutations.forEach(mutation => {
-        mutation.addedNodes.forEach(node => {
-          if (node.nodeType === Node.ELEMENT_NODE) renderLucideIcons(node);
-        });
-      });
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+    window.setTimeout(renderLucideIcons, 250);
+    window.setTimeout(renderLucideIcons, 900);
   };
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
   else start();
 })();
