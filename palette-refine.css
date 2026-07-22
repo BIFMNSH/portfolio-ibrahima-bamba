@@ -1,0 +1,197 @@
+/* Palette audit 2026-07-22
+   Objectif : garder l'identite renovation energetique, mais ajouter un accent
+   audit/data plus froid et limiter la dominante vert + or. */
+:root {
+  --sage: #2E6F57;
+  --sage-hover: #235842;
+  --sage-light: #72A58D;
+  --sage-pale: #E7F1EC;
+  --warm-off: #F4F7F3;
+  --ink: #17201D;
+  --ink-soft: #4B5B55;
+  --panel-dark: #101816;
+  --surface: #FFFFFF;
+  --surface-raised: #FFFFFF;
+  --surface-soft: rgba(255,255,255,.68);
+  --gold: #B88424;
+  --gold-pale: #FBF1DF;
+  --gold-glow: rgba(184,132,36,.22);
+  --decision: #C75F24;
+  --decision-soft: #F8E7DB;
+  --audit-blue: #2F5F7A;
+  --audit-blue-soft: #E3EEF3;
+  --clay: #9D6B4F;
+  --divider: #D3DED8;
+  --hairline: rgba(47,95,122,.16);
+  --shadow: 0 5px 14px rgba(23,32,29,.075);
+  --shadow-hover: 0 12px 24px rgba(23,32,29,.11);
+}
+
+[data-theme="night"] {
+  --sage: #62A783;
+  --sage-hover: #82B99D;
+  --sage-light: #9DCAB0;
+  --sage-pale: #1E332B;
+  --warm-off: #0E1413;
+  --ink: #F2F6F1;
+  --ink-soft: #B8C6C0;
+  --panel-dark: #090F0E;
+  --surface: #151F1D;
+  --surface-raised: #1B2825;
+  --surface-soft: rgba(255,255,255,.055);
+  --gold: #D4A04A;
+  --gold-pale: #302515;
+  --gold-glow: rgba(212,160,74,.28);
+  --decision: #E07A3A;
+  --decision-soft: #3A2419;
+  --audit-blue: #76A9C3;
+  --audit-blue-soft: #172A33;
+  --clay: #C89476;
+  --divider: #2F403B;
+  --hairline: rgba(118,169,195,.18);
+}
+
+.page-hero::after,
+.hero::after {
+  background:
+    radial-gradient(ellipse 48% 72% at 88% 46%, rgba(47,95,122,.24) 0%, rgba(47,111,87,.12) 42%, transparent 70%),
+    linear-gradient(135deg, rgba(184,132,36,.08), transparent 45%);
+}
+
+.nav,
+.nav-mobile,
+footer,
+.position-box,
+.next-banner,
+.contact-card-header {
+  background: linear-gradient(135deg, var(--panel-dark), color-mix(in srgb, var(--panel-dark) 82%, var(--audit-blue) 18%));
+}
+
+.nav-center li.active a,
+.nav-mobile a.active,
+.hero-title em,
+.page-hero em,
+.next-banner-label {
+  color: var(--gold);
+}
+
+.inline-link,
+.contact-link-label,
+.case-fact-strip strong,
+.project-card-footer,
+.coordination-card-footer {
+  color: var(--audit-blue);
+}
+
+.btn-primary,
+.btn-sage,
+.nav-cta,
+.skip-link {
+  background: linear-gradient(135deg, var(--sage), var(--audit-blue));
+}
+
+.btn-primary:hover,
+.btn-sage:hover,
+.nav-cta:hover {
+  background: linear-gradient(135deg, var(--sage-hover), var(--audit-blue));
+}
+
+.chip,
+.tag {
+  background: var(--audit-blue-soft);
+  color: var(--audit-blue);
+  border-color: var(--hairline);
+}
+
+.tag.gold {
+  background: var(--gold-pale);
+  color: #684611;
+}
+
+[data-theme="night"] .tag.gold {
+  color: #F1D7A6;
+}
+
+.principle {
+  border-top-color: color-mix(in srgb, var(--audit-blue) 58%, var(--sage-light));
+}
+
+.icon-round {
+  background: linear-gradient(135deg, var(--audit-blue-soft), var(--surface));
+  color: var(--audit-blue);
+  border-color: var(--hairline);
+}
+
+.feature-card::before,
+.card::before,
+.skill-card::before {
+  background: linear-gradient(180deg, rgba(47,95,122,.12), rgba(47,95,122,0));
+}
+
+.project-card:nth-child(1) .project-banner,
+.coordination-card:nth-child(1) .coordination-banner {
+  background: linear-gradient(135deg, #10201D, var(--audit-blue));
+}
+
+.project-card:nth-child(2) .project-banner,
+.coordination-card:nth-child(2) .coordination-banner {
+  background: linear-gradient(135deg, #19392F, #5F9E83);
+}
+
+.project-card:nth-child(3) .project-banner,
+.coordination-card:nth-child(3) .coordination-banner {
+  background: linear-gradient(135deg, #17272E, var(--decision));
+}
+
+.project-card:nth-child(4) .project-banner,
+.coordination-card:nth-child(4) .coordination-banner {
+  background: linear-gradient(135deg, #1D332B, var(--clay));
+}
+
+.project-card:nth-child(5) .project-banner,
+.coordination-card:nth-child(5) .coordination-banner {
+  background: linear-gradient(135deg, #162528, #6F8FA2);
+}
+
+.project-card:nth-child(6) .project-banner {
+  background: linear-gradient(135deg, #182B25, #D07132);
+}
+
+.project-card:nth-child(7) .project-banner {
+  background: linear-gradient(135deg, #102D26, #2F6F57);
+}
+
+.project-card:nth-child(8) .project-banner {
+  background: linear-gradient(135deg, #1E3038, var(--decision));
+}
+
+.heroicon {
+  width: 1.18em;
+  height: 1.18em;
+  display: inline-block;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  vertical-align: -0.2em;
+}
+
+.icon-round .heroicon {
+  width: 22px;
+  height: 22px;
+}
+
+.project-banner > .heroicon,
+.coordination-banner > .heroicon {
+  width: 38px;
+  height: 38px;
+  padding: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.13);
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.project-number .heroicon,
+.coordination-number .heroicon {
+  width: 15px;
+  height: 15px;
+}
