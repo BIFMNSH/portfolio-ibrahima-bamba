@@ -9,6 +9,15 @@
     document.head.appendChild(link);
   };
 
+  const loadProjectModalRefine = () => {
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    if (path !== 'projets.html' || document.querySelector('link[href^="project-modal-refine.css"]')) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'project-modal-refine.css?v=20260722';
+    document.head.appendChild(link);
+  };
+
   const normalizePortfolioUI = () => {
     const path = window.location.pathname.split('/').pop() || 'index.html';
     const pageClass = {
@@ -166,6 +175,7 @@
 
   const start = () => {
     loadGlobalCoherence();
+    loadProjectModalRefine();
     normalizePortfolioUI();
     renderLucideIcons();
     window.setTimeout(renderLucideIcons, 250);
