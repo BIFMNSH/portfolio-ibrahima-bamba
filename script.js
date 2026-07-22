@@ -7,11 +7,11 @@
   document.head.appendChild(link);
 })();
 
-// Charge le rendu SVG Heroicons en amelioration progressive.
+// Charge le rendu SVG Lucide en amelioration progressive.
 (() => {
   if (document.querySelector('script[src^="heroicons.js"]')) return;
   const script = document.createElement('script');
-  script.src = 'heroicons.js?v=20260722';
+  script.src = 'heroicons.js?v=20260722-lucide-fix';
   script.defer = true;
   document.head.appendChild(script);
 })();
