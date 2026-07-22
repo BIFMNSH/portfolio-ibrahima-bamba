@@ -1,0 +1,204 @@
+/* Ajustement mode nuit uniquement.
+   Le mode jour est conserve tel quel; cette couche corrige la dominante olive sombre. */
+html[data-theme="night"] {
+  --night-bg: #0B1110;
+  --night-panel: #101A18;
+  --night-panel-2: #14211E;
+  --night-card: #182622;
+  --night-card-soft: #1D2D29;
+  --night-border: #2B403A;
+  --night-text: #F4F7F2;
+  --night-muted: #BBC8C1;
+  --night-blue: #7CB4CC;
+  --night-sage: #83C29E;
+  --night-gold: #E0B866;
+
+  --warm-off: var(--night-bg);
+  --panel-dark: var(--night-panel);
+  --surface: var(--night-panel);
+  --surface-raised: var(--night-card);
+  --surface-soft: rgba(255,255,255,.06);
+  --ink: var(--night-text);
+  --ink-soft: var(--night-muted);
+  --divider: var(--night-border);
+  --sage: var(--night-sage);
+  --sage-hover: #A1D3B5;
+  --sage-light: #B2DBC1;
+  --sage-pale: #1F342D;
+  --gold: var(--night-gold);
+  --gold-pale: #382B17;
+  --gold-glow: rgba(224,184,102,.24);
+  --decision: #D78346;
+  --decision-soft: #34231A;
+  --audit-blue: var(--night-blue);
+  --audit-blue-soft: #172C34;
+  --hairline: rgba(124,180,204,.2);
+  --shadow: 0 12px 28px rgba(0,0,0,.28);
+  --shadow-hover: 0 18px 40px rgba(0,0,0,.36);
+}
+
+html[data-theme="night"] body {
+  background: var(--night-bg);
+  color: var(--night-text);
+}
+
+html[data-theme="night"] .nav,
+html[data-theme="night"] .nav-mobile,
+html[data-theme="night"] .hero,
+html[data-theme="night"] .page-hero,
+html[data-theme="night"] .position-box,
+html[data-theme="night"] .next-banner,
+html[data-theme="night"] .case-header,
+html[data-theme="night"] footer,
+html[data-theme="night"] .contact-card-header {
+  background-color: var(--night-panel) !important;
+  background-image: linear-gradient(135deg, #0B1110, #13241F 58%, #16303A) !important;
+  border-color: rgba(124,180,204,.18);
+}
+
+html[data-theme="night"] .hero::after,
+html[data-theme="night"] .page-hero::after {
+  display: block !important;
+  background:
+    radial-gradient(ellipse 52% 76% at 88% 38%, rgba(124,180,204,.18), transparent 68%),
+    radial-gradient(ellipse 46% 58% at 12% 10%, rgba(131,194,158,.10), transparent 62%) !important;
+}
+
+html[data-theme="night"] .feature-card,
+html[data-theme="night"] .card,
+html[data-theme="night"] .skill-card,
+html[data-theme="night"] .timeline-card,
+html[data-theme="night"] .deliverable-proof-card,
+html[data-theme="night"] .case-study,
+html[data-theme="night"] .form,
+html[data-theme="night"] .dpe-card,
+html[data-theme="night"] .project-card,
+html[data-theme="night"] .coordination-card,
+html[data-theme="night"] .project-evidence-cta,
+html[data-theme="night"] .contact-links,
+html[data-theme="night"] .project-modal-card,
+html[data-theme="night"] .coordination-modal-card,
+html[data-theme="night"] .modal-card {
+  background-color: var(--night-card) !important;
+  border-color: var(--night-border) !important;
+  box-shadow: var(--shadow);
+}
+
+html[data-theme="night"] .case-fact-strip,
+html[data-theme="night"] .case-section-label,
+html[data-theme="night"] .project-training-item,
+html[data-theme="night"] .project-detail-block,
+html[data-theme="night"] .coordination-detail-block,
+html[data-theme="night"] .livrable-item,
+html[data-theme="night"] .result-card,
+html[data-theme="night"] .method-step {
+  background-color: var(--night-card-soft) !important;
+  border-color: var(--night-border) !important;
+}
+
+html[data-theme="night"] .hero-sub,
+html[data-theme="night"] .page-hero p:not(.page-indicator),
+html[data-theme="night"] .position-box p,
+html[data-theme="night"] .next-banner p,
+html[data-theme="night"] .case-header p,
+html[data-theme="night"] .footer-copy {
+  color: rgba(244,247,242,.76);
+}
+
+html[data-theme="night"] .section-title,
+html[data-theme="night"] .feature-card h3,
+html[data-theme="night"] .feature-title,
+html[data-theme="night"] .principle h3,
+html[data-theme="night"] .timeline-card h3,
+html[data-theme="night"] .project-body h3,
+html[data-theme="night"] .coordination-body h3,
+html[data-theme="night"] .contact-link-value,
+html[data-theme="night"] .form label {
+  color: var(--night-text);
+}
+
+html[data-theme="night"] .text-soft,
+html[data-theme="night"] .feature-card p,
+html[data-theme="night"] .principle p,
+html[data-theme="night"] .skill-card p,
+html[data-theme="night"] .timeline-card p,
+html[data-theme="night"] .project-type,
+html[data-theme="night"] .coordination-type,
+html[data-theme="night"] .contact-card-role,
+html[data-theme="night"] .form-fallback {
+  color: var(--night-muted);
+}
+
+html[data-theme="night"] .chip,
+html[data-theme="night"] .tag,
+html[data-theme="night"] .icon-round {
+  background: var(--audit-blue-soft) !important;
+  color: #CDE8F2 !important;
+  border-color: rgba(124,180,204,.24) !important;
+}
+
+html[data-theme="night"] .tag.dark {
+  background: rgba(255,255,255,.08) !important;
+  color: rgba(244,247,242,.88) !important;
+  border-color: rgba(255,255,255,.16) !important;
+}
+
+html[data-theme="night"] .tag.gold,
+html[data-theme="night"] .timeline-current-badge,
+html[data-theme="night"] .project-modal-kicker,
+html[data-theme="night"] .coordination-modal-kicker {
+  background: rgba(224,184,102,.13) !important;
+  color: var(--night-gold) !important;
+  border-color: rgba(224,184,102,.3) !important;
+}
+
+html[data-theme="night"] .inline-link,
+html[data-theme="night"] .contact-link-label,
+html[data-theme="night"] .case-fact-strip strong,
+html[data-theme="night"] .project-card-footer,
+html[data-theme="night"] .coordination-card-footer,
+html[data-theme="night"] .value-item i,
+html[data-theme="night"] .case-list i,
+html[data-theme="night"] .label-icon {
+  color: var(--night-blue) !important;
+}
+
+html[data-theme="night"] .btn-primary,
+html[data-theme="night"] .btn-sage,
+html[data-theme="night"] .nav-cta,
+html[data-theme="night"] .skip-link {
+  background: linear-gradient(135deg, #32785E, #2F6E89) !important;
+  border-color: rgba(124,180,204,.25) !important;
+  color: #FFFFFF !important;
+}
+
+html[data-theme="night"] .btn-primary:hover,
+html[data-theme="night"] .btn-sage:hover,
+html[data-theme="night"] .nav-cta:hover {
+  background: linear-gradient(135deg, #3E8D70, #3D7F9E) !important;
+}
+
+html[data-theme="night"] .btn-outline {
+  color: rgba(244,247,242,.86);
+  border-color: rgba(244,247,242,.26);
+}
+
+html[data-theme="night"] .form input,
+html[data-theme="night"] .form textarea,
+html[data-theme="night"] .form select {
+  background: #101A18;
+  border-color: var(--night-border);
+  color: var(--night-text);
+}
+
+html[data-theme="night"] .form input:focus,
+html[data-theme="night"] .form textarea:focus,
+html[data-theme="night"] .form select:focus {
+  border-color: var(--night-blue);
+  box-shadow: 0 0 0 3px rgba(124,180,204,.2);
+}
+
+html[data-theme="night"] .project-banner,
+html[data-theme="night"] .coordination-banner {
+  background: linear-gradient(135deg, #10201D, #244F60) !important;
+}
