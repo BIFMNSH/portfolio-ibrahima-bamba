@@ -5,7 +5,7 @@
     if (document.querySelector('link[href^="global-coherence.css"]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'global-coherence.css?v=20260722';
+    link.href = 'global-coherence.css?v=20260722-dark-olive';
     document.head.appendChild(link);
   };
 
@@ -26,7 +26,7 @@
     });
 
     const themeColor = document.querySelector('meta[name="theme-color"]');
-    if (themeColor) themeColor.setAttribute('content', '#4E5337');
+    if (themeColor) themeColor.setAttribute('content', '#474C32');
 
     const profileProof = document.querySelector('.profile-hero-copy .hero-proof');
     if (profileProof) {
