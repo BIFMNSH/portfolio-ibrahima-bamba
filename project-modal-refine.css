@@ -15,22 +15,56 @@
 
 .project-modal-header {
   background: var(--olive-main, #474C32) !important;
-  padding: 1.35rem 1.5rem 1.45rem !important;
+  padding: 1.45rem 1.5rem 1.45rem !important;
   align-items: flex-start !important;
 }
 
 .project-modal-kicker {
+  position: relative !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: .42rem !important;
-  margin-bottom: .55rem !important;
-  padding: .28rem .52rem !important;
-  border: 1px solid rgba(216, 148, 60, .42) !important;
-  border-radius: 6px !important;
-  background: rgba(216, 148, 60, .12) !important;
-  color: #F3BE76 !important;
-  font-size: .78rem !important;
-  line-height: 1.2 !important;
+  gap: .5rem !important;
+  width: fit-content !important;
+  max-width: calc(100% - 3.75rem) !important;
+  min-height: 30px !important;
+  box-sizing: border-box !important;
+  margin: 0 0 .7rem !important;
+  padding: .38rem .68rem .38rem 2rem !important;
+  border: 1px solid rgba(216, 148, 60, .52) !important;
+  border-radius: 7px !important;
+  background: #FFF5E8 !important;
+  color: #B85F18 !important;
+  font-size: .79rem !important;
+  font-weight: 750 !important;
+  line-height: 1.25 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Icône autonome : visible même si la librairie d’icônes ne charge pas */
+.project-modal-kicker::before {
+  content: "" !important;
+  position: absolute !important;
+  left: .68rem !important;
+  top: 50% !important;
+  width: 12px !important;
+  height: 15px !important;
+  transform: translateY(-50%) !important;
+  border: 1.8px solid var(--accent-orange, #D8943C) !important;
+  border-radius: 2px !important;
+  box-sizing: border-box !important;
+  background:
+    linear-gradient(var(--accent-orange, #D8943C), var(--accent-orange, #D8943C)) 3px 4px / 5px 1.5px no-repeat,
+    linear-gradient(var(--accent-orange, #D8943C), var(--accent-orange, #D8943C)) 3px 8px / 5px 1.5px no-repeat,
+    #FFF5E8 !important;
+}
+
+/* Masque l’ancien pictogramme vide ou mal rendu */
+.project-modal-kicker > i,
+.project-modal-kicker > svg,
+.project-modal-kicker > .lucide-icon,
+.project-modal-kicker > .icon-round {
+  display: none !important;
 }
 
 .project-modal-title {
@@ -131,6 +165,17 @@
   opacity: 1 !important;
 }
 
+[data-theme="night"] .project-modal-kicker {
+  background: #33291D !important;
+  color: #F2B96E !important;
+  border-color: rgba(216, 148, 60, .46) !important;
+}
+[data-theme="night"] .project-modal-kicker::before {
+  background:
+    linear-gradient(var(--accent-orange, #D8943C), var(--accent-orange, #D8943C)) 3px 4px / 5px 1.5px no-repeat,
+    linear-gradient(var(--accent-orange, #D8943C), var(--accent-orange, #D8943C)) 3px 8px / 5px 1.5px no-repeat,
+    #33291D !important;
+}
 [data-theme="night"] .project-modal-body {
   background: #171A14 !important;
 }
@@ -157,6 +202,14 @@
   }
   .project-modal-header {
     padding: 1.1rem !important;
+  }
+  .project-modal-kicker {
+    max-width: calc(100% - 3rem) !important;
+    padding: .42rem .6rem .42rem 1.9rem !important;
+    font-size: .74rem !important;
+  }
+  .project-modal-kicker::before {
+    left: .6rem !important;
   }
   .project-modal-body {
     padding: 1rem !important;
