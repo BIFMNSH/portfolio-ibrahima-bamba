@@ -11,7 +11,7 @@
 (() => {
   if (document.querySelector('script[src^="heroicons.js"]')) return;
   const script = document.createElement('script');
-  script.src = 'heroicons.js?v=20260722-lucide-fix';
+  script.src = 'heroicons.js?v=20260722-linkedin-fix';
   script.defer = true;
   document.head.appendChild(script);
 })();
