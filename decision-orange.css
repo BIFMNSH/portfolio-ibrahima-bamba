@@ -103,6 +103,47 @@
 .next-banner { padding:clamp(1.5rem,3vw,2.2rem); border-color:rgba(255,255,255,.10); box-shadow:0 20px 45px rgba(0,0,0,.16); }
 .form input:focus,.form textarea:focus,.form select:focus,input:focus,textarea:focus,select:focus { outline:none; border-color:var(--sage); box-shadow:0 0 0 3px rgba(78,83,55,.16); }
 .scroll-progress { background:var(--gold); }
+
+/* Aplats sombres harmonisés : aucun mélange vert-orange */
+.nav,
+.nav-mobile,
+.hero,
+.page-hero,
+.position-box,
+.next-banner,
+.case-header,
+footer {
+  background-color: #4E5337 !important;
+  background-image: none !important;
+}
+
+.hero::after,
+.page-hero::after,
+.position-box::after,
+.next-banner::after,
+.case-header::after,
+footer::after {
+  display: none !important;
+  background: none !important;
+}
+
+.brand-monogram,
+.icon-round {
+  background-image: none !important;
+}
+
+[data-theme="night"] .nav,
+[data-theme="night"] .nav-mobile,
+[data-theme="night"] .hero,
+[data-theme="night"] .page-hero,
+[data-theme="night"] .position-box,
+[data-theme="night"] .next-banner,
+[data-theme="night"] .case-header,
+[data-theme="night"] footer {
+  background-color: #25291C !important;
+  background-image: none !important;
+}
+
 @media (hover:hover) and (pointer:fine) {
   .feature-card:hover,.card:hover,.skill-card:hover,.timeline-card:hover,.deliverable-proof-card:hover,.case-study:hover { border-color:var(--decision-line); box-shadow:var(--shadow-hover); }
   .feature-card:hover,.card:hover,.skill-card:hover,.timeline-card:hover,.deliverable-proof-card:hover { transform:translateY(-4px); }
