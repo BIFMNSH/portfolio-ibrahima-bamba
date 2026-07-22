@@ -1,7 +1,7 @@
 /* Palette audit 2026-07-22
    Objectif : garder l'identite renovation energetique, mais ajouter un accent
    audit/data plus froid et limiter la dominante vert + or. */
-:root {
+html:root {
   --sage: #2E6F57;
   --sage-hover: #235842;
   --sage-light: #72A58D;
@@ -27,7 +27,7 @@
   --shadow-hover: 0 12px 24px rgba(23,32,29,.11);
 }
 
-[data-theme="night"] {
+html[data-theme="night"] {
   --sage: #62A783;
   --sage-hover: #82B99D;
   --sage-light: #9DCAB0;
