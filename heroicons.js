@@ -1,5 +1,40 @@
 (() => {
   const LUCIDE_SRC = 'https://unpkg.com/lucide@1.25.0/dist/umd/lucide.js';
+
+  const loadGlobalCoherence = () => {
+    if (document.querySelector('link[href^="global-coherence.css"]')) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'global-coherence.css?v=20260722';
+    document.head.appendChild(link);
+  };
+
+  const normalizePortfolioUI = () => {
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    const pageClass = {
+      'index.html': 'page-home',
+      'profil.html': 'page-profile',
+      'roadmap.html': 'page-roadmap',
+      'projets.html': 'page-projects',
+      'nohoba.html': 'page-nohoba',
+      'contact.html': 'page-contact'
+    }[path];
+    if (pageClass) document.body.classList.add(pageClass);
+
+    document.querySelectorAll('.nav-center a[href="projets.html"], .nav-mobile a[href="projets.html"], .footer-links a[href="projets.html"]').forEach(link => {
+      link.textContent = 'Projets';
+    });
+
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.setAttribute('content', '#4E5337');
+
+    const profileProof = document.querySelector('.profile-hero-copy .hero-proof');
+    if (profileProof) {
+      profileProof.style.flexWrap = 'wrap';
+      profileProof.style.whiteSpace = 'normal';
+    }
+  };
+
   const iconMap = {
     'ti-arrow-right': 'arrow-right',
     'ti-arrow-up-right': 'arrow-up-right',
@@ -130,6 +165,8 @@
   window.renderLucideIcons = renderLucideIcons;
 
   const start = () => {
+    loadGlobalCoherence();
+    normalizePortfolioUI();
     renderLucideIcons();
     window.setTimeout(renderLucideIcons, 250);
     window.setTimeout(renderLucideIcons, 900);
