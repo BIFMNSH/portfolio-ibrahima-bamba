@@ -14,7 +14,7 @@
     if (path !== 'projets.html' || document.querySelector('link[href^="project-modal-refine.css"]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'project-modal-refine.css?v=20260722';
+    link.href = 'project-modal-refine.css?v=20260723-kicker';
     document.head.appendChild(link);
   };
 
