@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const objet = document.getElementById('objet')?.value || 'Contact portfolio';
       const message = document.getElementById('message')?.value.trim() || '';
       const body = `Bonjour Ibrahima,\n\n${message || 'Je souhaite échanger avec vous au sujet de votre profil en rénovation énergétique.'}\n\nNom : ${nom}\nEmail : ${email}`;
-      if (status) status.textContent = 'Votre message est prêt. Ouverture de votre messagerie…';
+      if (status) status.textContent = 'Votre message est prêt. Vous pouvez l’envoyer depuis votre messagerie.';
       window.location.href = `mailto:bamba.bif@gmail.com?subject=${encodeURIComponent('Portfolio - ' + objet)}&body=${encodeURIComponent(body)}`;
     });
   }
