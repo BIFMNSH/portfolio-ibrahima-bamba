@@ -5,7 +5,8 @@
   --olive-mid:#596248;
   --olive-light:#727563;
   --neutral-light:#D5D8DD;
-  --accent-orange:#B08A4A;
+  --accent-orange:#D8943C;
+  --accent-orange-hover:#C8842F;
   --surface-clean:#FAFAF7;
   --surface-card:#FFFFFF;
   --text-main:#20231B;
@@ -35,7 +36,7 @@ footer {
 .case-header::after,
 footer::after { display:none!important; background:none!important; }
 
-/* Orange limité aux accents */
+/* Orange désert limité aux accents */
 .nav-center a::after,
 .scroll-progress { background:var(--accent-orange)!important; }
 .nav-center li.active a,
@@ -45,6 +46,21 @@ footer::after { display:none!important; background:none!important; }
 .hero-title em,
 .page-hero h1 em,
 .next-banner-label { color:var(--accent-orange)!important; }
+
+/* Boutons de progression plus lumineux */
+.next-banner .btn,
+.next-banner .btn-sage,
+.next-banner .btn-primary {
+  background:var(--accent-orange)!important;
+  border-color:var(--accent-orange)!important;
+  color:#fff!important;
+}
+.next-banner .btn:hover,
+.next-banner .btn-sage:hover,
+.next-banner .btn-primary:hover {
+  background:var(--accent-orange-hover)!important;
+  border-color:var(--accent-orange-hover)!important;
+}
 
 /* Navigation stable */
 .nav { min-height:66px; }
@@ -116,7 +132,7 @@ footer::after { display:none!important; background:none!important; }
 .coordination-card-footer {
   background:#F7F0E4!important;
   color:#71551F!important;
-  border-color:rgba(176,138,74,.28)!important;
+  border-color:rgba(216,148,60,.30)!important;
 }
 
 /* Accueil : simplification du hero */
