@@ -144,6 +144,26 @@ footer::after { display:none!important; background:none!important; }
 .page-home .grid-4 { gap:1rem; }
 .page-home .feature-card { min-height:220px; }
 
+/* NOHOBA : même hiérarchie typographique que la carte de l’accueil */
+.nohoba-hero .dpe-title {
+  font-family:var(--sans)!important;
+  font-size:13px!important;
+  font-weight:600!important;
+  letter-spacing:.02em!important;
+  color:var(--ink-soft)!important;
+}
+.nohoba-hero .status-panel-intro { font-weight:400!important; }
+.nohoba-hero .status-name {
+  font-family:var(--sans)!important;
+  font-size:15px!important;
+  font-weight:600!important;
+  color:var(--ink)!important;
+}
+.nohoba-hero .status-badge {
+  font-family:var(--sans)!important;
+  font-weight:600!important;
+}
+
 /* Profil : badges fluides, sections mieux respirées */
 .page-profile .profile-hero-copy .hero-proof {
   flex-wrap:wrap!important;
