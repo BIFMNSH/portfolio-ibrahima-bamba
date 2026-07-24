@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>NOHOBA — Écosystème numérique BTP | Ibrahima Fa Bamba</title>
-  <meta name="description" content="NOHOBA est un écosystème numérique dédié au BTP. NOHOBA Pro est développé et opérationnel ; Marketplace, Client et Foncier constituent les prochaines extensions."/>
+  <meta name="description" content="NOHOBA est un écosystème numérique BTP. Découvrez NOHOBA Pro, sa première application web fonctionnelle dédiée au pilotage des projets, ainsi que les prochaines orientations produit."/>
   <link rel="canonical" href="https://portfolio-ibrahima-bamba.vercel.app/nohoba.html"/>
   <meta name="theme-color" content="#1A1F1C"/>
   <meta name="color-scheme" content="light dark"/>
@@ -13,14 +13,14 @@
   <meta property="og:locale" content="fr_FR"/>
   <meta property="og:site_name" content="Portfolio Ibrahima Fa Bamba"/>
   <meta property="og:title" content="NOHOBA — Écosystème numérique BTP | Ibrahima Fa Bamba"/>
-  <meta property="og:description" content="Un écosystème numérique BTP structuré autour de NOHOBA Pro, plateforme opérationnelle de pilotage de projets."/>
+  <meta property="og:description" content="Découvrez NOHOBA Pro, première application fonctionnelle de l’écosystème NOHOBA dédiée au pilotage des activités et projets BTP."/>
   <meta property="og:url" content="https://portfolio-ibrahima-bamba.vercel.app/nohoba.html"/>
   <meta property="og:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="NOHOBA — Écosystème numérique BTP"/>
-  <meta name="twitter:description" content="NOHOBA Pro est développé et opérationnel. Les extensions Marketplace, Client et Foncier sont planifiées."/>
+  <meta name="twitter:description" content="Découvrez NOHOBA Pro, première application fonctionnelle de l’écosystème NOHOBA, dédiée au pilotage des activités et projets BTP."/>
   <meta name="twitter:image" content="https://portfolio-ibrahima-bamba.vercel.app/og-image.png"/>
   <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -28,50 +28,56 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css"/>
-  <link rel="stylesheet" href="style.css?v=20260724-nohoba"/>
+  <link rel="stylesheet" href="style.css?v=20260724-nohoba-v2"/>
   <link rel="stylesheet" href="decision-orange.css?v=20260717"/>
   <link rel="stylesheet" href="global-coherence.css?v=20260717"/>
   <style>
-    .nohoba-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:2rem;align-items:center}
+    .nohoba-hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr);gap:2rem;align-items:center}
     .nohoba-kicker{display:inline-flex;align-items:center;gap:.55rem;color:var(--gold);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
     .nohoba-summary{font-size:18px;line-height:1.7;color:var(--ink-soft);max-width:760px}
-    .status-panel{border:1px solid var(--divider);background:var(--surface-raised);border-radius:var(--radius-lg);padding:1.3rem;box-shadow:var(--shadow)}
-    .status-panel h2{font-family:var(--serif);font-size:26px;margin:0 0 1rem}
-    .status-list{display:grid;gap:.75rem}
+    .nohoba-frame{border:1px solid var(--divider);background:var(--surface-raised);border-radius:var(--radius-lg);box-shadow:0 8px 24px rgba(26,31,28,.06)}
+    [data-theme="night"] .nohoba-frame{box-shadow:none}
+    .status-panel{padding:1.35rem}
+    .status-panel h2{font-family:var(--serif);font-size:26px;margin:0 0 .35rem}
+    .status-panel-intro{color:var(--ink-soft);font-size:13px;margin-bottom:1rem}
+    .status-list{display:grid}
     .status-row{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;padding:.9rem 0;border-top:1px solid var(--divider)}
     .status-row:first-child{border-top:0;padding-top:0}
     .status-name{font-weight:800}
-    .status-badge{display:inline-flex;align-items:center;gap:.4rem;border-radius:999px;padding:.36rem .7rem;font-size:12px;font-weight:800;white-space:nowrap}
-    .status-done{background:var(--sage-pale);color:var(--sage)}
-    .status-next{background:var(--gold-pale);color:#8a5a13}
-    .status-later{background:var(--surface-soft);color:var(--ink-soft);border:1px solid var(--divider)}
+    .status-badge{display:inline-flex;align-items:center;gap:.4rem;border-radius:999px;padding:.36rem .7rem;font-size:12px;font-weight:800;white-space:nowrap;border:1px solid transparent}
+    .status-live{background:var(--sage-pale);color:var(--sage);border-color:rgba(71,76,50,.18)}
+    .status-next{background:var(--gold-pale);color:#8a5a13;border-color:rgba(216,148,60,.22)}
+    .status-later{background:var(--surface-soft);color:var(--ink-soft);border-color:var(--divider)}
+    .section-note{max-width:820px;color:var(--ink-soft);margin-top:.55rem}
     .product-grid,.modules-grid,.transfer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
-    .product-card,.module-card,.transfer-card{border:1px solid var(--divider);border-radius:var(--radius-lg);padding:1.35rem;background:var(--surface-raised);box-shadow:var(--shadow)}
+    .product-card,.module-card,.transfer-card{padding:1.35rem;min-height:100%;display:flex;flex-direction:column}
     .product-card.featured{border-top:4px solid var(--sage)}
-    .product-card h3,.module-card h3,.transfer-card h3{font-family:var(--serif);font-size:23px;margin:0 0 .55rem}
+    .product-card h3,.module-card h3,.transfer-card h3{font-family:var(--serif);font-size:23px;margin:.75rem 0 .55rem}
     .product-card p,.module-card p,.transfer-card p{color:var(--ink-soft)}
+    .product-audience{font-size:12px;font-weight:800;color:var(--sage);text-transform:uppercase;letter-spacing:.06em;margin-top:auto;padding-top:1rem}
     .product-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin:.9rem 0 0}
     .product-meta span{font-size:12px;font-weight:800;border:1px solid var(--divider);border-radius:999px;padding:.32rem .65rem;background:var(--surface-soft)}
-    .cycle-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1px solid var(--divider);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface-raised)}
+    .modules-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .module-card{box-shadow:none}
+    .module-card i,.transfer-card i{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:var(--sage-pale);color:var(--sage);font-size:19px}
+    .cycle-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));overflow:hidden}
     .cycle-step{padding:1.05rem .7rem;text-align:center;border-right:1px solid var(--divider)}
     .cycle-step:last-child{border-right:0}
     .cycle-step i{display:inline-flex;width:38px;height:38px;align-items:center;justify-content:center;border-radius:50%;background:var(--sage-pale);color:var(--sage);font-size:20px;margin-bottom:.6rem}
     .cycle-num{font-size:11px;font-weight:800;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}
     .cycle-name{font-weight:800;font-size:14px;margin-top:.2rem}
     .cycle-desc{font-size:12px;color:var(--ink-soft);line-height:1.35;margin-top:.35rem}
-    .proof-box{border:1px solid var(--divider);border-left:4px solid var(--sage);border-radius:var(--radius-lg);padding:1.4rem;background:var(--surface-soft)}
-    .proof-list{display:grid;gap:.65rem;padding:0;margin:0;list-style:none}
+    .proof-box{padding:1.4rem;border-left:4px solid var(--sage)}
+    .proof-list{display:grid;gap:.7rem;padding:0;margin:0;list-style:none}
     .proof-list li{display:flex;gap:.65rem;color:var(--ink-soft)}
     .proof-list i{color:var(--sage);margin-top:.2rem}
-    .app-cta{display:flex;justify-content:space-between;gap:1.5rem;align-items:center;background:var(--panel-dark);color:#fff;border-radius:var(--radius-lg);padding:1.5rem}
+    .app-cta{display:flex;justify-content:space-between;gap:1.5rem;align-items:center;background:var(--panel-dark);color:#fff;border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);padding:1.5rem}
     .app-cta h2{font-family:var(--serif);font-size:28px;margin:0 0 .35rem}
-    .app-cta p{color:rgba(255,255,255,.72);margin:0}
-    @media(max-width:1000px){.nohoba-hero-grid{grid-template-columns:1fr}.cycle-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.cycle-step{border-bottom:1px solid var(--divider)}}
+    .app-cta p{color:rgba(255,255,255,.72);margin:0;max-width:720px}
+    @media(max-width:1000px){.nohoba-hero-grid{grid-template-columns:1fr}.modules-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cycle-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.cycle-step{border-bottom:1px solid var(--divider)}}
     @media(max-width:720px){.product-grid,.modules-grid,.transfer-grid{grid-template-columns:1fr}.cycle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.status-row{grid-template-columns:1fr}.app-cta{align-items:flex-start;flex-direction:column}}
   </style>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"NOHOBA Pro","applicationCategory":"BusinessApplication","operatingSystem":"Web","creator":{"@type":"Person","name":"Ibrahima Fa Bamba"},"description":"Plateforme web de pilotage de projets BTP couvrant les principales étapes d'une opération, de l'avant-projet au DOE."}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"NOHOBA Pro","applicationCategory":"BusinessApplication","operatingSystem":"Web","creator":{"@type":"Person","name":"Ibrahima Fa Bamba"},"description":"Première version fonctionnelle d’une plateforme web de pilotage de projets BTP structurée autour des principales étapes d’une opération."}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Aller au contenu principal</a>
@@ -90,35 +96,38 @@
       <div>
         <p class="nohoba-kicker"><i class="ti ti-building-community" aria-hidden="true"></i> Projet fondateur · Écosystème numérique BTP</p>
         <h1 id="page-title"><span style="color:var(--gold)">NOHOBA</span>, du pilotage de projet à l’écosystème de services</h1>
-        <p class="nohoba-summary">NOHOBA est un écosystème numérique dédié au BTP. Son socle principal, <strong>NOHOBA Pro</strong>, est développé et opérationnel. Il structure le suivi des projets, clients, devis, factures, paiements, chantiers, documents et rapports. Les produits Marketplace et Client constituent les prochaines extensions ; NOHOBA Foncier sera cadré dans une phase ultérieure.</p>
-        <div class="button-row" style="margin-top:1.8rem"><a href="https://erp-terre-crue.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="ti ti-external-link" aria-hidden="true"></i> Découvrir NOHOBA Pro</a><a href="#ecosysteme" class="btn btn-outline"><i class="ti ti-layout-grid" aria-hidden="true"></i> Voir l’écosystème</a></div>
+        <p class="nohoba-summary">NOHOBA est un écosystème numérique conçu pour structurer le pilotage des projets BTP. Sa première application, <strong>NOHOBA Pro</strong>, centralise les données commerciales, financières, documentaires et opérationnelles nécessaires au suivi d’une activité de construction. Une première version fonctionnelle est déployée et accessible en ligne.</p>
+        <div class="button-row" style="margin-top:1.8rem"><a href="https://erp-terre-crue.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="ti ti-external-link" aria-hidden="true"></i> Explorer NOHOBA Pro</a><a href="#fonctionnalites" class="btn btn-outline"><i class="ti ti-layout-grid" aria-hidden="true"></i> Voir les fonctionnalités</a></div>
       </div>
-      <aside class="status-panel" aria-labelledby="status-title">
-        <h2 id="status-title">Statut des produits</h2>
+      <aside class="status-panel nohoba-frame" aria-labelledby="status-title">
+        <h2 id="status-title">État d’avancement</h2>
+        <p class="status-panel-intro">Le produit disponible et les prochaines orientations de l’écosystème.</p>
         <div class="status-list">
-          <div class="status-row"><span class="status-name">NOHOBA Pro</span><span class="status-badge status-done"><i class="ti ti-circle-check" aria-hidden="true"></i> Développement achevé</span></div>
-          <div class="status-row"><span class="status-name">NOHOBA Marketplace</span><span class="status-badge status-next">À concevoir et développer</span></div>
-          <div class="status-row"><span class="status-name">NOHOBA Client</span><span class="status-badge status-next">À concevoir et développer</span></div>
-          <div class="status-row"><span class="status-name">NOHOBA Foncier</span><span class="status-badge status-later">Phase ultérieure</span></div>
+          <div class="status-row"><span class="status-name">NOHOBA Pro</span><span class="status-badge status-live"><i class="ti ti-circle-check" aria-hidden="true"></i> V1 opérationnelle</span></div>
+          <div class="status-row"><span class="status-name">NOHOBA Marketplace</span><span class="status-badge status-next">Conception à engager</span></div>
+          <div class="status-row"><span class="status-name">NOHOBA Client</span><span class="status-badge status-next">Conception à engager</span></div>
+          <div class="status-row"><span class="status-name">NOHOBA Foncier</span><span class="status-badge status-later">Cadrage ultérieur</span></div>
         </div>
       </aside>
     </div>
   </section>
 
-  <section class="section-wrap" id="ecosysteme" aria-labelledby="ecosystem-title"><div class="container">
-    <div class="section-header"><p class="section-kicker">Vision produit</p><h2 class="section-title" id="ecosystem-title">Un écosystème structuré autour de quatre produits</h2></div>
-    <div class="product-grid">
-      <article class="product-card featured"><span class="status-badge status-done">Développement achevé</span><h3>NOHOBA Pro</h3><p>Application web de pilotage destinée aux professionnels du BTP. Elle centralise les clients, opportunités, devis, factures, paiements, chantiers, documents, rapports et principaux indicateurs de suivi.</p><div class="product-meta"><span>Socle métier</span><span>Application web</span><span>Opérationnel</span></div></article>
-      <article class="product-card"><span class="status-badge status-next">À concevoir et développer</span><h3>NOHOBA Marketplace</h3><p>Espace public destiné à la mise en relation, à la publication d’opportunités, aux candidatures et aux propositions commerciales des professionnels.</p></article>
-      <article class="product-card"><span class="status-badge status-next">À concevoir et développer</span><h3>NOHOBA Client</h3><p>Portail destiné aux clients finaux pour suivre l’avancement de leurs projets, consulter leurs documents, paiements, rapports et échanges.</p></article>
-      <article class="product-card"><span class="status-badge status-later">À cadrer ultérieurement</span><h3>NOHOBA Foncier</h3><p>Extension potentielle autour des opportunités foncières, des opérations immobilières et de la préparation de futurs projets de construction.</p></article>
+  <section class="section-wrap" id="fonctionnalites" aria-labelledby="modules-title"><div class="container">
+    <div class="section-header"><p class="section-kicker">NOHOBA Pro</p><h2 class="section-title" id="modules-title">Fonctionnalités disponibles</h2><p class="section-note">La V1 rassemble les principaux outils nécessaires au suivi commercial, financier, documentaire et opérationnel d’une activité BTP.</p></div>
+    <div class="modules-grid">
+      <article class="module-card nohoba-frame"><i class="ti ti-layout-dashboard" aria-hidden="true"></i><h3>Gestion de projets</h3><p>Tableau de bord, création et suivi des opérations, indicateurs d’avancement et organisation des responsabilités.</p></article>
+      <article class="module-card nohoba-frame"><i class="ti ti-users" aria-hidden="true"></i><h3>Clients et opportunités</h3><p>Centralisation des contacts, prospects, besoins, opportunités et historique des échanges.</p></article>
+      <article class="module-card nohoba-frame"><i class="ti ti-file-invoice" aria-hidden="true"></i><h3>Devis, factures et paiements</h3><p>Gestion des devis, factures, situations, paiements et rapprochements avec les opérations concernées.</p></article>
+      <article class="module-card nohoba-frame"><i class="ti ti-building" aria-hidden="true"></i><h3>Chantiers et documents</h3><p>Suivi des chantiers, pièces techniques, livrables, rapports, réserves et documents de référence.</p></article>
+      <article class="module-card nohoba-frame"><i class="ti ti-calendar-event" aria-hidden="true"></i><h3>Planning et jalons</h3><p>Organisation des phases, jalons, échéances et alertes nécessaires au suivi de l’avancement.</p></article>
+      <article class="module-card nohoba-frame"><i class="ti ti-chart-bar" aria-hidden="true"></i><h3>Reporting</h3><p>Synthèses, rapports et indicateurs utiles au pilotage, à la décision et au suivi des performances.</p></article>
     </div>
   </div></section>
 
   <hr class="divider"/>
   <section class="section-wrap" aria-labelledby="cycle-title"><div class="container">
-    <div class="section-header"><p class="section-kicker">Périmètre fonctionnel</p><h2 class="section-title" id="cycle-title">NOHOBA Pro couvre sept phases du cycle de vie d’un projet</h2></div>
-    <div class="cycle-grid" role="list">
+    <div class="section-header"><p class="section-kicker">Cadre de suivi</p><h2 class="section-title" id="cycle-title">NOHOBA Pro structure le suivi autour de sept phases</h2><p class="section-note">Ce découpage organise les informations et les jalons d’un projet, de l’avant-projet jusqu’au dossier des ouvrages exécutés.</p></div>
+    <div class="cycle-grid nohoba-frame" role="list">
       <div class="cycle-step" role="listitem"><i class="ti ti-ruler-measure" aria-hidden="true"></i><p class="cycle-num">Phase 01</p><p class="cycle-name">Avant-projet</p><p class="cycle-desc">Cadrage, faisabilité et besoins.</p></div>
       <div class="cycle-step" role="listitem"><i class="ti ti-file-analytics" aria-hidden="true"></i><p class="cycle-num">Phase 02</p><p class="cycle-name">Études</p><p class="cycle-desc">Dossier technique, plans et métrés.</p></div>
       <div class="cycle-step" role="listitem"><i class="ti ti-files" aria-hidden="true"></i><p class="cycle-num">Phase 03</p><p class="cycle-name">Appels d’offres</p><p class="cycle-desc">DCE, consultation et analyse.</p></div>
@@ -129,22 +138,20 @@
     </div>
   </div></section>
 
-  <section class="section-wrap" aria-labelledby="modules-title"><div class="container">
-    <div class="section-header"><p class="section-kicker">NOHOBA Pro</p><h2 class="section-title" id="modules-title">Principaux modules opérationnels</h2></div>
-    <div class="modules-grid">
-      <article class="module-card"><h3>Gestion de projets</h3><p>Tableau de bord, création et suivi des opérations, indicateurs d’avancement et organisation des responsabilités.</p></article>
-      <article class="module-card"><h3>Clients et opportunités</h3><p>Centralisation des contacts, prospects, besoins, opportunités et historique des échanges.</p></article>
-      <article class="module-card"><h3>Devis, factures et paiements</h3><p>Gestion des devis, factures, situations, paiements et rapprochements avec les opérations concernées.</p></article>
-      <article class="module-card"><h3>Chantiers et documents</h3><p>Suivi des chantiers, pièces techniques, livrables, rapports, réserves et documents de référence.</p></article>
-      <article class="module-card"><h3>Planning et jalons</h3><p>Organisation des phases, jalons, échéances et alertes nécessaires au suivi de l’avancement.</p></article>
-      <article class="module-card"><h3>Reporting</h3><p>Synthèses, rapports et indicateurs utiles au pilotage, à la décision et au suivi des performances.</p></article>
+  <section class="section-wrap" id="ecosysteme" aria-labelledby="ecosystem-title"><div class="container">
+    <div class="section-header"><p class="section-kicker">Feuille de route</p><h2 class="section-title" id="ecosystem-title">Un écosystème structuré autour de quatre produits</h2><p class="section-note">NOHOBA Pro constitue le socle actuel. Les autres produits prolongent la vision vers la mise en relation, le suivi client et, à plus long terme, le foncier.</p></div>
+    <div class="product-grid">
+      <article class="product-card featured nohoba-frame"><span class="status-badge status-live">V1 opérationnelle</span><h3>NOHOBA Pro</h3><p>Application web de pilotage destinée aux professionnels du BTP. Elle centralise les clients, opportunités, devis, factures, paiements, chantiers, documents, rapports et principaux indicateurs de suivi.</p><div class="product-meta"><span>Socle métier</span><span>Application web</span><span>Version déployée</span></div><p class="product-audience">Public : professionnels du BTP</p></article>
+      <article class="product-card nohoba-frame"><span class="status-badge status-next">Conception à engager</span><h3>NOHOBA Marketplace</h3><p>Espace public destiné à publier des besoins, identifier des opportunités et faciliter les mises en relation entre clients, donneurs d’ordre et professionnels.</p><p class="product-audience">Public visé : clients et professionnels</p></article>
+      <article class="product-card nohoba-frame"><span class="status-badge status-next">Conception à engager</span><h3>NOHOBA Client</h3><p>Portail destiné aux clients finaux pour suivre leurs projets, documents, échéances, paiements, rapports et échanges depuis un espace dédié.</p><p class="product-audience">Public visé : clients finaux</p></article>
+      <article class="product-card nohoba-frame"><span class="status-badge status-later">Cadrage ultérieur</span><h3>NOHOBA Foncier</h3><p>Orientation future autour des opportunités foncières, des opérations immobilières et de la préparation de nouveaux projets de construction.</p><p class="product-audience">Public potentiel : porteurs de projets</p></article>
     </div>
   </div></section>
 
   <hr class="divider"/>
   <section class="section-wrap" aria-labelledby="proof-title"><div class="container">
-    <div class="section-header"><p class="section-kicker">Démonstration de compétences</p><h2 class="section-title" id="proof-title">Ce que le projet permet d’observer</h2></div>
-    <div class="proof-box"><ul class="proof-list">
+    <div class="section-header"><p class="section-kicker">Conception et réalisation</p><h2 class="section-title" id="proof-title">Ce que le projet permet d’observer</h2></div>
+    <div class="proof-box nohoba-frame"><ul class="proof-list">
       <li><i class="ti ti-check" aria-hidden="true"></i><span>Conception et pilotage d’un produit numérique depuis le cadrage fonctionnel jusqu’au déploiement.</span></li>
       <li><i class="ti ti-check" aria-hidden="true"></i><span>Structuration de workflows, de données métier et de relations entre clients, devis, factures, paiements et chantiers.</span></li>
       <li><i class="ti ti-check" aria-hidden="true"></i><span>Traduction de besoins BTP en fonctionnalités exploitables par différents profils d’utilisateurs.</span></li>
@@ -154,23 +161,23 @@
   </div></section>
 
   <section class="section-wrap" aria-labelledby="transfer-title"><div class="container">
-    <div class="section-header"><p class="section-kicker">Lien métier</p><h2 class="section-title" id="transfer-title">Compétences transférables à la rénovation énergétique</h2></div>
+    <div class="section-header"><p class="section-kicker">Apport professionnel</p><h2 class="section-title" id="transfer-title">Compétences transférables à la rénovation énergétique</h2></div>
     <div class="transfer-grid">
-      <article class="transfer-card"><h3>Analyser et cadrer</h3><p>Clarifier les acteurs, les besoins, les contraintes, les informations disponibles et les décisions attendues.</p></article>
-      <article class="transfer-card"><h3>Structurer le suivi</h3><p>Organiser les documents, données, jalons, coûts, responsabilités et indicateurs nécessaires au pilotage.</p></article>
-      <article class="transfer-card"><h3>Coordonner les interfaces</h3><p>Relier les dimensions techniques, administratives, financières et opérationnelles d’une même opération.</p></article>
-      <article class="transfer-card"><h3>Produire des supports de décision</h3><p>Transformer des informations multiples en tableaux de bord, rapports et éléments directement exploitables.</p></article>
+      <article class="transfer-card nohoba-frame"><i class="ti ti-focus-2" aria-hidden="true"></i><h3>Analyser et cadrer</h3><p>Clarifier les acteurs, les besoins, les contraintes, les informations disponibles et les décisions attendues.</p></article>
+      <article class="transfer-card nohoba-frame"><i class="ti ti-list-details" aria-hidden="true"></i><h3>Structurer le suivi</h3><p>Organiser les documents, données, jalons, coûts, responsabilités et indicateurs nécessaires au pilotage.</p></article>
+      <article class="transfer-card nohoba-frame"><i class="ti ti-arrows-exchange" aria-hidden="true"></i><h3>Coordonner les interfaces</h3><p>Relier les dimensions techniques, administratives, financières et opérationnelles d’une même opération.</p></article>
+      <article class="transfer-card nohoba-frame"><i class="ti ti-report-analytics" aria-hidden="true"></i><h3>Produire des supports de décision</h3><p>Transformer des informations multiples en tableaux de bord, rapports et éléments directement exploitables.</p></article>
     </div>
   </div></section>
 
   <section class="section-wrap" style="padding-top:0"><div class="container">
-    <div class="app-cta"><div><h2>Découvrir NOHOBA Pro</h2><p>NOHOBA Pro est développé, déployé et constitue aujourd’hui le socle opérationnel de l’écosystème.</p></div><a href="https://erp-terre-crue.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="ti ti-external-link" aria-hidden="true"></i> Accéder à l’application</a></div>
+    <div class="app-cta"><div><h2>Explorer NOHOBA Pro</h2><p>Une première version fonctionnelle de NOHOBA Pro est disponible en ligne. Explorez ses principaux parcours et fonctionnalités directement dans l’application.</p></div><a href="https://erp-terre-crue.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="ti ti-external-link" aria-hidden="true"></i> Explorer l’application</a></div>
   </div></section>
 
   <div class="next-banner"><div><p class="next-banner-label">Page suivante</p><p class="next-banner-title">Contact et opportunités</p></div><a href="contact.html" class="btn btn-sage">Me contacter <i class="ti ti-arrow-right" aria-hidden="true"></i></a></div>
 </main>
 
 <footer><span class="footer-logo"><span class="brand-monogram footer-mark" aria-hidden="true" style="width:auto;min-width:160px;padding:0 .85rem;font-size:14px;white-space:nowrap">Ibrahima Fa Bamba</span></span><ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="profil.html">Profil</a></li><li><a href="roadmap.html">Parcours</a></li><li><a href="projets.html">Projets</a></li><li><a href="nohoba.html">NOHOBA</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://www.linkedin.com/in/fa-ibrahima-bamba/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li></ul><span class="footer-copy">© 2026 Ibrahima Fa Bamba · Rénovation énergétique & conduite de travaux</span></footer>
-<script src="script.js?v=20260724-nohoba"></script>
+<script src="script.js?v=20260724-nohoba-v2"></script>
 </body>
 </html>
